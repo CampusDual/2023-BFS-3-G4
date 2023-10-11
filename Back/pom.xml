@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -10,20 +11,20 @@
 
     <groupId>com.campusdual</groupId>
     <artifactId>viajerasapp</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>11</java.version>
         <database.url>jdbc:postgresql://45.84.210.174:65432/2023_BFS_3_G4</database.url>
-        <postgresql.version>42.5.4</postgresql.version>
+        <postgresql.version>42.2.5</postgresql.version>
         <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
@@ -32,37 +33,41 @@
             <dependency>
                 <groupId>com.campusdual</groupId>
                 <artifactId>viajerasapp-api</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>1.0.0-SNAPSHOT</version>
             </dependency>
 
             <dependency>
                 <groupId>com.campusdual</groupId>
                 <artifactId>viajerasapp-boot</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>1.0.0-SNAPSHOT</version>
             </dependency>
 
             <dependency>
                 <groupId>com.campusdual</groupId>
                 <artifactId>viajerasapp-model</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>1.0.0-SNAPSHOT</version>
             </dependency>
 
             <dependency>
                 <groupId>com.campusdual</groupId>
                 <artifactId>viajerasapp-ws</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>1.0.0-SNAPSHOT</version>
             </dependency>
 
             <dependency>
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
-                <version>42.5.4</version>
+                <version>${postgresql.version}</version>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
 
-   <!--
+    <modules>
+        <module>viajerasapp-api</module>
+        <module>viajerasapp-model</module>
+        <module>viajerasapp-ws</module>
+        <module>viajerasapp-boot</module>
+    </modules>
     <profiles>
         <profile>
             <id>default</id>
@@ -81,12 +86,4 @@
             </repositories>
         </profile>
     </profiles>
-    -->
-
-    <modules>
-        <module>viajerasapp-api</module>
-        <module>viajerasapp-model</module>
-        <module>viajerasapp-ws</module>
-        <module>viajerasapp-boot</module>
-    </modules>
 </project>
