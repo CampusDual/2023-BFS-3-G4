@@ -10,4 +10,35 @@
 <Column>id_town</Column>
 </UpdateKeys>
 <GeneratedKey>id_town</GeneratedKey>
+<Queries>
+        <Query id="default">
+                <AmbiguousColumns>
+                        <AmbiguousColumn name="id_province"
+                                         prefix="p" />
+                        <AmbiguousColumn name="id_province" prefix="t" />
+                        <AmbiguousColumn name="id_community"
+                                         prefix="c" />
+                        <AmbiguousColumn name="id_community" prefix="p" />
+                </AmbiguousColumns>
+                <ValidColumns>
+                        <Column>town_name</Column>
+                        <Column>province_name</Column>
+                        <Column>community_name</Column>
+                </ValidColumns>
+                <Sentence>
+                        <![CDATA[
+					SELECT
+						#COLUMNS#
+					FROM
+						public.towns t
+					LEFT JOIN public.provinces p on
+						t.id_province = p.id_province
+					LEFT JOIN public.communities c on
+						p.id_community = c.id_community
+					#WHERE#
+					#ORDER#
+		         ]]>
+                </Sentence>
+        </Query>
+</Queries>
         </JdbcEntitySetup>

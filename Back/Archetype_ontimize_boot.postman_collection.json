@@ -16,7 +16,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:33333/main",
+							"raw": "localhost:33333/back/main",
 							"host": [
 								"localhost"
 							],
@@ -39,7 +39,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:33333/test/test",
+							"raw": "localhost:33333/back/test/test",
 							"host": [
 								"localhost"
 							],
@@ -63,7 +63,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "localhost:33333/users/login",
+							"raw": "localhost:33333/back/users/login",
 							"host": [
 								"localhost"
 							],
@@ -82,7 +82,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:33333/users/user?columns=USER_,PASSWORD,NAME,SURNAME,EMAIL,NIF,USERBLOCKED,LASTPASSWORDUPDATE,FIRSTLOGIN",
+							"raw": "localhost:33333/back/users/user?columns=USER_,PASSWORD,NAME,SURNAME,EMAIL,NIF,USERBLOCKED,LASTPASSWORDUPDATE,FIRSTLOGIN",
 							"host": [
 								"localhost"
 							],
@@ -116,7 +116,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:33333/users/user/search",
+							"raw": "localhost:33333/back/users/user/search",
 							"host": [
 								"localhost"
 							],
@@ -145,7 +145,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:33333/users/user",
+							"raw": "localhost:33333/back/users/user",
 							"host": [
 								"localhost"
 							],
