@@ -33,7 +33,7 @@
                     #WHERE#
                 ]]>
             </Sentence>
-        </Query>    
+        </Query>
         <Query id="login">
             <ValidColumns>
                 <Column>user_</Column>
@@ -48,9 +48,9 @@
             </ValidColumns>
             <Sentence>
                 <![CDATA[
-                    SELECT 
+                    SELECT
                         #COLUMNS#
-                    FROM                        
+                    FROM
                         ${mainschema}.tuser
                     #WHERE#
                 ]]>
