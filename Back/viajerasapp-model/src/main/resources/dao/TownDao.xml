@@ -18,7 +18,8 @@
                         <AmbiguousColumn name="id_province" prefix="t" />
                         <AmbiguousColumn name="id_community"
                                          prefix="c" />
-                        <AmbiguousColumn name="id_community" prefix="p" />
+                        <AmbiguousColumn name="id_community"
+                                         prefix="p" />
                 </AmbiguousColumns>
                 <ValidColumns>
                         <Column>town_name</Column>
