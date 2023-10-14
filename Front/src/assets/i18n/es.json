@@ -21,5 +21,7 @@
   "FOOTER_RIGHTS": "Todos los derechos reservados",
   "TOWNS": "Ciudades",
   "DESTINATION": "Destinos",
-  "town_name": "Ciudad"
+  "town_name": "Ciudad",
+  "province_name": "Provincia",
+  "community_name": "Comunidad"
 }
