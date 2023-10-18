@@ -12,4 +12,9 @@ export class TravelersHomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  hostActive: boolean = false;
+
+  toggleHost(event: any) {
+    this.hostActive = event;
+  }
 }

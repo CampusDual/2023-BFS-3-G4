@@ -9,9 +9,9 @@ import com.ontimize.jee.common.dto.EntityResult;
 
 public interface IUserService {
 
-	public EntityResult userQuery(Map<?, ?> keyMap, List<?> attrList);
-	public EntityResult userInsert(Map<?, ?> attrMap);
-	public EntityResult userUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap);
-	public EntityResult userDelete(Map<?, ?> keyMap);
+	public EntityResult userQuery(Map<String, Object> keyMap, List<String> attrList);
+	public EntityResult userInsert(Map<String, Object> attrMap);
+	public EntityResult userUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap);
+	public EntityResult userDelete(Map<String, Object> keyMap);
 
 }

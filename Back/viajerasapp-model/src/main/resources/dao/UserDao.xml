@@ -23,6 +23,10 @@
                 <Column>userblocked</Column>
                 <Column>lastpasswordupdate</Column>
                 <Column>firstlogin</Column>
+                <Column>phonenumber</Column>
+                <Column>description</Column>
+                <Column>id_town</Column>
+                <Column>host</Column>
             </ValidColumns>
             <Sentence>
                 <![CDATA[
@@ -45,6 +49,10 @@
                 <Column>userblocked</Column>
                 <Column>lastpasswordupdate</Column>
                 <Column>firstlogin</Column>
+                <Column>phonenumber</Column>
+                <Column>description</Column>
+                <Column>id_town</Column>
+                <Column>host</Column>
             </ValidColumns>
             <Sentence>
                 <![CDATA[
