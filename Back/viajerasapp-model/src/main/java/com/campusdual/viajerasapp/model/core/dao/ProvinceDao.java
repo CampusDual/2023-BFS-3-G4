@@ -12,9 +12,9 @@ import com.ontimize.jee.server.dao.jdbc.OntimizeJdbcDaoSupport;
 public class ProvinceDao extends OntimizeJdbcDaoSupport {
 
 
-    public static final String ATTR_ID_PROVINCE = "ID_PROVINCE";
-    public static final String ATTR_PROVINCE_NAME = "PROVINCE_NAME";
-    public static final String ATTR_ID_COMMUNITY = "ID_COMMUNITY";
+    public static final String ATTR_ID_PROVINCE = "id_province";
+    public static final String ATTR_PROVINCE_NAME = "province_name";
+    public static final String ATTR_ID_COMMUNITY = "id_community";
 
 
 }

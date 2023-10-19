@@ -9,6 +9,8 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.campusdual.viajerasapp.api.core.service.IUserService;
@@ -46,6 +48,28 @@ public class UserService implements IUserService {
 
 	public EntityResult userDelete(Map<String, Object> keyMap) {
 		return this.daoHelper.delete(this.userDao, keyMap);
+	}
+
+	@Override
+	public EntityResult myUserQuery(Map<String, Object> keyMap, List<String> attrList) {
+		keyMap.put(UserDao.ID, getUser());
+		return this.daoHelper.query(userDao, keyMap, attrList);
+	}
+
+	@Override
+	public EntityResult myUserUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
+		keyMap.put(UserDao.ID, getUser());
+		return this.daoHelper.update(userDao, attrMap, keyMap);
+	}
+
+	public String getUser(){
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		return auth.getName();
+	}
+
+	public String getRole(){
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		return auth.getAuthorities().toArray()[0].toString();
 	}
 
 }

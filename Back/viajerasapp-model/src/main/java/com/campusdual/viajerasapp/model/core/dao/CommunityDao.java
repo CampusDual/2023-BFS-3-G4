@@ -12,8 +12,8 @@ import com.ontimize.jee.server.dao.jdbc.OntimizeJdbcDaoSupport;
 public class CommunityDao extends OntimizeJdbcDaoSupport {
 
 
-    public static final String ATTR_ID_COMMUNITY = "ID_COMMUNITY";
-    public static final String ATTR_COMMUNITY_NAME = "COMMUNITY_NAME";
+    public static final String ATTR_ID_COMMUNITY = "id_community";
+    public static final String ATTR_COMMUNITY_NAME = "community_name";
 
 
 }
