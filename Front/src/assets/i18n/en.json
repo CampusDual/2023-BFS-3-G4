@@ -20,8 +20,16 @@
   "FOOTER_CREATED_BY": "Created by sheTravel",
   "FOOTER_RIGHTS": "All rights reserved",
   "TOWNS": "Towns",
+  "TOWN": "Town",
   "DESTINATION": "Destination",
   "town_name": "Town",
   "province_name": "Province",
-  "community_name": "Community"
+  "community_name": "Community",
+  "NAME": "Name",
+  "SURNAME": "Surname",
+  "EMAIL": "Email",
+  "PHONENUMBER": "Phone Number",
+  "DESCRIPTION": "Description",
+  "PASSWORDCONFIRM": "Confirm password",
+  "HOST": "Host"
 }
