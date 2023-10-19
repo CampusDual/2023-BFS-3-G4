@@ -13,6 +13,11 @@
     </UpdateKeys>
     <Queries>
         <Query id="default">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="id_town"
+                                 prefix="tu" />
+                <AmbiguousColumn name="id_town" prefix="t" />
+            </AmbiguousColumns>
             <ValidColumns>
                 <Column>user_</Column>
                 <Column>password</Column>
@@ -27,14 +32,18 @@
                 <Column>description</Column>
                 <Column>id_town</Column>
                 <Column>host</Column>
+                <Column>town_name</Column>
             </ValidColumns>
             <Sentence>
                 <![CDATA[
                     SELECT
                         #COLUMNS#
                     FROM
-                        ${mainschema}.tuser
+                        ${mainschema}.tuser tu
+                    LEFT JOIN public.towns t on
+						tu.id_town = t.id_town
                     #WHERE#
+                    #ORDER#
                 ]]>
             </Sentence>
         </Query>

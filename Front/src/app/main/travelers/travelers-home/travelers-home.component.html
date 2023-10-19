@@ -1,7 +1,7 @@
 <o-form #form attr="profile_detail" service="users" entity="myUser" fxLayout="column" show-header="yes"
     header-actions="R;U" keys="user_" keys-sql-types="VARCHAR" show-header-navigation="yes" (onDataLoaded)="formInit()">
     <o-text-input attr="name" label="NAME"></o-text-input>
-    <!-- <o-text-input attr="surname" label="SURNAME"></o-text-input>
+    <o-text-input attr="surname" label="SURNAME"></o-text-input>
     <o-text-input attr="email" label="EMAIL"></o-text-input>
     <o-text-input attr="phonenumber" label="PHONENUMBER"></o-text-input>
     <o-text-input attr="description" label="DESCRIPTION"></o-text-input>
@@ -11,6 +11,7 @@
         <o-validator error-name="mustMatch" error-text="VALIDATOR_MUST_MATCH"></o-validator>
     </o-password-input>
     <o-slide-toggle attr="host" label="HOST" (onChange)="toggleHost($event)"></o-slide-toggle>
-    <o-text-input attr="nif" label="NIF" *ngIf="hostActive"></o-text-input>
-    <o-combo attr="town" label="TOWN" *ngIf="hostActive"></o-combo> -->
+    <o-text-input attr="nif" label="NIF" ></o-text-input>
+    <!-- <o-text-input attr="town_name" label="TOWN" service="towns" entity="town" keys="id_town"></o-text-input> -->
+    <o-combo attr="id_town" label="TOWN" service="towns" entity="town" value-column="id_town" columns="town_name" visible-columns="town_name"></o-combo>
 </o-form>

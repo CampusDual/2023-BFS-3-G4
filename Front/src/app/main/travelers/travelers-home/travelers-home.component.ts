@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { AuthService, OFormComponent } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-travelers-home',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TravelersHomeComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('form',{static:true}) form:OFormComponent;
+  
+  constructor(private auth:AuthService) { }
 
   ngOnInit() {
   }
@@ -16,5 +19,9 @@ export class TravelersHomeComponent implements OnInit {
 
   toggleHost(event: any) {
     this.hostActive = event;
+  }
+  
+  ngAfterViewInit(){
+    this.form.queryData({user_:this.auth.getSessionInfo().user});
   }
 }
