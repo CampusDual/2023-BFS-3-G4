@@ -27,9 +27,21 @@
   "community_name": "Community",
   "NAME": "Name",
   "SURNAME": "Surname",
-  "EMAIL": "Email",
+  "USER": "User",
   "PHONENUMBER": "Phone Number",
   "DESCRIPTION": "Description",
   "PASSWORDCONFIRM": "Confirm password",
-  "HOST": "Host"
+  "HOST": "Host",
+  "PROFILE": "Profile",
+  "AVATAR": "Upload profile photo",
+  "ACTIVEHOST": "Available",
+  "HOST_DATA": "YOUR DETAILS AS HOST",
+  "HOST_AVAILABLE": "SHOW YOUR AVAILABILITY TO TRAVELERS",
+  "PROFILE_DATA": "PROFILE DATA",
+  "CONTACT_DATA": "CONTACT DATA",
+  "REGISTER_DATA": "REGISTER DATA",
+  "PROFILE_TAB": "TRAVELER",
+  "HOST_TAB": "HOST",
+  "ERROR_PASS":"The password must have at least 8 digits, 1 number and a symbol",
+  "ERROR_MATCH":"Not matching passwords"
 }

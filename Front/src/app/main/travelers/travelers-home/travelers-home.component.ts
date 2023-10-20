@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ValidatorFn } from '@angular/forms';
 import { AuthService, OFormComponent } from 'ontimize-web-ngx';
 
 @Component({
@@ -9,8 +10,14 @@ import { AuthService, OFormComponent } from 'ontimize-web-ngx';
 export class TravelersHomeComponent implements OnInit {
 
   @ViewChild('form',{static:true}) form:OFormComponent;
+  @ViewChild('formHost',{static:true}) formHost:OFormComponent;
+
+  validatorsArray: ValidatorFn[] = []; // Array de validadores personalizados
+  isPasswordModified: boolean = false; // Indicador de si la contraseña ha sido modificada
   
-  constructor(private auth:AuthService) { }
+  constructor(private auth:AuthService) { 
+    this.validatorsArray.push(this.passwordValidator); // Añadir el validador de contraseña al array
+  }
 
   ngOnInit() {
   }
@@ -23,9 +30,52 @@ export class TravelersHomeComponent implements OnInit {
   
   ngAfterViewInit(){
     this.form.queryData({user_:this.auth.getSessionInfo().user});
+    this.formHost.queryData({user_:this.auth.getSessionInfo().user});
   }
 
-  test(){
-    console.log("Hola");
+  onPasswordInput() {
+    this.isPasswordModified = true; // La contraseña ha sido modificada
+  }
+
+  passwordValidator(control: any): any {
+    try {
+      const password = control.parent ? control.parent.controls['password'].value : null; // Obtener el valor de la contraseña
+      const passwordConfirm = control.value; // Obtener el valor de la confirmación de contraseña
+
+      if (password !== passwordConfirm) {
+        return { passwordNotMatched: true }; // Las contraseñas no coinciden
+      } else if (!/^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z\d]).{8,}$/.test(password)) {
+        return { passwordNotSize: true }; // La contraseña no cumple con los requisitos de tamaño
+      } else {
+        return null; // La contraseña es válida
+      }
+    } catch (e) {
+      return null;
+    }
+  }
+
+  passwordMatchValidator(control: any): any {
+
+    try {
+
+      const password = control.parent ? control.parent.controls['password'].value : null; // Obtener el valor de la contraseña
+      const passwordConfirm = control.value; // Obtener el valor de la confirmación de contraseña
+
+      return password === passwordConfirm ? null : { passwordNotMatched: true }; // Las contraseñas no coinciden
+
+    } catch (e) {
+      return null;
+    }
+
+  }
+
+  yourFn(event){
+    if (event.index == 0) {
+      this.form.queryData({user_:this.auth.getSessionInfo().user});
+    }
+    else if (event.index == 1) {
+      this.formHost.queryData({user_:this.auth.getSessionInfo().user});
+    }
+    
   }
 }

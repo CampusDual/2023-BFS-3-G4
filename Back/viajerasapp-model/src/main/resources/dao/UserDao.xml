@@ -41,7 +41,7 @@
                         #COLUMNS#
                     FROM
                         ${mainschema}.tuser tu
-                    LEFT JOIN public.towns t on
+                    LEFT JOIN ${mainschema}.towns t on
 						tu.id_town = t.id_town
                     #WHERE#
                     #ORDER#
