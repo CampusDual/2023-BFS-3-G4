@@ -28,7 +28,7 @@ public class UserDao extends OntimizeJdbcDaoSupport {
     public static final String DESCRIPTION = "description";
     public static final String ID_TOWN = "id_town";
     public static final String HOST = "host";
-
+    public static final String AVATAR = "avatar";
 
 
 }

@@ -33,6 +33,7 @@
                 <Column>id_town</Column>
                 <Column>host</Column>
                 <Column>town_name</Column>
+                <Column>avatar</Column>
             </ValidColumns>
             <Sentence>
                 <![CDATA[
@@ -62,6 +63,7 @@
                 <Column>description</Column>
                 <Column>id_town</Column>
                 <Column>host</Column>
+                <Column>avatar</Column>
             </ValidColumns>
             <Sentence>
                 <![CDATA[

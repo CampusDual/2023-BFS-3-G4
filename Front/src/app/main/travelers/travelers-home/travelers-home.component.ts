@@ -24,4 +24,8 @@ export class TravelersHomeComponent implements OnInit {
   ngAfterViewInit(){
     this.form.queryData({user_:this.auth.getSessionInfo().user});
   }
+
+  test(){
+    console.log("Hola");
+  }
 }
