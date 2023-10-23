@@ -12,8 +12,4 @@ export class TownsHomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  showSelectedCity(event){
-    console.log("Funciona")
-  }
-
 }

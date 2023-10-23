@@ -8,7 +8,6 @@ const routes: Routes = [
   
   {path:'', component:TownsHomeComponent},
   {path:':id_town', component:TownsDetailComponent}
-
 ];
 
 @NgModule({
