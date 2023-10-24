@@ -1,21 +1,24 @@
 <o-form fxFill service="towns" entity="town" keys="id_town" show-header="no">
     <o-text-input attr="id_town" sql-type="INTEGER" enabled="no" oHidden></o-text-input>
-
-    <!-- <o-list #list attr="customerlist" title="CUSTOMERS" service="users" entity="user" keys="user_"
+<!-- 
+    <o-list #list attr="customerlist" title="CUSTOMERS" service="users" entity="user" keys="user_"
         columns="id_town;user_;description;avatar" parent-keys="id_town">
         <o-list-item *ngFor="let row of list.dataArray">
             <o-list-item-card #item image="{{ row.avatar }}" title="{{ row.user_ }}" subtitle="{{ row.id_town }}">
+                <div mat-card-avatar>
+                    <o-image attr="image1" data="{{ row.avatar }}"></o-image>
+                </div>
             </o-list-item-card>
-            <div mat-card-avatar>
-                <img matListAvatar fxFill src="{{ row.avatar }}">
-            </div>
         </o-list-item>
     </o-list> -->
 
     <o-grid #grid columns="id_town;user_;description;avatar" service="users" entity="user" keys="id" show-page-size="yes" page-size-options="24;32;64" parent-keys="id_town">
         <o-grid-item *ngFor="let list of grid.dataArray">
             <o-column layout-padding class="container-item">
-                <img [src]="list.avatar" style="margin-top:8px">
+                <o-image attr="image1" data="{{ list.avatar }}"></o-image>
+               
+            </o-column>
+            <o-column>
                 <div class="id_town">
                     <mat-icon>phone</mat-icon><span>{{ list.id_town }} </span>
                 </div>
@@ -25,7 +28,7 @@
                 <div class="description">
                     <mat-icon>domain</mat-icon><span>{{ list.description }}</span>
                 </div>
-            </o-column>
+                </o-column>
         </o-grid-item>
     </o-grid>
 </o-form>
