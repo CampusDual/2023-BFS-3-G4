@@ -1,5 +1,38 @@
 <o-form fxFill service="towns" entity="town" keys="id_town" show-header="no">
     <o-text-input attr="id_town" sql-type="INTEGER" enabled="no" oHidden></o-text-input>
+    <o-text-input #townnamefield attr="town_name" enabled="no" (onValueChange)="reloadValues($event)" oHidden></o-text-input>
+
+    <h1>{{ custom_name }}</h1> 
+
+
+    <o-grid #grid columns="name;surname;description;avatar"  service="users" entity="user" keys="id" show-page-size="no" page-size-options="24;32;64" parent-keys="id_town" refresh-button = "false">
+        <o-grid-item *ngFor="let list of grid.dataArray" >
+            <o-column layout-padding class="container-item">
+                <o-image class = "image1" attr="image1" data="{{ list.avatar }}" read-only = "true" show-controls = "false" 
+
+                ></o-image>
+               
+            
+                <div class="name-surname">
+                    <h2>{{ list.name + ' ' + list.surname }}</h2>
+                </div>
+               
+                <div class="short_desc">
+                    <span>{{ list.description }}</span>
+                </div>
+            </o-column>
+        </o-grid-item>
+    </o-grid>
+</o-form>
+
+
+
+
+
+
+
+
+
 <!-- 
     <o-list #list attr="customerlist" title="CUSTOMERS" service="users" entity="user" keys="user_"
         columns="id_town;user_;description;avatar" parent-keys="id_town">
@@ -11,24 +44,3 @@
             </o-list-item-card>
         </o-list-item>
     </o-list> -->
-
-    <o-grid #grid columns="id_town;user_;description;avatar" service="users" entity="user" keys="id" show-page-size="yes" page-size-options="24;32;64" parent-keys="id_town">
-        <o-grid-item *ngFor="let list of grid.dataArray">
-            <o-column layout-padding class="container-item">
-                <o-image attr="image1" data="{{ list.avatar }}"></o-image>
-               
-            </o-column>
-            <o-column>
-                <div class="id_town">
-                    <mat-icon>phone</mat-icon><span>{{ list.id_town }} </span>
-                </div>
-                <div class="user_">
-                    <mat-icon>email</mat-icon><span>{{ list.user_ }}</span>
-                </div>
-                <div class="description">
-                    <mat-icon>domain</mat-icon><span>{{ list.description }}</span>
-                </div>
-                </o-column>
-        </o-grid-item>
-    </o-grid>
-</o-form>

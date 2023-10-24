@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { OListComponent } from 'ontimize-web-ngx';
+import { OFormComponent, OListComponent, OTextInputComponent } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-towns-detail',
@@ -8,11 +8,24 @@ import { OListComponent } from 'ontimize-web-ngx';
 })
 export class TownsDetailComponent implements OnInit {
 
-  @ViewChild('list',{static:true}) form:OListComponent;
+ 
+  @ViewChild('townnamefield',{static:true}) townnamefield:OTextInputComponent;
+  public custom_name:string; 
 
   constructor() { }
 
   ngOnInit() {
   }
+
+  loadName(){
+   this.custom_name = this.townnamefield.getValue();
+
+  }
+
+  reloadValues(event){
+    console.log(event.newValue.value);
+    this.custom_name = event.newValue.value;
+  }
+
 
 }
