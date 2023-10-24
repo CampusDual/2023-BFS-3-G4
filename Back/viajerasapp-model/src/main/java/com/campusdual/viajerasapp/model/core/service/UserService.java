@@ -59,6 +59,15 @@ public class UserService implements IUserService {
 		return this.daoHelper.update(userDao, attrMap, keyMap);
 	}
 
+
+	@Override
+	public EntityResult hostQuery(Map<String, Object> keyMap, List<String> attrList) {
+		
+		return this.daoHelper.query(userDao, keyMap, attrList, UserDao.QUERY_HOSTUSER );
+	}
+
+
+
 	public String getUser(){
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		return auth.getName();
@@ -68,5 +77,7 @@ public class UserService implements IUserService {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		return auth.getAuthorities().toArray()[0].toString();
 	}
+
+
 
 }

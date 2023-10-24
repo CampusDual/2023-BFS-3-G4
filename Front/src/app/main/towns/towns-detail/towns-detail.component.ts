@@ -23,8 +23,9 @@ export class TownsDetailComponent implements OnInit {
   }
 
   reloadValues(event){
-    console.log(event.newValue.value);
-    this.custom_name = event.newValue.value;
+    if(event.newValue){
+      this.custom_name = event.newValue.value;
+    }
   }
 
 

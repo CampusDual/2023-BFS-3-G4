@@ -4,3 +4,11 @@
     object-fit: cover;
     
 }
+
+.container-item:hover{
+   border: 5px solid transparent;
+   /* box-shadow:0 0 10px rgb(0,0,0,0.2); */
+    
+   
+    
+}

@@ -14,9 +14,7 @@
     <Queries>
         <Query id="default">
             <AmbiguousColumns>
-                <AmbiguousColumn name="id_town"
-                                 prefix="tu" />
-                <AmbiguousColumn name="id_town" prefix="t" />
+                <AmbiguousColumn name="id_town" prefix="tu" databaseName="id_town" />
             </AmbiguousColumns>
             <ValidColumns>
                 <Column>user_</Column>
@@ -30,6 +28,8 @@
                 <Column>firstlogin</Column>
                 <Column>phonenumber</Column>
                 <Column>description</Column>
+                <Column>short_desc</Column>
+
                 <Column>id_town</Column>
                 <Column>host</Column>
                 <Column>town_name</Column>
@@ -61,6 +61,7 @@
                 <Column>firstlogin</Column>
                 <Column>phonenumber</Column>
                 <Column>description</Column>
+                <Column>short_desc</Column>
                 <Column>id_town</Column>
                 <Column>host</Column>
                 <Column>avatar</Column>
@@ -72,6 +73,43 @@
                     FROM                        
                         ${mainschema}.tuser
                     #WHERE#
+                ]]>
+            </Sentence>
+        </Query>
+        <Query id="hostuser">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="id_town" prefix="tu" databaseName="id_town" />
+            </AmbiguousColumns>
+            <ValidColumns>
+                <Column>user_</Column>
+                <Column>password</Column>
+                <Column>name</Column>
+                <Column>surname</Column>
+                <Column>email</Column>
+                <Column>nif</Column>
+                <Column>userblocked</Column>
+                <Column>lastpasswordupdate</Column>
+                <Column>firstlogin</Column>
+                <Column>phonenumber</Column>
+                <Column>description</Column>
+                <Column>short_desc</Column>
+                <Column>id_town</Column>
+                <Column>host</Column>
+                <Column>town_name</Column>
+                <Column>avatar</Column>
+            </ValidColumns>
+            <Sentence>
+                <![CDATA[
+                    SELECT
+                        #COLUMNS#
+                    FROM
+                        ${mainschema}.tuser tu
+                    LEFT JOIN ${mainschema}.towns t on
+						tu.id_town = t.id_town
+                    #WHERE#
+                       AND tu.host = true
+
+                    #ORDER#
                 ]]>
             </Sentence>
         </Query>

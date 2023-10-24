@@ -5,20 +5,17 @@
     <h1>{{ custom_name }}</h1> 
 
 
-    <o-grid #grid columns="name;surname;description;avatar"  service="users" entity="user" keys="id" show-page-size="no" page-size-options="24;32;64" parent-keys="id_town" refresh-button = "false">
-        <o-grid-item *ngFor="let list of grid.dataArray" >
+    <o-grid #grid  columns="name;surname;short_desc;avatar"  service="users" entity="host" keys="id" show-page-size="no" page-size-options="24;32;64" parent-keys="id_town" refresh-button = "false">
+        <o-grid-item class="hostCard" *ngFor="let list of grid.dataArray" >
             <o-column layout-padding class="container-item">
-                <o-image class = "image1" attr="image1" data="{{ list.avatar }}" read-only = "true" show-controls = "false" 
-
-                ></o-image>
-               
+                <o-image class = "image1" attr="image1" data="{{ list.avatar }}" read-only = "true" show-controls = "false"></o-image>               
             
                 <div class="name-surname">
                     <h2>{{ list.name + ' ' + list.surname }}</h2>
                 </div>
                
                 <div class="short_desc">
-                    <span>{{ list.description }}</span>
+                    <span>{{ list.short_desc }}</span>
                 </div>
             </o-column>
         </o-grid-item>
