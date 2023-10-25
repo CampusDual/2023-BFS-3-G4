@@ -38,5 +38,5 @@ export class TownsDetailComponent implements OnInit {
     this.router.navigate(["main/travelers", id_client]);
   }    
 
-
+ 
 }

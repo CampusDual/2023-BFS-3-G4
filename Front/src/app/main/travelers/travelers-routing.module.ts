@@ -6,7 +6,7 @@ import { TravelersDetailComponent } from './travelers-detail/travelers-detail.co
 
 const routes: Routes = [
   {path:'', component:TravelersHomeComponent},
-  {path:':ID', component:TravelersDetailComponent}
+  {path:':id_client', component:TravelersDetailComponent}
 ];
 
 @NgModule({
