@@ -53,13 +53,13 @@ public class UserService implements IUserService {
 
 	@Override
 	public EntityResult myUserQuery(Map<String, Object> keyMap, List<String> attrList) {
-		keyMap.put(ClientDao.ID, getUser());
+		keyMap.put(ClientDao.EMAILREGISTER, getUser());
 		return this.daoHelper.query(clientDao, keyMap, attrList);
 	}
 
 	@Override
 	public EntityResult myUserUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
-		keyMap.put(ClientDao.ID, getUser());
+		keyMap.put(ClientDao.EMAILREGISTER, getUser());
 		return this.daoHelper.update(clientDao, attrMap, keyMap);
 	}
 
