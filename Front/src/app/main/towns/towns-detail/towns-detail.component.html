@@ -4,13 +4,13 @@
 
     <h1 class="town-title">{{ custom_name }}</h1> 
 
-    <o-grid #grid columns="name;surname;short_desc;avatar" service="users" entity="host" keys="id" parent-keys="id_town"
+    <o-grid #grid columns="user_;id_client;name;surname;short_desc;avatar" service="users" entity="host" keys="id" parent-keys="id_town"
         [cols]="3" show-page-size="false" page-size-options="4;8;16" grid-item-height="3:4"
-        refresh-button="false" pagination-controls="false" gutter-size="20px" [ngStyle]="{'height':'600px'}">
+        refresh-button="false" pagination-controls="false" gutter-size="20px" [ngStyle]="{'height':'600px'}" (onClick)="goToHostDetail($event)">
 
         <o-grid-item class="hostCard" *ngFor="let list of grid.dataArray" >
             <o-column class="container-item">
-                <o-image class ="image1" attr="image1" data="{{ list.avatar }}" read-only = "true" show-controls = "false"></o-image>               
+                <o-image class ="image1" attr="image1" data="{{ list.avatar }}" read-only="true" show-controls="false"></o-image>               
                 <div class="name-surname">
                     <h2>{{ list.name + ' ' + list.surname }}</h2>
                 </div>
