@@ -15,24 +15,13 @@ import com.ontimize.jee.server.dao.jdbc.OntimizeJdbcDaoSupport;
 	configurationFilePlaceholder = "dao/placeholders.properties")
 public class UserDao extends OntimizeJdbcDaoSupport {
 
-    public static final String ID = "user_";
-    public static final String EMAIL = "email";
+    public static final String ID_USER = "user_";
     public static final String PASSWORD = "password";
-    public static final String NAME = "name";
-    public static final String SURNAME = "surname";
-    public static final String NIF = "nif";
+
     public static final String USERBLOCKED = "userblocked";
     public static final String LASTPASSWORDUPDATE = "lastpasswordupdate";
     public static final String FIRSTLOGIN = "firstlogin";
-    public static final String PHONENUMBER = "phonenumber";
-    public static final String DESCRIPTION = "description";
-    public static final String SHORT_DESC = "shortdesc";
 
-    public static final String ID_TOWN = "id_town";
-    public static final String HOST = "host";
-    public static final String AVATAR = "avatar";
-
-    public static final String QUERY_HOSTUSER = "hostuser";
 
 
 

@@ -4,6 +4,7 @@ package com.campusdual.viajerasapp.model.core.service;
 import java.sql.Timestamp;
 import java.util.*;
 
+import com.campusdual.viajerasapp.model.core.dao.ClientDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.Authentication;
@@ -22,6 +23,9 @@ public class UserService implements IUserService {
 
 	@Autowired
 	private UserDao userDao;
+
+	@Autowired
+	private ClientDao clientDao;
 
 	@Autowired
 	private DefaultOntimizeDaoHelper daoHelper;
@@ -49,21 +53,39 @@ public class UserService implements IUserService {
 
 	@Override
 	public EntityResult myUserQuery(Map<String, Object> keyMap, List<String> attrList) {
-		keyMap.put(UserDao.ID, getUser());
-		return this.daoHelper.query(userDao, keyMap, attrList);
+		keyMap.put(ClientDao.ID, getUser());
+		return this.daoHelper.query(clientDao, keyMap, attrList);
 	}
 
 	@Override
 	public EntityResult myUserUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
-		keyMap.put(UserDao.ID, getUser());
-		return this.daoHelper.update(userDao, attrMap, keyMap);
+		keyMap.put(ClientDao.ID, getUser());
+		return this.daoHelper.update(clientDao, attrMap, keyMap);
 	}
 
 
 	@Override
 	public EntityResult hostQuery(Map<String, Object> keyMap, List<String> attrList) {
 		
-		return this.daoHelper.query(userDao, keyMap, attrList, UserDao.QUERY_HOSTUSER );
+		return this.daoHelper.query(clientDao, keyMap, attrList, ClientDao.QUERY_HOSTCLIENT );
+	}
+
+	//------------CLIENT ENTITIES------------------------------
+	@Override
+	public EntityResult clientQuery(Map<String, Object> keyMap, List<String> attrList) {
+		return this.daoHelper.query(clientDao, keyMap, attrList);
+	}
+	@Override
+	public EntityResult clientInsert(Map<String, Object> attrMap) {
+		return this.daoHelper.insert(clientDao, attrMap);
+	}
+	@Override
+	public EntityResult clientUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
+		return this.daoHelper.update(clientDao, attrMap, keyMap);
+	}
+	@Override
+	public EntityResult clientDelete(Map<String, Object> keyMap) {
+		return this.daoHelper.delete(this.clientDao, keyMap);
 	}
 
 
