@@ -6,10 +6,10 @@
         catalog="" schema="${mainschema}" table="clients"
         datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
     <DeleteKeys>
-        <Column>id_client</Column>
+        <Column>user_</Column>
     </DeleteKeys>
     <UpdateKeys>
-        <Column>id_client</Column>
+        <Column>user_</Column>
     </UpdateKeys>
     <Queries>
         <Query id="default">
