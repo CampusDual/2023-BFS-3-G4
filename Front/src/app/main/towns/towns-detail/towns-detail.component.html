@@ -2,34 +2,45 @@
     <o-text-input attr="id_town" sql-type="INTEGER" enabled="no" oHidden></o-text-input>
     <o-text-input #townnamefield attr="town_name" enabled="no" (onValueChange)="reloadValues($event)" oHidden></o-text-input>
 
-    <h1>{{ custom_name }}</h1> 
+    <h1 class="town-title">{{ custom_name }}</h1> 
 
+    <o-grid #grid columns="name;surname;short_desc;avatar" service="users" entity="host" keys="id" parent-keys="id_town"
+        [cols]="3" show-page-size="false" page-size-options="4;8;16" grid-item-height="3:4"
+        refresh-button="false" pagination-controls="false" gutter-size="20px" [ngStyle]="{'height':'600px'}">
 
-    <o-grid #grid  columns="name;surname;short_desc;avatar"  service="users" entity="host" keys="id" show-page-size="no" page-size-options="24;32;64" parent-keys="id_town" refresh-button = "false">
         <o-grid-item class="hostCard" *ngFor="let list of grid.dataArray" >
-            <o-column layout-padding class="container-item">
-                <o-image class = "image1" attr="image1" data="{{ list.avatar }}" read-only = "true" show-controls = "false"></o-image>               
-            
+            <o-column class="container-item">
+                <o-image class ="image1" attr="image1" data="{{ list.avatar }}" read-only = "true" show-controls = "false"></o-image>               
                 <div class="name-surname">
                     <h2>{{ list.name + ' ' + list.surname }}</h2>
                 </div>
-               
                 <div class="short_desc">
                     <span>{{ list.short_desc }}</span>
                 </div>
             </o-column>
         </o-grid-item>
     </o-grid>
+
 </o-form>
 
 
+<!-- <o-list #list attr="list" columns="name;surname;short_desc;avatar" quick-filter-columns="name;short_desc"
+service="users" entity="host" keys="id" parent-keys="id_town" refresh-button="false">
+
+  <mat-card *ngFor="let row of list.dataArray" [o-list-item]="row">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <o-image class ="image1" attr="image1" data="{{ row.avatar }}" read-only = "true" show-controls = "false" fxFill ></o-image>
+        <img src="{{ row.image }}" fxFill />
+      </div>
+      <mat-card-title>{{ row.name + ' ' + row.surname }}</mat-card-title>
+      <mat-card-subtitle>{{ row.short_desc }}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+
+</o-list> -->
 
 
-
-
-
-
-<!--.-->
 <!-- 
     <o-list #list attr="customerlist" title="CUSTOMERS" service="users" entity="user" keys="user_"
         columns="id_town;user_;description;avatar" parent-keys="id_town">
