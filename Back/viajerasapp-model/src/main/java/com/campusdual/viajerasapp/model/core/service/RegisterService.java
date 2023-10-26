@@ -6,12 +6,14 @@ import com.campusdual.viajerasapp.api.core.service.IRegisterService;
 import com.campusdual.viajerasapp.model.core.dao.ClientDao;
 import com.campusdual.viajerasapp.model.core.dao.UserDao;
 import com.ontimize.jee.common.dto.EntityResult;
+import com.ontimize.jee.common.dto.EntityResultMapImpl;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -38,7 +40,28 @@ public class RegisterService implements IRegisterService {
 	}
 
 	public EntityResult registerInsert(Map<String, Object> attrMap) {
-		return this.daoHelper.insert(userDao, attrMap);
+
+		EntityResult userInsert; //creamos la entidad que devolveremos despues
+		try {
+
+			userInsert = this.daoHelper.insert(userDao, attrMap);
+			if(userInsert.isWrong()){
+
+				return userInsert;
+			}
+		}catch(Exception e){
+			userInsert = new EntityResultMapImpl();
+			userInsert.setCode(EntityResult.OPERATION_WRONG);
+			userInsert.setMessage("User already exists");
+			return userInsert;
+		}
+
+		Object user_ = attrMap.get(UserDao.ID_USER);
+
+		Map<String, Object> clientAttr = new HashMap<>();
+		clientAttr.put(ClientDao.EMAILREGISTER, user_);
+//añadir mais campso se necesario
+		return this.daoHelper.insert(clientDao, clientAttr);
 	}
 
 	public EntityResult registerUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
@@ -67,6 +90,10 @@ public class RegisterService implements IRegisterService {
 	public EntityResult clientDelete(Map<String, Object> keyMap) {
 		return this.daoHelper.delete(this.clientDao, keyMap);
 	}
+
+
+
+
 
 
 }

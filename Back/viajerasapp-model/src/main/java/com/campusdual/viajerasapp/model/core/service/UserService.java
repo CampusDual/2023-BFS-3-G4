@@ -40,6 +40,7 @@ public class UserService implements IUserService {
 	}
 
 	public EntityResult userInsert(Map<String, Object> attrMap) {
+
 		return this.daoHelper.insert(userDao, attrMap);
 	}
 
