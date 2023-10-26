@@ -80,7 +80,7 @@ export class LoginComponent implements OnInit {
   
   registerButtonFn(){
    
-    this.router.navigate(["/login"]);
+    this.router.navigate(["/register"]);
 
   }
 }
