@@ -33,15 +33,23 @@
             <mat-checkbox class="text">{{ 'REMEMBER_ME' | oTranslate }}</mat-checkbox>
           </div>
 
+         
+          
           <button mat-raised-button color="primary" type="submit">{{ 'LOGIN' | oTranslate }}</button>
-          <div layout-padding></div>
-          <div layout-padding></div>
-          <div fxLayout="column" fxLayoutAlign="center center" layout-padding>
+
+
+        
+          
+
+          <!-- TEXTO DE EJEMPLO USUARIO/CONTRASEÑA: -->
+          <!-- <div fxLayout="column" fxLayoutAlign="center center" layout-padding>
             <span class="login_info">{{ 'EXAMPLE_LOGIN_INFO' | oTranslate }}:</span>
             <span class="dark_text">{{ 'USERNAME' | oTranslate }} : demo</span>
             <span class="dark_text">{{ 'PASSWORD' | oTranslate }} : demouser</span>
-          </div>
+          </div> -->
         </form>
+        <button mat-raised-button color="primary" (click)="registerButtonFn()">{{ 'REGISTER' | oTranslate }}</button>
+
       </div>
 
     </div>

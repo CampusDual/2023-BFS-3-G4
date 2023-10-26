@@ -77,5 +77,10 @@ export class LoginComponent implements OnInit {
       default: break;
     }
   }
+  
+  registerButtonFn(){
+   
+    this.router.navigate(["/login"]);
 
+  }
 }
