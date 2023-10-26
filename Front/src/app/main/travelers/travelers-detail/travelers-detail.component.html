@@ -1,8 +1,34 @@
-<o-form service="users" entity="client" keys="id_client" show-header-navigation="no">
-    <o-text-input attr="id_client" sql-type="INTEGER" enabled="no"></o-text-input>
-    <o-text-input attr="name"  enabled="no"></o-text-input>
-    <o-text-input attr="name"  enabled="no"></o-text-input>
-    <o-text-input attr="surname"  enabled="no"></o-text-input>
-    <o-text-input attr="description"  enabled="no"></o-text-input>
+<o-form service="users" entity="client" keys="id_client" editable-detail="true" show-header="no"
+  show-header-navigation="no" layout-direction="column" >
+  <o-text-input attr="id_client" sql-type="INTEGER" oHidden></o-text-input>
+  <o-column>
+    <div fxLayout="row wrap" fxLayoutGap="14px">
+      <div fxFlex="40" fxFlex.md="100">
+        <o-image attr="avatar" label="AVATAR" fxFlex="60" empty-image="assets/images/no-image.png"
+          sql-type="OTHERS" show-controls="false" read-only="yes"></o-image>
+      </div>
+      <o-column title="PROFILE_DATA" icon="info" fxFlex="55" fxFlex.md="100" class="vertical-margin-10">
+          <o-text-input attr="name" label="NAME" fxFlex="100" class="form-field"
+            read-only="yes" label-visible="false"></o-text-input>
+            <o-text-input attr="surname" label="SURNAME" fxFlex="100" class="form-field"
+            read-only="yes" label-visible="false"></o-text-input>
+          <o-text-input #town attr="town_name" label="TOWN" fxFlex="100" class="form-field"
+            read-only="yes" label-visible="false"></o-text-input>
+        <o-textarea-input attr="short_desc" label="SHORT_DESC" fxFlex="100" class="form-field"
+          read-only="yes" label-visible="false"></o-textarea-input>
+      </o-column>
+    </div>
+  </o-column>
 
-  </o-form>
+  <mat-tab-group class="vertical-padding-8">
+
+    <mat-tab label="{{ 'ABOUTME' | oTranslate }}">
+      <div layout-padding>
+        <o-textarea-input attr="description" label="DESCRIPTION" fxFlex="100" class="form-field"
+          read-only="yes" label-visible="false"></o-textarea-input>
+      </div>
+    </mat-tab>
+
+  </mat-tab-group>
+
+</o-form>
