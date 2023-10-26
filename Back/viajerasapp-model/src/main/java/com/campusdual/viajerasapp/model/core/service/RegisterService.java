@@ -21,7 +21,7 @@ import java.util.Map;
 public class RegisterService implements IRegisterService {
 
 	@Autowired
-	private UserDao registerDao;
+	private UserDao userDao;
 
 	@Autowired
 	private ClientDao clientDao;
@@ -34,19 +34,19 @@ public class RegisterService implements IRegisterService {
 	//Sample to permission
 	//@Secured({ PermissionsProviderSecured.SECURED })
 	public EntityResult registerQuery(Map<String, Object> keyMap, List<String> attrList) {
-		return this.daoHelper.query(registerDao, keyMap, attrList);
+		return this.daoHelper.query(userDao, keyMap, attrList);
 	}
 
 	public EntityResult registerInsert(Map<String, Object> attrMap) {
-		return this.daoHelper.insert(registerDao, attrMap);
+		return this.daoHelper.insert(userDao, attrMap);
 	}
 
 	public EntityResult registerUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
-		return this.daoHelper.update(registerDao, attrMap, keyMap);
+		return this.daoHelper.update(userDao, attrMap, keyMap);
 	}
 
 	public EntityResult registerDelete(Map<String, Object> keyMap) {
-		return this.daoHelper.delete(this.registerDao, keyMap);
+		return this.daoHelper.delete(this.userDao, keyMap);
 	}
 
 
