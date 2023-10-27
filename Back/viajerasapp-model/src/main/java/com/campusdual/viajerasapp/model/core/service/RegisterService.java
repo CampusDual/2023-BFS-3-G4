@@ -42,9 +42,16 @@ public class RegisterService implements IRegisterService {
 	public EntityResult registerInsert(Map<String, Object> attrMap) {
 
 		EntityResult userInsert; //creamos la entidad que devolveremos despues
-		try {
 
-			userInsert = this.daoHelper.insert(userDao, attrMap);
+		Object user_ = attrMap.get(UserDao.ID_USER);
+		Object password = attrMap.get(UserDao.PASSWORD);
+		Map<String, Object> userAttr = new HashMap<>();
+		userAttr.put(UserDao.ID_USER, user_);
+		userAttr.put(UserDao.PASSWORD, password);
+
+		try {
+			userInsert = this.daoHelper.insert(userDao, userAttr);
+
 			if(userInsert.isWrong()){
 
 				return userInsert;
@@ -56,7 +63,6 @@ public class RegisterService implements IRegisterService {
 			return userInsert;
 		}
 
-		Object user_ = attrMap.get(UserDao.ID_USER);
 		Object name = attrMap.get(ClientDao.NAME);
 		Object surname = attrMap.get(ClientDao.SURNAME);
 

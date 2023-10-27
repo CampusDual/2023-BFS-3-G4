@@ -1,7 +1,17 @@
-<o-form service="register" query-on-init="no" entity="register" keys="user_" >
+<o-form service="register" query-on-init="no" entity="register" keys="user_" ignore-on-exit="passwordConfirm" (onInsert)="goToLogin()">
     <o-text-input attr="name" fxFlex="70" required="yes"></o-text-input>
     <o-text-input attr="surname" fxFlex="70" required="yes"></o-text-input>
     <o-text-input attr="user_" fxFlex="70" required="yes"></o-text-input>
-    <o-text-input attr="password" fxFlex="70" required="yes"></o-text-input>
-    
- </o-form>
+    <!-- <o-text-input attr="password" fxFlex="70" required="yes"></o-text-input> -->
+
+    <o-password-input attr="password" fxFlex="70" required="yes" label="PASSWORD" show-password-button="yes"
+        [validators]="validatorsArray" (input)="onPasswordInput()">
+        <o-validator [error-name]="'passwordNotSize'" [error-text]="'ERROR_PASS'"></o-validator>
+    </o-password-input>
+
+    <o-password-input attr="passwordConfirm" fxFlex="70" *ngIf="isPasswordModified"
+        label="{{ 'Confirm password' | oTranslate }}" show-password-button="yes" [validators]="validatorsArray">
+        <o-validator [error-name]="'passwordNotMatched'" [error-text]="'ERROR_MATCH'"></o-validator>
+    </o-password-input>
+
+</o-form>
