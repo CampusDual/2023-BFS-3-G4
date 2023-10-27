@@ -46,5 +46,11 @@
   "ERROR_MATCH":"Not matching passwords",
   "SHORT_DESC": "Define yourself in a few words",
   "ABOUTME": "ABOUT ME",
-  "Register email": "Register email"
+  "name": "Name",
+  "surname": "Surname",
+  "EMAIL": "Email",
+  "REGISTER NOW": "Register Now",
+  "Are you not registered yet?" : "Are you not registered yet?",
+  "Register email": "Register email",
+  "Confirm password": "Confirm password"
 }

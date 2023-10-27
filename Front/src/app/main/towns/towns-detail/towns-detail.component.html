@@ -4,7 +4,7 @@
 
     <h1 class="town-title">{{ custom_name }}</h1> 
 
-    <o-grid #grid columns="user_;id_client;name;surname;short_desc;avatar" service="users" entity="host" keys="id" parent-keys="id_town"
+    <o-grid #grid columns="user_;id_client;name;surname;short_desc;avatar" quick-filter-columns="name;surname" service="users" entity="host" keys="id" parent-keys="id_town"
         [cols]="3" show-page-size="false" page-size-options="4;8;16" grid-item-height="3:4"
         refresh-button="false" pagination-controls="false" gutter-size="20px" [ngStyle]="{'height':'600px'}" (onClick)="goToHostDetail($event)">
 

@@ -46,5 +46,11 @@
   "ERROR_MATCH":"Las contraseñas no coinciden",
   "SHORT_DESC": "Definete en una frase",
   "ABOUTME": "SOBRE MI",
-  "Register email": "Email de registro"
+  "name": "Nombre",
+  "surname": "Apellidos",
+  "EMAIL": "Email",
+  "REGISTER NOW": "Regístrate",
+  "Are you not registered yet?": "¿Todavía no estás registrada?",
+  "Register email": "Email de registro",
+  "Confirm password": "Confirma la contraseña"
 }
