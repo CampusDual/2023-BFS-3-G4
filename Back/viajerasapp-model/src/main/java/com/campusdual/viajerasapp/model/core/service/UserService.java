@@ -60,8 +60,36 @@ public class UserService implements IUserService {
 
 	@Override
 	public EntityResult myUserUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
+
+		/*
+		CODIGO ORIGINAL DE ESTA FUNCION
+		public EntityResult myUserUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
+        keyMap.put(ClientDao.EMAILREGISTER, getUser());
+        return this.daoHelper.update(clientDao, attrMap, keyMap);
+    }
+		 */
+
+		EntityResult userUpdate;
+		//datos que se deben gardar en tuser
+
+		Object passwordObject = attrMap.get(UserDao.PASSWORD);
+		Map<String, Object> userAttr = new HashMap<>();
+		userAttr.put(UserDao.PASSWORD, passwordObject);
+
+		Map<String, Object> keyMapMyUser = new HashMap<>();
+		Object userObject = attrMap.get(UserDao.ID_USER);
+		keyMapMyUser.put(UserDao.ID_USER, userObject);
+
+		userUpdate = this.daoHelper.update(userDao, userAttr, keyMapMyUser);
+
+		//datos que se deben gardar en client
+
+
+
 		keyMap.put(ClientDao.EMAILREGISTER, getUser());
 		return this.daoHelper.update(clientDao, attrMap, keyMap);
+
+
 	}
 
 

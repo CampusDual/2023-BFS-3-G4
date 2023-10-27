@@ -73,11 +73,9 @@ public class RegisterService implements IRegisterService {
 //añadir mais campos se necesario
 		return this.daoHelper.insert(clientDao, clientAttr);
 	}
-
 	public EntityResult registerUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
 		return this.daoHelper.update(userDao, attrMap, keyMap);
 	}
-
 	public EntityResult registerDelete(Map<String, Object> keyMap) {
 		return this.daoHelper.delete(this.userDao, keyMap);
 	}
