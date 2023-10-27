@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { ValidatorFn } from '@angular/forms';
+import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NavigationService } from 'ontimize-web-ngx';
 
@@ -13,18 +13,24 @@ export class RegisterComponent implements OnInit {
   validatorsArray: ValidatorFn[] = []; // Array de validadores personalizados
   isPasswordModified: boolean = false; // Indicador de si la contraseña ha sido modificada
   router: Router;
+  form: FormGroup;
 
   constructor(
     router: Router,
-    @Inject(NavigationService) public navigation: NavigationService) {
+    @Inject(NavigationService) public navigation: NavigationService,
+    private fb: FormBuilder
+    ) {
 
     this.validatorsArray.push(this.passwordValidator); // Añadir el validador de contraseña al array
     this.router = router;
 
   }
-  
 
   ngOnInit() {
+    this.form = this.fb.group({
+      user_: ['', [Validators.required, Validators.email]],
+      // ... otros campos del formulario
+    });
   }
   onPasswordInput() {
     this.isPasswordModified = true; // La contraseña ha sido modificada

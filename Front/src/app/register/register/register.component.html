@@ -1,10 +1,14 @@
-<o-form service="register" query-on-init="no" entity="register" keys="user_" ignore-on-exit="passwordConfirm" (onInsert)="goToLogin()">
-    <o-text-input attr="name" fxFlex="70" required="yes"></o-text-input>
-    <o-text-input attr="surname" fxFlex="70" required="yes"></o-text-input>
-    <o-text-input attr="user_" fxFlex="70" required="yes"></o-text-input>
-    <!-- <o-text-input attr="password" fxFlex="70" required="yes"></o-text-input> -->
+<o-form [formGroup]="form" service="register" query-on-init="no" entity="register" keys="user_" ignore-on-exit="passwordConfirm" (onInsert)="goToLogin()">
+    <o-text-input attr="name" label="NAME" fxFlex="70" required="yes"></o-text-input>
+    <o-text-input attr="surname" label="SURNAME" fxFlex="70" required="yes"></o-text-input>
+    <mat-form-field attr="email" fxFlex="70">
+        <input matInput placeholder="{{ 'Register email' | oTranslate }}" formControlName="user_" required="yes">
+        <mat-error *ngIf="form.get('user_').hasError('email')">
+          ¡Introduce un email válido!
+        </mat-error>
+      </mat-form-field>
 
-    <o-password-input attr="password" fxFlex="70" required="yes" label="PASSWORD" show-password-button="yes"
+    <o-password-input attr="password" label="PASSWORD" fxFlex="70" required="yes" label="PASSWORD" show-password-button="yes"
         [validators]="validatorsArray" (input)="onPasswordInput()">
         <o-validator [error-name]="'passwordNotSize'" [error-text]="'ERROR_PASS'"></o-validator>
     </o-password-input>

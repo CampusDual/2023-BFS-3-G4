@@ -45,5 +45,6 @@
   "ERROR_PASS":"The password must have at least 8 digits, 1 number and a symbol",
   "ERROR_MATCH":"Not matching passwords",
   "SHORT_DESC": "Define yourself in a few words",
-  "ABOUTME": "ABOUT ME"
+  "ABOUTME": "ABOUT ME",
+  "Register email": "Register email"
 }
