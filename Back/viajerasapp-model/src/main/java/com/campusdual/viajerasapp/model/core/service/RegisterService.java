@@ -57,10 +57,20 @@ public class RegisterService implements IRegisterService {
 		}
 
 		Object user_ = attrMap.get(UserDao.ID_USER);
+		Object name = attrMap.get(ClientDao.NAME);
+		Object surname = attrMap.get(ClientDao.SURNAME);
 
 		Map<String, Object> clientAttr = new HashMap<>();
 		clientAttr.put(ClientDao.EMAILREGISTER, user_);
-//añadir mais campso se necesario
+		if (name != null) {
+			clientAttr.put(ClientDao.NAME, name);
+		}
+		if (surname != null) {
+			clientAttr.put(ClientDao.SURNAME, surname);
+		}
+
+
+//añadir mais campos se necesario
 		return this.daoHelper.insert(clientDao, clientAttr);
 	}
 
