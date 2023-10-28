@@ -28,14 +28,14 @@
                 <o-column title="PROFILE_DATA" layout-align="start stretch" fxFlex="80">
                     <o-image attr="avatar" label="AVATAR" fxFlex="80" width="350px"
                         empty-image="assets/images/no-image.png" sql-type="OTHERS"></o-image>
-                    <o-text-input attr="name" label="NAME" fxFlex="80" required="yes"></o-text-input>
-                    <o-text-input attr="surname" label="SURNAME" fxFlex="80" required="yes"></o-text-input>
-                    <o-textarea-input attr="short_desc" label="DESCRIPTION" fxFlex="80"></o-textarea-input>
+                    <o-text-input attr="name" label="NAME" fxFlex="80" required="yes" max-length="20"></o-text-input>
+                    <o-text-input attr="surname" label="SURNAME" fxFlex="80" required="yes" max-length="30"></o-text-input>
+                    <o-textarea-input attr="short_desc" label="DESCRIPTION" fxFlex="80" max-length="250"></o-textarea-input>
                 </o-column>
                 <o-column title="CONTACT_DATA" layout-align="start stretch" fxFlex="80">
                     <o-text-input attr="email" label="EMAIL" placeholder="example@example.com"
                         fxFlex="80"></o-text-input>
-                    <o-text-input attr="phonenumber" label="PHONENUMBER" fxFlex="80"></o-text-input>
+                    <o-text-input attr="phonenumber" label="PHONENUMBER" fxFlex="80" max-length="15"></o-text-input>
                 </o-column>
                 <o-column title="REGISTER_DATA" layout-align="start stretch" fxFlex="80">
                     <o-text-input attr="user_" label="USER" fxFlex="80" enabled="no"></o-text-input>
@@ -68,14 +68,14 @@
                 header-actions="U" keys="user_" keys-sql-types="VARCHAR" show-header-navigation="yes">
                 <o-column title="HOST_DATA" layout-align="start stretch" fxFlex="80">
                     <o-textarea-input attr="description" label="DESCRIPTION" fxFlex="80"
-                        required="yes"></o-textarea-input>
+                        required="yes" max-length="500"></o-textarea-input>
                     <o-combo attr="id_town" fxFlex="80" label="TOWN" service="towns" entity="town" keys="id_town"
                         columns="town_name;id_town" visible-columns="town_name" value-column="id_town"
                         class="input-padding" fxFlex="80" required="yes"></o-combo>
-                    <o-text-input attr="phonenumber" label="PHONENUMBER" fxFlex="80" required="yes"></o-text-input>
+                    <o-text-input attr="phonenumber" label="PHONENUMBER" fxFlex="80" required="yes" max-length="15"></o-text-input>
                     <o-text-input attr="email" label="EMAIL" placeholder="example@example.com" fxFlex="80"
                         required="yes"></o-text-input>
-                    <o-text-input attr="nif" label="NIF" required="yes" fxFlex="80" required="yes"></o-text-input>
+                    <o-text-input attr="nif" label="NIF" required="yes" fxFlex="80" required="yes" max-length="25"></o-text-input>
                 </o-column>
                 <o-column title="HOST_AVAILABLE" layout-align="start stretch" fxFlex="80">
                     <o-slide-toggle attr="host" label="ACTIVEHOST" (onChange)="toggleHost($event)"

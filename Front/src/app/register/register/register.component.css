@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    /* Asegura que el contenedor ocupe toda la altura de la ventana */
+}
+
+.box {
+    width: 600px;
+    height: 450px;
+    padding: 90px 50px;
+    background-color: white;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: -10px -10px #997ed7;
+}
+
+.head{
+    font-family: 'Patua One', sans-serif;
+    font-size: 40px;
+    color: #341777;
+    text-align: center;
+}
+
+.li{
+    text-align: center;
+    font-size: 20px;
+    margin-top: -30px;
+    margin-bottom: 50px;
+
+}
+
+.logo {
+    position: absolute;
+    top: 30px;
+    left: 60px;
+    
+}
+
+.sello{
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+
+}

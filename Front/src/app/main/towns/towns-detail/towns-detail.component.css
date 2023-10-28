@@ -1,6 +1,6 @@
 o-grid {
-    margin-top: 20px;
-    }
+    margin-top: 20px; 
+}
 
 .image1 {
     width: 100%;
@@ -10,11 +10,10 @@ o-grid {
     align-items: center;
 }
 
-
 .container-item:hover {
-   border: 5px solid transparent;
-   display: grid;
-   place-items: center;
+    border: 5px solid transparent;
+    display: grid;
+    place-items: center;
 }
 
 
@@ -43,8 +42,7 @@ o-grid {
 }
 
 
-h1.town-title {
-    text-transform: uppercase;
+.town-title {
     text-align: center;
     width: 100%;
     padding: 10px 0;
@@ -52,7 +50,11 @@ h1.town-title {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
+    
+    font-family: 'Patua One', sans-serif;
+    font-size: 50px;
+    letter-spacing: 1px;
+    color: rgb(25, 20, 73);
 }
 
 

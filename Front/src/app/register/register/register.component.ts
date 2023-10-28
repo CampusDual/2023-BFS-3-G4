@@ -21,6 +21,8 @@ export class RegisterComponent implements OnInit {
     private fb: FormBuilder
     ) {
 
+
+
     this.validatorsArray.push(this.passwordValidator); // Añadir el validador de contraseña al array
     this.router = router;
 
@@ -31,6 +33,7 @@ export class RegisterComponent implements OnInit {
       user_: ['', [Validators.required, Validators.email]],
     });
   }
+  
   onPasswordInput() {
     this.isPasswordModified = true; // La contraseña ha sido modificada
   }
