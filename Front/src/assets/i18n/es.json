@@ -52,5 +52,6 @@
   "REGISTER NOW": "Regístrate",
   "Are you not registered yet?": "¿Todavía no estás registrada?",
   "Register email": "Email de registro",
-  "Confirm password": "Confirma la contraseña"
+  "Confirm password": "Confirma la contraseña",
+  "ERROR_EMAIL_REQUIRED": "Email requerido"
 }
