@@ -9,7 +9,7 @@
 
 .box {
     width: 600px;
-    height: 450px;
+    height: 500px;
     padding: 90px 50px;
     background-color: white;
     position: relative;
@@ -41,7 +41,7 @@
 
 .sello{
     position: absolute;
-    bottom: 30px;
+    bottom: 20px;
     right: 30px;
 
 }
