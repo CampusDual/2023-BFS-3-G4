@@ -22,7 +22,7 @@
 
         <!-- Pestaña de para el perfil por defecto-->
 
-        <mat-tab label="{{ 'PROFILE_TAB' | oTranslate }}" (onClick)="refreshProfile">
+        <mat-tab label="{{ 'PROFILE_TAB' | oTranslate }}" >
             <o-form #form attr="profile_detail" service="users" entity="myUser" fxLayout="column" show-header="yes"
                 header-actions="U" #oDetailForm keys="user_" keys-sql-types="VARCHAR" show-header-navigation="yes">
                 <o-column title="PROFILE_DATA" layout-align="start stretch" fxFlex="80">
@@ -63,7 +63,7 @@
         </mat-tab>
 
         <!-- Pestaña para las funcionalidades de anfitriona -->
-        <mat-tab label="{{ 'HOST_TAB' | oTranslate }}" (onClick)="refreshHost">
+        <mat-tab label="{{ 'HOST_TAB' | oTranslate }}" >
             <o-form #formHost attr="host_detail" service="users" entity="myUser" fxLayout="column" show-header="yes"
                 header-actions="U" keys="user_" keys-sql-types="VARCHAR" show-header-navigation="yes">
                 <o-column title="HOST_DATA" layout-align="start stretch" fxFlex="80">
@@ -71,7 +71,9 @@
                         required="yes" max-length="500"></o-textarea-input>
                     <o-combo attr="id_town" fxFlex="80" label="TOWN" service="towns" entity="town" keys="id_town"
                         columns="town_name;id_town" visible-columns="town_name" value-column="id_town"
-                        class="input-padding" fxFlex="80" required="yes"></o-combo>
+                        class="input-padding" fxFlex="80" required="yes" sort="ASC"
+
+                        ></o-combo>
                     <o-text-input attr="phonenumber" label="PHONENUMBER" fxFlex="80" required="yes" max-length="15"></o-text-input>
                     <o-email-input attr="email" label="EMAIL" placeholder="example@example.com" fxFlex="80"
                         required="yes"></o-email-input>
