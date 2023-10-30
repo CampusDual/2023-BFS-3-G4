@@ -102,7 +102,7 @@ o-form{
     margin:30px;
 }
 
-o-text-input, o-password-input, mat-form-field {
+o-text-input, o-password-input, o-email-input {
     margin:5px;
 }
 

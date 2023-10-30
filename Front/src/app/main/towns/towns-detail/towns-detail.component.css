@@ -72,4 +72,8 @@ o-grid {
     color: #4b4b4b;
     width: 98%;
     text-align: justify;
+    height: 70px; /* altura fija para la descripción */
+    overflow: hidden; 
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
 }
