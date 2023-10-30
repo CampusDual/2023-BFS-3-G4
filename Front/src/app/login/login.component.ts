@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   pwdCtrl: FormControl = new FormControl('', Validators.required);
   sessionExpired = false;
 
-  router: Router;
+ router: Router;
 
   constructor(
     private actRoute: ActivatedRoute,
@@ -77,5 +77,10 @@ export class LoginComponent implements OnInit {
       default: break;
     }
   }
+  
+  registerButtonFn(){
+   
+    this.router.navigate(["/register/new"]);
 
+  }
 }

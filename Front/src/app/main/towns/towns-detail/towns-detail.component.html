@@ -1,0 +1,59 @@
+<o-form fxFill service="towns" entity="town" keys="id_town" show-header="no">
+    <o-text-input attr="id_town" sql-type="INTEGER" enabled="no" oHidden></o-text-input>
+    <o-text-input #townnamefield attr="town_name" enabled="no" (onValueChange)="reloadValues($event)"
+        oHidden></o-text-input>
+
+    <h1 class="town-title">{{ custom_name }}</h1>
+    <o-grid #grid columns="user_;id_client;name;surname;short_desc;avatar" quick-filter-columns="name;surname"
+        service="users" entity="host" keys="id" parent-keys="id_town" [cols]="3" show-page-size="false"
+        page-size-options="4;8;16" grid-item-height="3:4" refresh-button="false" pagination-controls="false"
+        gutter-size="20px" [ngStyle]="{'height':'600px'}" (onClick)="goToHostDetail($event)">
+
+        <div class="container">
+        <o-grid-item class="hostCard" *ngFor="let list of grid.dataArray">
+            <o-column class="container-item">
+                <div>
+                    <o-image class="image1" attr="image1" data="{{ list.avatar }}" read-only="true"
+                        show-controls="false">
+                    </o-image>
+                </div>
+                <div class="name-surname">
+                    <h2>{{ list.name + ' ' + list.surname }}</h2>
+                </div>
+                <div class="short_desc">
+                    <span>{{ list.short_desc }}</span>
+                </div>
+            </o-column>
+        </o-grid-item>
+    </div>
+    </o-grid>
+</o-form>
+
+<!-- <o-list #list attr="list" columns="name;surname;short_desc;avatar" quick-filter-columns="name;short_desc"
+service="users" entity="host" keys="id" parent-keys="id_town" refresh-button="false">
+
+  <mat-card *ngFor="let row of list.dataArray" [o-list-item]="row">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <o-image class ="image1" attr="image1" data="{{ row.avatar }}" read-only = "true" show-controls = "false" fxFill ></o-image>
+        <img src="{{ row.image }}" fxFill />
+      </div>
+      <mat-card-title>{{ row.name + ' ' + row.surname }}</mat-card-title>
+      <mat-card-subtitle>{{ row.short_desc }}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+
+</o-list> -->
+
+
+<!-- 
+    <o-list #list attr="customerlist" title="CUSTOMERS" service="users" entity="user" keys="user_"
+        columns="id_town;user_;description;avatar" parent-keys="id_town">
+        <o-list-item *ngFor="let row of list.dataArray">
+            <o-list-item-card #item image="{{ row.avatar }}" title="{{ row.user_ }}" subtitle="{{ row.id_town }}">
+                <div mat-card-avatar>
+                    <o-image attr="image1" data="{{ row.avatar }}"></o-image>
+                </div>
+            </o-list-item-card>
+        </o-list-item>
+    </o-list> -->

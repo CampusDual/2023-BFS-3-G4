@@ -1,0 +1,79 @@
+o-grid {
+    margin-top: 20px; 
+}
+
+.image1 {
+    width: 100%;
+    display: block;
+    max-width: none;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.container-item:hover {
+    border: 5px solid transparent;
+    display: grid;
+    place-items: center;
+}
+
+
+.container-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.hostCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+.town-title {
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #efeafa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-family: 'Patua One', sans-serif;
+    font-size: 50px;
+    letter-spacing: 1px;
+    color: rgb(25, 20, 73);
+}
+
+
+.name-surname {
+    margin: 2px 0;
+    font-size: 0.7em;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.short_desc {
+    font-size: 0.7em;
+    color: #4b4b4b;
+    width: 98%;
+    text-align: justify;
+    height: 70px; /* altura fija para la descripción */
+    overflow: hidden; 
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}

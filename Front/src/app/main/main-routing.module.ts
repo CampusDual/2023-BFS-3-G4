@@ -13,7 +13,8 @@ export const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
       { path: 'towns', loadChildren: () => import('./towns/towns.module').then(m => m.TownsModule) },
-      { path: 'profile', loadChildren: () => import('./travelers/travelers.module').then(m => m.TravelersModule) }
+      { path: 'profile', loadChildren: () => import('./travelers/travelers.module').then(m => m.TravelersModule) },
+      { path: 'travelers', loadChildren: () => import('./travelers/travelers.module').then(m => m.TravelersModule) }
 
 
     ]

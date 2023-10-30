@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.box {
+    width: 70%;
+    height: auto;
+    padding: 50px;
+    background-color: white;
+    border: 2px solid transparent;
+    box-shadow: 0px 0px 3px #56535b;
+    position: relative;
+    border-radius: 5px;
+}
+
+.tape {
+    position: absolute;
+}
+
+.tape-left {
+    top: -50px;
+    /* Mueve el cuadro 5px hacia arriba */
+    left: -50px;
+    /* Mueve el cuadro 5px hacia la izquierda */
+}
+
+.tape-right {
+    bottom: -50px;
+    /* Mueve el cuadro 5px hacia abajo */
+    right: -50px;
+    /* Mueve el cuadro 5px hacia la derecha */
+}

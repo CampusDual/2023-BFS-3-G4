@@ -12,9 +12,9 @@ import com.ontimize.jee.server.dao.jdbc.OntimizeJdbcDaoSupport;
 public class TownDao extends OntimizeJdbcDaoSupport {
 
 
-    public static final String ATTR_ID_TOWN = "ID_TOWN";
-    public static final String ATTR_TOWN_NAME = "TOWN_NAME";
-    public static final String ATTR_ID_PROVINCE = "ID_PROVINCE";
+    public static final String ATTR_ID_TOWN = "id_town";
+    public static final String ATTR_TOWN_NAME = "town_name";
+    public static final String ATTR_ID_PROVINCE = "id_province";
 
 
 }

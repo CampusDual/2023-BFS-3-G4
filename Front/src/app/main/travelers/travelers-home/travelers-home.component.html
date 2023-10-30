@@ -1,1 +1,101 @@
-<p>travelers-home works!</p>
+<!-- <o-form #form attr="profile_detail" service="users" entity="myUser" fxLayout="column" show-header="yes"
+    header-actions="R;U" keys="user_" keys-sql-types="VARCHAR" show-header-navigation="yes">
+    <o-text-input attr="name" label="NAME" fxFlex="80" ></o-text-input>
+    <o-text-input attr="surname" label="SURNAME" fxFlex="80" ></o-text-input>
+    <o-text-input attr="email" label="EMAIL" fxFlex="80" ></o-text-input>
+    <o-text-input attr="phonenumber" label="PHONENUMBER" fxFlex="80" ></o-text-input>
+    <o-text-input attr="description" label="DESCRIPTION" fxFlex="80" ></o-text-input>
+    <o-password-input attr="password" label="PASSWORD" required="yes" fxFlex="80" ></o-password-input>
+    <o-slide-toggle attr="host" label="HOST" (onChange)="toggleHost($event)" fxFlex="80" ></o-slide-toggle>
+    <br>
+    <o-text-input attr="nif" label="NIF"  fxFlex="80" ></o-text-input>
+    <o-combo attr="id_town" fxFlex="80" label="TOWN" service="towns" entity="town" keys="id_town" columns="town_name;id_town" visible-columns="town_name"
+        value-column="id_town" class="input-padding"></o-combo>
+    <o-image attr="avatar" label="AVATAR"  fxFlex="80" empty-image="assets/images/no-image.png" sql-type="base64"></o-image>
+</o-form>
+
+
+     -->
+<o-form-container breadcrumb="no" breadcrumb-label-columns="name;surname" breadcrumb-separator=" " [form]="form">
+
+    <mat-tab-group fxFill (selectedTabChange)="yourFn($event)">
+
+        <!-- Pestaña de para el perfil por defecto-->
+
+        <mat-tab label="{{ 'PROFILE_TAB' | oTranslate }}" >
+            <o-form #form attr="profile_detail" service="users" entity="myUser" fxLayout="column" show-header="yes"
+                header-actions="U" #oDetailForm keys="user_" keys-sql-types="VARCHAR" show-header-navigation="yes">
+                <o-column title="PROFILE_DATA" layout-align="start stretch" fxFlex="80">
+                    <o-image attr="avatar" label="AVATAR" fxFlex="80" width="350px"
+                        empty-image="assets/images/no-image.png" sql-type="OTHERS"></o-image>
+                    <o-text-input attr="name" label="NAME" fxFlex="80" required="yes" max-length="20"></o-text-input>
+                    <o-text-input attr="surname" label="SURNAME" fxFlex="80" required="yes" max-length="30"></o-text-input>
+                    <o-textarea-input attr="short_desc" label="DESCRIPTION" fxFlex="80" max-length="250"></o-textarea-input>
+                </o-column>
+                <o-column title="CONTACT_DATA" layout-align="start stretch" fxFlex="80">
+                    <o-email-input attr="email" label="EMAIL" placeholder="example@example.com"
+                        fxFlex="80"></o-email-input>
+                    <o-text-input attr="phonenumber" label="PHONENUMBER" fxFlex="80" max-length="15"></o-text-input>
+                </o-column>
+                <o-column title="REGISTER_DATA" layout-align="start stretch" fxFlex="80">
+                    <o-text-input attr="user_" label="USER" fxFlex="80" enabled="no"></o-text-input>
+                    <o-row class="row-pass">
+                        <o-password-input attr="password" fxFlex="80" required="yes" label="PASSWORD"
+                            show-password-button="yes" [validators]="validatorsArray" (input)="onPasswordInput()">
+                            <!-- Campo de entrada de contraseña -->
+                            <o-validator [error-name]="'passwordNotSize'" [error-text]="'ERROR_PASS'"></o-validator>
+                            <!-- Validador para el tamaño de la contraseña -->
+                        </o-password-input>
+                    </o-row>
+                    <o-row class="row-pass">
+                        <o-password-input attr="passwordConfirm" fxFlex="80" *ngIf="isPasswordModified"
+                            label="{{ 'Confirm password' | oTranslate }}" show-password-button="yes"
+                            [validators]="validatorsArray">
+                            <!-- Campo de entrada de confirmación de contraseña -->
+                            <o-validator [error-name]="'passwordNotMatched'"
+                                [error-text]="'ERROR_MATCH'"></o-validator>
+                            <!-- Validador para comprobar que las contraseñas coinciden -->
+                        </o-password-input>
+                    </o-row>
+                </o-column>
+
+            </o-form>
+        </mat-tab>
+
+        <!-- Pestaña para las funcionalidades de anfitriona -->
+        <mat-tab label="{{ 'HOST_TAB' | oTranslate }}" >
+            <o-form #formHost attr="host_detail" service="users" entity="myUser" fxLayout="column" show-header="yes"
+                header-actions="U" keys="user_" keys-sql-types="VARCHAR" show-header-navigation="yes">
+                <o-column title="HOST_DATA" layout-align="start stretch" fxFlex="80">
+                    <o-textarea-input attr="description" label="DESCRIPTION" fxFlex="80"
+                        required="yes" max-length="500"></o-textarea-input>
+                    <o-combo attr="id_town" fxFlex="80" label="TOWN" service="towns" entity="town" keys="id_town"
+                        columns="town_name;id_town" visible-columns="town_name" value-column="id_town"
+                        class="input-padding" fxFlex="80" required="yes" sort="ASC"
+
+                        ></o-combo>
+                    <o-text-input attr="phonenumber" label="PHONENUMBER" fxFlex="80" required="yes" max-length="15"></o-text-input>
+                    <o-email-input attr="email" label="EMAIL" placeholder="example@example.com" fxFlex="80"
+                        required="yes"></o-email-input>
+                    <o-text-input attr="nif" label="NIF" required="yes" fxFlex="80" required="yes" max-length="25"></o-text-input>
+                </o-column>
+                <o-column title="HOST_AVAILABLE" layout-align="start stretch" fxFlex="80">
+                    <o-slide-toggle attr="host" label="ACTIVEHOST" (onChange)="toggleHost($event)"
+                        fxFlex="80"></o-slide-toggle>
+                </o-column>
+
+            </o-form>
+        </mat-tab>
+
+        <!-- Pestaña para habilitar servicios de las anfitrionas -->
+        <!-- <mat-tab label="HOUSES">
+            <o-table #form attr="houses" service="houses" entity="house" parent-keys="user_id" keys="house_id"
+                detail-form-route="houses" edit-form-route="houses" columns="house_id;address;city;state;zip"
+                visible-columns="address;city;state;zip" title="Casas" sort-columns="address" query-rows="10"
+                quick-filter="yes" pageable="yes">
+            </o-table>
+        </mat-tab> -->
+
+    </mat-tab-group>
+
+</o-form-container>

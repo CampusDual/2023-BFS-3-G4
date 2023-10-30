@@ -1,17 +1,24 @@
-.bg {
-  background-color: darkred;
+.container {
+  position: relative; /* Permite posicionar elementos hijos relativos a este contenedor */
+  width: 100%; /* Ancho del 100% para ocupar todo el ancho de la pantalla */
+  height: 100vh; /* Altura del 100% de la ventana gráfica (viewport height) */
+  overflow: hidden; /* Oculta cualquier contenido que desborde del contenedor */
+}
+.background {
+  width: 100%; /* Ancho del 100% para cubrir todo el contenedor */
+  height: 100%; /* Altura del 100% para cubrir todo el contenedor */
+  object-fit: cover; /* Escala la imagen para llenar completamente el contenedor */
+  position: absolute; /* Coloca la imagen en posición absoluta dentro del contenedor */
+  top: 0; /* Coloca la imagen en la parte superior del contenedor */
+  left: 0; /* Coloca la imagen en la parte izquierda del contenedor */
+  z-index: -1; /* Coloca la imagen detrás de otros elementos */
 }
 
-img {
-  width: 78%;
-  height: auto;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-
-h1 {
-  text-align: center;
-  font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
-  font-size: 80px;
+.logo {
+  position: absolute; /* Coloca el logotipo en posición absoluta dentro del contenedor */
+  top: 25%; /* Ajusta la posición vertical para que esté en el tercio superior */
+  left: 50%; /* Centra horizontalmente el logotipo */
+  transform: translate(-50%, -50%); /* Centra el logotipo horizontalmente y verticalmente */
+  max-width: 80%; /* Limita el ancho del logotipo al 80% del contenedor */
+  z-index: 1; /* Coloca el logotipo delante de la imagen de fondo */
 }

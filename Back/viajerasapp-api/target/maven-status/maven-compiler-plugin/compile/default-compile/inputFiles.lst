@@ -1,4 +1,5 @@
-E:\GitHub\2023-BFS-3-G4\Back\viajerasapp-api\src\main\java\com\campusdual\viajerasapp\api\core\service\ITownService.java
-E:\GitHub\2023-BFS-3-G4\Back\viajerasapp-api\src\main\java\com\campusdual\viajerasapp\api\core\service\IProvinceService.java
-E:\GitHub\2023-BFS-3-G4\Back\viajerasapp-api\src\main\java\com\campusdual\viajerasapp\api\core\service\IUserService.java
-E:\GitHub\2023-BFS-3-G4\Back\viajerasapp-api\src\main\java\com\campusdual\viajerasapp\api\core\service\ICommunityService.java
+/Users/ester/Documents/Curso/CAMPUS_DUAL/GitHub/2023-BFS-3-G4/Back/viajerasapp-api/src/main/java/com/campusdual/viajerasapp/api/core/service/IUserService.java
+/Users/ester/Documents/Curso/CAMPUS_DUAL/GitHub/2023-BFS-3-G4/Back/viajerasapp-api/src/main/java/com/campusdual/viajerasapp/api/core/service/ITownService.java
+/Users/ester/Documents/Curso/CAMPUS_DUAL/GitHub/2023-BFS-3-G4/Back/viajerasapp-api/src/main/java/com/campusdual/viajerasapp/api/core/service/IRegisterService.java
+/Users/ester/Documents/Curso/CAMPUS_DUAL/GitHub/2023-BFS-3-G4/Back/viajerasapp-api/src/main/java/com/campusdual/viajerasapp/api/core/service/IProvinceService.java
+/Users/ester/Documents/Curso/CAMPUS_DUAL/GitHub/2023-BFS-3-G4/Back/viajerasapp-api/src/main/java/com/campusdual/viajerasapp/api/core/service/ICommunityService.java

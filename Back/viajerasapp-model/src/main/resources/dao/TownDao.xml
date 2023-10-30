@@ -22,6 +22,7 @@
                                          prefix="p" />
                 </AmbiguousColumns>
                 <ValidColumns>
+                        <Column>id_town</Column>
                         <Column>town_name</Column>
                         <Column>province_name</Column>
                         <Column>community_name</Column>
@@ -31,10 +32,10 @@
 					SELECT
 						#COLUMNS#
 					FROM
-						public.towns t
-					LEFT JOIN public.provinces p on
+						${mainschema}.towns t
+					LEFT JOIN ${mainschema}.provinces p on
 						t.id_province = p.id_province
-					LEFT JOIN public.communities c on
+					LEFT JOIN ${mainschema}.communities c on
 						p.id_community = c.id_community
 					#WHERE#
 					#ORDER#
