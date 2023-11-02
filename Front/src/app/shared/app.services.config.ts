@@ -7,5 +7,11 @@ export const SERVICE_CONFIG: Object = {
   },
   'register': {
     'path': '/register'
+  },
+
+  'activities': {
+    'path': '/activities'
   }
+
+
 };
