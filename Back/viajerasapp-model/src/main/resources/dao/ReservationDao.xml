@@ -17,6 +17,13 @@
                 <AmbiguousColumn name="id_client_traveler" prefix="r" databaseName="id_client_traveler" />
                 <AmbiguousColumn name="id_client_host" prefix="r" databaseName="id_client_host" />
                 <AmbiguousColumn name="id_status" prefix="r" databaseName="id_status" />
+                <AmbiguousColumn name="name_traveler" prefix="c1" databaseName="name" />
+                <AmbiguousColumn name="surname_traveler" prefix="c1" databaseName="surname" />
+                <AmbiguousColumn name="email_traveler" prefix="c1" databaseName="email" />
+                <AmbiguousColumn name="name_host" prefix="c2" databaseName="name" />
+                <AmbiguousColumn name="surname_host" prefix="c2" databaseName="surname" />
+                <AmbiguousColumn name="email_host" prefix="c2" databaseName="email" />
+                <AmbiguousColumn name="phonenumber_host" prefix="c2" databaseName="phonenumber" />
             </AmbiguousColumns>
             <ValidColumns>
                 <Column>id_reservation</Column>
@@ -24,12 +31,13 @@
                 <Column>id_client_host</Column>
                 <Column>message</Column>
                 <Column>id_status</Column>
-                <Column>user_</Column>
-                <Column>name</Column>
-                <Column>surname</Column>
-                <Column>email</Column>
-                <Column>phonenumber</Column>
-                <Column>id_client</Column>
+                <Column>name_traveler</Column>
+                <Column>surname_traveler</Column>
+                <Column>email_traveler</Column>
+                <Column>name_host</Column>
+                <Column>surname_host</Column>
+                <Column>email_host</Column>
+                <Column>phonenumber_host</Column>
                 <Column>status_name</Column>
             </ValidColumns>
             <Sentence>
@@ -38,10 +46,10 @@
                         #COLUMNS#
                     FROM
                         ${mainschema}.reservation r
-                    LEFT JOIN ${mainschema}.clients c on
-						r.id_client_traveler = c.id_client
-					LEFT JOIN ${mainschema}.clients c on
-						r.id_client_host = c.id_client
+                    LEFT JOIN ${mainschema}.clients c1 on
+						r.id_client_traveler = c1.id_client
+					LEFT JOIN ${mainschema}.clients c2 on
+						r.id_client_host = c2.id_client
 					LEFT JOIN ${mainschema}.reservation_status rs on
 						r.id_status = rs.id_status
                     #WHERE#
@@ -51,3 +59,5 @@
         </Query>
     </Queries>
 </JdbcEntitySetup>
+
+
