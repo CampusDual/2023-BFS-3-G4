@@ -68,6 +68,10 @@ public class RegisterService implements IRegisterService {
 
 		Map<String, Object> clientAttr = new HashMap<>();
 		clientAttr.put(ClientDao.EMAILREGISTER, user_);
+
+		if (user_ != null) {
+			clientAttr.put(ClientDao.EMAILCONTACT, user_);
+		}
 		if (name != null) {
 			clientAttr.put(ClientDao.NAME, name);
 		}

@@ -32,11 +32,12 @@
                     <o-text-input attr="surname" label="SURNAME" fxFlex="80" required="yes" max-length="30"></o-text-input>
                     <o-textarea-input attr="short_desc" label="DESCRIPTION" fxFlex="80" max-length="250"></o-textarea-input>
                 </o-column>
+                <!--
                 <o-column title="CONTACT_DATA" layout-align="start stretch" fxFlex="80">
                     <o-email-input attr="email" label="EMAIL" placeholder="example@example.com"
                         fxFlex="80"></o-email-input>
                     <o-text-input attr="phonenumber" label="PHONENUMBER" fxFlex="80" max-length="15"></o-text-input>
-                </o-column>
+                </o-column> -->
                 <o-column title="REGISTER_DATA" layout-align="start stretch" fxFlex="80">
                     <o-text-input attr="user_" label="USER" fxFlex="80" enabled="no"></o-text-input>
                     <o-row class="row-pass">
@@ -71,9 +72,7 @@
                         required="yes" max-length="500"></o-textarea-input>
                     <o-combo attr="id_town" fxFlex="80" label="TOWN" service="towns" entity="town" keys="id_town"
                         columns="town_name;id_town" visible-columns="town_name" value-column="id_town"
-                        class="input-padding" fxFlex="80" required="yes" sort="ASC" searchable="true"
-
-                        ></o-combo>
+                        class="input-padding" fxFlex="80" required="yes" sort="ASC" searchable="true"></o-combo>
                     <o-text-input attr="phonenumber" label="PHONENUMBER" fxFlex="80" required="yes" max-length="15"></o-text-input>
                     <o-email-input attr="email" label="EMAIL" placeholder="example@example.com" fxFlex="80"
                         required="yes"></o-email-input>

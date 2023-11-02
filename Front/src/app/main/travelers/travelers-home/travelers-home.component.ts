@@ -69,13 +69,13 @@ export class TravelersHomeComponent implements OnInit {
 
   }
 
-  yourFn(event){
-    if (event.index == 0) {
-      this.form.queryData({user_:this.auth.getSessionInfo().user});
-    }
-    else if (event.index == 1) {
-      this.formHost.queryData({user_:this.auth.getSessionInfo().user});
-    }
+  // yourFn(event){
+  //   if (event.index == 0) {
+  //     this.form.queryData({user_:this.auth.getSessionInfo().user});
+  //   }
+  //   else if (event.index == 1) {
+  //     this.formHost.queryData({user_:this.auth.getSessionInfo().user});
+  //   }
     
-  }
+  // }
 }
