@@ -1,21 +1,30 @@
-<!-- <o-form #form attr="profile_detail" service="users" entity="myUser" fxLayout="column" show-header="yes"
-    header-actions="R;U" keys="user_" keys-sql-types="VARCHAR" show-header-navigation="yes">
-    <o-text-input attr="name" label="NAME" fxFlex="80" ></o-text-input>
-    <o-text-input attr="surname" label="SURNAME" fxFlex="80" ></o-text-input>
-    <o-text-input attr="email" label="EMAIL" fxFlex="80" ></o-text-input>
-    <o-text-input attr="phonenumber" label="PHONENUMBER" fxFlex="80" ></o-text-input>
-    <o-text-input attr="description" label="DESCRIPTION" fxFlex="80" ></o-text-input>
-    <o-password-input attr="password" label="PASSWORD" required="yes" fxFlex="80" ></o-password-input>
-    <o-slide-toggle attr="host" label="HOST" (onChange)="toggleHost($event)" fxFlex="80" ></o-slide-toggle>
-    <br>
-    <o-text-input attr="nif" label="NIF"  fxFlex="80" ></o-text-input>
-    <o-combo attr="id_town" fxFlex="80" label="TOWN" service="towns" entity="town" keys="id_town" columns="town_name;id_town" visible-columns="town_name"
-        value-column="id_town" class="input-padding"></o-combo>
-    <o-image attr="avatar" label="AVATAR"  fxFlex="80" empty-image="assets/images/no-image.png" sql-type="base64"></o-image>
-</o-form>
 
 
-     -->
+  
+
+
+ <p>{{arrayActivitiesClient}}</p>
+    <o-grid #activitiesB attr="activitiesB" service="activities" entity="activity" keys="id_activity"
+    columns="activity_name" query-rows="30" show-page-size="true" page-size-options="30" orderable="true" quick-filter="true" cols="10"
+    sortable-columns="activity_name" controls="true" gutter-size="1px" detail-mode="none" (onDataLoaded)="onLoad()">
+    <o-grid-item *ngFor="let item of activitiesB.dataArray">
+      <div fxLayout="column" fxLayoutAlign="space-evenly center" class="mat-elevation-z1">
+          
+ 
+          <o-button *ngIf="arrayActivitiesClient.includes(item.activity_name)" type="STROKED" label="{{ item.activity_name }}"layout-padding color="primary"></o-button>
+          <o-button *ngIf="!arrayActivitiesClient.includes(item.activity_name)" type="STROKED" label="{{ item.activity_name }}"layout-padding color="accent"></o-button>
+
+                   
+      </div>
+    </o-grid-item>
+  </o-grid>
+
+
+
+
+
+
+ 
 <o-form-container breadcrumb="no" breadcrumb-label-columns="name;surname" breadcrumb-separator=" " [form]="form">
 
     <mat-tab-group fxFill (selectedTabChange)="yourFn($event)">
@@ -29,9 +38,18 @@
                     <o-image attr="avatar" label="AVATAR" fxFlex="80" width="350px"
                         empty-image="assets/images/no-image.png" sql-type="OTHERS"></o-image>
                     <o-text-input attr="name" label="NAME" fxFlex="80" required="yes" max-length="20"></o-text-input>
+                    <o-text-input attr="id_client" oHidden></o-text-input>
                     <o-text-input attr="surname" label="SURNAME" fxFlex="80" required="yes" max-length="30"></o-text-input>
                     <o-textarea-input attr="short_desc" label="DESCRIPTION" fxFlex="80" max-length="250"></o-textarea-input>
                 </o-column>
+
+                <o-form #formActivities attr="formActivities" editable-detail="no" show-header="no" layout-direction="column" service="activities" entity="activity" keys="id_activity">
+                    <div fxLayout="row" fxLayoutWrap>
+                      <div *ngFor="let list of formActivities.dataArray">
+                        <o-checkbox attr="{{formActivities.id_activity}}" data="{{ formActivities.activity_name }}"></o-checkbox>
+                      </div>
+                    </div>
+                </o-form>
                 <!--
                 <o-column title="CONTACT_DATA" layout-align="start stretch" fxFlex="80">
                     <o-email-input attr="email" label="EMAIL" placeholder="example@example.com"
@@ -62,6 +80,9 @@
 
             </o-form>
         </mat-tab>
+
+        
+
 
         <!-- Pestaña para las funcionalidades de anfitriona -->
         <mat-tab label="{{ 'HOST_TAB' | oTranslate }}" >

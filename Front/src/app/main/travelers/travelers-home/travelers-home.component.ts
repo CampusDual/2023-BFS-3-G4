@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ValidatorFn } from '@angular/forms';
-import { AuthService, OFormComponent } from 'ontimize-web-ngx';
+import { AuthService, OFormComponent, OntimizeService } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-travelers-home',
@@ -12,16 +12,37 @@ export class TravelersHomeComponent implements OnInit {
   @ViewChild('form',{static:true}) form:OFormComponent;
   @ViewChild('formHost',{static:true}) formHost:OFormComponent;
 
+  public arrayActivitiesClient: string[];
+
   validatorsArray: ValidatorFn[] = []; // Array de validadores personalizados
   isPasswordModified: boolean = false; // Indicador de si la contraseña ha sido modificada
   
-  constructor(private auth:AuthService) { 
+  constructor(private auth:AuthService, private ontimizeService: OntimizeService) { 
+    this.ontimizeService.configureService(this.ontimizeService.getDefaultServiceConfiguration('users'));
+
     this.validatorsArray.push(this.passwordValidator); // Añadir el validador de contraseña al array
   }
 
   ngOnInit() {
   }
 
+  onLoad(){
+let idclient = this.form.getComponents().id_client.getValue();
+    this.ontimizeService.query({id_client: idclient}, ['id_activity', 'activity_name'], 'activity_client').subscribe(
+      res => {
+        if (res.data && res.data.length) {
+          this.arrayActivitiesClient = [];
+          res.data.forEach(element => {
+            this.arrayActivitiesClient.push(element.activity_name);
+          });
+        }
+
+        }
+      
+    );
+   
+   }
+  
   hostActive: boolean = false;
 
   toggleHost(event: any) {

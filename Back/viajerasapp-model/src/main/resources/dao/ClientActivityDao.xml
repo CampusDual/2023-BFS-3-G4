@@ -114,18 +114,7 @@
                 <Column>id_client</Column>
                 <Column>id_activity</Column>
                 <!-- columnas exclusivas de Clients -->
-                <Column>name</Column>
-                <Column>surname</Column>
-                <Column>email</Column>
-                <Column>nif</Column>
-                <Column>phonenumber</Column>
-                <Column>description</Column>
-                <Column>host</Column>
-                <Column>avatar</Column>
-                <Column>short_desc</Column>
                 <Column>user_</Column>
-                <Column>description</Column>
-                <Column>short_desc</Column>
                 <!-- columnas exclusivas de activities -->
                 <Column>activity_name</Column>
                 <!-- columnas exclusivas de clients_activities -->
