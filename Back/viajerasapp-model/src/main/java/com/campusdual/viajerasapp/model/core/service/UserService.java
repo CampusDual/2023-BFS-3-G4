@@ -4,6 +4,8 @@ package com.campusdual.viajerasapp.model.core.service;
 import java.sql.Timestamp;
 import java.util.*;
 
+import com.campusdual.viajerasapp.model.core.dao.ClientActivityDao;
+import com.campusdual.viajerasapp.model.core.dao.ClientActivityMultipleDelDao;
 import com.campusdual.viajerasapp.model.core.dao.ClientDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -26,6 +28,12 @@ public class UserService implements IUserService {
 
 	@Autowired
 	private ClientDao clientDao;
+
+	@Autowired
+	private ClientActivityDao clientActivityDao;
+
+	@Autowired
+	private ClientActivityMultipleDelDao clientActivityMultipleDelDao;
 
 	@Autowired
 	private DefaultOntimizeDaoHelper daoHelper;
@@ -103,6 +111,39 @@ public class UserService implements IUserService {
 	}
 
 
+
+	//--------activities queries----------
+
+
+	@Override
+	public EntityResult activity_clientQuery(Map<String, Object> keyMap, List<String> attrList) {
+
+		return this.daoHelper.query(clientDao, keyMap, attrList, ClientDao.QUERY_ACTIVITIESCLIENT);
+	}
+
+@Override
+	public EntityResult activity_clientInsert(Map<String, Object> attrMap) {
+
+		return this.daoHelper.insert(clientActivityDao, attrMap);
+	}
+
+
+	@Override
+	public EntityResult activity_clientDelete(Map<String, Object> keyMap) {
+
+		return this.daoHelper.delete(clientActivityDao, keyMap);
+	}
+
+	@Override
+	public EntityResult activity_clientMultipleDelDelete(Map<String, Object> keyMap) {
+
+		return this.daoHelper.delete(clientActivityMultipleDelDao, keyMap);
+	}
+
+
+
+
+	//---------------
 
 	public String getUser(){
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();

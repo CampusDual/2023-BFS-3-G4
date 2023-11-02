@@ -25,5 +25,15 @@ public interface IUserService {
 	public EntityResult clientUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap);
 	public EntityResult clientDelete(Map<String, Object> keyMap);
 
+	public EntityResult activity_clientQuery(Map<String, Object> keyMap, List<String> attrList);
+	public EntityResult activity_clientInsert(Map<String, Object> attrMap);
+
+	public EntityResult activity_clientDelete(Map<String, Object> keyMap);
+
+	public EntityResult activity_clientMultipleDelDelete(Map<String, Object> keyMap);
+
+
+
+
 
 }
