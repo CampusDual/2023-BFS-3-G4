@@ -11,6 +11,10 @@ export const SERVICE_CONFIG: Object = {
 
   'activities': {
     'path': '/activities'
+  },
+
+  'reservation': {
+    'path': '/reservation'
   }
 
 
