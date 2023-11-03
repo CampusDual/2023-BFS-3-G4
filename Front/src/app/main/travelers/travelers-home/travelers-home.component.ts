@@ -94,14 +94,16 @@ export class TravelersHomeComponent implements OnInit {
 
   }
 
-  addActivityFn(a: string){
+  addActivityFn(a: string, b: number){
     
    
    
 
-        if (this.arrayActivitiesClient.length < 5){
+        if (this.arrayActivitiesClient.length < 5 && this.arrayActivitiesClient.length >= 0){
           this.arrayActivitiesClient.push(a);
+          this.arrayActivitiesClientNumber.push(b);
           console.log(this.arrayActivitiesClient);
+          console.log(this.arrayActivitiesClientNumber);
 
         }
 
@@ -109,12 +111,12 @@ export class TravelersHomeComponent implements OnInit {
     
   }
 
-  removeActivityFn(a: Object){
+  removeActivityFn(a: Object, b: Object){
    
     this.arrayActivitiesClient = this.arrayActivitiesClient.filter(item => item !== a);
+    this.arrayActivitiesClientNumber = this.arrayActivitiesClientNumber.filter(item => item !== b);
     console.log(this.arrayActivitiesClient);
-
-    
+    console.log(this.arrayActivitiesClientNumber);
 
   }
 
@@ -128,12 +130,12 @@ export class TravelersHomeComponent implements OnInit {
 
 
 
-    this.ontimizeServiceUsers.update({id_client: idclient}, {activity_ids: this.arrayActivitiesClient  } ,'activity_client').subscribe( res =>
+    this.ontimizeServiceUsers.update({id_client: idclient}, {activity_ids: this.arrayActivitiesClientNumber  } ,'activity_client').subscribe( res =>
             {
               if (res.code == 0){
-                console.log("cambios realizados con éxitos")
+                console.log("Cambios realizados con éxito")
               }else{
-                console.log("error del back:" + res.message)
+                console.log("Error del back:" + res.message)
               }
       
       

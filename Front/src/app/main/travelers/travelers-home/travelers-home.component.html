@@ -25,7 +25,7 @@
                       </mat-chip-list>
                     <o-column-collapsible title="ACTSELECT" layout-align="start stretch" fxFlex="80">
                         <o-grid class="activitiesGrid" #activitiesB attr="activitiesB" service="activities"
-                            entity="activity" keys="id_activity" columns="activity_name" orderable="true"
+                            entity="activity" keys="id_activity" columns="activity_name;id_activity" orderable="true"
                             show-page-size="false" quick-filter="false" cols="6" sortable-columns="activity_name"
                             gutter-size="5px" detail-mode="none" (onDataLoaded)="onLoad()" pagination-controls="false"
                             controls="false" grid-item-height="60">
@@ -35,11 +35,11 @@
                                     <o-button class="activitiesButton"
                                         *ngIf="arrayActivitiesClient.includes(item.activity_name)" type="STROKED"
                                         label="{{ item.activity_name }}" layout-padding color="primary"
-                                        (onClick)="removeActivityFn(item.activity_name)"></o-button>
+                                        (onClick)="removeActivityFn(item.activity_name,item.id_activity)"></o-button>
                                     <o-button class="activitiesButton"
                                         *ngIf="!arrayActivitiesClient.includes(item.activity_name)" type="STROKED"
                                         label="{{ item.activity_name }}" layout-padding color="accent"
-                                        (onClick)="addActivityFn(item.activity_name)"></o-button>
+                                        (onClick)="addActivityFn(item.activity_name,item.id_activity)"></o-button>
 
                                 </div>
 
