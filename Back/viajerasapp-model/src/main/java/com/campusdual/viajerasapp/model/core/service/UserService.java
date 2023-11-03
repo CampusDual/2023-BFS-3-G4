@@ -7,6 +7,7 @@ import java.util.*;
 import com.campusdual.viajerasapp.model.core.dao.ClientActivityDao;
 import com.campusdual.viajerasapp.model.core.dao.ClientActivityMultipleDelDao;
 import com.campusdual.viajerasapp.model.core.dao.ClientDao;
+import com.ontimize.jee.common.dto.EntityResultMapImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.Authentication;
@@ -142,9 +143,21 @@ public class UserService implements IUserService {
 
 	@Override
 	public EntityResult activity_clientUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
-		return this.daoHelper.delete(this.clientActivityDao, keyMap);
-//		return this.daoHelper.update(clientActivityDao, attrMap, keyMap);
+		this.daoHelper.delete(clientActivityDao, keyMap);
+
+		List<Integer> activityIds = (List<Integer>) attrMap.get("activity_ids");
+
+		EntityResult insertId=new EntityResultMapImpl();
+		for (Integer id : activityIds){
+			Map<String, Object> insertMap = new HashMap();
+			insertMap.put(ClientActivityDao.ID_ACTIVITY, id);
+			insertMap.put(ClientActivityDao.ID_CLIENT, keyMap.get(ClientActivityDao.ID_CLIENT));
+			insertId = this.daoHelper.insert(clientActivityDao, insertMap);
+		}
+		return insertId;
 	}
+
+
 
 
 

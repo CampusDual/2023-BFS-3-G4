@@ -33,6 +33,7 @@
             </Sentence>
         </Query>
 
+
         <Query id="hostclient">
             <AmbiguousColumns>
                 <AmbiguousColumn name="id_town" prefix="c" databaseName="id_town" />
