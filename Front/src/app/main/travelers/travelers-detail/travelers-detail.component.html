@@ -1,6 +1,6 @@
 <div class="container">
   <div class="box">
-    <o-form service="users" entity="client" keys="id_client" editable-detail="true" show-header="no"
+    <o-form #form service="users" entity="client" keys="id_client" editable-detail="true" show-header="no"
       show-header-navigation="no" layout-direction="column">
       <o-text-input attr="id_client" sql-type="INTEGER" oHidden></o-text-input>
       <o-column>
@@ -29,6 +29,7 @@
           </div>
         </mat-tab>
       </mat-tab-group>
+      <button mat-raised-button color="primary" (click)="reservationFn()">{{ 'REGISTER NOW' | oTranslate }}</button>
     </o-form>
     <div class="tape tape-left">
       <img src="../../../assets/images/tape.png" alt="">
