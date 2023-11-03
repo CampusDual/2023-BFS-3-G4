@@ -13,6 +13,8 @@ export class TravelersHomeComponent implements OnInit {
   @ViewChild('formHost',{static:true}) formHost:OFormComponent;
 
   public arrayActivitiesClient: string[];
+  public arrayActivitiesClientNumber: number[];
+
 
   validatorsArray: ValidatorFn[] = []; // Array de validadores personalizados
   isPasswordModified: boolean = false; // Indicador de si la contraseña ha sido modificada
@@ -26,6 +28,7 @@ export class TravelersHomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
 
   onLoad(){
@@ -34,8 +37,10 @@ export class TravelersHomeComponent implements OnInit {
       res => {
         if (res.data && res.data.length) {
           this.arrayActivitiesClient = [];
+          this.arrayActivitiesClientNumber = [];
           res.data.forEach(element => {
             this.arrayActivitiesClient.push(element.activity_name);
+            this.arrayActivitiesClientNumber.push(element.id_activity);
           });
         }
       }      
@@ -90,6 +95,7 @@ export class TravelersHomeComponent implements OnInit {
   }
 
   addActivityFn(a: string){
+    
    
    
 
@@ -117,23 +123,44 @@ export class TravelersHomeComponent implements OnInit {
 
     let idclient = this.form.getComponents().id_client.getValue();
     console.log(idclient);
-    this.ontimizeServiceUsers.delete({id_client: idclient}, 'activity_clientMultipleDel').subscribe( res =>
-      {
-        if (res.code == 0){
-          console.log("cambios realizados con éxitos")
-        }else{
-          console.log("error del back:" + res.message)
-        }
+
+   
 
 
-      });
+
+    this.ontimizeServiceUsers.update({id_client: idclient}, {activity_ids: this.arrayActivitiesClient  } ,'activity_client').subscribe( res =>
+            {
+              if (res.code == 0){
+                console.log("cambios realizados con éxitos")
+              }else{
+                console.log("error del back:" + res.message)
+              }
+      
+      
+            });
+
+
+
+
+
+
+
+//     this.ontimizeServiceUsers.delete({id_client: idclient}, 'activity_clientMultipleDel').subscribe( res =>
+//       {
+//         if (res.code == 0){
+//           console.log("cambios realizados con éxitos")
+//         }else{
+//           console.log("error del back:" + res.message)
+//         }
+
+
+//       });
 
 //      for (let i = 0; i < this.arrayActivitiesClient.length; i++) {
 //       this.ontimizeServiceUsers.insert( {       
 //         "id_client": 7,
 //         "id_activity": 5}
-//     , 'activity_client');
-    
+//     , 'activity_client');   
 
 
 // }
