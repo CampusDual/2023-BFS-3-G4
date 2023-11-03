@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { OFormComponent } from 'ontimize-web-ngx';
+import { OFormComponent, OntimizeService } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-travelers-detail',
@@ -8,16 +8,35 @@ import { OFormComponent } from 'ontimize-web-ngx';
   styleUrls: ['./travelers-detail.component.css']
 })
 export class TravelersDetailComponent implements OnInit {
+
   @ViewChild('form',{static:true}) form:OFormComponent;
   
   router: Router;
+  public arrayActivitiesClient: string[];
 
-  constructor(router: Router,) { 
+  constructor(router: Router,
+    private ontimizeServiceUsers: OntimizeService) { 
     this.router = router;
+    this.ontimizeServiceUsers.configureService(this.ontimizeServiceUsers.getDefaultServiceConfiguration('users'));
   }
 
   ngOnInit() {
   }
+
+  onLoad(){
+    let idclient = this.form.getComponents().id_client.getValue();
+    console.log(idclient);
+    this.ontimizeServiceUsers.query({id_client: idclient}, ['id_activity', 'activity_name'], 'activity_client').subscribe(
+      res => {
+        if (res.data && res.data.length) {
+          this.arrayActivitiesClient = [];
+          res.data.forEach(element => {
+            this.arrayActivitiesClient.push(element.activity_name);
+          });
+        }
+      }      
+    );   
+   }
 
   reservationFn(){   
     let id_client = this.form.getComponents().id_client.getValue();

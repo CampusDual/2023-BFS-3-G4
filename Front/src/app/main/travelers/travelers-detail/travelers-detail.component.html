@@ -1,7 +1,7 @@
 <div class="container">
   <div class="box">
     <o-form #form service="users" entity="client" keys="id_client" editable-detail="true" show-header="no"
-      show-header-navigation="no" layout-direction="column">
+      show-header-navigation="no" layout-direction="column" (onDataLoaded)="onLoad()">
       <o-text-input attr="id_client" sql-type="INTEGER" oHidden></o-text-input>
       <o-column>
         <div fxLayout="row" fxLayoutGap="25px">
@@ -29,6 +29,11 @@
           </div>
         </mat-tab>
       </mat-tab-group>
+      <mat-chip-list>
+        <mat-chip class="activitiesChip" *ngFor="let activity of arrayActivitiesClient" [disabled]="false" color="primary">
+          {{ activity }}
+        </mat-chip>
+      </mat-chip-list>
       <button mat-raised-button color="primary" (click)="reservationFn()">{{ 'REGISTER NOW' | oTranslate }}</button>
     </o-form>
     <div class="tape tape-left">
