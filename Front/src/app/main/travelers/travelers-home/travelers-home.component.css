@@ -1,9 +1,13 @@
 .activitiesGrid {
-    width: 65%;
+    width: 100%;
 }
 
 .activitiesButton{
     display: flex;
     width: 100%;
+}
+
+.activitiesChip{
+
 }
 
