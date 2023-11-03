@@ -92,6 +92,18 @@
             </o-form>
         </mat-tab>
 
+              <!-- Pestaña para habilitar servicios de las anfitrionas -->
+              <mat-tab label="{{'RESERVATION_TAB'| oTranslate }}">
+                <div fxFill fxLayout="column" fxLayoutAlign="start">
+                    <o-table #formReservation attr="reservation" service="reservation" entity="reservation"  keys="id_reservation"
+                        columns="id_reservation;id_client_traveler;name_traveler;id_client_host;name_host;status_name;message;id_status;
+                        surname_traveler;email_traveler;surname_host;email_host;phonenumber_host"
+                        visible-columns="id_reservation;id_client_traveler;name_traveler;id_client_host;name_host;status_name;message"  query-rows="10"
+                        >
+                    </o-table>
+                  </div>
+            </mat-tab>
+
         <!-- Pestaña para habilitar servicios de las anfitrionas -->
         <!-- <mat-tab label="HOUSES">
             <o-table #form attr="houses" service="houses" entity="house" parent-keys="user_id" keys="house_id"
