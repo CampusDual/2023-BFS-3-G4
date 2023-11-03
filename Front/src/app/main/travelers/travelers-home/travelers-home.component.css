@@ -1,0 +1,9 @@
+.activitiesGrid {
+    width: 65%;
+}
+
+.activitiesButton{
+    display: flex;
+    width: 100%;
+}
+
