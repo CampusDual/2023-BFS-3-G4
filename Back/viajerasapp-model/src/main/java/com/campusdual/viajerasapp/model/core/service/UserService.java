@@ -140,7 +140,11 @@ public class UserService implements IUserService {
 		return this.daoHelper.delete(clientActivityMultipleDelDao, keyMap);
 	}
 
-
+	@Override
+	public EntityResult activity_clientUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
+		return this.daoHelper.delete(this.clientActivityDao, keyMap);
+//		return this.daoHelper.update(clientActivityDao, attrMap, keyMap);
+	}
 
 
 

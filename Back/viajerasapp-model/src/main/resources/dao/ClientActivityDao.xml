@@ -7,10 +7,10 @@
         datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
     <DeleteKeys>
         <Column>id_client</Column>
-        <Column>id_activity</Column>
     </DeleteKeys>
     <UpdateKeys>
         <Column>id_client</Column>
+        <Column>id_activity</Column>
     </UpdateKeys>
     <Queries>
         <Query id="default">
@@ -18,8 +18,6 @@
             <ValidColumns>
                 <Column>id_client</Column>
                 <Column>id_activity</Column>
-
-
             </ValidColumns>
             <Sentence>
                 <![CDATA[
@@ -34,36 +32,7 @@
                 ]]>
             </Sentence>
         </Query>
-        <!--
-        <Query id="login">
-            <ValidColumns>
-                <Column>user_</Column>
-                <Column>password</Column>
-                <Column>name</Column>
-                <Column>surname</Column>
-                <Column>email</Column>
-                <Column>nif</Column>
-                <Column>userblocked</Column>
-                <Column>lastpasswordupdate</Column>
-                <Column>firstlogin</Column>
-                <Column>phonenumber</Column>
-                <Column>description</Column>
-                <Column>short_desc</Column>
-                <Column>id_town</Column>
-                <Column>host</Column>
-                <Column>avatar</Column>
-            </ValidColumns>
-            <Sentence>
-                <![CDATA[
-                    SELECT
-                        #COLUMNS#
-                    FROM
-                        ${mainschema}.tuser
-                    #WHERE#
-                ]]>
-            </Sentence>
-        </Query>
-        -->
+
         <Query id="hostclient">
             <AmbiguousColumns>
                 <AmbiguousColumn name="id_town" prefix="c" databaseName="id_town" />
