@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { OFormComponent, OListComponent, OTextInputComponent } from 'ontimize-web-ngx';
+import { OFormComponent, OGridComponent, OListComponent, OTextInputComponent, OntimizeService } from 'ontimize-web-ngx';
 import { Router } from '@angular/router';
 
 
@@ -10,20 +10,23 @@ import { Router } from '@angular/router';
 })
 export class TownsDetailComponent implements OnInit {
 
- 
+  @ViewChild('form',{static:true}) form:OFormComponent;
   @ViewChild('townnamefield',{static:true}) townnamefield:OTextInputComponent;
   public custom_name:string; 
 
   public arrayActivitiesClient: string[];
-  ontimizeServiceUsers: any;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private ontimizeServiceUsers: OntimizeService) { 
+      this.ontimizeServiceUsers.configureService(this.ontimizeServiceUsers.getDefaultServiceConfiguration('users'));
+    }
 
   ngOnInit() {
   }
 
   onLoad(){
     let idclient = this.form.getComponents().id_client.getValue();
+    console.log(idclient);
     this.ontimizeServiceUsers.query({id_client: idclient}, ['id_activity', 'activity_name'], 'activity_client').subscribe(
       res => {
         if (res.data && res.data.length) {
@@ -33,7 +36,8 @@ export class TownsDetailComponent implements OnInit {
           });
         }
       }      
-    );   
+    ); 
+    console.log(this.arrayActivitiesClient + "patata") 
    }
 
   loadName(){

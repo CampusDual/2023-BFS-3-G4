@@ -1,13 +1,13 @@
-<o-form fxFill service="towns" entity="town" keys="id_town" show-header="no">
+<o-form #form fxFill service="towns" entity="town" keys="id_town" show-header="no">
     <o-text-input attr="id_town" sql-type="INTEGER" enabled="no" oHidden></o-text-input>
     <o-text-input #townnamefield attr="town_name" enabled="no" (onValueChange)="reloadValues($event)"
         oHidden></o-text-input>
 
     <h1 class="town-title">{{ custom_name }}</h1>
-    <o-grid #grid columns="user_;id_client;name;surname;short_desc;avatar" quick-filter-columns="name;surname"
+    <o-grid #grid columns="user_;id_client;name;surname;short_desc;avatar;activity_name" quick-filter-columns="name;surname;activity_name"
         service="users" entity="host" keys="id" parent-keys="id_town" [cols]="3" show-page-size="false"
         page-size-options="4;8;16" grid-item-height="3:4" refresh-button="false" pagination-controls="false"
-        gutter-size="20px" [ngStyle]="{'height':'600px'}" (onClick)="goToHostDetail($event)">
+        gutter-size="20px" [ngStyle]="{'height':'600px'}" (onClick)="goToHostDetail($event)" (onDataLoaded)="onLoad()">
 
         <div class="container">
         <o-grid-item class="hostCard" *ngFor="let list of grid.dataArray">
@@ -23,8 +23,16 @@
                 <div class="short_desc">
                     <span>{{ list.short_desc }}</span>
                 </div>
-                <p>{{ arrayActivitiesClient }}</p>
+                <!-- <mat-chip-list>
+                    <mat-chip class="activitiesChip" *ngFor="let activity of arrayActivitiesClient" [disabled]="false" color="primary">
+                      {{ activity }}
+                    </mat-chip>
+                  </mat-chip-list>
+                  <p>{{ arrayActivitiesClient }}</p>
+              <p>Hola</p> -->
             </o-column>
+            
+              
         </o-grid-item>
     </div>
     </o-grid>

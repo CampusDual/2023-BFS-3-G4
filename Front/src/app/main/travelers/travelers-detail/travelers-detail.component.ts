@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
-import { OFormComponent } from 'ontimize-web-ngx';
+import { OFormComponent, OntimizeService } from 'ontimize-web-ngx';
 import { TravelersReservationComponent } from '../travelers-reservation/travelers-reservation.component';
 
 @Component({
@@ -10,18 +10,38 @@ import { TravelersReservationComponent } from '../travelers-reservation/traveler
   styleUrls: ['./travelers-detail.component.css']
 })
 export class TravelersDetailComponent implements OnInit {
+
   @ViewChild('form',{static:true}) form:OFormComponent;
   
   router: Router;
+  public arrayActivitiesClient: string[];
 
   constructor(
     router: Router,
+    private ontimizeServiceUsers: OntimizeService,
     protected dialog: MatDialog,) { 
     this.router = router;
+    this.ontimizeServiceUsers.configureService(this.ontimizeServiceUsers.getDefaultServiceConfiguration('users'));
   }
 
   ngOnInit() {
   }
+
+
+  onLoad(){
+    let idclient = this.form.getComponents().id_client.getValue();
+    console.log(idclient);
+    this.ontimizeServiceUsers.query({id_client: idclient}, ['id_activity', 'activity_name'], 'activity_client').subscribe(
+      res => {
+        if (res.data && res.data.length) {
+          this.arrayActivitiesClient = [];
+          res.data.forEach(element => {
+            this.arrayActivitiesClient.push(element.activity_name);
+          });
+        }
+      }      
+    );   
+   }
 
   public openReservation(data: any): void {
     let id_client = this.form.getComponents().id_client.getValue();
