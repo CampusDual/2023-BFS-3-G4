@@ -3,19 +3,27 @@
   
 
 
- <p>{{arrayActivitiesClient}}</p>
+ 
     <o-grid #activitiesB attr="activitiesB" service="activities" entity="activity" keys="id_activity"
     columns="activity_name" query-rows="30" show-page-size="true" page-size-options="30" orderable="true" quick-filter="true" cols="10"
-    sortable-columns="activity_name" controls="true" gutter-size="1px" detail-mode="none" (onDataLoaded)="onLoad()">
+    sortable-columns="activity_name" controls="true" gutter-size="1px" detail-mode="none" (onDataLoaded)="onLoad()" pagination-controls="false"
+    controls="false" grid-item-height="40">
     <o-grid-item *ngFor="let item of activitiesB.dataArray">
       <div fxLayout="column" fxLayoutAlign="space-evenly center" class="mat-elevation-z1">
           
  
-          <o-button *ngIf="arrayActivitiesClient.includes(item.activity_name)" type="STROKED" label="{{ item.activity_name }}"layout-padding color="primary"></o-button>
-          <o-button *ngIf="!arrayActivitiesClient.includes(item.activity_name)" type="STROKED" label="{{ item.activity_name }}"layout-padding color="accent"></o-button>
-
+          <o-button *ngIf="arrayActivitiesClient.includes(item.activity_name)"  type="STROKED" 
+          label="{{ item.activity_name }}"layout-padding color="primary" (onClick)="removeActivityFn(item.activity_name)"></o-button>
+          <o-button *ngIf="!arrayActivitiesClient.includes(item.activity_name)" type="STROKED" 
+          label="{{ item.activity_name }}"layout-padding color="accent" (onClick)="addActivityFn(item.activity_name)"></o-button>
+          
+         
                    
       </div>
+     
+    </o-grid-item>
+<o-grid-item>
+        <o-button  type="STROKED" label="Guardar"layout-padding color="accent" (onClick)="saveActivitiesInDataBase()"></o-button>
     </o-grid-item>
   </o-grid>
 

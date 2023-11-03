@@ -17,8 +17,10 @@ export class TravelersHomeComponent implements OnInit {
   validatorsArray: ValidatorFn[] = []; // Array de validadores personalizados
   isPasswordModified: boolean = false; // Indicador de si la contraseña ha sido modificada
   
-  constructor(private auth:AuthService, private ontimizeService: OntimizeService) { 
-    this.ontimizeService.configureService(this.ontimizeService.getDefaultServiceConfiguration('users'));
+  constructor(private auth:AuthService, 
+    private ontimizeServiceUsers: OntimizeService ) { 
+    this.ontimizeServiceUsers.configureService(this.ontimizeServiceUsers.getDefaultServiceConfiguration('users'));
+
 
     this.validatorsArray.push(this.passwordValidator); // Añadir el validador de contraseña al array
   }
@@ -27,8 +29,8 @@ export class TravelersHomeComponent implements OnInit {
   }
 
   onLoad(){
-let idclient = this.form.getComponents().id_client.getValue();
-    this.ontimizeService.query({id_client: idclient}, ['id_activity', 'activity_name'], 'activity_client').subscribe(
+    let idclient = this.form.getComponents().id_client.getValue();
+    this.ontimizeServiceUsers.query({id_client: idclient}, ['id_activity', 'activity_name'], 'activity_client').subscribe(
       res => {
         if (res.data && res.data.length) {
           this.arrayActivitiesClient = [];
@@ -36,11 +38,8 @@ let idclient = this.form.getComponents().id_client.getValue();
             this.arrayActivitiesClient.push(element.activity_name);
           });
         }
-
-        }
-      
-    );
-   
+      }      
+    );   
    }
   
   hostActive: boolean = false;
@@ -88,6 +87,56 @@ let idclient = this.form.getComponents().id_client.getValue();
       return null;
     }
 
+  }
+
+  addActivityFn(a: string){
+   
+   
+
+        if (this.arrayActivitiesClient.length < 5){
+          this.arrayActivitiesClient.push(a);
+          console.log(this.arrayActivitiesClient);
+
+        }
+
+
+    
+  }
+
+  removeActivityFn(a: Object){
+   
+    this.arrayActivitiesClient = this.arrayActivitiesClient.filter(item => item !== a);
+    console.log(this.arrayActivitiesClient);
+
+    
+
+  }
+
+  saveActivitiesInDataBase(){
+    
+
+    let idclient = this.form.getComponents().id_client.getValue();
+    console.log(idclient);
+    this.ontimizeServiceUsers.delete({id_client: idclient}, 'activity_clientMultipleDel').subscribe( res =>
+      {
+        if (res.code == 0){
+          console.log("cambios realizados con éxitos")
+        }else{
+          console.log("error del back:" + res.message)
+        }
+
+
+      });
+
+//      for (let i = 0; i < this.arrayActivitiesClient.length; i++) {
+//       this.ontimizeServiceUsers.insert( {       
+//         "id_client": 7,
+//         "id_activity": 5}
+//     , 'activity_client');
+    
+
+
+// }
   }
 
   // yourFn(event){
