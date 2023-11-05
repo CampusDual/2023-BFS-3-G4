@@ -1,8 +1,38 @@
 .container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+
+.title {
+    width: 70%;
+    height: auto;
+    padding: 10px 50px;
+    background-color: #341777;
+    border: 1px solid #341777;
+    position: relative;
+
+}
+
+.hostName {
+    font-family: 'Patua One', sans-serif;
+    font-size: 40px;
+    margin: 20px 20px 0px 20px;
+    color: white;
+}
+
+.town {
+    font-family: 'Patua One', sans-serif;
+    font-size: 30px;
+    margin: 5px 20px 20px 20px;
+    color: white;
+}
+
+.shortDesc{
+    font-family: 'Rasa', serif;
+    font-size: 25px;
 }
 
 .box {
@@ -10,26 +40,33 @@
     height: auto;
     padding: 50px;
     background-color: white;
-    border: 2px solid transparent;
-    box-shadow: 0px 0px 3px #56535b;
+    /*  border: 2px solid transparent;
+    box-shadow: 0px 0px 3px #56535b; */
     position: relative;
-    border-radius: 5px;
+    border: 1px solid #341777;
 }
 
 .tape {
     position: absolute;
 }
 
-.tape-left {
+
+
+mat-chip-list {
+    margin-bottom: 40px;
+
+    .activitiesChip {
+        color: rgb(90, 29, 232);
+    }
+}
+
+/* .tape-left {
     top: -50px;
-    /* Mueve el cuadro 5px hacia arriba */
     left: -50px;
-    /* Mueve el cuadro 5px hacia la izquierda */
 }
 
 .tape-right {
     bottom: -50px;
-    /* Mueve el cuadro 5px hacia abajo */
-    right: -50px;
-    /* Mueve el cuadro 5px hacia la derecha */
-}
+    right: -50px; 
+} 
+*/

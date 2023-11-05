@@ -46,7 +46,7 @@ o-grid {
     text-align: center;
     width: 100%;
     padding: 10px 0;
-    background-color: #efeafa;
+    background-color: #341777;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,7 +54,7 @@ o-grid {
     font-family: 'Patua One', sans-serif;
     font-size: 50px;
     letter-spacing: 1px;
-    color: rgb(25, 20, 73);
+    color: rgb(210, 190, 250);
 }
 
 

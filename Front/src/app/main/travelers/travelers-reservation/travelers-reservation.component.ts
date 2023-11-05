@@ -15,4 +15,7 @@ export class TravelersReservationComponent implements OnInit {
   ngOnInit() {
   }
 
+  saveMessageInDataBase() {
+    
+  }
 }

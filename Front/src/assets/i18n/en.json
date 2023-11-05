@@ -81,5 +81,8 @@
   "Baloncesto": "Basketball",
   "Astronomía": "Astronomy",
   "ACTIVITIES": "INTERESTS",
-  "ACTSELECT": "Select your interests"
+  "ACTSELECT": "Select your interests",
+  "CONTACT": "Contact",
+  "MESSAGE": "MESSAGE",
+  "SEND": "Send"
 }
