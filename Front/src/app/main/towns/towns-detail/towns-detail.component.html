@@ -13,7 +13,7 @@
                 <o-text-input attr="surname" read-only="no" fxFlex="calc(25% - 32px)"></o-text-input>
                 <o-combo #type attr="activity_name" service="activities" entity="activity"
                     columns="id_activity;activity_name" value-column="activity_name" keys="id_activity"
-                    visible-columns="activity_name" fxFlex="calc(25% - 32px)"></o-combo>
+                    visible-columns="activity_name" fxFlex="calc(25% - 32px)" sort="ASC" searchable="true"></o-combo>
 
                 <o-button attr="clear" [oFilterBuilderClear]="filterBuilder" type="STROKED" label="Clear"
                     layout-padding>
@@ -29,17 +29,16 @@
             [target]="grid"></o-filter-builder>
     </o-column-collapsible>
 
-    <o-grid #grid columns="user_;id_client;name;surname;short_desc;avatar;activities"
-        quick-filter="no" service="users" entity="host" keys="id_client"
-        parent-keys="id_town" [cols]="3" show-page-size="false" page-size-options="4;8;16" grid-item-height="3:4"
-        refresh-button="false" pagination-controls="false" gutter-size="20px" [ngStyle]="{'height':'600px'}"
-        (onClick)="goToHostDetail($event)">
+    <o-grid #grid columns="user_;id_client;name;surname;short_desc;avatar;activities" quick-filter="no" service="users"
+        entity="host" keys="id_client" parent-keys="id_town" [cols]="4" show-page-size="false"
+        page-size-options="4;8;16" grid-item-height="2:3" refresh-button="false" pagination-controls="false"
+        gutter-size="20px" [ngStyle]="{'height':'600px'}" (onClick)="goToHostDetail($event)">
 
         <div class="container">
             <o-grid-item class="hostCard" *ngFor="let list of grid.dataArray">
                 <o-column class="container-item">
                     <div>
-                        <o-image class="image1" attr="image1" data="{{ list.avatar }}" read-only="true"
+                        <o-image class="image1" data="{{ list.avatar }}" read-only="true"
                             show-controls="false">
                         </o-image>
                     </div>

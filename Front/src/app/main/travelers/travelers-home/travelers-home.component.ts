@@ -9,8 +9,8 @@ import { AuthService, OFormComponent, OntimizeService } from 'ontimize-web-ngx';
 })
 export class TravelersHomeComponent implements OnInit {
 
-  @ViewChild('form',{static:true}) form:OFormComponent;
-  @ViewChild('formHost',{static:true}) formHost:OFormComponent;
+  @ViewChild('form', { static: true }) form: OFormComponent;
+  @ViewChild('formHost', { static: true }) formHost: OFormComponent;
 
   public arrayActivitiesClient: string[];
   public arrayActivitiesClientNumber: number[];
@@ -18,9 +18,9 @@ export class TravelersHomeComponent implements OnInit {
 
   validatorsArray: ValidatorFn[] = []; // Array de validadores personalizados
   isPasswordModified: boolean = false; // Indicador de si la contraseña ha sido modificada
-  
-  constructor(private auth:AuthService, 
-    private ontimizeServiceUsers: OntimizeService ) { 
+
+  constructor(private auth: AuthService,
+    private ontimizeServiceUsers: OntimizeService) {
     this.ontimizeServiceUsers.configureService(this.ontimizeServiceUsers.getDefaultServiceConfiguration('users'));
 
 
@@ -28,34 +28,34 @@ export class TravelersHomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
   }
 
-  onLoad(){
+  onLoad() {
     let idclient = this.form.getComponents().id_client.getValue();
-    this.ontimizeServiceUsers.query({id_client: idclient}, ['id_activity', 'activity_name'], 'activity_client').subscribe(
+    this.ontimizeServiceUsers.query({ id_client: idclient }, ['id_activity', 'activity_name'], 'activity_client').subscribe(
       res => {
+        this.arrayActivitiesClient = [];
         if (res.data && res.data.length) {
-          this.arrayActivitiesClient = [];
           this.arrayActivitiesClientNumber = [];
           res.data.forEach(element => {
             this.arrayActivitiesClient.push(element.activity_name);
             this.arrayActivitiesClientNumber.push(element.id_activity);
           });
         }
-      }      
-    );   
-   }
-  
+      }
+    );
+  }
+
   hostActive: boolean = false;
 
   toggleHost(event: any) {
     this.hostActive = event;
   }
-  
-  ngAfterViewInit(){
-    this.form.queryData({user_:this.auth.getSessionInfo().user});
-    this.formHost.queryData({user_:this.auth.getSessionInfo().user});
+
+  ngAfterViewInit() {
+    this.form.queryData({ user_: this.auth.getSessionInfo().user });
+    this.formHost.queryData({ user_: this.auth.getSessionInfo().user });
   }
 
   onPasswordInput() {
@@ -94,25 +94,25 @@ export class TravelersHomeComponent implements OnInit {
 
   }
 
-  addActivityFn(a: string, b: number){
-    
-   
-   
-
-        if (this.arrayActivitiesClient.length < 5 && this.arrayActivitiesClient.length >= 0){
-          this.arrayActivitiesClient.push(a);
-          this.arrayActivitiesClientNumber.push(b);
-          console.log(this.arrayActivitiesClient);
-          console.log(this.arrayActivitiesClientNumber);
-
-        }
+  addActivityFn(a: string, b: number) {
 
 
-    
+
+
+    if (this.arrayActivitiesClient.length < 5 && this.arrayActivitiesClient.length >= 0) {
+      this.arrayActivitiesClient.push(a);
+      this.arrayActivitiesClientNumber.push(b);
+      console.log(this.arrayActivitiesClient);
+      console.log(this.arrayActivitiesClientNumber);
+
+    }
+
+
+
   }
 
-  removeActivityFn(a: Object, b: Object){
-   
+  removeActivityFn(a: Object, b: Object) {
+
     this.arrayActivitiesClient = this.arrayActivitiesClient.filter(item => item !== a);
     this.arrayActivitiesClientNumber = this.arrayActivitiesClientNumber.filter(item => item !== b);
     console.log(this.arrayActivitiesClient);
@@ -120,52 +120,51 @@ export class TravelersHomeComponent implements OnInit {
 
   }
 
-  saveActivitiesInDataBase(){
-    
+  saveActivitiesInDataBase() {
+
 
     let idclient = this.form.getComponents().id_client.getValue();
     console.log(idclient);
 
-   
-
-
-
-    this.ontimizeServiceUsers.update({id_client: idclient}, {activity_ids: this.arrayActivitiesClientNumber  } ,'activity_client').subscribe( res =>
-            {
-              if (res.code == 0){
-                console.log("Cambios realizados con éxito")
-              }else{
-                console.log("Error del back:" + res.message)
-              }
-      
-      
-            });
 
 
 
 
+    this.ontimizeServiceUsers.update({ id_client: idclient }, { activity_ids: this.arrayActivitiesClientNumber }, 'activity_client').subscribe(res => {
+      if (res.code == 0) {
+        console.log("Cambios realizados con éxito")
+      } else {
+        console.log("Error del back:" + res.message)
+      }
+
+
+    });
 
 
 
-//     this.ontimizeServiceUsers.delete({id_client: idclient}, 'activity_clientMultipleDel').subscribe( res =>
-//       {
-//         if (res.code == 0){
-//           console.log("cambios realizados con éxitos")
-//         }else{
-//           console.log("error del back:" + res.message)
-//         }
 
 
-//       });
-
-//      for (let i = 0; i < this.arrayActivitiesClient.length; i++) {
-//       this.ontimizeServiceUsers.insert( {       
-//         "id_client": 7,
-//         "id_activity": 5}
-//     , 'activity_client');   
 
 
-// }
+    //     this.ontimizeServiceUsers.delete({id_client: idclient}, 'activity_clientMultipleDel').subscribe( res =>
+    //       {
+    //         if (res.code == 0){
+    //           console.log("cambios realizados con éxitos")
+    //         }else{
+    //           console.log("error del back:" + res.message)
+    //         }
+
+
+    //       });
+
+    //      for (let i = 0; i < this.arrayActivitiesClient.length; i++) {
+    //       this.ontimizeServiceUsers.insert( {       
+    //         "id_client": 7,
+    //         "id_activity": 5}
+    //     , 'activity_client');   
+
+
+    // }
   }
 
   // yourFn(event){
@@ -175,6 +174,6 @@ export class TravelersHomeComponent implements OnInit {
   //   else if (event.index == 1) {
   //     this.formHost.queryData({user_:this.auth.getSessionInfo().user});
   //   }
-    
+
   // }
 }
