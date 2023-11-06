@@ -37,12 +37,16 @@
           </div>
         </mat-tab>
       </mat-tab-group>
+
       <mat-chip-list>
         <mat-chip class="activitiesChip" *ngFor="let activity of arrayActivitiesClient" [disabled]="false" color="primary">
           {{ activity }}
         </mat-chip>
       </mat-chip-list>
-      <button mat-raised-button color="accent" fxFlex="40" (click)="openReservation()">{{ 'CONTACT' | oTranslate }} {{ nameInput.getValue() }}</button>
+
+      <div class="button-contact">
+        <button mat-raised-button color="accent" fxFlex="40" (click)="openReservation()">{{ 'CONTACT' | oTranslate }} {{ nameInput.getValue() }}</button>
+      </div>
     </o-form>
     <!-- <div class="tape tape-left">
       <img src="../../../assets/images/tape.png" alt="">

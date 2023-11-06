@@ -7,7 +7,28 @@
     width: 100%;
 }
 
-.activitiesChip{
-
+.mat-chip {
+    font-size: 1em; 
+    height: 0px; /* Altura fija para todas las chips */
+    line-height: 5px; /* Alineación vertical del texto dentro de la chip */
+    padding: 0 10px; /* Padding horizontal para mantener el contenido centrado */
+    margin: 0;
+    pointer-events: none; /* Desactiva el efecto hover */
+    background-color: rgb(210, 190, 250);
 }
 
+
+mat-chip:hover {
+background-color: inherit; 
+}
+
+.mat-chip-list {
+display: flex;
+justify-content: center;
+align-items: center; 
+list-style: none;
+padding: 0;
+margin: 0 0 20px; /* Añadir margen inferior */
+width: 100%; 
+box-sizing: border-box;
+}

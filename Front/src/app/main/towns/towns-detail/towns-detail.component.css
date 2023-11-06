@@ -1,5 +1,6 @@
 o-grid {
     margin-top: 20px; 
+    align-items: start;
 }
 
 .image1 {
@@ -8,6 +9,7 @@ o-grid {
     max-width: none;
     margin: 0 auto;
     align-items: center;
+    cursor: pointer;
 }
 
 .container-item:hover {
@@ -39,6 +41,7 @@ o-grid {
     height: 100%;
     margin: 0;
     padding: 0;
+    cursor: pointer;
 }
 
 
@@ -60,7 +63,7 @@ o-grid {
 
 .name-surname {
     margin: 2px 0;
-    font-size: 0.7em;
+    font-size: 0.5em;
     text-align: center;
     width: 100%;
     box-sizing: border-box;
@@ -68,43 +71,53 @@ o-grid {
 
 
 .short_desc {
-    font-size: 0.7em;
+    margin-top: 0px; 
+    font-size: 0.6em;
     color: #4b4b4b;
     width: 98%;
     text-align: justify;
-    height: 70px; /* altura fija para la descripción */
+    height: 70px; 
     overflow: hidden; 
     display: -webkit-box;
     -webkit-box-orient: vertical;
-}
-
-/* .mat-chip-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; 
-    list-style: none; 
-    padding: 0; 
-    margin: 0; 
-    gap: 5px; 
+    margin-bottom: 10px; 
 }
 
 .mat-chip {
-    flex: 0 0 auto; 
-    max-width: 100%;
-} */
-
-/* .activitiesChip {
-    background-color: rgb(210, 190, 250); 
+        font-size: 0.6em; 
+        height: 0px; /* Altura fija para todas las chips */
+        line-height: 5px; /* Alineación vertical del texto dentro de la chip */
+        padding: 0 7px; /* Padding horizontal para mantener el contenido centrado */
+        margin: 0;
+        pointer-events: none; /* Desactiva el efecto hover */
+        background-color: rgb(210, 190, 250);
 }
 
 
-.activitiesChip:hover {
-    background-color: rgb(210, 190, 250); 
-} */
+mat-chip:hover {
+    background-color: inherit; 
+}
+
+.mat-chip-list {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%; 
+    box-sizing: border-box;
+}
+
+.container-item:hover, .activitiesChip:hover {
+    border: none;
+    background-color: inherit;
+    overflow: hidden;
+}
 
 .buttons-container {
-    display: flex;        /* Activa Flexbox */
-    justify-content: center; /* Espacia los botones uniformemente */
+    display: flex;      
+    justify-content: center; 
     flex-wrap: nowrap;
     width: 100%; 
 }
