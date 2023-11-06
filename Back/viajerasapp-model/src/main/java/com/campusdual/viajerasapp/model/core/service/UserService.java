@@ -4,10 +4,10 @@ package com.campusdual.viajerasapp.model.core.service;
 import java.sql.Timestamp;
 import java.util.*;
 
-import com.campusdual.viajerasapp.model.core.dao.ClientActivityDao;
-import com.campusdual.viajerasapp.model.core.dao.ClientActivityMultipleDelDao;
-import com.campusdual.viajerasapp.model.core.dao.ClientDao;
+import com.campusdual.viajerasapp.model.core.dao.*;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.ontimize.jee.common.dto.EntityResultMapImpl;
+import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.Authentication;
@@ -15,7 +15,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.campusdual.viajerasapp.api.core.service.IUserService;
-import com.campusdual.viajerasapp.model.core.dao.UserDao;
 import com.ontimize.jee.common.dto.EntityResult;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 
@@ -35,6 +34,9 @@ public class UserService implements IUserService {
 
 	@Autowired
 	private ClientActivityMultipleDelDao clientActivityMultipleDelDao;
+
+	@Autowired
+	private ReservationDao reservationDao;
 
 	@Autowired
 	private DefaultOntimizeDaoHelper daoHelper;
@@ -157,7 +159,52 @@ public class UserService implements IUserService {
 		return insertId;
 	}
 
+	//----------- Reservation queries -------
+	@Override
+	public EntityResult reservationQuery(Map<String, Object> keyMap, List<String> attrList) {
+		return this.daoHelper.query(reservationDao, keyMap, attrList);
+	}
 
+	@Override
+	public EntityResult reservationInsert(Map<String, Object> attrMap) {
+		String user = getUser();
+		Map<String, Object> clientMap = new HashMap<>();
+		clientMap.put(ClientDao.EMAILREGISTER, user);
+		List<String> clientList = new ArrayList<>();
+		clientList.add(ClientDao.ID);
+		EntityResult travelerEntity = myUserQuery(clientMap, clientList);
+		Object id_traveler = travelerEntity.getRecordValues(0).get(ClientDao.ID);
+		attrMap.put(ReservationDao.ID_CLIENT_TRAVELER, id_traveler);
+		attrMap.put(ReservationDao.STATUS, 3);
+		return this.daoHelper.insert(reservationDao, attrMap);
+	}
+
+	@Override
+	public EntityResult reservationPruebaInsert(ArrayList<Object> arrayList) {
+		String user = getUser();
+		Map<String, Object> clientMap = new HashMap<>();
+		clientMap.put(ClientDao.EMAILREGISTER, user);
+		List<String> clientList = new ArrayList<>();
+		clientList.add(ClientDao.ID);
+		EntityResult travelerEntity = myUserQuery(clientMap, clientList);
+		Object id_traveler = travelerEntity.getRecordValues(0).get(ClientDao.ID);
+		Map<String, Object> attrMap = new HashMap<>();
+		attrMap.put(ReservationDao.ID_CLIENT_TRAVELER, arrayList.get(1));
+		attrMap.put(ReservationDao.MESSAGE, arrayList.get(0));
+		attrMap.put(ReservationDao.STATUS, 3);
+		return this.daoHelper.insert(reservationDao, attrMap);
+	}
+
+	@Override
+	public EntityResult reservationUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
+		return this.daoHelper.update(reservationDao, attrMap, keyMap);
+	}
+
+
+	@Override
+	public EntityResult reservationDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException {
+		return this.daoHelper.delete(this.reservationDao, keyValues);
+	}
 
 
 

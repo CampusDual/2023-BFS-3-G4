@@ -7,6 +7,8 @@ import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,6 +39,7 @@ public class ReservationService implements IReservationService {
 
 
     public EntityResult reservationInsert(Map<String, Object> attrMap) {
+        String user = getUser();
         return this.daoHelper.insert(reservationDao, attrMap);
     }
 
@@ -52,4 +55,8 @@ public class ReservationService implements IReservationService {
     }
 
 
+    public String getUser(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return auth.getName();
+    }
 }
