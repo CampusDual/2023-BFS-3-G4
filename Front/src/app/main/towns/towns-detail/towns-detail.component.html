@@ -4,37 +4,37 @@
         oHidden></o-text-input>
 
     <h1 class="town-title">{{ custom_name }}</h1>
-    <o-grid #grid columns="user_;id_client;name;surname;short_desc;avatar;activity_name" quick-filter-columns="name;surname;activity_name"
-        service="users" entity="host" keys="id" parent-keys="id_town" [cols]="3" show-page-size="false"
-        page-size-options="4;8;16" grid-item-height="3:4" refresh-button="false" pagination-controls="false"
-        gutter-size="20px" [ngStyle]="{'height':'600px'}" (onClick)="goToHostDetail($event)" (onDataLoaded)="onLoad()">
+    <o-grid #grid columns="user_;id_client;name;surname;short_desc;avatar;activities"
+        quick-filter-columns="name;surname;activities" service="users" entity="host" keys="id_client"
+        parent-keys="id_town" [cols]="3" show-page-size="false" page-size-options="4;8;16" grid-item-height="3:4"
+        refresh-button="false" pagination-controls="false" gutter-size="20px" [ngStyle]="{'height':'600px'}"
+        (onClick)="goToHostDetail($event)">
 
         <div class="container">
-        <o-grid-item class="hostCard" *ngFor="let list of grid.dataArray">
-            <o-column class="container-item">
-                <div>
-                    <o-image class="image1" attr="image1" data="{{ list.avatar }}" read-only="true"
-                        show-controls="false">
-                    </o-image>
-                </div>
-                <div class="name-surname">
-                    <h2>{{ list.name + ' ' + list.surname }}</h2>
-                </div>
-                <div class="short_desc">
-                    <span>{{ list.short_desc }}</span>
-                </div>
-                <!-- <mat-chip-list>
-                    <mat-chip class="activitiesChip" *ngFor="let activity of arrayActivitiesClient" [disabled]="false" color="primary">
-                      {{ activity }}
-                    </mat-chip>
-                  </mat-chip-list>
-                  <p>{{ arrayActivitiesClient }}</p>
-              <p>Hola</p> -->
-            </o-column>
-            
-              
-        </o-grid-item>
-    </div>
+            <o-grid-item class="hostCard" *ngFor="let list of grid.dataArray">
+                <o-column class="container-item">
+                    <div>
+                        <o-image class="image1" attr="image1" data="{{ list.avatar }}" read-only="true"
+                            show-controls="false">
+                        </o-image>
+                    </div>
+                    <div class="name-surname">
+                        <h2>{{ list.name + ' ' + list.surname }}</h2>
+                    </div>
+                    <div class="short_desc">
+                        <span>{{ list.short_desc }}</span>
+                    </div>
+                    <mat-chip-list>
+                        <mat-chip class="activitiesChip" *ngFor="let activity of splitActivities(list.activities)" [disabled]="false"
+                            color="primary">
+                            {{ activity }}
+                        </mat-chip>
+                    </mat-chip-list>
+                    <!-- <p>{{ splitActivities(list.activities) }}</p> -->
+                </o-column>
+
+            </o-grid-item>
+        </div>
     </o-grid>
 </o-form>
 

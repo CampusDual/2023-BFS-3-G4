@@ -87,6 +87,7 @@
             <AmbiguousColumns>
                 <AmbiguousColumn name="id_town" prefix="c" databaseName="id_town" />
                 <AmbiguousColumn name="user_" prefix="c" databaseName="user_" />
+                <AmbiguousColumn name="id_client" prefix="c" databaseName="id_client" />
             </AmbiguousColumns>
             <ValidColumns>
                 <Column>user_</Column>
@@ -110,15 +111,20 @@
             <Sentence>
                 <![CDATA[
                     SELECT
-                        #COLUMNS#
+                        #COLUMNS#,string_agg(activity_name,',') as activities
                      FROM
                         ${mainschema}.clients c
                     LEFT JOIN ${mainschema}.tuser tu on
 						c.user_ = tu.user_
 					LEFT JOIN ${mainschema}.towns t on
 						c.id_town = t.id_town
+					LEFT JOIN ${mainschema}.clients_activities ca on
+                        c.id_client = ca.id_client
+                    LEFT JOIN ${mainschema}.activities ac on
+                        ca.id_activity = ac.id_activity
                     #WHERE#
                        AND c.host = true
+                       GROUP BY c.id_client
                     #ORDER#
                 ]]>
             </Sentence>

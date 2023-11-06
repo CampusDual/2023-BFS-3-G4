@@ -77,3 +77,9 @@ o-grid {
     display: -webkit-box;
     -webkit-box-orient: vertical;
 }
+
+.activitiesChip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
