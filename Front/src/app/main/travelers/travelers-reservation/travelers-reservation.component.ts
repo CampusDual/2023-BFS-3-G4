@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { OTextInputComponent, OntimizeService } from 'ontimize-web-ngx';
 
 @Component({
@@ -15,6 +15,8 @@ export class TravelersReservationComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
+    protected dialog: MatDialog,
+    
     private ontimizeServiceUsers: OntimizeService
   ) { 
     this.ontimizeServiceUsers.configureService(this.ontimizeServiceUsers.getDefaultServiceConfiguration('users'));
@@ -24,10 +26,21 @@ export class TravelersReservationComponent implements OnInit {
   }
 
   sendReservation() {
- 
+
+
     this.messageString = this.messagefield.getValue();
-    let id_client_host = this.id_client_host.getValue(); 
+    let id_client_host = this.data.id_client_host;
+    let hashmap: { [key: string]: any } = {};
+    hashmap['message'] = this.messageString;
+    hashmap['id_client_host'] = id_client_host;
+ 
+    console.log(hashmap);
+    
   
-    this.ontimizeServiceUsers.insert([id_client_host,this.messageString],'reservationPrueba').subscribe();
+    this.ontimizeServiceUsers.insert(hashmap,'reservation').subscribe();
+
+    this.dialog.closeAll();
+
+   
   }
 }
