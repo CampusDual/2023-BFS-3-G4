@@ -85,5 +85,8 @@
   "CONTACT": "Contact",
   "MESSAGE": "MESSAGE",
   "SEND": "Send",
-  "FILTERS_HOSTS": "Host filters"
+  "FILTERS_HOSTS": "Host filters",
+  "activity_name": "Activity",
+  "Clear": "Clear",
+  "Filter": "Filter"
 }
