@@ -21,8 +21,12 @@ export class TownsDetailComponent implements OnInit {
   }
 
   splitActivities(activities){
+    // activities es un string tal que asi:
+    // "futbol,musica,baile", este metodo devuelve  
+    // un array con esos datos para poder iterarlo: [futbol, musica, baile]
     if (activities && typeof activities === 'string') {
       const arrayActivities = activities.split(',');
+      
       return arrayActivities;
     } else {
       return [];
@@ -54,7 +58,9 @@ export class TownsDetailComponent implements OnInit {
     }
   }
   goToHostDetail(event) {
+   
     const obj = event;
+   
     type ObjectKey = keyof typeof obj;
     const myVar = 'id_client' as ObjectKey;
     var id_client = obj[myVar];
