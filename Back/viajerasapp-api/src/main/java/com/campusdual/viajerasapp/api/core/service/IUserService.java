@@ -1,6 +1,7 @@
 package com.campusdual.viajerasapp.api.core.service;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -34,6 +35,11 @@ public interface IUserService {
 
 	public EntityResult activity_clientUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap);
 
+	public EntityResult reservationQuery(Map<String, Object> keyMap, List<String> attrList);
+	public EntityResult reservationInsert(Map<String, Object> attrMap);
+	public EntityResult reservationUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap);
+	public EntityResult reservationDelete(Map<String, Object> keyMap);
+	public EntityResult reservationPruebaInsert(ArrayList<Object> arrayList);
 
 
 }
