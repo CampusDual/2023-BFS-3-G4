@@ -10,15 +10,11 @@ import { Router } from '@angular/router';
 })
 export class TownsDetailComponent implements OnInit {
 
-  @ViewChild('grid', { static: true }) grid: OGridComponent;
   @ViewChild('townnamefield', { static: true }) townnamefield: OTextInputComponent;
   public custom_name: string;
 
-  public arrayActivities: string[];
-
   constructor(private router: Router,
     private ontimizeServiceUsers: OntimizeService) {
-    this.ontimizeServiceUsers.configureService(this.ontimizeServiceUsers.getDefaultServiceConfiguration('users'));
   }
 
   ngOnInit() {
@@ -26,8 +22,8 @@ export class TownsDetailComponent implements OnInit {
 
   splitActivities(activities){
     if (activities && typeof activities === 'string') {
-      const partes = activities.split(',');
-      return partes;
+      const arrayActivities = activities.split(',');
+      return arrayActivities;
     } else {
       return [];
     }

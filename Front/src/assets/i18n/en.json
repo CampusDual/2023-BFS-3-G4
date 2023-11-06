@@ -84,5 +84,6 @@
   "ACTSELECT": "Select your interests",
   "CONTACT": "Contact",
   "MESSAGE": "MESSAGE",
-  "SEND": "Send"
+  "SEND": "Send",
+  "FILTERS_HOSTS": "Host filters"
 }
