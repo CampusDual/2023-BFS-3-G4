@@ -78,8 +78,33 @@ o-grid {
     -webkit-box-orient: vertical;
 }
 
-.activitiesChip {
+/* .mat-chip-list {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: center; 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+    gap: 5px; 
+}
+
+.mat-chip {
+    flex: 0 0 auto; 
+    max-width: 100%;
+} */
+
+/* .activitiesChip {
+    background-color: rgb(210, 190, 250); 
+}
+
+
+.activitiesChip:hover {
+    background-color: rgb(210, 190, 250); 
+} */
+
+.buttons-container {
+    display: flex;        /* Activa Flexbox */
+    justify-content: center; /* Espacia los botones uniformemente */
+    flex-wrap: nowrap;
+    width: 100%; 
 }

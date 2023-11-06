@@ -1,5 +1,5 @@
 {
-  "APP_TITLE": "JEE seed",
+  "APP_TITLE": "sheTravel",
   "VERSION": "Versión",
   "EXAMPLE_LOGIN_INFO": "Usuario y contraseña de ejemplo",
   "USERNAME": "Usuario",
@@ -85,5 +85,8 @@
   "CONTACT": "Contacta con",
   "MESSAGE": "MENSAJE",
   "SEND": "Enviar",
-  "FILTERS_HOSTS": "Filtros de anfitriona"
+  "FILTERS_HOSTS": "Filtros de anfitriona",
+  "activity_name": "Actividad",
+  "Clear": "Limpiar",
+  "Filter": "Filtrar"
 }
