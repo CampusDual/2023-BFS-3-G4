@@ -31,7 +31,6 @@ public interface IUserService {
 
 	public EntityResult activity_clientDelete(Map<String, Object> keyMap);
 
-	public EntityResult activity_clientMultipleDelDelete(Map<String, Object> keyMap);
 
 	public EntityResult activity_clientUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap);
 

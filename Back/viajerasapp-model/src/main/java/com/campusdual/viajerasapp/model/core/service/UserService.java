@@ -32,8 +32,7 @@ public class UserService implements IUserService {
 	@Autowired
 	private ClientActivityDao clientActivityDao;
 
-	@Autowired
-	private ClientActivityMultipleDelDao clientActivityMultipleDelDao;
+
 
 	@Autowired
 	private ReservationDao reservationDao;
@@ -137,11 +136,7 @@ public class UserService implements IUserService {
 		return this.daoHelper.delete(clientActivityDao, keyMap);
 	}
 
-	@Override
-	public EntityResult activity_clientMultipleDelDelete(Map<String, Object> keyMap) {
 
-		return this.daoHelper.delete(clientActivityMultipleDelDao, keyMap);
-	}
 
 	@Override
 	public EntityResult activity_clientUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
@@ -274,6 +269,22 @@ public class UserService implements IUserService {
 		return auth.getAuthorities().toArray()[0].toString();
 	}
 
+
+	public Object getUserId(){
+		String user = getUser();
+		Map<String, Object> clientMap = new HashMap<>();
+		//creamos un map y le metemos {"emailregister":"maildeusuario"}
+		clientMap.put(ClientDao.EMAILREGISTER, user);
+		//creamos una lista nueva
+		List<String> clientList = new ArrayList<>();
+		//a esta lista le metemos el nombre de la variable
+		clientList.add(ClientDao.ID);
+		//hacemos una nueva entity que nos permitirá hacer una query
+		EntityResult travelerEntity = myUserQuery(clientMap, clientList);
+		//
+		Object id_client_host = travelerEntity.getRecordValues(0).get(ClientDao.ID);
+		return id_client_host;
+	}
 
 
 }
