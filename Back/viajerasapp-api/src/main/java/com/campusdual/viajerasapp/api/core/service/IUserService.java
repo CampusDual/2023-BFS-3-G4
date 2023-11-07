@@ -42,4 +42,11 @@ public interface IUserService {
 	public EntityResult reservationPruebaInsert(ArrayList<Object> arrayList);
 
 
+
+	public EntityResult reservationSentQuery(Map<String, Object> keyMap, List<String> attrList);
+
+
+	public EntityResult reservationReceivedQuery(Map<String, Object> keyMap, List<String> attrList);
+
+
 }
