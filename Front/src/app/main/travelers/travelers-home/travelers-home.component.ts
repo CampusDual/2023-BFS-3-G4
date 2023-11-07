@@ -15,6 +15,8 @@ export class TravelersHomeComponent implements OnInit {
   public arrayActivitiesClient: string[];
   public arrayActivitiesClientNumber: number[];
 
+  public maxActivitiesReached: boolean = false;
+
 
   validatorsArray: ValidatorFn[] = []; // Array de validadores personalizados
   isPasswordModified: boolean = false; // Indicador de si la contraseña ha sido modificada
@@ -95,50 +97,36 @@ export class TravelersHomeComponent implements OnInit {
   }
 
   addActivityFn(a: string, b: number) {
-
-
-
-
     if (this.arrayActivitiesClient.length < 5 && this.arrayActivitiesClient.length >= 0) {
       this.arrayActivitiesClient.push(a);
       this.arrayActivitiesClientNumber.push(b);
       console.log(this.arrayActivitiesClient);
       console.log(this.arrayActivitiesClientNumber);
-
+      this.maxActivitiesReached = false;
+    } else {
+      this.maxActivitiesReached = true;
+      // Aquí puedes mostrar un mensaje o hacer algo más para notificar al usuario.
     }
-
-
-
   }
 
   removeActivityFn(a: Object, b: Object) {
-
     this.arrayActivitiesClient = this.arrayActivitiesClient.filter(item => item !== a);
     this.arrayActivitiesClientNumber = this.arrayActivitiesClientNumber.filter(item => item !== b);
     console.log(this.arrayActivitiesClient);
     console.log(this.arrayActivitiesClientNumber);
-
   }
 
   saveActivitiesInDataBase() {
-
-
     let idclient = this.form.getComponents().id_client.getValue();
     console.log(idclient);
-
-
-
-
-
     this.ontimizeServiceUsers.update({ id_client: idclient }, { activity_ids: this.arrayActivitiesClientNumber }, 'activity_client').subscribe(res => {
       if (res.code == 0) {
         console.log("Cambios realizados con éxito")
       } else {
         console.log("Error del back:" + res.message)
-      }
+  }
 
-
-    });
+});
 
 
 

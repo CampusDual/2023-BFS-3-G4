@@ -76,11 +76,13 @@ o-grid {
     color: #4b4b4b;
     width: 98%;
     text-align: justify;
-    height: 70px; 
+    height: auto;
+    min-height: 50px;
+    margin-bottom: 5px;
     overflow: hidden; 
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    margin-bottom: 10px; 
+    margin-bottom: 5px; 
 }
 
 .mat-chip {
