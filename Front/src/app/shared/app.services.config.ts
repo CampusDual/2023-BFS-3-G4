@@ -15,8 +15,11 @@ export const SERVICE_CONFIG: Object = {
 
   'reservation': {
     'path': '/reservation'
-  }
+  },
 
+  'communities': {
+    'path': '/communities'
+  }
 
 
 };

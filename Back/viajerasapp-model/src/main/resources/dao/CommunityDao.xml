@@ -2,25 +2,19 @@
 <JdbcEntitySetup xmlns="http://www.ontimize.com/schema/jdbc"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
-                 catalog=""  table="provinces" datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
+                 catalog=""  table="communities" datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
     <DeleteKeys>
-        <Column>id_province</Column>
+        <Column>id_community</Column>
     </DeleteKeys>
     <UpdateKeys>
-        <Column>id_province</Column>
+        <Column>id_community</Column>
     </UpdateKeys>
-    <GeneratedKey>id_province</GeneratedKey>
+    <GeneratedKey>id_community</GeneratedKey>
     <Queries>
         <Query id="default">
-            <AmbiguousColumns>
-                <AmbiguousColumn name="id_community"
-                                 prefix="c" />
-                <AmbiguousColumn name="id_community"
-                                 prefix="p" />
-            </AmbiguousColumns>
             <ValidColumns>
-                <Column>province_name</Column>
                 <Column>community_name</Column>
+                <Column>id_community</Column>
             </ValidColumns>
             <Sentence>
                 <![CDATA[
@@ -28,8 +22,6 @@
 						#COLUMNS#
 					FROM
 						public.communities c
-					LEFT JOIN public.provinces p on
-						p.id_community = c.id_community
 					#WHERE#
 					#ORDER#
 		         ]]>

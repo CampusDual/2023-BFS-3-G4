@@ -1,9 +1,19 @@
 <div fxFill fxLayout="column" fxLayoutAlign="start">
-  <o-table attr="destinationTable" service="towns" entity="town" keys="id_town" 
-    columns="id_town;town_name;id_province;province_name;id_community;community_name"
-    visible-columns="community_name;province_name;town_name" query-rows="20"
-    delete-button="no"
-    insert-button="no"
-    refresh-button="no">
-  </o-table>
+  <o-grid #grid columns="id_community;community_name" quick-filter-columns="community_name" 
+          service="communities" entity="community" keys="id_community" [cols]="6"
+          show-page-size="false" page-size-options="4;8;16"
+          refresh-button="false" pagination-controls="true" 
+          gutter-size="20px" [ngStyle]="{'height':'600px'}">
+
+    <o-grid-item class="CommunityCard" *ngFor="let list of grid.dataArray">
+      <o-column class="container-item">
+        <!-- <o-image class="community-image" attr="community_image" 
+                 data="{{ getImagePath(list.community_name) }}" 
+                 read-only="true" 
+                 show-controls="false"></o-image> -->
+        <div class="community-name">{{ list.community_name }}</div>
+      </o-column>
+    </o-grid-item>
+
+  </o-grid>
 </div>
