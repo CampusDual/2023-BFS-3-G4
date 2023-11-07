@@ -6,7 +6,7 @@
         <mat-tab label="{{ 'PROFILE_TAB' | oTranslate }}">
             <o-form #form attr="profile_detail" service="users" entity="myUser" fxLayout="column" show-header="yes"
                 header-actions="U" #oDetailForm keys="user_" keys-sql-types="VARCHAR" show-header-navigation="yes">
-                
+
                 <o-column title="PROFILE_DATA" layout-align="start stretch" fxFlex="80" icon="account_circle">
                     <o-image attr="avatar" label="AVATAR" fxFlex="80" width="350px"
                         empty-image="assets/images/no-image.png" sql-type="OTHERS"></o-image>
@@ -18,12 +18,13 @@
                         max-length="250"></o-textarea-input>
                 </o-column>
                 <o-column title="ACTIVITIES" layout-align="start stretch" fxFlex="80" icon="pool">
-                    
+
                     <mat-chip-list fxFlex="80">
-                        <mat-chip class="activitiesChip" *ngFor="let activity of arrayActivitiesClient" [disabled]="false" color="primary">
-                          {{ activity }}
+                        <mat-chip class="activitiesChip" *ngFor="let activity of arrayActivitiesClient"
+                            [disabled]="false" color="primary">
+                            {{ activity }}
                         </mat-chip>
-                      </mat-chip-list>
+                    </mat-chip-list>
 
                     <o-column-collapsible title="ACTSELECT" layout-align="start stretch" fxFlex="80">
                         <o-grid class="activitiesGrid" #activitiesB attr="activitiesB" service="activities"
@@ -31,9 +32,9 @@
                             show-page-size="no" quick-filter="false" cols="6" sortable-columns="activity_name"
                             gutter-size="5px" detail-mode="none" (onDataLoaded)="onLoad()" pagination-controls="false"
                             controls="false" grid-item-height="60">
-                            
+
                             <o-grid-item *ngFor="let item of activitiesB.dataArray" show-page-size="false">
-                                
+
                                 <div fxLayout="column" fxLayoutAlign="space-evenly center">
                                     <o-button class="activitiesButton"
                                         *ngIf="arrayActivitiesClient.includes(item.activity_name)" type="STROKED"
@@ -106,19 +107,48 @@
 
         <!-- Pestaña para gestionar reservas -->
         <mat-tab label="{{'RESERVATION_TAB'| oTranslate }}">
-            <div fxFill fxLayout="column" fxLayoutAlign="start">
-                <o-table #formReservation attr="reservation" service="users" entity="reservationSent"
-                    keys="message" columns="id_reservation;id_client_traveler;name_traveler;id_client_host;name_host;status_name;message;id_status;
-                        surname_traveler;email_traveler;surname_host;email_host;phonenumber_host"
-                    visible-columns="name_host;message;status_name"
-                    query-rows="10">
-                </o-table>
-                <o-table #formReservation attr="reservation" service="users" entity="reservationReceived"
+            <div fxFill fxLayout="column" fxLayoutAlign="start" class="container">
+                <o-grid #formReservation attr="reservation" service="users" entity="reservationSent"
+                    keys="id_reservation"
+                    columns="name_traveler;surname_traveler;name_host;surname_host;message;status_name;" query-rows="8"
+                    show-page-size="true" page-size-options="4;8;16" orderable="true" quick-filter="true"
+                    visible-columns="name_host;message;status_name" controls="true" gutter-size="18px"
+                    detail-mode="none">
+                    <o-grid-item *ngFor="let list of formReservation.dataArray">
+                        <div class="message" fxLayout="column" fxLayoutAlign="space-evenly center">
+                            <span><b>Mensaje de: {{ list.name_traveler }} {{list.surname_traveler}}</b></span>
+                            <span>Mensaje: {{ list.message }}</span>
+                            <div>
+                                <button mat-raised-button color="accent" fxFlex="25" (click)="verReserva()">ver</button>
+                            </div>
+
+                        </div>
+                    </o-grid-item>
+                </o-grid>
+                <!-- 
+                <o-grid #employeesGrid attr="employeesGrid" service="employees" entity="employee" keys="EMPLOYEEID"
+                    columns="EMPLOYEEID;EMPLOYEENAME;EMPLOYEESURNAME;EMPLOYEEPHOTO;EMPLOYEEADDRESS;EMPLOYEESTARTDATE;EMPLOYEEEMAIL;OFFICEID;NAME;EMPLOYEETYPEID;EMPLOYEETYPENAME"
+                    query-rows="8" show-page-size="true" page-size-options="4;8;16" orderable="true" quick-filter="true"
+                    sortable-columns="EMPLOYEENAME;EMPLOYEESURNAME;EMPLOYEEEMAIL" controls="true" gutter-size="18px"
+                    detail-mode="none">
+                    <o-grid-item *ngFor="let list of employeesGrid.dataArray">
+                        <div (click)="openDetail(list)" fxLayout="column" fxLayoutAlign="space-evenly center"
+                            class="mat-elevation-z1">
+                            <img [src]="getImageSrc(list.EMPLOYEEPHOTO)" width="144px" height="200px">
+                            <span><b>{{ list.EMPLOYEENAME }} {{list.EMPLOYEESURNAME}}</b></span>
+                            <span><i>{{ list.EMPLOYEETYPENAME }}</i></span>
+                            <span>{{ list.NAME }}</span>
+                        </div>
+                    </o-grid-item>
+                </o-grid> -->
+
+
+                <!-- <o-grid #formReservation attr="reservation" service="users" entity="reservationReceived"
                     keys="id_reservation" columns="id_client_traveler;id_reservation;name_traveler;id_client_host;name_host;status_name;message;id_status;
                         surname_traveler;email_traveler;surname_host;email_host;phonenumber_host"
                     visible-columns="name_traveler;message;status_name"
                     query-rows="10">
-                </o-table>
+                </o-grid> -->
             </div>
         </mat-tab>
 

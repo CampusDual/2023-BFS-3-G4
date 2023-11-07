@@ -32,3 +32,9 @@ margin: 0 0 20px; /* Añadir margen inferior */
 width: 100%; 
 box-sizing: border-box;
 }
+
+.message{
+    height: 300px;
+    width: 300px;
+    border: 1px solid black;
+}
