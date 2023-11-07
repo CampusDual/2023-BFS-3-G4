@@ -13,10 +13,7 @@
     <Queries>
         <Query id="default">
             <AmbiguousColumns>
-                <AmbiguousColumn name="id_community"
-                                 prefix="c" />
-                <AmbiguousColumn name="id_community"
-                                 prefix="p" />
+                <AmbiguousColumn name="id_community" prefix="c" databaseName="id_community" />
             </AmbiguousColumns>
             <ValidColumns>
                 <Column>province_name</Column>
@@ -29,7 +26,7 @@
 					FROM
 						public.communities c
 					LEFT JOIN public.provinces p on
-						p.id_community = c.id_community
+						c.id_community = p.id_community
 					#WHERE#
 					#ORDER#
 		         ]]>
