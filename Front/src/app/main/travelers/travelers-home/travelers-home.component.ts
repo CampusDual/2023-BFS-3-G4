@@ -38,8 +38,8 @@ export class TravelersHomeComponent implements OnInit {
     this.ontimizeServiceUsers.query({ id_client: idclient }, ['id_activity', 'activity_name'], 'activity_client').subscribe(
       res => {
         this.arrayActivitiesClient = [];
+        this.arrayActivitiesClientNumber = [];
         if (res.data && res.data.length) {
-          this.arrayActivitiesClientNumber = [];
           res.data.forEach(element => {
             this.arrayActivitiesClient.push(element.activity_name);
             this.arrayActivitiesClientNumber.push(element.id_activity);
