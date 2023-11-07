@@ -104,17 +104,46 @@
             </o-form>
         </mat-tab>
 
-        <!-- Pestaña para habilitar servicios de las anfitrionas -->
+        <!-- Pestaña para gestionar reservas -->
         <mat-tab label="{{'RESERVATION_TAB'| oTranslate }}">
             <div fxFill fxLayout="column" fxLayoutAlign="start">
-                <o-table #formReservation attr="reservation" service="reservation" entity="reservation"
-                    keys="id_reservation" columns="id_reservation;id_client_traveler;name_traveler;id_client_host;name_host;status_name;message;id_status;
+                <o-table #formReservation attr="reservation" service="users" entity="reservationSent"
+                    keys="message" columns="id_reservation;id_client_traveler;name_traveler;id_client_host;name_host;status_name;message;id_status;
                         surname_traveler;email_traveler;surname_host;email_host;phonenumber_host"
-                    visible-columns="id_reservation;id_client_traveler;name_traveler;id_client_host;name_host;status_name;message"
+                    visible-columns="name_host;message;status_name"
+                    query-rows="10">
+                </o-table>
+                <o-table #formReservation attr="reservation" service="users" entity="reservationReceived"
+                    keys="id_reservation" columns="id_client_traveler;id_reservation;name_traveler;id_client_host;name_host;status_name;message;id_status;
+                        surname_traveler;email_traveler;surname_host;email_host;phonenumber_host"
+                    visible-columns="name_traveler;message;status_name"
                     query-rows="10">
                 </o-table>
             </div>
         </mat-tab>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <!-- Pestaña para habilitar servicios de las anfitrionas -->
         <!-- <mat-tab label="HOUSES">
