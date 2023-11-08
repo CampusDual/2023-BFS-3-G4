@@ -12,7 +12,7 @@ export class TownsHomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  getImagePath(communityName: string): string {
+  getImagePath(townName: string): string {
     // Formatear nombres de las imagenes de ciudades.
     const formatName = (name: string) => {
         // Obviar las tildes y otros caracteres especiales
@@ -23,7 +23,8 @@ export class TownsHomeComponent implements OnInit {
         return name.toLowerCase().replace(/[\s\W]+/g, '_');
     };
 
-    return 'assets/images/community_image/${formatName(communityName)}.png';
+    return `assets/images/towns_image/${formatName(townName)}.png`;
   }
+
 
 }

@@ -1,17 +1,18 @@
 <div fxFill fxLayout="column" fxLayoutAlign="start">
-  <o-grid #grid columns="id_community;community_name" quick-filter-columns="community_name" 
-          service="communities" entity="community" keys="id_community" [cols]="6"
+  <o-grid #grid columns="id_town;town_name;province_name" quick-filter-columns="town_name;province_name" 
+          service="towns" entity="town" keys="id_town" [cols]="6" grid-item-height="3:4"
           show-page-size="false" page-size-options="4;8;16"
           refresh-button="false" pagination-controls="true" 
           gutter-size="20px" [ngStyle]="{'height':'600px'}">
 
-    <o-grid-item class="CommunityCard" *ngFor="let list of grid.dataArray">
+    <o-grid-item class="townCard" *ngFor="let list of grid.dataArray">
       <o-column class="container-item">
-        <!-- <o-image class="community-image" attr="community_image" 
-                 data="{{ getImagePath(list.community_name) }}" 
+        <o-image class="town-image" attr="town_image" 
+                 data="{{ getImagePath(list.town_name) }}" 
                  read-only="true" 
-                 show-controls="false"></o-image> -->
-        <div class="community-name">{{ list.community_name }}</div>
+                 show-controls="false"></o-image>
+        <div class="town-name">{{ list.town_name }}</div>
+        <div class="province-name">{{ list.province_name }}</div>
       </o-column>
     </o-grid-item>
 

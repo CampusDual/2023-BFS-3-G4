@@ -1,0 +1,41 @@
+o-grid {
+    row-gap: 10px;
+}
+
+.townCard:hover {
+    border: 5px solid transparent;
+    display: grid;
+    place-items: center;
+    
+}
+
+.town-image::after { /* Velo sobre foto */
+    content: ""; /* Para que se muestre se muestre */
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.10); /* Opacidad blanco */
+    /* background-color: rgba(50, 50, 50, 0.10); /* Opacidad negro todo el cuadro */
+    pointer-events: none;
+}
+
+.town-image {
+    width: 100%; 
+    max-height: 220px; 
+    object-fit: cover;
+  }
+  
+.town-name {
+    font-weight: bold;
+    font-size: 1em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  
+.province-name {
+    font-size: 0.8em;
+    text-align: center;
+  }
