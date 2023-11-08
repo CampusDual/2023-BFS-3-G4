@@ -108,7 +108,7 @@
         </mat-tab>
 
         <!-- Pestaña para gestionar reservas -->
-        <mat-tab label="{{'RESERVATION_TAB'| oTranslate }}">
+        <mat-tab label="{{ 'RESERVATION_REDB_TAB' | oTranslate }}">
             <!-- <div fxFill fxLayout="column" fxLayoutAlign="start">
                 <o-table #formReservation attr="reservation" service="users" entity="reservationSent" keys="message"
                     columns="id_reservation;id_client_traveler;name_traveler;id_client_host;name_host;status_name;message;id_status;
@@ -121,25 +121,32 @@
                     visible-columns="name_traveler;message;status_name" query-rows="10">
                 </o-table> -->
 
-            <div fxFill fxLayout="column" fxLayoutAlign="start" class="container">
-                <o-grid #formReservation attr="reservation" service="users" entity="reservationSent"
+            
+                <o-grid #formReservation attr="reservation" service="users" entity="reservationReceived"
                     keys="id_reservation"
-                    columns="name_traveler;surname_traveler;name_host;surname_host;message;status_name;" query-rows="8"
-                    show-page-size="true" page-size-options="4;8;16" orderable="true" quick-filter="true"
-                    visible-columns="name_host;message;status_name" controls="true" gutter-size="18px"
-                    detail-mode="none">
-                    <o-grid-item *ngFor="let list of formReservation.dataArray">
-                        <div class="message" fxLayout="column" fxLayoutAlign="space-evenly center">
-                            <span><b>Mensaje de: {{ list.name_traveler }} {{list.surname_traveler}}</b></span>
-                            <span>Mensaje: {{ list.message }}</span>
-                            <div>
-                                <button mat-raised-button color="accent" fxFlex="25" (click)="verReserva()">ver</button>
-                            </div>
+                    columns="name_traveler;surname_traveler;name_host;surname_host;message;status_name;" 
+                    query-rows="8"
+                    
+                    refresh-button="no"
+                    quick-filter="true" 
+                    visible-columns="name_host;message;status_name" 
+                    
+                    [cols]="1" 
+                    grid-item-height="50px" 
+                    gutter-size="1px">
+                    <o-grid-item *ngFor="let list of formReservation.dataArray" >
+                        <o-column layout-padding fxFlex="20"  class="travelerName">De: {{ list.name_traveler }}
+                            {{list.surname_traveler}}</o-column>
+                        <o-column layout-padding fxFlex="55" max-length="5" class="travelerMsg">Mensaje: {{ list.message }}</o-column>
+                        <o-column layout-padding fxFlex="15" class="date">fecha</o-column>
+                        <o-column layout-padding fxFlex="5" class="show" ><mat-icon class="icon" svgIcon="ontimize:visibility"></mat-icon></o-column>
 
-                        </div>
+                        <!-- <div><button mat-raised-button color="accent" fxFlex="25" (click)="verReserva()">ver</button></div> -->
+
                     </o-grid-item>
                 </o-grid>
-                <!-- 
+            
+            <!-- 
                 <o-grid #employeesGrid attr="employeesGrid" service="employees" entity="employee" keys="EMPLOYEEID"
                     columns="EMPLOYEEID;EMPLOYEENAME;EMPLOYEESURNAME;EMPLOYEEPHOTO;EMPLOYEEADDRESS;EMPLOYEESTARTDATE;EMPLOYEEEMAIL;OFFICEID;NAME;EMPLOYEETYPEID;EMPLOYEETYPENAME"
                     query-rows="8" show-page-size="true" page-size-options="4;8;16" orderable="true" quick-filter="true"
@@ -157,14 +164,37 @@
                 </o-grid> -->
 
 
-                <!-- <o-grid #formReservation attr="reservation" service="users" entity="reservationReceived"
+            <!-- <o-grid #formReservation attr="reservation" service="users" entity="reservationReceived"
                     keys="id_reservation" columns="id_client_traveler;id_reservation;name_traveler;id_client_host;name_host;status_name;message;id_status;
                         surname_traveler;email_traveler;surname_host;email_host;phonenumber_host"
                     visible-columns="name_traveler;message;status_name"
                     query-rows="10">
                 </o-grid> -->
-            </div>
+
         </mat-tab>
+
+        <mat-tab label="{{ 'RESERVATION_SENT_TAB' | oTranslate }}"></mat-tab>
+       
+
+
+
+
+        <!--
+            <div fxFill fxLayout="column" fxLayoutAlign="start" class="container">
+  <o-grid #formReservation attr="reservation" service="users" entity="reservationSent"
+      keys="id_reservation"
+      columns="name_traveler;surname_traveler;name_host;surname_host;message;status_name;" query-rows="8"
+      orderable="true" quick-filter="true"
+      visible-columns="name_host;message;status_name" controls="true" gutter-size="0" Elimina el espacio entre las filas 
+      detail-mode="none" [cols]=1 grid-item-height="auto"> Ajusta la altura automáticamente 
+      <o-grid-item *ngFor="let list of formReservation.dataArray" class="o-grid__row">
+        <o-column layout-padding class="o-grid__item travelerName">De: {{ list.name_traveler }} {{list.surname_traveler}}</o-column>
+        <o-column layout-padding class="o-grid__item travelerMsg">Mensaje: {{ list.message }}</o-column>
+      </o-grid-item>
+    </o-grid>
+  </div>
+  
+        
 
 
 
