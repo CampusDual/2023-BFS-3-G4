@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ValidatorFn } from '@angular/forms';
 import { AuthService, OFormComponent, OSnackBarConfig, SnackBarService, OntimizeService, OTranslateHttpLoader } from 'ontimize-web-ngx';
+import { MatDialog } from '@angular/material';
+import { TravelersReservationDetailComponent } from '../travelers-reservation/travelers-reservation-detail/travelers-reservation-detail.component';
 
 @Component({
   selector: 'app-travelers-home',
@@ -24,7 +26,8 @@ export class TravelersHomeComponent implements OnInit {
 
   constructor(private auth: AuthService,
     private ontimizeServiceUsers: OntimizeService,
-    private snackBarService: SnackBarService) {
+    private snackBarService: SnackBarService,
+    protected dialog: MatDialog) {
     this.ontimizeServiceUsers.configureService(this.ontimizeServiceUsers.getDefaultServiceConfiguration('users'));
 
 
@@ -138,51 +141,15 @@ export class TravelersHomeComponent implements OnInit {
     });
   }
 
-  // showSnackBar(e: Event): void {
-  //   const config: OSnackBarConfig = {
-  //     action: 'SNACKBAR.ACTION',
-  //     milliseconds: 5000,
-  //     icon: 'android',
-  //     iconPosition: 'left'
-  //   };
-  //   this.snackBarService.open('SNACKBAR.TEXT', config);
-  // }
+  public verReserva(data: any): void {
+   
+    this.dialog.open(TravelersReservationDetailComponent, {
+      
+      height: '600px',
+      width: '550px',
+      data: {
+        
+      },
+    });
+  }
 }
-
-
-
-
-
-
-
-    //     this.ontimizeServiceUsers.delete({id_client: idclient}, 'activity_clientMultipleDel').subscribe( res =>
-    //       {
-    //         if (res.code == 0){
-    //           console.log("cambios realizados con éxitos")
-    //         }else{
-    //           console.log("error del back:" + res.message)
-    //         }
-
-
-    //       });
-
-    //      for (let i = 0; i < this.arrayActivitiesClient.length; i++) {
-    //       this.ontimizeServiceUsers.insert( {       
-    //         "id_client": 7,
-    //         "id_activity": 5}
-    //     , 'activity_client');   
-
-
-    // }
-  // }
-
-  // yourFn(event){
-  //   if (event.index == 0) {
-  //     this.form.queryData({user_:this.auth.getSessionInfo().user});
-  //   }
-  //   else if (event.index == 1) {
-  //     this.formHost.queryData({user_:this.auth.getSessionInfo().user});
-  //   }
-
-  // }
-// }

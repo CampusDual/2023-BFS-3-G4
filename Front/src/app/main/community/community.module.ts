@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CommunityRoutingModule } from './community-routing.module';
@@ -12,7 +12,8 @@ import { CommunityDetailComponent } from './community-detail/community-detail.co
   imports: [
     CommonModule,
     CommunityRoutingModule,
-    OntimizeWebModule
-  ]
+    OntimizeWebModule,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class CommunityModule { }
