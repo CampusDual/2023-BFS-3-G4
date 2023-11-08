@@ -33,8 +33,27 @@ width: 100%;
 box-sizing: border-box;
 }
 
-.message{
-    height: 300px;
-    width: 300px;
-    border: 1px solid black;
+
+.travelerName{
+    background-color: rgb(45, 13, 120);
+    color: white;
+    font-size: small;
+}
+.travelerMsg{
+    background-color: rgb(244, 240, 240); 
+    font-size: small;
+}
+
+.date{
+    background-color: rgb(45, 13, 120);
+    color: white;
+    font-size: small;
+}
+
+.show{
+    background-color: rgb(244, 240, 240);
+    
+}
+mat-icon{
+    height: 20px;
 }

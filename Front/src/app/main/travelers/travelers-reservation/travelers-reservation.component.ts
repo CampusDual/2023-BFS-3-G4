@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material';
-import { OTextInputComponent, OntimizeService } from 'ontimize-web-ngx';
+import { ODateInputComponent, OTextInputComponent, OntimizeService } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-travelers-reservation',
@@ -11,6 +11,7 @@ export class TravelersReservationComponent implements OnInit {
 
   @ViewChild('message', { static: true }) messagefield: OTextInputComponent;
   @ViewChild('id_client_host', { static: true }) id_client_host: OTextInputComponent;
+  @ViewChild('date', { static: true }) date: ODateInputComponent;
   public messageString:string;
 
   constructor(
@@ -30,9 +31,13 @@ export class TravelersReservationComponent implements OnInit {
 
     this.messageString = this.messagefield.getValue();
     let id_client_host = this.data.id_client_host;
+    let date = this.date.getValueAsDate();
+    console.log(date);
+
     let hashmap: { [key: string]: any } = {};
     hashmap['message'] = this.messageString;
     hashmap['id_client_host'] = id_client_host;
+    hashmap['reservation_date'] = date;
  
     console.log(hashmap);
     
