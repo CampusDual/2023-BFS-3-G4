@@ -3,7 +3,7 @@
   <div class="header-title">Encuentra tu destino</div>
 
   <o-grid #grid columns="id_community;community_name" quick-filter="no" service="communities" entity="community"
-    keys="id_community" [cols]="5" grid-item-height="3:4" show-page-size="false" page-size-options="4;8;16"
+    keys="id_community" [cols]="5" show-page-size="false" page-size-options="4;8;16"
     refresh-button="false" pagination-controls="true" gutter-size="1px" [ngStyle]="{'height':'600px'}">
 
     <o-grid-item class="communityCard" *ngFor="let list of grid.dataArray">
@@ -13,6 +13,18 @@
             read-only="true" show-controls="false"></o-image>
         </a>
         <div class="community-name">{{ list.community_name }}</div>
+      </o-column>
+    </o-grid-item>
+    <o-grid-item class="communityCard">
+      <o-column class="container-item">
+        <a [routerLink]="['/main/towns']">
+          <!-- <div class="community-all">
+            <img src="assets/images/community_image/all_communities.png" alt="Todas_las_comunidades">
+          </div> -->
+          <o-image class="community-image" attr="community_all" data="{{ getImageAllComumunity('all_communities') }}"
+            read-only="true" show-controls="false"></o-image>
+        </a>
+        <div class="community-name">Todas las ciudades</div>
       </o-column>
     </o-grid-item>
 

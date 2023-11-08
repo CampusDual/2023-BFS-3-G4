@@ -27,4 +27,9 @@ export class CommunityHomeComponent implements OnInit {
 
   }
 
+  // Método para imagen de Todas las ciudades
+  getImageAllComumunity(imageName: string): string {
+    return `assets/images/community_image/${imageName}.png`;
+  }
+
 }

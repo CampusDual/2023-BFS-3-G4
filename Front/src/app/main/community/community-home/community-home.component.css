@@ -1,5 +1,5 @@
 o-grid {
-    margin-top: 10px; 
+    margin-top: 10px;
     align-items: start;
 }
 
@@ -11,13 +11,13 @@ o-grid {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     font-family: 'Noto Sans', sans-serif;
     font-weight: bold;
     font-size: 50px;
     letter-spacing: 1px;
     color: rgb(210, 190, 250);
-  }
+}
 
 .communityCard:hover {
     border: 5px solid transparent;
@@ -27,38 +27,65 @@ o-grid {
 }
 
 .container-item {
-    width: 100%; 
+    width: 100%;
 }
 
-.community-image::after { /* Velo sobre foto */
-    content: ""; /* Para que se muestre se muestre */
+.community-image::after {
+    /* Velo sobre foto */
+    content: "";
+    /* Para que se muestre se muestre */
     display: block;
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(255, 255, 255, 0.10); /* Opacidad blanco */
+    background-color: rgba(255, 255, 255, 0.10);
+    /* Opacidad blanco */
     /* background-color: rgba(50, 50, 50, 0.10); /* Opacidad negro todo el cuadro */
     pointer-events: none;
 }
 
 .community-image {
-    width: 100%; 
+    width: 100%;
     height: auto;
     object-fit: cover;
-  }
-  
+}
+
+.all-community-image::after {
+    /* Velo sobre foto */
+    content: "";
+    /* Para que se muestre*/
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.10);
+    /* Opacidad blanco */
+    /* background-color: rgba(50, 50, 50, 0.10); /* Opacidad negro todo el cuadro */
+    pointer-events: none;
+}
+
+.all-community-image {
+    width: 92%;
+    height: auto;
+    object-fit: cover;
+    margin-left: 12px;
+    margin-top: 6px;
+}
+
 .community-name {
     font-family: 'Noto Sans', sans-serif;
     font-weight: bold;
     font-size: 1.8em;
     text-transform: uppercase;
-    color: white; 
+    color: white;
     position: absolute;
-    top: 50%; 
-    left: 50%; 
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     width: 100%;
-  }
+}
