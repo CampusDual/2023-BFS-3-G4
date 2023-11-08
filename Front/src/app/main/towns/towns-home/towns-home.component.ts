@@ -26,5 +26,6 @@ export class TownsHomeComponent implements OnInit {
     return `assets/images/towns_image/${formatName(townName)}.png`;
   }
 
+  
 
 }

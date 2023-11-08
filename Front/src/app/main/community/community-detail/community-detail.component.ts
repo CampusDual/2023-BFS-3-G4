@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OntimizeService } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-community-detail',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommunityDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ontimizeServiceUsers: OntimizeService) { 
+    this.ontimizeServiceUsers.configureService(this.ontimizeServiceUsers.getDefaultServiceConfiguration('users'));
+  }
 
   ngOnInit() {
   }
@@ -24,6 +27,11 @@ export class CommunityDetailComponent implements OnInit {
     };
 
     return `assets/images/towns_image/${formatName(townName)}.png`;
+  }
+
+  getHostNumber (){
+    // this.ontimizeServiceUsers.query({"id_town": idtown}, ['id_activity', 'activity_name'], 'activity_client').subscribe(
+      console.log("Hola");
   }
 
 }

@@ -15,6 +15,7 @@
                 <AmbiguousColumns>
                         <AmbiguousColumn name="id_province" prefix="p" databaseName="id_province"/>
                         <AmbiguousColumn name="id_community" prefix="c" databaseName="id_community"/>
+                        <AmbiguousColumn name="id_town" prefix="t" databaseName="id_town"/>
                 </AmbiguousColumns>
                 <ValidColumns>
                         <Column>id_town</Column>
@@ -26,16 +27,46 @@
                 <Sentence>
                         <![CDATA[
 					SELECT
-						#COLUMNS#
+						#COLUMNS#, COUNT(cl.id_client) as hostamount
 					FROM
 						${mainschema}.towns t
 					LEFT JOIN ${mainschema}.provinces p on
 						t.id_province = p.id_province
 					LEFT JOIN ${mainschema}.communities c on
 						p.id_community = c.id_community
+					LEFT JOIN ${mainschema}.clients cl on
+						t.id_town = cl.id_town
+					AND cl.host = true
 					#WHERE#
+					GROUP BY t.id_town, p.id_province, c.id_community
 					#ORDER#
 		         ]]>
+                </Sentence>
+        </Query>
+        <Query id="hostcount">
+                <AmbiguousColumns>
+                        <AmbiguousColumn name="id_town" prefix="t" databaseName="id_town" />
+                </AmbiguousColumns>
+                <ValidColumns>
+                        <!-- columnas comunes a dos o más tablas -->
+                        <Column>id_client</Column>
+                        <Column>id_town</Column>
+                        <!-- columnas exclusivas de Clients -->
+                        <Column>town_name</Column>
+                </ValidColumns>
+                <Sentence>
+                        <![CDATA[
+                    SELECT
+                        COUNT(#COLUMNS#) as hostnumber
+                    FROM
+                     ${mainschema}.towns t
+                    LEFT JOIN ${mainschema}.clients c on
+						t.id_town = c.id_town
+                    #WHERE#
+                    AND c.host = true
+                    GROUP BY t.id_town
+                    #ORDER#
+                ]]>
                 </Sentence>
         </Query>
 </Queries>
