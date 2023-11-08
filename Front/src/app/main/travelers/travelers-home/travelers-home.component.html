@@ -5,8 +5,9 @@
         <!-- Pestaña de para el perfil por defecto-->
         <mat-tab label="{{ 'PROFILE_TAB' | oTranslate }}">
             <o-form #form attr="profile_detail" service="users" entity="myUser" fxLayout="column" show-header="yes"
-                header-actions="U" #oDetailForm keys="user_" keys-sql-types="VARCHAR" show-header-navigation="yes">
-                
+                header-actions="U" #oDetailForm keys="user_" keys-sql-types="VARCHAR" show-header-navigation="yes"
+                (onUpdate)="saveActivitiesInDataBase()">
+
                 <o-column title="PROFILE_DATA" layout-align="start stretch" fxFlex="80" icon="account_circle">
                     <o-image attr="avatar" label="AVATAR" fxFlex="80" width="350px"
                         empty-image="assets/images/no-image.png" sql-type="OTHERS"></o-image>
@@ -14,26 +15,28 @@
                     <o-text-input attr="id_client" oHidden></o-text-input>
                     <o-text-input attr="surname" label="SURNAME" fxFlex="80" required="yes"
                         max-length="30"></o-text-input>
+                    <o-text-input label="TEST" fxFlex="80" max-length="30">Hola</o-text-input>
                     <o-textarea-input attr="short_desc" label="DESCRIPTION" fxFlex="80"
                         max-length="250"></o-textarea-input>
                 </o-column>
                 <o-column title="ACTIVITIES" layout-align="start stretch" fxFlex="80" icon="pool">
-                    
-                    <mat-chip-list fxFlex="80">
-                        <mat-chip class="activitiesChip" *ngFor="let activity of arrayActivitiesClient" [disabled]="false" color="primary">
-                          {{ activity }}
-                        </mat-chip>
-                      </mat-chip-list>
 
-                    <o-column-collapsible title="ACTSELECT" layout-align="start stretch" fxFlex="80">
+                    <mat-chip-list fxFlex="80">
+                        <mat-chip class="activitiesChip" *ngFor="let activity of arrayActivitiesClient"
+                            [disabled]="false" color="primary">
+                            {{ activity }}
+                        </mat-chip>
+                    </mat-chip-list>
+
+                    <o-column-collapsible title="ACTSELECT" layout-align="start stretch" fxFlex="80" expanded="no">
                         <o-grid class="activitiesGrid" #activitiesB attr="activitiesB" service="activities"
                             entity="activity" keys="id_activity" columns="activity_name;id_activity" orderable="true"
                             show-page-size="no" quick-filter="false" cols="6" sortable-columns="activity_name"
                             gutter-size="5px" detail-mode="none" (onDataLoaded)="onLoad()" pagination-controls="false"
                             controls="false" grid-item-height="60">
-                            
+
                             <o-grid-item *ngFor="let item of activitiesB.dataArray" show-page-size="false">
-                                
+
                                 <div fxLayout="column" fxLayoutAlign="space-evenly center">
                                     <o-button class="activitiesButton"
                                         *ngIf="arrayActivitiesClient.includes(item.activity_name)" type="STROKED"
@@ -49,8 +52,8 @@
                             </o-grid-item>
                         </o-grid>
                         <div fxLayout="column" fxLayoutAlign="space-evenly center" fxFlex="100">
-                            <o-button type="RAISED" label="SAVE" layout-padding color="accent"
-                                (onClick)="saveActivitiesInDataBase()"></o-button>
+                            <o-button type="RAISED" label="SAVEACT" layout-padding color="accent"
+                                (onClick)="saveActivitiesInDataBase($event)"></o-button>
                         </div>
                     </o-column-collapsible>
                 </o-column>
@@ -107,17 +110,15 @@
         <!-- Pestaña para gestionar reservas -->
         <mat-tab label="{{'RESERVATION_TAB'| oTranslate }}">
             <div fxFill fxLayout="column" fxLayoutAlign="start">
-                <o-table #formReservation attr="reservation" service="users" entity="reservationSent"
-                    keys="message" columns="id_reservation;id_client_traveler;name_traveler;id_client_host;name_host;status_name;message;id_status;
+                <o-table #formReservation attr="reservation" service="users" entity="reservationSent" keys="message"
+                    columns="id_reservation;id_client_traveler;name_traveler;id_client_host;name_host;status_name;message;id_status;
                         surname_traveler;email_traveler;surname_host;email_host;phonenumber_host"
-                    visible-columns="name_host;message;status_name"
-                    query-rows="10">
+                    visible-columns="name_host;message;status_name" query-rows="10">
                 </o-table>
                 <o-table #formReservation attr="reservation" service="users" entity="reservationReceived"
                     keys="id_reservation" columns="id_client_traveler;id_reservation;name_traveler;id_client_host;name_host;status_name;message;id_status;
                         surname_traveler;email_traveler;surname_host;email_host;phonenumber_host"
-                    visible-columns="name_traveler;message;status_name"
-                    query-rows="10">
+                    visible-columns="name_traveler;message;status_name" query-rows="10">
                 </o-table>
             </div>
         </mat-tab>

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ValidatorFn } from '@angular/forms';
-import { AuthService, OFormComponent, OntimizeService } from 'ontimize-web-ngx';
+import { AuthService, OFormComponent, OSnackBarConfig, SnackBarService, OntimizeService, OTranslateHttpLoader } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-travelers-home',
@@ -14,6 +14,7 @@ export class TravelersHomeComponent implements OnInit {
 
   public arrayActivitiesClient: string[];
   public arrayActivitiesClientNumber: number[];
+  public arrayInvisibleText: number[];
 
   public maxActivitiesReached: boolean = false;
 
@@ -22,7 +23,8 @@ export class TravelersHomeComponent implements OnInit {
   isPasswordModified: boolean = false; // Indicador de si la contraseña ha sido modificada
 
   constructor(private auth: AuthService,
-    private ontimizeServiceUsers: OntimizeService) {
+    private ontimizeServiceUsers: OntimizeService,
+    private snackBarService: SnackBarService) {
     this.ontimizeServiceUsers.configureService(this.ontimizeServiceUsers.getDefaultServiceConfiguration('users'));
 
 
@@ -30,7 +32,7 @@ export class TravelersHomeComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.arrayInvisibleText = [];
   }
 
   onLoad() {
@@ -121,12 +123,31 @@ export class TravelersHomeComponent implements OnInit {
     console.log(idclient);
     this.ontimizeServiceUsers.update({ id_client: idclient }, { activity_ids: this.arrayActivitiesClientNumber }, 'activity_client').subscribe(res => {
       if (res.code == 0) {
-        console.log("Cambios realizados con éxito")
+        // Mostrar el snack-bar con el mensaje de éxito
+        const config: OSnackBarConfig = {
+          action: 'OK',
+          milliseconds: 5000,
+          icon: 'check_circle_outline',
+          iconPosition: 'left'
+        };
+        this.snackBarService.open('SNACKBAR_TEXT', config);
       } else {
-        console.log("Error del back:" + res.message)
+        // Mostrar el snack-bar con el mensaje de error
+          this.snackBarService.open(`Error: ${res.message}`, { milliseconds: 5000 });
+      }
+    });
   }
 
-});
+  // showSnackBar(e: Event): void {
+  //   const config: OSnackBarConfig = {
+  //     action: 'SNACKBAR.ACTION',
+  //     milliseconds: 5000,
+  //     icon: 'android',
+  //     iconPosition: 'left'
+  //   };
+  //   this.snackBarService.open('SNACKBAR.TEXT', config);
+  // }
+}
 
 
 
@@ -153,7 +174,7 @@ export class TravelersHomeComponent implements OnInit {
 
 
     // }
-  }
+  // }
 
   // yourFn(event){
   //   if (event.index == 0) {
@@ -164,4 +185,4 @@ export class TravelersHomeComponent implements OnInit {
   //   }
 
   // }
-}
+// }

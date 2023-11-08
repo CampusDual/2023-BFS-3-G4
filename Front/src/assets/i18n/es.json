@@ -56,6 +56,7 @@
   "ERROR_EMAIL_REQUIRED": "Email requerido",
   "RESERVATION_TAB": "RESERVAS",
   "SAVE": "Guardar",
+  "SAVEACT": "Guardar intereses",
   "Baile": "Baile",
   "Senderismo": "Senderismo",
   "Escalada": "Escalada",
@@ -81,12 +82,16 @@
   "Baloncesto": "Baloncesto",
   "Astronomía": "Astronomía",
   "ACTIVITIES": "INTERESES",
-  "ACTSELECT": "Selecciona tus intereses",
+  "ACTSELECT": "Selecciona hasta 5 intereses",
   "CONTACT": "Contacta con",
   "MESSAGE": "MENSAJE",
   "SEND": "Enviar",
   "FILTERS_HOSTS": "Filtros de anfitriona",
   "activity_name": "Actividad",
   "Clear": "Limpiar",
-  "Filter": "Filtrar"
+  "Filter": "Filtrar",
+  "SNACKBAR": {
+    "TEXT": "¡Actividades guardadas con éxito!",
+    "ACTION": "Aceptar"
+  }
 }
