@@ -50,7 +50,7 @@ o-grid {
   }
   
 .community-name {
-    /* font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     font-weight: bold;
     font-size: 1.8em;
     text-transform: uppercase;
@@ -58,7 +58,7 @@ o-grid {
     position: absolute;
     top: 50%; 
     left: 50%; 
-    transform: translate(-50%, -50%); ajuste para centrar exactamente */
+    transform: translate(-50%, -50%);
     text-align: center;
     width: 100%;
   }
