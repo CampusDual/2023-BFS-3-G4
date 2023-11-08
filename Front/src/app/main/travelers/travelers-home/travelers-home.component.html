@@ -117,7 +117,7 @@
                     <o-column layout-padding fxFlex="20" class="travelerName">De: {{ list.name_traveler}}
                         {{list.surname_travaler}}</o-column>
                     <o-column layout-padding fxFlex="55" class="travelerMsg">Mensaje: {{ list.message }}</o-column>
-                    <o-column layout-padding fxFlex="15" class="date">Fecha: {{ list.reservation_date }}</o-column>
+                    <o-column layout-padding fxFlex="15" class="date">Fecha: {{ list.reservation_date | date: 'dd/MM/yyyy' }} </o-column>
                     <o-column layout-padding fxFlex="15" class="status">Status: {{ list.status_name }}</o-column>
                     <o-column layout-padding fxFlex="5" class="show" (click)="verReserva()"><mat-icon class="icon"
                             svgIcon="ontimize:visibility"></mat-icon></o-column>
@@ -136,7 +136,7 @@
                 <o-column layout-padding fxFlex="20" class="travelerName">Para: {{ list.name_host }}
                     {{list.surname_host}}</o-column>
                 <o-column layout-padding fxFlex="55" class="travelerMsg">Mensaje: {{ list.message }}</o-column>
-                <o-column layout-padding fxFlex="15" class="date">Fecha: {{ list.reservation_date }}</o-column>
+                <o-column layout-padding fxFlex="15" class="date">Fecha: {{ list.reservation_date | date: 'dd/MM/yyyy'  }}</o-column>
                 <o-column layout-padding fxFlex="5" class="show" (click)="verReserva()"><mat-icon class="icon"
                         svgIcon="ontimize:visibility"></mat-icon></o-column>
 

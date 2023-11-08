@@ -207,7 +207,7 @@ public class UserService implements IUserService {
 	}
 
 
-	@Override 
+	@Override
 	public EntityResult reservationInsert(Map<String, Object> attrMap) {
 		//recogemos el valor de user (un mail)
 		String user = getUser();
