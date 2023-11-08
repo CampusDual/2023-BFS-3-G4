@@ -133,7 +133,7 @@ export class TravelersHomeComponent implements OnInit {
           icon: 'check_circle_outline',
           iconPosition: 'left'
         };
-        this.snackBarService.open('SNACKBAR_TEXT', config);
+        this.snackBarService.open('Intereses guardados', config);
       } else {
         // Mostrar el snack-bar con el mensaje de error
           this.snackBarService.open(`Error: ${res.message}`, { milliseconds: 5000 });

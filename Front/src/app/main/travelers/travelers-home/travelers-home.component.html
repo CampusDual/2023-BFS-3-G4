@@ -28,13 +28,6 @@
                         </mat-chip>
                     </mat-chip-list>
 
-                    <mat-chip-list fxFlex="80">
-                        <mat-chip class="activitiesChip" *ngFor="let activity of arrayActivitiesClient"
-                            [disabled]="false" color="primary">
-                            {{ activity }}
-                        </mat-chip>
-                    </mat-chip-list>
-
                     <o-column-collapsible title="ACTSELECT" layout-align="start stretch" fxFlex="80" expanded="no">
                         <o-grid class="activitiesGrid" #activitiesB attr="activitiesB" service="activities"
                             entity="activity" keys="id_activity" columns="activity_name;id_activity" orderable="true"
@@ -127,7 +120,7 @@
                         surname_traveler;email_traveler;surname_host;email_host;phonenumber_host"
                     visible-columns="name_traveler;message;status_name" query-rows="10">
                 </o-table> -->
-                
+
             <div fxFill fxLayout="column" fxLayoutAlign="start" class="container">
                 <o-grid #formReservation attr="reservation" service="users" entity="reservationSent"
                     keys="id_reservation"
