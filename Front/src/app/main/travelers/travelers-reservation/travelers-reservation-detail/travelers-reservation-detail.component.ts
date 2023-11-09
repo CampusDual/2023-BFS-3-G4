@@ -60,7 +60,8 @@ export class TravelersReservationDetailComponent implements OnInit {
         this.email_host = res.data[0].email_host;
         this.phonenumber_host = res.data[0].phonenumber_host;
         this.status_name = res.data[0].status_name;
-        this.reservation_date = res.data[0].reservation_date;       
+        this.reservation_date = res.data[0].reservation_date;  
+           
         
      
       }

@@ -1,11 +1,14 @@
 <div class="container">
     <o-form #form service="users" entity="reservation" keys="id_reservation" editable-detail="true" show-header="no"
         show-header-navigation="no" layout-direction="column" (onDataLoaded)="ngOnInit()">
-        <p>{{name_traveler}} {{surname_traveler}} Fecha reserva:{{reservation_date | date: 'dd/MM/yyyy'}}</p>
         <p>{{name_host}} {{surname_host}}</p>
-        <p>{{message_answer}}</p>
+        <p>Fecha reserva:{{reservation_date | date: 'dd/MM/yyyy'}}</p>
         <p>{{message}}</p>
-        <p *ngIf="id_status == 1">{{phonenumber_host}} {{email_host}}</p>
-        <p>{{ 'STATUS_N' | oTranslate }} : {{status_name}}</p>
+        <p *ngIf="!(id_status == 3)">{{message_answer}}</p>        
+        <p *ngIf="id_status == 1"> Tu reserva ha sido aceptada y este es el contacto de tu anfitriona!
+            {{phonenumber_host}} {{email_host}}</p>
+        <p *ngIf="id_status == 2"> {{name_host}} no ha podido aceptar tu reserva. Pero hay muchas más hosts y destinos en la web! </p>
+        <p *ngIf="id_status == 3"> {{name_host}} aún no ha contestado a tu petición. </p>
+
     </o-form>
 </div>
