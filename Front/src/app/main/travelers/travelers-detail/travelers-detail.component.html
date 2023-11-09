@@ -10,6 +10,7 @@
     <o-form #form service="users" entity="client" keys="id_client" editable-detail="true" show-header="no"
       show-header-navigation="no" layout-direction="column" (onDataLoaded)="onLoad()">
       <o-text-input attr="id_client" sql-type="INTEGER" oHidden></o-text-input>
+      <o-text-input attr="id_town" sql-type="INTEGER" oHidden></o-text-input>
       <o-column>
         <div fxLayout="row" fxLayoutGap="25px">
           <o-column fxFlex="40" fxFlex.md="100" class="vertical-margin-10">
@@ -47,6 +48,9 @@
       <div class="button-contact">
         <button mat-raised-button color="accent" fxFlex="40" (click)="openReservation()">{{ 'CONTACT' | oTranslate }} {{ nameInput.getValue() }}</button>
       </div>
+      <a [routerLink]="['../../towns', idtown]">
+        <o-button type="RAISED" label="BACKBTN" layout-padding color="accent" icon="arrow_back"></o-button>
+      </a>
     </o-form>
     <!-- <div class="tape tape-left">
       <img src="../../../assets/images/tape.png" alt="">

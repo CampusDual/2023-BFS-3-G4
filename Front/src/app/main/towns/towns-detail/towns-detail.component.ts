@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class TownsDetailComponent implements OnInit {
 
   @ViewChild('townnamefield', { static: true }) townnamefield: OTextInputComponent;
+  @ViewChild('form',{static:true}) form:OFormComponent;
+  public idcommunity;
   public custom_name: string;
 
   constructor(private router: Router,
@@ -66,6 +68,10 @@ export class TownsDetailComponent implements OnInit {
     var id_client = obj[myVar];
     console.log(id_client);
     this.router.navigate(["main/travelers", id_client]);
+  }
+
+  onLoad(){
+    this.idcommunity = this.form.getComponents().id_community.getValue();
   }
 
 

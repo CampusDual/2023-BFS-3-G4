@@ -12,6 +12,7 @@ import { TravelersReservationComponent } from '../travelers-reservation/traveler
 export class TravelersDetailComponent implements OnInit {
 
   @ViewChild('form',{static:true}) form:OFormComponent;
+  public idtown;
   
   router: Router;
   public arrayActivitiesClient: string[];
@@ -28,6 +29,7 @@ export class TravelersDetailComponent implements OnInit {
   }
 
 
+
   onLoad(){
     let idclient = this.form.getComponents().id_client.getValue();
     console.log(idclient);
@@ -40,7 +42,8 @@ export class TravelersDetailComponent implements OnInit {
           });
         }
       }      
-    );   
+    );
+    this.idtown = this.form.getComponents().id_town.getValue();
    }
 
   public openReservation(data: any): void {
@@ -54,6 +57,7 @@ export class TravelersDetailComponent implements OnInit {
       },
     });
   }
+
 /*
   reservationFn(){   
     let id_client = this.form.getComponents().id_client.getValue();

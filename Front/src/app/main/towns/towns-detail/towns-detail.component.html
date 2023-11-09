@@ -1,9 +1,13 @@
-<o-form #form fxFill service="towns" entity="town" keys="id_town" show-header="no">
+<o-form #form fxFill service="towns" entity="town" keys="id_town" show-header="no" (onDataLoaded)="onLoad()">
     <o-text-input attr="id_town" sql-type="INTEGER" enabled="no" oHidden></o-text-input>
+    <o-text-input attr="id_community" sql-type="INTEGER" enabled="no" oHidden></o-text-input>
     <o-text-input #townnamefield attr="town_name" enabled="no" (onValueChange)="reloadValues($event)"
         oHidden></o-text-input>
-
     <h1 class="town-title">{{ custom_name }}</h1>
+
+    <a [routerLink]="['../../communities', idcommunity]">
+        <o-button type="RAISED" label="BACKBTN" layout-padding color="accent" icon="arrow_back"></o-button>
+    </a>
 
     <o-column-collapsible title="{{ 'FILTERS_HOSTS' | oTranslate }}" appearance="legacy" expanded="no"
         icon="filter_list" class="collapsible">
