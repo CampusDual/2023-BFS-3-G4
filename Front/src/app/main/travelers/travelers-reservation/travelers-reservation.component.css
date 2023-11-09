@@ -1,7 +1,31 @@
 .dialog{
     display: flex;
     flex-direction: column;
+    background-color:  rgb(227, 214, 254);
+    
 }
+.text1{
+    background-color: rgb(29, 5, 99);
+    color: white;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    margin:17px;  
+    text-align: center;
+}
+
 .send{
-    width: 25px;
+    width: 25px; 
+    margin-left: 160px;
+    margin-bottom: 20px;    
 }
+o-date-input, o-textarea-input{
+    margin-bottom: 20px;
+    margin-left: 25px;   
+}
+
+
+  
+
+

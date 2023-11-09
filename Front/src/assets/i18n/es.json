@@ -91,6 +91,7 @@
   "activity_name": "Actividad",
   "Clear": "Limpiar",
   "Filter": "Filtrar",
+  "DATE": "Fecha",
   "SNACKBAR": {
     "TEXT": "¡Actividades guardadas con éxito!",
     "ACTION": "Aceptar"

@@ -1,0 +1,8 @@
+.container {
+    width: 500px;
+    height: 550px;
+    background: url(../../../../../assets/images/dialog1.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

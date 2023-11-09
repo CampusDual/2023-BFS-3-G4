@@ -47,7 +47,7 @@ export class TravelersDetailComponent implements OnInit {
     let id_client = this.form.getComponents().id_client.getValue();
     this.dialog.open(TravelersReservationComponent, {
       
-      height: '330px',
+      height: '520px',
       width: '520px',
       data: {
         id_client_host: id_client

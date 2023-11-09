@@ -90,5 +90,6 @@
   "FILTERS_HOSTS": "Host filters",
   "activity_name": "Activity",
   "Clear": "Clear",
-  "Filter": "Filter"
+  "Filter": "Filter",
+  "DATE": "Date"
 }

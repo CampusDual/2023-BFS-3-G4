@@ -1,13 +1,15 @@
-
-
-        <div  class="dialog">
-            <o-form #form  show-header="no" show-header-navigation="no" layout-direction="column" > 
-            <o-date-input #date attr="date" label="Date" read-only="no" required="yes" ></o-date-input>
-            <o-textarea-input #message attr="message" label="{{ 'MESSAGE' | oTranslate }}" fxFlex="80" max-length="250"></o-textarea-input>
-            <o-button class="send" type="RAISED" label="SEND" layout-padding color="accent" (onClick)="sendReservation()"></o-button>
-           
-        </o-form>       
-        </div>
-
-
-     
+<div class="dialog">
+    <div class="text1">
+        <p>Reserva una fecha y escribe un mensaje a la anfitriona para comprobar su disponibilidad</p>
+        <!-- <p>Reserva una fecha con la anfitriona para conoceros y hacer un tour por su ciudad</p> -->
+    </div>
+    <o-form #form show-header="no" show-header-navigation="no" layout-direction="column">
+        <o-date-input #date attr="date" label="{{ 'DATE' | oTranslate }}" read-only="no" required="yes"
+            fxFlex="90"></o-date-input>
+        <o-textarea-input #message attr="message" label="{{ 'MESSAGE' | oTranslate }}" fxFlex="90"
+            max-length="250"></o-textarea-input>
+        <o-button class="send" type="RAISED" label="SEND" layout-padding color="accent"
+            (onClick)="sendReservation()"></o-button>
+    </o-form>
+    
+</div>
