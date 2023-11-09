@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ValidatorFn } from '@angular/forms';
-import { AuthService, OFormComponent, OSnackBarConfig, SnackBarService, OntimizeService, OTranslateHttpLoader } from 'ontimize-web-ngx';
+import { AuthService, OFormComponent, OSnackBarConfig, SnackBarService, OntimizeService, OTranslateHttpLoader, OTranslateService } from 'ontimize-web-ngx';
 import { MatDialog } from '@angular/material';
 import { TravelersReservationDetailComponent } from '../travelers-reservation/travelers-reservation-detail/travelers-reservation-detail.component';
 
@@ -27,7 +27,8 @@ export class TravelersHomeComponent implements OnInit {
   constructor(private auth: AuthService,
     private ontimizeServiceUsers: OntimizeService,
     private snackBarService: SnackBarService,
-    protected dialog: MatDialog) {
+    protected dialog: MatDialog,
+    private translate: OTranslateService) {
     this.ontimizeServiceUsers.configureService(this.ontimizeServiceUsers.getDefaultServiceConfiguration('users'));
 
 
@@ -133,7 +134,7 @@ export class TravelersHomeComponent implements OnInit {
           icon: 'check_circle_outline',
           iconPosition: 'left'
         };
-        this.snackBarService.open('Intereses guardados', config);
+        this.snackBarService.open(this.translate.get('SNACKTEXT'), config);
       } else {
         // Mostrar el snack-bar con el mensaje de error
           this.snackBarService.open(`Error: ${res.message}`, { milliseconds: 5000 });
