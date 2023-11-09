@@ -1,7 +1,7 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NavigationService } from 'ontimize-web-ngx';
+import { NavigationService, OFormComponent, OntimizeService } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-register',
@@ -9,6 +9,13 @@ import { NavigationService } from 'ontimize-web-ngx';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
+  @ViewChild ('formregister',{static:true}) formregister:OFormComponent;
+  public name;
+  public surname;
+  public regemail;
+  public password;
+
 
   validatorsArray: ValidatorFn[] = []; // Array de validadores personalizados
   isPasswordModified: boolean = false; // Indicador de si la contraseña ha sido modificada
@@ -18,14 +25,12 @@ export class RegisterComponent implements OnInit {
   constructor(
     router: Router,
     @Inject(NavigationService) public navigation: NavigationService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private ontimizeServiceUsers: OntimizeService
     ) {
-
-
-
+    this.ontimizeServiceUsers.configureService(this.ontimizeServiceUsers.getDefaultServiceConfiguration('users'));
     this.validatorsArray.push(this.passwordValidator); // Añadir el validador de contraseña al array
     this.router = router;
-
   }
 
   ngOnInit() {
@@ -72,7 +77,21 @@ export class RegisterComponent implements OnInit {
 
   goToLogin(){
     this.router.navigate(["/login"]);
-    console.log("Hola toi aqui");
   }
+
+  saveUserInDataBase() {
+    
+    this.name = this.formregister.getComponents().name.getValue();
+    this.surname = this.formregister.getComponents().surname.getValue();
+    this.regemail = this.formregister.getComponents().user_.getValue();
+    this.password = this.formregister.getComponents().password.getValue();
+    let hashmap: { [key: string]: any } = {};
+    hashmap['name'] = this.name;
+    hashmap['surname'] = this.surname;
+    hashmap['user_'] = this.regemail;
+    hashmap['password'] = this.password;
+    console.log(hashmap);
+    this.ontimizeServiceUsers.insert(hashmap,'client').subscribe();
+    }
 
 }
