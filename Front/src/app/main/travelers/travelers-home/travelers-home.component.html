@@ -15,8 +15,7 @@
                     <o-text-input attr="id_client" oHidden></o-text-input>
                     <o-text-input attr="surname" label="SURNAME" fxFlex="80" required="yes"
                         max-length="30"></o-text-input>
-                    <o-text-input label="TEST" fxFlex="80" max-length="30">Hola</o-text-input>
-                    <o-textarea-input attr="short_desc" label="DESCRIPTION" fxFlex="80"
+                    <o-textarea-input attr="short_desc" label="DESCRIPTION" placeholder="{{ 'ONESENTENCE' | oTranslate }}" fxFlex="80"
                         max-length="250"></o-textarea-input>
                 </o-column>
                 <o-column title="ACTIVITIES" layout-align="start stretch" fxFlex="80" icon="pool">
@@ -87,11 +86,11 @@
             <o-form #formHost attr="host_detail" service="users" entity="myUser" fxLayout="column" show-header="yes"
                 header-actions="U" keys="user_" keys-sql-types="VARCHAR" show-header-navigation="yes">
                 <o-column title="HOST_DATA" layout-align="start stretch" fxFlex="80">
-                    <o-textarea-input attr="description" label="DESCRIPTION" fxFlex="80" required="yes"
+                    <o-textarea-input attr="description" label="DESCRIPTION" placeholder="{{ 'LONGDESC' | oTranslate }}" fxFlex="80" required="yes"
                         max-length="500"></o-textarea-input>
                     <o-combo attr="id_town" fxFlex="80" label="TOWN" service="towns" entity="town" keys="id_town"
                         columns="town_name;id_town" visible-columns="town_name" value-column="id_town"
-                        class="input-padding" fxFlex="80" required="yes" sort="ASC" searchable="true"></o-combo>
+                        class="input-padding" required="yes" sort="ASC" searchable="true"></o-combo>
                     <o-text-input attr="phonenumber" label="PHONENUMBER" fxFlex="80" required="yes"
                         max-length="15"></o-text-input>
                     <o-email-input attr="email" label="EMAIL" placeholder="example@example.com" fxFlex="80"

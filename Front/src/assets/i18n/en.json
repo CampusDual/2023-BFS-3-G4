@@ -90,5 +90,8 @@
   "FILTERS_HOSTS": "Host filters",
   "activity_name": "Activity",
   "Clear": "Clear",
-  "Filter": "Filter"
+  "Filter": "Filter",
+  "SNACKTEXT": "Interests have been saved",
+  "ONESENTENCE": "Define yourself in one sentence. (max. 250 characters)",
+  "LONGDESC": "It's your time. Tell the travelers everything you like. (max. 500 characters)"
 }
