@@ -96,5 +96,7 @@
   "LONGDESC": "It's your time. Tell the travelers everything you like. (max. 500 characters)",
   "DATE": "Date",
   "BACKBTN": "Back",
-  "STATUS_N": "Reservation status"
+  "STATUS_N": "Reservation status",
+  "RESERV_DIALOG_MSG": "Set a date to meet the host and take a tour around her city"
+
 }

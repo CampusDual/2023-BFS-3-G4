@@ -96,5 +96,7 @@
   "ONESENTENCE": "Definete en una frase. (máx. 250 caracteres)",
   "LONGDESC": "Es tu momento. Cuéntale a las viajeras todo lo que te gusta. (máx. 500 caracteres)",
   "DATE": "Fecha",
-  "BACKBTN": "Volver"
+  "BACKBTN": "Volver",
+  "RESERV_DIALOG_MSG": "Indica una fecha para conocer a la anfitriona y hacer un tour por su ciudad"
+
 }
