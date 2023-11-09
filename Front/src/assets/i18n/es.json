@@ -98,5 +98,7 @@
   "DATE": "Fecha",
   "BACKBTN": "Volver",
   "EMAILCONT": "Email de contacto",
-  "CREATEBTN": "Crear"
+  "CREATEBTN": "Crear",
+  "RESERV_DIALOG_MSG": "Indica una fecha para conocer a la anfitriona y hacer un tour por su ciudad"
+
 }

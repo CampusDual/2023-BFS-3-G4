@@ -98,5 +98,7 @@
   "BACKBTN": "Back",
   "STATUS_N": "Reservation status",
   "EMAILCONT": "Contact email",
-  "CREATEBTN": "Create"
+  "CREATEBTN": "Create",
+  "RESERV_DIALOG_MSG": "Set a date to meet the host and take a tour around her city"
+
 }

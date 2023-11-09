@@ -3,6 +3,7 @@ import { ValidatorFn } from '@angular/forms';
 import { AuthService, OFormComponent, OSnackBarConfig, SnackBarService, OntimizeService, OTranslateHttpLoader, OTranslateService } from 'ontimize-web-ngx';
 import { MatDialog } from '@angular/material';
 import { TravelersReservationDetailComponent } from '../travelers-reservation/travelers-reservation-detail/travelers-reservation-detail.component';
+import { TravelersReservationReceivedDetailComponent } from '../travelers-reservation/travelers-reservation-received-detail/travelers-reservation-received-detail.component';
 
 @Component({
   selector: 'app-travelers-home',
@@ -142,10 +143,23 @@ export class TravelersHomeComponent implements OnInit {
     });
   }
 
-  public verReserva(data: any): void {    
+  public verReservaSent(data: any): void {    
      
    
     this.dialog.open(TravelersReservationDetailComponent, {
+      
+      height: '600px',
+      width: '550px',
+      data: {
+        id_reservation: data
+      },
+    });
+  }
+
+  public verReservaRec(data: any): void {    
+     
+   
+    this.dialog.open(TravelersReservationReceivedDetailComponent, {
       
       height: '600px',
       width: '550px',
