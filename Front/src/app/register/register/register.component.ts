@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NavigationService, OFormComponent, OntimizeService } from 'ontimize-web-ngx';
+import { NavigationService, OFormComponent, OSnackBarConfig, OTranslateService, OntimizeService, SnackBarService } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-register',
@@ -26,9 +26,11 @@ export class RegisterComponent implements OnInit {
     router: Router,
     @Inject(NavigationService) public navigation: NavigationService,
     private fb: FormBuilder,
-    private ontimizeServiceUsers: OntimizeService
+    private ontimizeServiceRegister: OntimizeService,
+    private snackBarService: SnackBarService,
+    private translate: OTranslateService
     ) {
-    this.ontimizeServiceUsers.configureService(this.ontimizeServiceUsers.getDefaultServiceConfiguration('users'));
+    this.ontimizeServiceRegister.configureService(this.ontimizeServiceRegister.getDefaultServiceConfiguration('register'));
     this.validatorsArray.push(this.passwordValidator); // Añadir el validador de contraseña al array
     this.router = router;
   }
@@ -90,8 +92,21 @@ export class RegisterComponent implements OnInit {
     hashmap['surname'] = this.surname;
     hashmap['user_'] = this.regemail;
     hashmap['password'] = this.password;
-    console.log(hashmap);
-    this.ontimizeServiceUsers.insert(hashmap,'client').subscribe();
+    this.ontimizeServiceRegister.insert(hashmap,'register').subscribe(res => {
+      if (res.code == 0) {
+        // Mostrar el snack-bar con el mensaje de éxito
+        const config: OSnackBarConfig = {
+          action: 'OK',
+          milliseconds: 5000,
+          icon: 'check_circle_outline',
+          iconPosition: 'left'
+        };
+        this.snackBarService.open(this.translate.get('SNACKREGISTER'), config);
+      } else {
+        // Mostrar el snack-bar con el mensaje de error
+          this.snackBarService.open(`Error: ${res.message}`, { milliseconds: 5000 });
+      }
+    });
     }
 
 }
