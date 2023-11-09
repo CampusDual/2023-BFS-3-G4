@@ -38,7 +38,8 @@ export class TravelersReservationDetailComponent implements OnInit {
   
   ngOnInit() {
     this.ontimizeServiceUsers.query({id_reservation: this.data.id_reservation }, ['id_reservation','id_client_traveler','id_client_host',
-    'message','id_status','name_traveler','surname_traveler','email_traveler','message_answer','name_host','surname_host','email_host','phonenumber_host','status_name','reservation_date'], 'reservationSent').subscribe(
+    'message','id_status','name_traveler','surname_traveler','email_traveler','message_answer','name_host','surname_host','email_host',
+    'phonenumber_host','status_name','reservation_date'], 'reservation').subscribe(
       res => {
      
 
@@ -51,7 +52,7 @@ export class TravelersReservationDetailComponent implements OnInit {
         this.id_status = res.data[0].id_status;      
         this.surname_traveler = res.data[0].surname_traveler;
         this.email_traveler = res.data[0].email_traveler;
-        this.name_host = res.data[0].name_traveler;
+        this.name_host = res.data[0].name_host;
         this.surname_host = res.data[0].surname_host;
         this.email_host = res.data[0].email_host;
         this.phonenumber_host = res.data[0].phonenumber_host;
