@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ValidatorFn } from '@angular/forms';
-import { AuthService, OFormComponent, OSnackBarConfig, SnackBarService, OntimizeService, OTranslateHttpLoader, OTranslateService } from 'ontimize-web-ngx';
+import { AuthService, OFormComponent, OSnackBarConfig, SnackBarService, OntimizeService, OTranslateHttpLoader, OTranslateService, OGridComponent } from 'ontimize-web-ngx';
 import { MatDialog } from '@angular/material';
 import { TravelersReservationDetailComponent } from '../travelers-reservation/travelers-reservation-detail/travelers-reservation-detail.component';
 import { TravelersReservationReceivedDetailComponent } from '../travelers-reservation/travelers-reservation-received-detail/travelers-reservation-received-detail.component';
@@ -14,6 +14,11 @@ export class TravelersHomeComponent implements OnInit {
 
   @ViewChild('form', { static: true }) form: OFormComponent;
   @ViewChild('formHost', { static: true }) formHost: OFormComponent;
+
+  //nuevos  ViewChild
+  @ViewChild('gridReservationReceived', { static: true }) gridReservationReceived: OGridComponent;
+  @ViewChild('gridReservationSent', { static: true }) gridReservationSent: OGridComponent;
+  
 
   public arrayActivitiesClient: string[];
   public arrayActivitiesClientNumber: number[];
@@ -151,8 +156,11 @@ export class TravelersHomeComponent implements OnInit {
       height: '600px',
       width: '550px',
       data: {
-        id_reservation: data
-      },
+        id_reservation: data,
+        //nuevo data del grid
+        grid: this.gridReservationSent
+        
+      }
     });
   }
 
@@ -164,7 +172,9 @@ export class TravelersHomeComponent implements OnInit {
       height: '600px',
       width: '550px',
       data: {
-        id_reservation: data
+        id_reservation: data,
+        //nuevo
+        grid: this.gridReservationReceived
       },
     });
   }
