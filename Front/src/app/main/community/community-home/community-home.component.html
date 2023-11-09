@@ -1,10 +1,14 @@
 <div fxFill fxLayout="column" fxLayoutAlign="start">
 
-  <div class="header-title">Encuentra tu destino</div>
+  <div class="header-title">¿Dónde quieres ir?</div>
 
-  <o-grid #grid columns="id_community;community_name" quick-filter="no" service="communities" entity="community"
-    keys="id_community" [cols]="5" show-page-size="false" page-size-options="4;8;16"
-    refresh-button="false" pagination-controls="true" gutter-size="1px" [ngStyle]="{'height':'600px'}">
+  <!-- <o-combo attr="id_community" label="COMMUNITY" service="communities" entity="community"
+    keys="id_community" columns="community_name;id_community" visible-columns="community_name"
+    value-column="id_community" class="input-padding" sort="ASC" searchable="true" fxFlex="30"></o-combo> -->
+
+  <o-grid #grid columns="id_community;community_name" service="communities" entity="community"
+    keys="id_community" [cols]="5" quick-filter-columns="community_name" show-page-size="false" page-size-options="4;8;16" refresh-button="false"
+    pagination-controls="true" gutter-size="1px" [ngStyle]="{'height':'600px'}">
 
     <o-grid-item class="communityCard" *ngFor="let list of grid.dataArray">
       <o-column class="container-item">
