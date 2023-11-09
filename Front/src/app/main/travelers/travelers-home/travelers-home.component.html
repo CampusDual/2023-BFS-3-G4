@@ -127,9 +127,11 @@
             </o-grid>
         </mat-tab>
 
+                <!-- Pestaña para gestionar reservas enviadas 2 -->
+
         <mat-tab label="{{ 'RESERVATION_SENT_TAB' | oTranslate }}">
         <o-grid #formReservationSent attr="reservationSent" service="users" entity="reservationSent" 
-            columns="name_traveler;surname_traveler;name_host;surname_host;message;status_name;reservation_date" query-rows="8"
+            columns="id_reservation;name_traveler;surname_traveler;name_host;surname_host;message;status_name;reservation_date" query-rows="8"
             refresh-button="no" quick-filter="true" visible-columns="name_host;message;status_name;reservation_date" [cols]="1"
             grid-item-height="50px" gutter-size="1px">
             <o-grid-item *ngFor="let list of formReservationSent.dataArray">
@@ -137,10 +139,10 @@
                     {{list.surname_host}}</o-column>
                 <o-column layout-padding fxFlex="55" class="travelerMsg">Mensaje: {{ list.message }}</o-column>
                 <o-column layout-padding fxFlex="15" class="date">Fecha: {{ list.reservation_date | date: 'dd/MM/yyyy'  }}</o-column>
-                <o-column layout-padding fxFlex="5" class="show" (click)="verReserva()"><mat-icon class="icon"
+                <o-column layout-padding fxFlex="5" class="show" (click)="verReserva(list.id_reservation)"><mat-icon class="icon"
                         svgIcon="ontimize:visibility"></mat-icon></o-column>
 
-                <!-- <div><button mat-raised-button color="accent" fxFlex="25" (click)="verReserva()">ver</button></div> -->
+               
 
             </o-grid-item>
         </o-grid>

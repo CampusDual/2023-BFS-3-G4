@@ -19,6 +19,7 @@ public class ReservationDao extends OntimizeJdbcDaoSupport {
     public static final String ID_CLIENT_HOST = "id_client_host";
     public static final String MESSAGE = "message";
     public static final String STATUS = "id_status";
+    public static final String MESSAGE_ANSWER = "message_answer";
     public static final String RESERVATION_DATE = "reservation_date";
 
 

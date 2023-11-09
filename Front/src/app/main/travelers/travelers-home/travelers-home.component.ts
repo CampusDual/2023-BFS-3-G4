@@ -141,14 +141,15 @@ export class TravelersHomeComponent implements OnInit {
     });
   }
 
-  public verReserva(data: any): void {
+  public verReserva(data: any): void {    
+     
    
     this.dialog.open(TravelersReservationDetailComponent, {
       
       height: '600px',
       width: '550px',
       data: {
-        
+        id_reservation: data
       },
     });
   }
