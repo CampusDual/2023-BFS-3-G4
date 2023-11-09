@@ -8,8 +8,7 @@
     </div>
     <div class="box2">
       <o-form #formregister [formGroup]="form" service="register" query-on-init="no" entity="register" keys="user_"
-        ignore-on-exit="passwordConfirm">
-        <!-- (onInsert)="goToLogin()" Esto estaba en el form pero creo que ya no hace falta. Ahora está en el onclick del boton crear.-->
+        ignore-on-exit="passwordConfirm" show-header="no">
         <o-text-input attr="name" label="NAME" fxFlex="100" required="yes" max-length="20"></o-text-input>
         <o-text-input attr="surname" label="SURNAME" fxFlex="100" required="yes" max-length="30"></o-text-input>
         <o-email-input attr="user_" label="{{ 'Register email' | oTranslate }}" placeholder="example@example.com"
@@ -25,10 +24,10 @@
           <o-validator [error-name]="'passwordNotMatched'" [error-text]="'ERROR_MATCH'"></o-validator>
         </o-password-input>
         <div fxLayout="column" fxLayoutAlign="space-evenly center" fxFlex="100">
-          <!-- <a [routerLink]="['/login']"> -->
+          <a [routerLink]="['/login']">
             <o-button type="RAISED" label="CREATEBTN" layout-padding color="accent" icon="person_add"
               (onClick)="saveUserInDataBase()"></o-button>
-          <!-- </a> -->
+          </a>
         </div>
         <a [routerLink]="['/login']">
           <o-button type="RAISED" label="BACKBTN" layout-padding color="accent" icon="arrow_back"></o-button>

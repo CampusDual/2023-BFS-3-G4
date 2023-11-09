@@ -77,10 +77,6 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  goToLogin(){
-    this.router.navigate(["/login"]);
-  }
-
   saveUserInDataBase() {
     
     this.name = this.formregister.getComponents().name.getValue();
