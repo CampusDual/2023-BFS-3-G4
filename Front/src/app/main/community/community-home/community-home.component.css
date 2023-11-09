@@ -1,50 +1,77 @@
 o-grid {
-    margin-top: 10px;
+    margin-top: 40px;
     align-items: start;
 }
 
-.header-title {
-    margin-top: 20px;
+.community-title {
+    margin-top: 10px;
     text-align: center;
     width: 100%;
     padding: 10px 0;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    font-family: 'Noto Sans', sans-serif;
     font-weight: bold;
-    font-size: 50px;
+    font-size: 35px;
     letter-spacing: 1px;
     color: rgb(210, 190, 250);
 }
+/* Estilos para el filtro */
+.filter-style {
+    background-color: #f4f4f4; 
+    border: 1px solid #ccc; 
+    border-radius: 10px;
+    padding-right: 25px;
+    padding-left: 25px;
+}
 
-.communityCard:hover {
-    border: 5px solid transparent;
+.buttons-container {
+    display: flex;
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center;
+}
+
+.input-search {
+    margin-right: 10px; 
+}
+
+.input-clear {
+    background-color: transparent;
+    border: none;
+    cursor: pointer; 
+}
+
+/* Estilos del grid */
+.grid-container {
     display: grid;
-    overflow: hidden;
+    box-shadow: 0px 0px 30px #393e46;
+    cursor: pointer;
+    background-color: #ffffffd4;
+    border-radius: 20px;
+    width: 100%;
+    height: auto;
+    display: grid;
+    position: relative;
+    }
+
+
+.communityCard {
+    border-radius: 20px;
+    width: 100%;
+    height: auto;
+    display: grid;
     position: relative;
 }
 
-.container-item {
-    width: 100%;
+.community-image {
+    object-fit: cover; /* Ajuste de imagen */
+    width: 100%; 
+    height: 100%; 
+    max-width: 100%; 
+    max-height: 100%; 
+    border-radius: 20px;
 }
 
-.community-image::after {
-    /* Velo sobre foto */
-    content: "";
-    /* Para que se muestre se muestre */
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(255, 255, 255, 0.10);
-    /* Opacidad blanco */
-    /* background-color: rgba(50, 50, 50, 0.10); /* Opacidad negro todo el cuadro */
-    pointer-events: none;
-}
 
 .community-image {
     width: 100%;
@@ -52,34 +79,9 @@ o-grid {
     object-fit: cover;
 }
 
-.all-community-image::after {
-    /* Velo sobre foto */
-    content: "";
-    /* Para que se muestre*/
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(255, 255, 255, 0.10);
-    /* Opacidad blanco */
-    /* background-color: rgba(50, 50, 50, 0.10); /* Opacidad negro todo el cuadro */
-    pointer-events: none;
-}
-
-.all-community-image {
-    width: 92%;
-    height: auto;
-    object-fit: cover;
-    margin-left: 12px;
-    margin-top: 6px;
-}
-
 .community-name {
-    font-family: 'Noto Sans', sans-serif;
     font-weight: bold;
-    font-size: 1.8em;
+    font-size: 2em;
     text-transform: uppercase;
     color: white;
     position: absolute;

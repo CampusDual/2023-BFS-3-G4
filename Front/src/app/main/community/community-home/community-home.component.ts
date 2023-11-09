@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Expression, FilterExpressionUtils, OComboComponent, OFilterBuilderComponent } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-community-home',
@@ -7,11 +8,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommunityHomeComponent implements OnInit {
 
+  @ViewChild('filterBuilder', { static: true })
+  
+  filterBuilder: OFilterBuilderComponent;
+
+  @ViewChild('communityCombo', { static: true }) communityCombo: OComboComponent;
+  @ViewChild('provinceCombo', { static: true }) provinceCombo: OComboComponent;
+  
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  // Método para el filtrado del o-filter 
+  createFilter(values: Array<{ attr: string, value: any }>): Expression {
+    const filters: Expression[] = [];
+    values.forEach(fil => {
+      if (fil.value !== undefined && fil.value !== null) {
+        // Usar 'like' para campos de texto que puedan contener parte del texto buscado
+        if (fil.attr === 'community_name' || fil.attr === 'province_name') {
+          filters.push(FilterExpressionUtils.buildExpressionLike(fil.attr, fil.value));
+        }
+        if (fil.attr === 'host_available') {
+          // Aquí se asume que el checkbox devuelve true o false
+          const value = fil.value === true ? 1 : 0;
+          filters.push(FilterExpressionUtils.buildExpressionEquals(fil.attr, value));
+        }
+      }
+    });
+
+    if (filters.length > 0) {
+      return filters.reduce((exp1, exp2) => FilterExpressionUtils.buildComplexExpression(exp1, exp2, FilterExpressionUtils.OP_AND));
+    } else {
+      return null;
+    }
+
+  }
+
+  // Método para formatear nombre de la imagen
   getImagePath(communityName: string): string {
     // Formatear nombres de las imagenes de ciudades.
     const formatName = (name: string) => {

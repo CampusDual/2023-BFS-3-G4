@@ -19,7 +19,10 @@ export const SERVICE_CONFIG: Object = {
 
   'communities': {
     'path': '/communities'
-  }
+  },
 
+  'provinces': {
+    'path': '/provinces'
+  }
 
 };

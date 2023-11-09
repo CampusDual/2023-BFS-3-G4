@@ -5,14 +5,13 @@
   </a>
 
   <o-grid #grid columns="id_town;town_name;province_name" quick-filter-columns="town_name;province_name" service="towns"
-    entity="town" keys="id_town" [cols]="5" show-page-size="false" page-size-options="4;8;16" refresh-button="false"
-    pagination-controls="true" gutter-size="20px" [ngStyle]="{'height':'600px'}">
+    entity="town" keys="id_town" [cols]="6" show-page-size="false" page-size-options="4;8;16" refresh-button="false"
+    pagination-controls="true" gutter-size="15px" [ngStyle]="{'height':'600px'}">
 
     <o-grid-item class="townCard" *ngFor="let list of grid.dataArray">
       <o-column class="container-item">
         <a [routerLink]="['/main/towns', list.id_town]">
-          <o-image class="town-image" attr="town_image" data="{{ getImagePath(list.town_name) }}" read-only="true"
-            show-controls="false"></o-image>
+          <img src="{{ getImagePath(list.town_name) }}" alt="{{ list.town_name }}" class="town-image">
         </a>
         <div class="town-name">{{ list.town_name }}</div>
         <div class="province-name">{{ list.province_name }}</div>

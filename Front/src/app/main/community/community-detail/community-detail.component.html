@@ -3,22 +3,23 @@
     <a [routerLink]="['../../communities']">
         <o-button type="RAISED" label="BACKBTN" layout-padding color="accent" icon="arrow_back"></o-button>
     </a>
+
     <o-grid #grid columns="id_town;id_community;town_name;province_name" quick-filter-columns="town_name;province_name"
         service="towns" entity="town" keys="id_town" parent-keys="id_community" [cols]="6" grid-item-height="3:4"
         show-page-size="false" page-size-options="4;8;16" refresh-button="false" pagination-controls="true"
         gutter-size="20px" [ngStyle]="{'height':'600px'}">
 
-        <o-grid-item class="townCard" *ngFor="let list of grid.dataArray">
-            <o-column class="container-item">
-                <a [routerLink]="['/main/towns', list.id_town]">
-                    <o-image class="town-image" data="{{ getImagePath(list.town_name) }}" read-only="true"
-                        show-controls="false"></o-image>
-                </a>
-                <div class="town-name">{{ list.town_name }}</div>
-                <div class="province-name">{{ list.province_name }}</div>
-                <p class="province-name">Anfitrionas: {{ list.hostamount }}</p>
-            </o-column>
-        </o-grid-item>
-
+        <div class="grid-container">
+            <o-grid-item class="townCard" *ngFor="let list of grid.dataArray">
+                <o-column class="container-item">
+                    <a [routerLink]="['/main/towns', list.id_town]">
+                        <img src="{{ getImagePath(list.town_name) }}" alt="{{ list.town_name }}" class="town-image">
+                    </a>
+                    <div class="town-name">{{ list.town_name }}</div>
+                    <div class="province-name">{{ list.province_name }}</div>
+                    <p class="province-name">Anfitrionas: {{ list.hostamount }}</p>
+                </o-column>
+            </o-grid-item>
+        </div>
     </o-grid>
 </o-form>

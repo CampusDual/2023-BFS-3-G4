@@ -13,32 +13,60 @@
     <Queries>
         <Query id="default">
             <AmbiguousColumns>
-                <AmbiguousColumn name="id_community"
-                                 prefix="c" />
-                <AmbiguousColumn name="id_community"
-                                 prefix="p" />
-                <AmbiguousColumn name="id_province"
-                                 prefix="t" />
-                <AmbiguousColumn name="id_province"
-                                 prefix="p" />
+                <AmbiguousColumn name="id_community" prefix="c" databaseName="id_community"/>
+                <AmbiguousColumn name="id_province" prefix="p" databaseName="id_province"/>
             </AmbiguousColumns>
             <ValidColumns>
+                <Column>id_province</Column>
                 <Column>province_name</Column>
                 <Column>community_name</Column>
             </ValidColumns>
             <Sentence>
                 <![CDATA[
 					SELECT
-						#COLUMNS#
+						p.id_province,
+                        p.province_name,
+                        c.community_name
 					FROM
-						public.provinces p
-					LEFT JOIN public.communities c on
+						${mainschema}.provinces p
+					LEFT JOIN ${mainschema}.communities c on
 						p.id_community = c.id_community
-					LEFT JOIN public.towns t on
-						t.id_province = p.id_province
 					#WHERE#
-					#ORDER#
+					ORDER BY
+                        LOWER(p.province_name) ASC;
 		         ]]>
+            </Sentence>
+        </Query>
+        <Query id="provincesHosts">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="id_community" prefix="c" databaseName="id_community"/>
+                <AmbiguousColumn name="id_province" prefix="p" databaseName="id_province"/>
+            </AmbiguousColumns>
+            <ValidColumns>
+                <Column>id_province</Column>
+                <Column>province_name</Column>
+                <Column>town_count</Column>
+                <Column>host_count</Column>
+            </ValidColumns>
+            <Sentence>
+                <![CDATA[
+                    SELECT
+                        p.province_name,
+                        p.id_province,
+                        COUNT(DISTINCT t.id_town) AS town_count,
+                        COUNT(DISTINCT cl.id_client) AS host_count
+                    FROM
+                        ${mainschema}.provinces p
+                    LEFT JOIN ${mainschema}.towns t ON
+                        p.id_province = t.id_province
+                    LEFT JOIN ${mainschema}.clients cl ON
+                        t.id_town = cl.id_town AND cl.host = true
+                    GROUP BY
+                        p.province_name,
+                        p.id_province
+                    HAVING
+                        COUNT(DISTINCT cl.id_client) > 0;
+                ]]>
             </Sentence>
         </Query>
     </Queries>
