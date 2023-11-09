@@ -103,6 +103,9 @@ export class RegisterComponent implements OnInit {
           this.snackBarService.open(`Error: ${res.message}`, { milliseconds: 5000 });
       }
     });
+
+    this.router.navigate(["/login"]); //Esto da problemas con un dialogo de si estas seguro de volver perdiendo cambios
+    
     }
 
 }
