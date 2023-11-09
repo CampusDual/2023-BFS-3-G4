@@ -71,11 +71,15 @@ export class TravelersReservationReceivedDetailComponent implements OnInit {
   rejectReservation(id_reservation: any) {
     let message_answer = this.form.getComponents().message_answer.getValue();
     let id_status = 2;
+    //1
+    let parent = this;
     this.ontimizeServiceUsers.update({ id_reservation: id_reservation }, { message_answer: message_answer, id_status: id_status }, 'reservation').subscribe(res => {
 
       this.dialog.closeAll();
 
       if (res.code == 0) {
+        //2
+        parent.data.grid.reloadData();
         // Mostrar el snack-bar con el mensaje de éxito
         const config: OSnackBarConfig = {
           action: 'OK',
@@ -89,17 +93,20 @@ export class TravelersReservationReceivedDetailComponent implements OnInit {
         this.snackBarService.open(`Error: ${res.message}`, { milliseconds: 5000 });
       }
     });
+    
 
   }
 
   acceptReservation(id_reservation: any) {
     let message_answer = this.form.getComponents().message_answer.getValue();
     let id_status = 1;
+    let parent = this;
     this.ontimizeServiceUsers.update({ id_reservation: id_reservation }, { message_answer: message_answer, id_status: id_status }, 'reservation').subscribe(res => {
 
       this.dialog.closeAll();
 
       if (res.code == 0) {
+        parent.data.grid.reloadData();
         // Mostrar el snack-bar con el mensaje de éxito
         const config: OSnackBarConfig = {
           action: 'OK',
@@ -118,18 +125,4 @@ export class TravelersReservationReceivedDetailComponent implements OnInit {
 
 }
 
-// this.ontimizeServiceUsers.update({ id_client: idclient }, { activity_ids: this.arrayActivitiesClientNumber }, 'activity_client').subscribe(res => {
-//   if (res.code == 0) {
-//     // Mostrar el snack-bar con el mensaje de éxito
-//     const config: OSnackBarConfig = {
-//       action: 'OK',
-//       milliseconds: 5000,
-//       icon: 'check_circle_outline',
-//       iconPosition: 'left'
-//     };
-//     this.snackBarService.open('Intereses guardados', config);
-//   } else {
-//     // Mostrar el snack-bar con el mensaje de error
-//       this.snackBarService.open(`Error: ${res.message}`, { milliseconds: 5000 });
-//   }
-// });
+
