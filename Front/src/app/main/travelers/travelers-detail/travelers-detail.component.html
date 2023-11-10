@@ -1,5 +1,5 @@
 <!--     ////   WIP composición gráfica  ////     -->
-
+  <button mat-flat-button [routerLink]="['../../towns', idtown]"> < {{'BACKBTN' | oTranslate}}</button>
   <div class="container">
   <div class="title">
     <p class="hostName">{{nameInput.getValue()}} {{surnameInput.getValue()}}</p>
@@ -57,9 +57,6 @@
     </div> -->
   </div>
 </div>
-<a [routerLink]="['../../towns', idtown]">
-  <button mat-flat-button > < {{'BACKBTN' | oTranslate}}</button>
-</a>
 
 
 <!--

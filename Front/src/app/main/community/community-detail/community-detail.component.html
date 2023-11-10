@@ -1,6 +1,6 @@
-<a [routerLink]="['../../communities']">
-    <button mat-flat-button> < {{'BACKBTN' | oTranslate}}</button>
-</a>
+<!-- <a [routerLink]="['../../communities']"> -->
+    <button mat-flat-button [routerLink]="['../../communities']"> < {{'BACKBTN' | oTranslate}}</button>
+<!-- </a> -->
 <o-form #form fxFill service="communities" entity="community" keys="id_community" show-header="no">
     <o-text-input attr="id_community" sql-type="INTEGER" enabled="no" oHidden></o-text-input>
     <o-grid #grid columns="id_town;id_community;town_name;province_name" quick-filter-columns="town_name;province_name"
@@ -22,6 +22,3 @@
         </div>
     </o-grid>
 </o-form>
-<a [routerLink]="['../../communities']">
-    <button mat-flat-button> < {{'BACKBTN' | oTranslate}}</button>
-</a>
