@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material';
-import { OntimizeService } from 'ontimize-web-ngx';
+import { OSnackBarConfig, OntimizeService, SnackBarService } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-travelers-reservation-detail',
@@ -8,6 +8,8 @@ import { OntimizeService } from 'ontimize-web-ngx';
   styleUrls: ['./travelers-reservation-detail.component.css']
 })
 export class TravelersReservationDetailComponent implements OnInit {
+
+  
 
   public id_reservation;
   public id_client_traveler;
@@ -32,7 +34,9 @@ export class TravelersReservationDetailComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     protected dialog: MatDialog,
-    private ontimizeServiceUsers: OntimizeService
+    private ontimizeServiceUsers: OntimizeService,
+    private snackBarService: SnackBarService
+
     
     
   ) { this.ontimizeServiceUsers.configureService(this.ontimizeServiceUsers.getDefaultServiceConfiguration('users')); }
@@ -69,6 +73,33 @@ export class TravelersReservationDetailComponent implements OnInit {
 
   }
 
+  deleteReservationFn(id_reservation) {
+    
+    let parent = this;
+    this.ontimizeServiceUsers.delete({id_reservation: id_reservation}, 'reservation').subscribe(res => {
+     
+      this.dialog.closeAll();
+
+      if (res.code == 0) {
+        parent.data.grid.reloadData();
+        // Mostrar el snack-bar con el mensaje de éxito
+        const config: OSnackBarConfig = {
+          action: 'OK',
+          milliseconds: 5000,
+          icon: 'check_circle_outline',
+          iconPosition: 'left'
+        };
+        this.snackBarService.open('Reserva borrada', config);
+      } else {
+        // Mostrar el snack-bar con el mensaje de error
+        this.snackBarService.open(`Error: ${res.message}`, { milliseconds: 5000 });
+      }
+
+    });
+
+
+    
+  }
 }
 
 

@@ -5,9 +5,9 @@
         
    
     <o-form #form show-header="no" show-header-navigation="no" layout-direction="column">
-        <o-date-input #date attr="date" label="{{ 'DATE' | oTranslate }}" read-only="no" required="yes"
+        <o-date-input #date attr="date" label="{{ 'DATE' | oTranslate }}" read-only="no" required="yes" [min]="today"
             fxFlex="60"></o-date-input>
-        <o-textarea-input #message attr="message" label="{{ 'MESSAGE' | oTranslate }}" fxFlex="70"
+        <o-textarea-input #message attr="message" label="{{ 'MESSAGE' | oTranslate }}" fxFlex="70" required="yes"
             max-length="250"></o-textarea-input>
         <o-button class="send" type="RAISED" label="SEND" layout-padding color="accent"
             (onClick)="sendReservation()"></o-button>

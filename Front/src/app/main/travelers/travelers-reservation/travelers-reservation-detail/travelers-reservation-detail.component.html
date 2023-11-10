@@ -8,7 +8,11 @@
         <p *ngIf="id_status == 1"> Tu reserva ha sido aceptada y este es el contacto de tu anfitriona!
             {{phonenumber_host}} {{email_host}}</p>
         <p *ngIf="id_status == 2"> {{name_host}} no ha podido aceptar tu reserva. Pero hay muchas más hosts y destinos en la web! </p>
-        <p *ngIf="id_status == 3"> {{name_host}} aún no ha contestado a tu petición. </p>
+        <p *ngIf="id_status == 3"> {{name_host}} aún no ha contestado a tu petición. Estás a tiempo de cancelarla. </p>
+        <o-button *ngIf="id_status == 3" class="deleteReservationButton" type="RAISED" label="DELETE" layout-padding color="accent"
+            (onClick)="(deleteReservationFn(id_reservation))"></o-button>
+       
+
 
     </o-form>
 </div>
