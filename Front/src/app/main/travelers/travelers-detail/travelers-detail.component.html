@@ -47,9 +47,7 @@
       <div class="button-contact">
         <button mat-raised-button color="accent" fxFlex="40" (click)="openReservation()">{{ 'CONTACT' | oTranslate }} {{ nameInput.getValue() }}</button>
       </div>
-      <a [routerLink]="['../../towns', idtown]">
-        <o-button type="RAISED" label="BACKBTN" layout-padding color="accent" icon="arrow_back"></o-button>
-      </a>
+    
     </o-form>
     <!-- <div class="tape tape-left">
       <img src="../../../assets/images/tape.png" alt="">
@@ -59,6 +57,9 @@
     </div> -->
   </div>
 </div>
+<a [routerLink]="['../../towns', idtown]">
+  <button mat-flat-button > < {{'BACKBTN' | oTranslate}}</button>
+</a>
 
 
 <!--

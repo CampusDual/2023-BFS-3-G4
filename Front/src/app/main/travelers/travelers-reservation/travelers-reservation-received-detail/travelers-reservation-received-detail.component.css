@@ -1,8 +1,26 @@
 .container {
     width: 500px;
     height: 550px;
-    background: url(../../../../../assets/images/dialog1.png);
+    background: url(../../../../../assets/images/dialogRec.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    
+}
+
+.boxes{
+display: flex;
+position: relative;
+}
+
+.box1{
+position: absolute;
+}
+.name{
+    text-transform: uppercase;
+    font-weight: bold;
+    left: 0;
+}
+.date{
+right: 0;
 }

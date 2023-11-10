@@ -1,9 +1,8 @@
+<a [routerLink]="['../../communities']">
+    <button mat-flat-button> < {{'BACKBTN' | oTranslate}}</button>
+</a>
 <o-form #form fxFill service="communities" entity="community" keys="id_community" show-header="no">
     <o-text-input attr="id_community" sql-type="INTEGER" enabled="no" oHidden></o-text-input>
-    <a [routerLink]="['../../communities']">
-        <o-button type="RAISED" label="BACKBTN" layout-padding color="accent" icon="arrow_back"></o-button>
-    </a>
-
     <o-grid #grid columns="id_town;id_community;town_name;province_name" quick-filter-columns="town_name;province_name"
         service="towns" entity="town" keys="id_town" parent-keys="id_community" [cols]="6" grid-item-height="3:4"
         show-page-size="false" page-size-options="4;8;16" refresh-button="false" pagination-controls="true"
@@ -23,3 +22,6 @@
         </div>
     </o-grid>
 </o-form>
+<a [routerLink]="['../../communities']">
+    <button mat-flat-button> < {{'BACKBTN' | oTranslate}}</button>
+</a>

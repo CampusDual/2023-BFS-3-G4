@@ -5,9 +5,7 @@
         oHidden></o-text-input>
     <h1 class="town-title">{{ custom_name }}</h1>
 
-    <a [routerLink]="['../../communities', idcommunity]">
-        <o-button type="RAISED" label="BACKBTN" layout-padding color="accent" icon="arrow_back"></o-button>
-    </a>
+    
 
     <o-column-collapsible title="{{ 'FILTERS_HOSTS' | oTranslate }}" appearance="legacy" expanded="no"
         icon="filter_list" class="collapsible">
@@ -38,7 +36,7 @@
     <o-grid #grid columns="user_;id_client;name;surname;short_desc;avatar;activities" quick-filter="no" service="users"
         entity="host" keys="id_client" parent-keys="id_town" [cols]="4" show-page-size="false"
         page-size-options="4;8;16" grid-item-height="2:3" refresh-button="false" pagination-controls="false"
-        gutter-size="20px" [ngStyle]="{'height':'600px'}" (onClick)="goToHostDetail($event)">
+        gutter-size="20px" show-footer="no" [ngStyle]="{'height':'600px'}" (onClick)="goToHostDetail($event)">
 
         <div class="container">
             <o-grid-item class="hostCard" *ngFor="let list of grid.dataArray">
@@ -67,6 +65,10 @@
         </div>
     </o-grid>
 </o-form>
+
+<a [routerLink]="['../../communities', idcommunity]">
+    <button mat-flat-button> < {{'BACKBTN' | oTranslate}}</button>
+</a>
 
 <!-- <o-list #list attr="list" columns="name;surname;short_desc;avatar" quick-filter-columns="name;short_desc"
 service="users" entity="host" keys="id" parent-keys="id_town" refresh-button="false">
