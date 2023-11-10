@@ -16,9 +16,19 @@
 
 .logo {
   position: absolute; /* Coloca el logotipo en posición absoluta dentro del contenedor */
-  top: 25%; /* Ajusta la posición vertical para que esté en el tercio superior */
+  top: 15%; /* Ajusta la posición vertical para que esté en el tercio superior */
   left: 50%; /* Centra horizontalmente el logotipo */
   transform: translate(-50%, -50%); /* Centra el logotipo horizontalmente y verticalmente */
-  max-width: 80%; /* Limita el ancho del logotipo al 80% del contenedor */
+  max-width: 40%; /* Limita el ancho del logotipo al 80% del contenedor */
   z-index: 1; /* Coloca el logotipo delante de la imagen de fondo */
+}
+
+.steps{
+    position: absolute; /* Coloca el logotipo en posición absoluta dentro del contenedor */
+    top: 45%; /* Ajusta la posición vertical para que esté en el tercio superior */
+    left: 50%; /* Centra horizontalmente el logotipo */
+    transform: translate(-50%, -50%); /* Centra el logotipo horizontalmente y verticalmente */
+    max-width: 80%; /* Limita el ancho del logotipo al 80% del contenedor */
+    z-index: 1; /* Coloca el logotipo delante de la imagen de fondo */
+  
 }
