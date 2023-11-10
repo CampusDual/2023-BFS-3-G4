@@ -6,10 +6,43 @@
 <!-- </a> -->
 <o-form #form fxFill service="communities" entity="community" keys="id_community" show-header="no">
     <o-text-input attr="id_community" sql-type="INTEGER" enabled="no" oHidden></o-text-input>
+
+    <div class="filter-style" fxLayout="column">
+        <div fxLayout="row wrap" fxLayout="32px" class="buttons-container">
+            <!-- Combo para Provincias -->
+            <o-combo attr=province_name service="provinces" entity="province" keys="id_province"
+                    columns="province_name;id_province" value-column="province_name" visible-columns="province_name"
+                    read-only="no" class="input-combo" fxFlex="35%" searchable="true"
+                    placeholder="province_name" label-visible="false">
+            </o-combo>
+            <!-- Combo para Ciudades -->
+            <o-combo attr="id_town" label="TOWN" service="towns" entity="town" keys="id_town"
+                    columns="town_name;id_town" visible-columns="town_name" value-column="id_town"
+                    read-only="no" class="input-combo" fxFlex="35%" searchable="true"
+                    placeholder="town_name" label-visible="false">
+            </o-combo>
+
+            <!-- Botones del filtro -->
+            <div class="buttons-container">
+              <o-button attr="filter-button" icon="search" type="STROKED" class="input-search" [oFilterBuilderQuery]="filterBuilder"
+                        fxFlex="5%" color="primary">
+              </o-button>
+              <o-button attr="clear-button" icon="autorenew" type="STROKED" class="input-clear" [oFilterBuilderClear]="filterBuilder"
+                        xFlex="5%" color="primary">
+              </o-button>
+            </div>
+        </div>
+      </div>
+      <!-- oFilterBuilder para el filtrado -->
+      <o-filter-builder #filterBuilder attr="thefilter" filters="community_name;province_name;host_available"
+                        [target]="grid" query-on-change="no" [expression-builder]="createFilter">
+      </o-filter-builder>
+    
+
     <o-grid #grid columns="id_town;id_community;town_name;province_name" quick-filter-columns="town_name;province_name"
         service="towns" entity="town" keys="id_town" parent-keys="id_community" [cols]="6" grid-item-height="3:4"
         show-page-size="false" page-size-options="4;8;16" refresh-button="false" pagination-controls="true"
-        gutter-size="20px" [ngStyle]="{'height':'600px'}">
+        gutter-size="20px" [ngStyle]="{'height':'600px'}" quick-filter="no">
 
         <div class="grid-container">
             <o-grid-item class="townCard" *ngFor="let list of grid.dataArray">
@@ -24,4 +57,5 @@
             </o-grid-item>
         </div>
     </o-grid>
+    
 </o-form>

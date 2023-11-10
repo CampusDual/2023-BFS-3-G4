@@ -27,13 +27,8 @@ export class CommunityHomeComponent implements OnInit {
     values.forEach(fil => {
       if (fil.value !== undefined && fil.value !== null) {
         // Usar 'like' para campos de texto que puedan contener parte del texto buscado
-        if (fil.attr === 'community_name' || fil.attr === 'province_name') {
+        if (fil.attr === 'community_name') {
           filters.push(FilterExpressionUtils.buildExpressionLike(fil.attr, fil.value));
-        }
-        if (fil.attr === 'host_available') {
-          // Aquí se asume que el checkbox devuelve true o false
-          const value = fil.value === true ? 1 : 0;
-          filters.push(FilterExpressionUtils.buildExpressionEquals(fil.attr, value));
         }
       }
     });
