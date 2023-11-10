@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 120vh;
+    /* height: 80vh; */
    
 }
 
@@ -25,13 +25,14 @@
 }
 
 .town {
-    font-family: 'Patua One', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size: 18px;
     /* margin: 5px 20px 20px 20px; */
 }
 
 .shortDesc{
     font-family: 'Rasa', serif;
+    font-style: italic;
     font-size: 25px;
 }
 
