@@ -10,7 +10,7 @@ import { NavigationService, OFormComponent, OSnackBarConfig, OTranslateService, 
 })
 export class RegisterComponent implements OnInit {
 
-  @ViewChild ('formregister',{static:true}) formregister:OFormComponent;
+  @ViewChild('formregister', { static: true }) formregister: OFormComponent;
   public name;
   public surname;
   public regemail;
@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
     private ontimizeServiceRegister: OntimizeService,
     private snackBarService: SnackBarService,
     private translate: OTranslateService
-    ) {
+  ) {
     this.ontimizeServiceRegister.configureService(this.ontimizeServiceRegister.getDefaultServiceConfiguration('register'));
     this.validatorsArray.push(this.passwordValidator); // Añadir el validador de contraseña al array
     this.router = router;
@@ -39,7 +39,7 @@ export class RegisterComponent implements OnInit {
       user_: ['', [Validators.required, Validators.email]],
     });
   }
-  
+
   onPasswordInput() {
     this.isPasswordModified = true; // La contraseña ha sido modificada
   }
@@ -77,36 +77,18 @@ export class RegisterComponent implements OnInit {
   }
 
   saveUserInDataBase() {
-    
-    this.name = this.formregister.getComponents().name.getValue();
-    this.surname = this.formregister.getComponents().surname.getValue();
-    this.regemail = this.formregister.getComponents().user_.getValue();
-    this.password = this.formregister.getComponents().password.getValue();
-    let hashmap: { [key: string]: any } = {};
-    hashmap['name'] = this.name;
-    hashmap['surname'] = this.surname;
-    hashmap['user_'] = this.regemail;
-    hashmap['password'] = this.password;
-    let parent = this;
-    this.ontimizeServiceRegister.insert(hashmap,'register').subscribe(res => {
-      if (res.code == 0) {
-        // Mostrar el snack-bar con el mensaje de éxito
-        const config: OSnackBarConfig = {
-          action: 'OK',
-          milliseconds: 5000,
-          icon: 'check_circle_outline',
-          iconPosition: 'left'
-        };
-        this.snackBarService.open(this.translate.get('SNACKREGISTER'), config);
-        parent.router.navigate(["/login"]);
-      } else {
-        // Mostrar el snack-bar con el mensaje de error
-          this.snackBarService.open(`Error: ${res.message}`, { milliseconds: 5000 });
-      }
-    });
+    this.formregister.insert();
+  }
 
-    //this.router.navigate(["/login"]); //Esto da problemas con un dialogo de si estas seguro de volver perdiendo cambios
-    
-    }
+  userCreated() {
+    const config: OSnackBarConfig = {
+      action: 'OK',
+      milliseconds: 5000,
+      icon: 'check_circle_outline',
+      iconPosition: 'left'
+    };
+    this.snackBarService.open(this.translate.get('SNACKREGISTER'), config);
+    this.router.navigate(["/login"]);
+  }
 
 }

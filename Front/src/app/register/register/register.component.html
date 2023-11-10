@@ -8,7 +8,8 @@
     </div>
     <div class="box2">
       <o-form #formregister [formGroup]="form" service="register" query-on-init="no" entity="register" keys="user_"
-        ignore-on-exit="passwordConfirm" show-header="no" confirm-exit="no">
+        ignore-on-exit="passwordConfirm" show-header="no" confirm-exit="no" (onInsert)="userCreated()">
+        <o-button [routerLink]="['/login']" type="RAISED" label="BACKBTN" layout-padding color="accent" icon="arrow_back"></o-button>
         <o-text-input attr="name" label="NAME" fxFlex="100" required="yes" max-length="20"></o-text-input>
         <o-text-input attr="surname" label="SURNAME" fxFlex="100" required="yes" max-length="30"></o-text-input>
         <o-email-input attr="user_" label="{{ 'Register email' | oTranslate }}" placeholder="example@example.com"
@@ -25,7 +26,6 @@
         </o-password-input>
           <o-button type="RAISED" label="CREATEBTN" layout-padding color="accent" icon="person_add"
             (onClick)="saveUserInDataBase()"></o-button>
-          <o-button [routerLink]="['/login']" type="RAISED" label="BACKBTN" layout-padding color="accent" icon="arrow_back"></o-button>
       </o-form>
     </div>
   </div>
