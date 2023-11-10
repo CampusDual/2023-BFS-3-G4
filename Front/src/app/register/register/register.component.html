@@ -26,7 +26,7 @@
         <div fxLayout="column" fxLayoutAlign="space-evenly center" fxFlex="100">
           <!-- <a [routerLink]="['/login']"> Esto da problemas porque el routerlink está por encima del button, entonces no hace la accion del button porque no llegas a pulsarlo, solo la del routerlink-->
           <o-button type="RAISED" label="CREATEBTN" layout-padding color="accent" icon="person_add"
-            (onClick)="saveUserInDataBase()"></o-button>
+            (onClick)="saveUserInDataBase()" [routerLink]="['/login']"></o-button>
           <!-- </a> -->
         </div>
         <a [routerLink]="['/login']">

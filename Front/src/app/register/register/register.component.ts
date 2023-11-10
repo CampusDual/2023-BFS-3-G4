@@ -104,7 +104,7 @@ export class RegisterComponent implements OnInit {
       }
     });
 
-    this.router.navigate(["/login"]); //Esto da problemas con un dialogo de si estas seguro de volver perdiendo cambios
+    //this.router.navigate(["/login"]); //Esto da problemas con un dialogo de si estas seguro de volver perdiendo cambios
     
     }
 
