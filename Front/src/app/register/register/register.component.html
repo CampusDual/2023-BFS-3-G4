@@ -2,9 +2,9 @@
   <div class="box">
     <div class="box1">
       <p class="text">
-        <span>Tu viaje empieza aquí!</span><br>
-        <span>Rellena el formulario de registro</span><br>
-        <span>y únete al club de viajeras</span>
+        <span>{{'REGTEXT1' | oTranslate}}</span><br>
+        <span>{{'REGTEXT2' | oTranslate}}</span><br>
+        <span>{{'REGTEXT3' | oTranslate}}</span>
     </div>
     <div class="box2">
       <o-form #formregister [formGroup]="form" service="register" query-on-init="no" entity="register" keys="user_"
