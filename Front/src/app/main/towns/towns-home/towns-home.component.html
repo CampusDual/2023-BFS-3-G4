@@ -2,11 +2,6 @@
   <mat-icon>arrow_back_ios_new</mat-icon>
   {{'BACKBTN' | oTranslate}}
 </button>
-<div fxFill fxLayout="column" fxLayoutAlign="start">
-  
-  <o-grid #grid columns="id_town;town_name;province_name" quick-filter-columns="town_name;province_name" service="towns"
-    entity="town" keys="id_town" [cols]="6" show-page-size="false" page-size-options="4;8;16" refresh-button="false"
-    pagination-controls="true" gutter-size="15px" [ngStyle]="{'height':'600px'}">
 
 <div fxFill fxLayout="column" fxLayoutAlign="start">
 
@@ -61,7 +56,7 @@
               <div class="town-name">{{ list.town_name }}</div>
               <div class="province-name">{{ list.province_name }}</div>
               <div class="host-amount">
-                <span class="icons"></span> {{ list.hostamount }}
+                <span class="material-icons">woman</span> {{ list.hostamount }}
               </div>
             </div>
           </div>
@@ -69,7 +64,9 @@
 
   </o-grid>
 
+  </div>
+  
+
 </o-form>
 
 </div>
-
