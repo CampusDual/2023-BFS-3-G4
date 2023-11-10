@@ -19,11 +19,10 @@ export class RegisterComponent implements OnInit {
 
   validatorsArray: ValidatorFn[] = []; // Array de validadores personalizados
   isPasswordModified: boolean = false; // Indicador de si la contraseña ha sido modificada
-  router: Router;
   form: FormGroup;
 
   constructor(
-    router: Router,
+    public router: Router,
     @Inject(NavigationService) public navigation: NavigationService,
     private fb: FormBuilder,
     private ontimizeServiceRegister: OntimizeService,
@@ -88,6 +87,7 @@ export class RegisterComponent implements OnInit {
     hashmap['surname'] = this.surname;
     hashmap['user_'] = this.regemail;
     hashmap['password'] = this.password;
+    let parent = this;
     this.ontimizeServiceRegister.insert(hashmap,'register').subscribe(res => {
       if (res.code == 0) {
         // Mostrar el snack-bar con el mensaje de éxito
@@ -98,6 +98,7 @@ export class RegisterComponent implements OnInit {
           iconPosition: 'left'
         };
         this.snackBarService.open(this.translate.get('SNACKREGISTER'), config);
+        parent.router.navigate(["/login"]);
       } else {
         // Mostrar el snack-bar con el mensaje de error
           this.snackBarService.open(`Error: ${res.message}`, { milliseconds: 5000 });

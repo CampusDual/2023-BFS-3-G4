@@ -8,7 +8,7 @@
     </div>
     <div class="box2">
       <o-form #formregister [formGroup]="form" service="register" query-on-init="no" entity="register" keys="user_"
-        ignore-on-exit="passwordConfirm" show-header="no">
+        ignore-on-exit="passwordConfirm" show-header="no" confirm-exit="no">
         <o-text-input attr="name" label="NAME" fxFlex="100" required="yes" max-length="20"></o-text-input>
         <o-text-input attr="surname" label="SURNAME" fxFlex="100" required="yes" max-length="30"></o-text-input>
         <o-email-input attr="user_" label="{{ 'Register email' | oTranslate }}" placeholder="example@example.com"
@@ -26,7 +26,7 @@
         <div fxLayout="column" fxLayoutAlign="space-evenly center" fxFlex="100">
           <!-- <a [routerLink]="['/login']"> Esto da problemas porque el routerlink está por encima del button, entonces no hace la accion del button porque no llegas a pulsarlo, solo la del routerlink-->
           <o-button type="RAISED" label="CREATEBTN" layout-padding color="accent" icon="person_add"
-            (onClick)="saveUserInDataBase()" [routerLink]="['/login']"></o-button>
+            (onClick)="saveUserInDataBase()"></o-button>
           <!-- </a> -->
         </div>
         <a [routerLink]="['/login']">
