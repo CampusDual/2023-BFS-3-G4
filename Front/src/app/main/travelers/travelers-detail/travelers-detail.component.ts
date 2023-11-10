@@ -46,14 +46,14 @@ export class TravelersDetailComponent implements OnInit {
     this.idtown = this.form.getComponents().id_town.getValue();
    }
 
-  public openReservation(data: any): void {
+  public openReservation(data: any): void {    
     let id_client = this.form.getComponents().id_client.getValue();
     this.dialog.open(TravelersReservationComponent, {
       
       height: '520px',
       width: '520px',
       data: {
-        id_client_host: id_client
+        id_client_host: id_client        
       },
     });
   }

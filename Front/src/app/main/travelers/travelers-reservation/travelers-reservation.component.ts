@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material';
-import { ODateInputComponent, OTextInputComponent, OntimizeService } from 'ontimize-web-ngx';
+import { ODateInputComponent, OSnackBarConfig, OTextInputComponent, OntimizeService, SnackBarService } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-travelers-reservation',
@@ -13,10 +13,12 @@ export class TravelersReservationComponent implements OnInit {
   @ViewChild('id_client_host', { static: true }) id_client_host: OTextInputComponent;
   @ViewChild('date', { static: true }) date: ODateInputComponent;
   public messageString:string;
+  public today: number;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     protected dialog: MatDialog,
+    private snackBarService: SnackBarService,
     
     private ontimizeServiceUsers: OntimizeService
   ) { 
@@ -24,6 +26,7 @@ export class TravelersReservationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.today = Date.now();
   }
 
   sendReservation() {
@@ -42,11 +45,29 @@ export class TravelersReservationComponent implements OnInit {
     console.log(hashmap);
     
   
-    this.ontimizeServiceUsers.insert(hashmap,'reservation').subscribe();
+    this.ontimizeServiceUsers.insert(hashmap,'reservation').subscribe(res => {
 
-    this.dialog.closeAll();
+      this.dialog.closeAll();
+
+      if (res.code == 0) {        
+        // Mostrar el snack-bar con el mensaje de éxito
+        const config: OSnackBarConfig = {
+          action: 'OK',
+          milliseconds: 5000,
+          icon: 'check_circle_outline',
+          iconPosition: 'left'
+        };
+        this.snackBarService.open('Petición enviada', config);
+      } else {
+        // Mostrar el snack-bar con el mensaje de error
+        this.snackBarService.open(`Error: ${res.message}`, { milliseconds: 5000 });
+      }
+
+    });
 
    
    
   }
+
+
 }
