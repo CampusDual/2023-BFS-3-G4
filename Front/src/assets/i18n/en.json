@@ -101,6 +101,9 @@
   "EMAILCONT": "Contact email",
   "CREATEBTN": "Create",
   "RESERV_DIALOG_MSG": "Set a date to meet the host and take a tour around her city",
+  "ACCEPT": "Accept",
+  "REJECT": "Reject"
+,
   "REGTEXT1": "Your journey starts here!",
   "REGTEXT2": "Fill out the registration form",
   "REGTEXT3": "and join the sheTravel Club"

@@ -1,31 +1,32 @@
 <div class="container">
     <o-form #form service="users" entity="reservation" keys="id_reservation" editable-detail="true" show-header="no"
         show-header-navigation="no" layout-direction="column" (onDataLoaded)="ngOnInit()">
+        <div class="date1">Fecha reserva</div>
+        <div class="date2">{{reservation_date | date: 'dd/MM/yyyy'}}</div>
         <div class="boxes">
-        <div class="box1">
-            <div class="name"><p>{{name_traveler}} {{surname_traveler}}</p></div>
-            <div class="date"><p>Fecha reserva:{{reservation_date | date: 'dd/MM/yyyy'}}</p></div>
-        </div>
+            <div class="box1">
+                <div class="nameT">{{name_traveler}} {{surname_traveler}}</div>
+                <div class="msgT">{{message}}</div>
+            </div>
+            <div *ngIf="id_status == 1" class="box2">
+                <div  class="nameH">{{name_host}} (Tú)</div><span></span>
+                <div  class="msgH">{{message_answer}}</div>
+            </div>
+            <o-textarea-input *ngIf="id_status == 3" attr="message_answer"
+                label="Responde al mensaje de {{name_traveler}}" fxFlex="70" max-length="200"></o-textarea-input>
 
-        <p>{{message}}</p>
-        <p>{{message_answer}}</p>
-
-        <o-textarea-input *ngIf="id_status == 3" attr="message_answer" label="Mensaje" fxFlex="70"
-            max-length="200"></o-textarea-input>
-        </div>
-
-
-        <p *ngIf="id_status == 1">Has aceptado la reserva y {{name_traveler}} tiene tus datos de contacto</p>
-
-        <p *ngIf="id_status == 2">Has rechazado la reserva. Otra vez será!</p>
-
-
-
-        <div *ngIf="id_status == 3">
-            <o-button class="reject" type="RAISED" label="REJECT" layout-padding color="accent"
-                (onClick)="rejectReservation(id_reservation)"></o-button>
-            <o-button class="accept" type="RAISED" label="ACCEPT" layout-padding color="accent"
-                (onClick)="acceptReservation(id_reservation)"></o-button>
+            <div class="buttons" *ngIf="id_status == 3">
+                <div class="acc-rej">Aceptas la fecha de visita de {{name_traveler}}?</div>
+                <o-button class="reject" type="RAISED" label="REJECT" layout-padding color="accent"
+                    (onClick)="rejectReservation(id_reservation)"></o-button>
+                <o-button class="accept" type="RAISED" label="ACCEPT" layout-padding color="accent"
+                    (onClick)="acceptReservation(id_reservation)"></o-button>
+            </div>
+            <div class="auto">
+                <p *ngIf="id_status == 1">Has aceptado la reserva y {{name_traveler}} ya tiene tus datos de contacto!
+                </p>
+                <p *ngIf="id_status == 2">Has rechazado la reserva. Otra vez será!</p>
+            </div>
         </div>
     </o-form>
 </div>
