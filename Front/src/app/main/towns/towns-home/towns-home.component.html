@@ -1,20 +1,69 @@
-<button mat-flat-button [routerLink]="['../../communities']"> < {{'BACKBTN' | oTranslate}}</button>
-<div fxFill fxLayout="column" fxLayoutAlign="start">
-  
-  <o-grid #grid columns="id_town;town_name;province_name" quick-filter-columns="town_name;province_name" service="towns"
-    entity="town" keys="id_town" [cols]="6" show-page-size="false" page-size-options="4;8;16" refresh-button="false"
-    pagination-controls="true" gutter-size="15px" [ngStyle]="{'height':'600px'}">
+<a [routerLink]="['../../communities']">
+  <button mat-flat-button>{{'BACKBTN' | oTranslate}}</button>
+</a>
 
-    <o-grid-item class="townCard" *ngFor="let list of grid.dataArray">
-      <o-column class="container-item">
-        <a [routerLink]="['/main/towns', list.id_town]">
-          <img src="{{ getImagePath(list.town_name) }}" alt="{{ list.town_name }}" class="town-image">
-        </a>
-        <div class="town-name">{{ list.town_name }}</div>
-        <div class="province-name">{{ list.province_name }}</div>
-        <p class="province-name">Anfitrionas: {{ list.hostamount }}</p>
-      </o-column>
-    </o-grid-item>
+<div fxFill fxLayout="column" fxLayoutAlign="start">
+
+  <o-form #form fxFill show-header="no">
+
+    <div fxFill fxLayout="column" fxLayoutAlign="start">
+    
+        <div class="filter-style" fxLayout="column">
+          <div fxLayout="row wrap" fxLayout="32px" class="buttons-container">
+              <!-- Combo para Provincias -->
+              <o-combo attr=province_name service="provinces" entity="province" keys="id_province"
+                      columns="province_name;id_province" value-column="province_name" visible-columns="province_name"
+                      read-only="no" class="input-combo" fxFlex="35%" sort="ASC" searchable="true"
+                      placeholder="province_name" label-visible="false">
+              </o-combo>
+              <!-- Combo para Ciudades -->
+              <o-combo attr="id_town" label="TOWN" service="towns" entity="town" keys="id_town"
+                            columns="town_name;id_town" visible-columns="town_name" value-column="town_name"
+                            class="input-combo" fxFlex="35%" sort="ASC" searchable="true"
+                            placeholder="town_name" label-visible="false">
+              </o-combo>
+              <!-- Botones del filtro -->
+              <div class="buttons-container">
+                <o-button attr="filter-button" icon="search" type="STROKED" class="input-search" [oFilterBuilderQuery]="filterBuilder"
+                          fxFlex="5%" color="primary">
+                </o-button>
+                <o-button attr="clear-button" icon="autorenew" type="STROKED" class="input-clear" [oFilterBuilderClear]="filterBuilder"
+                          xFlex="5%" color="primary">
+                </o-button>
+              </div>
+          </div>
+        </div>
+        <!-- oFilterBuilder para el filtrado -->
+        <o-filter-builder #filterBuilder attr="thefilter" filters="town_name;province_name"
+                          [target]="grid" query-on-change="no" [expression-builder]="createFilter">
+        </o-filter-builder>
+
+
+      <o-grid #grid columns="id_town;town_name;province_name"  service="towns" refresh-button="false"
+              entity="town" keys="id_town" [cols]="6" show-page-size="false" page-size-options="4;8;16" 
+              sortable-columns="town_name" sort-column="town_name" quick-filter="no" grid-item-height="2:4"
+              pagination-controls="true" gutter-size="15px" [ngStyle]="{'height':'600px'}">
+
+        <o-grid-item class="townCard" *ngFor="let list of grid.dataArray" class="townCard mat-elevation-z1">
+          <div fxLayout="column" fxLayoutAlign="space-evenly center">
+            <div class="image-container">
+              <a [routerLink]="['/main/towns', list.id_town]">
+                <img src="{{ getImagePath(list.town_name) }}" alt="{{ list.town_name }}" class="town-image">
+              </a>
+            </div>
+            <div class="town-details">
+              <div class="town-name">{{ list.town_name }}</div>
+              <div class="province-name">{{ list.province_name }}</div>
+              <div class="host-amount">
+                <span class="icons"></span> {{ list.hostamount }}
+              </div>
+            </div>
+          </div>
+        </o-grid-item>
 
   </o-grid>
+
+</o-form>
+
 </div>
+

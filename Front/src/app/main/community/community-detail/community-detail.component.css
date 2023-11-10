@@ -3,6 +3,32 @@ o-grid {
   
 }
 
+/* Estilos para el filtro */
+.filter-style {
+  margin-top: 20px;
+  background-color: #f4f4f4; 
+  border: 1px solid #ccc; 
+  border-radius: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between; /* Espacio entre los elementos */
+  align-items: center;
+}
+
+.input-search {
+  margin-right: 10px; 
+}
+
+.input-clear {
+  background-color: transparent;
+  border: none;
+  cursor: pointer; 
+}
+
 .townCard:hover {
     border: 5px solid transparent;
     display: grid;

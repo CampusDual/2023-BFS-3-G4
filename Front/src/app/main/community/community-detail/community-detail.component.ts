@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { OntimizeService } from 'ontimize-web-ngx';
+import { ActivatedRoute } from '@angular/router';
+import { Expression, FilterExpressionUtils, OntimizeService } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-community-detail',
@@ -8,12 +9,48 @@ import { OntimizeService } from 'ontimize-web-ngx';
 })
 export class CommunityDetailComponent implements OnInit {
 
-  constructor(private ontimizeServiceUsers: OntimizeService) { 
+  idCommunity: number;
+
+  constructor(private ontimizeServiceUsers: OntimizeService,
+    private route: ActivatedRoute) { 
     this.ontimizeServiceUsers.configureService(this.ontimizeServiceUsers.getDefaultServiceConfiguration('users'));
   }
 
   ngOnInit() {
+     // Obtener la id_community de los parámetros de la ruta
+     this.route.params.subscribe((params) => {
+      this.idCommunity = +params['id_community'];
+      console.log(this.idCommunity);
+    });
   }
+
+  // Método para el filtrado del o-filter 
+  createFilter(values: Array<{ attr: string, value: any }>): Expression {
+    const filters: Expression[] = [];
+    values.forEach(fil => {
+      if (fil.value !== undefined && fil.value !== null) {
+        // Usar 'like' para campos de texto que puedan contener parte del texto buscado
+        if (fil.attr === 'province_name' || fil.attr === 'town_name') {
+          filters.push(FilterExpressionUtils.buildExpressionLike(fil.attr, fil.value));
+        }
+      }
+    });
+
+    // Filtro adicional para que solo muestre ciudades/provincias de id_community seleccionado
+    if (this.idCommunity) {
+      filters.push(FilterExpressionUtils.buildExpressionEquals('id_community', this.idCommunity));
+    }
+
+    if (filters.length > 0) {
+      return filters.reduce((exp1, exp2) => FilterExpressionUtils.buildComplexExpression(
+        exp1, exp2, FilterExpressionUtils.OP_AND)
+      );
+    } else {
+      return null;
+    }
+
+  }
+
 
   getImagePath(townName: string): string {
     // Formatear nombres de las imagenes de ciudades.

@@ -3,36 +3,26 @@
   <h1 class="community-title">¿Dónde quieres ir?</h1>
 
   <div class="filter-style" fxLayout="column">
-    <div fxLayout="row wrap" fxLayoutGap="32px" class="buttons-container">
+    <div fxLayout="row wrap" fxLayout="32px" class="buttons-container">
         <!-- Combo para Comunidades -->
         <o-combo attr=community_name service="communities" entity="community" keys="id_community"
                 columns="id_community;community_name" value-column="community_name" visible-columns="community_name"
-                read-only="no" class="input-combo" fxFlex="25%" sort="ASC" searchable="true">
+                read-only="no" class="input-combo" fxFlex="75%" sort="ASC" searchable="true"
+                placeholder="community_name" label-visible="false">
         </o-combo>
-        <!-- Combo para Provincias -->
-        <o-combo attr=province_name service="provinces" entity="province" keys="id_province"
-                columns="province_name;id_province" value-column="province_name" visible-columns="province_name"
-                read-only="no" class="input-combo" fxFlex="25%" searchable="true">
-        </o-combo>
-        <!-- Checkbox para anfitrionas -->
-        <div fxLayout="row" fxLayoutAlign="start center" class="input-checkbox" fxFlex="25%">
-          <o-checkbox attr="host_available" label="Anfitrionas Disponibles">
-          </o-checkbox>
-        </div>
-
         <!-- Botones del filtro -->
         <div class="buttons-container">
           <o-button attr="filter-button" icon="search" type="STROKED" class="input-search" [oFilterBuilderQuery]="filterBuilder"
                     fxFlex="5%" color="primary">
           </o-button>
-          <o-button attr="clear-button" icon="delete" type="STROKED" class="input-clear" [oFilterBuilderClear]="filterBuilder"
+          <o-button attr="clear-button" icon="autorenew" type="STROKED" class="input-clear" [oFilterBuilderClear]="filterBuilder"
                     xFlex="5%" color="primary">
           </o-button>
         </div>
     </div>
   </div>
   <!-- oFilterBuilder para el filtrado -->
-  <o-filter-builder #filterBuilder attr="thefilter" filters="community_name;province_name"
+  <o-filter-builder #filterBuilder attr="thefilter" filters="community_name;province_name;host_available"
                     [target]="grid" query-on-change="no" [expression-builder]="createFilter">
   </o-filter-builder>
 
@@ -40,7 +30,7 @@
     <o-grid #grid columns="id_community;community_name;province_name" service="communities" entity="community"
       keys="id_community" [cols]="5" quick-filter="no" show-page-size="false" page-size-options="4;8;16"
       grid-item-height="1:1" refresh-button="false" pagination-controls="true" gutter-size="10px"
-      [ngStyle]="{'height':'800px'}" >
+      sortable-columns="community_name" sort-column="community_name"[ngStyle]="{'height':'800px'}" hide-toolbar="true" >
       
       <div class="grid-container">
         <o-grid-item class="communityCard" *ngFor="let list of grid.dataArray">
