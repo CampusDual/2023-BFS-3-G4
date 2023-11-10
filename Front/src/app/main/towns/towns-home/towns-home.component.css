@@ -1,5 +1,7 @@
 o-grid {
-  margin-top: 30px;
+    margin-top: 30px;
+    height: auto;
+    overflow: hidden;
 }
 
 /* Estilos para el filtro */
@@ -28,50 +30,56 @@ cursor: pointer;
 }
 
 
-.o-grid-item {
-  border-radius: 10px;
-  cursor: pointer;
-  margin: 10px;
-  transition: transform 0.3s ease-in-out;
+.o-grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.townCard:hover {
-  transform: scale(1.05);
-}
-
-.image-container {
-  width: 100%;
-  height: 220px;
-  overflow: hidden;
-}
-
-.town-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.town-details {
-  text-align: center;
-  padding: 10px;
-}
-
-.town-name {
-  font-weight: bold;
-  font-size: 1em;
-  overflow: hidden;
-  padding: 4px 0;
-  text-overflow: ellipsis;
-  /* Permitir que el texto ocupe hasta dos líneas */
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  max-height: 2.6em;
-}
-
-.province-name {
-  font-size: 0.8em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+  .o-grid-item {
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .townCard:hover {
+    transform: scale(1.05);
+  }
+  
+  .image-container {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+  }
+  
+  .town-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .town-details {
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .town-name {
+    font-weight: bold;
+    font-size: 1em;
+    overflow: hidden;
+    padding: 4px 0;
+    text-overflow: ellipsis;
+    /* Permitir que el texto ocupe hasta dos líneas */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    max-height: 2.6em;
+  }
+  
+  .province-name {
+    font-size: 0.8em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }

@@ -33,7 +33,7 @@
       sortable-columns="community_name" sort-column="community_name"[ngStyle]="{'height':'800px'}" hide-toolbar="true" >
       
       <div class="grid-container">
-        <o-grid-item class="communityCard" *ngFor="let list of grid.dataArray">
+        <o-grid-item *ngFor="let list of grid.dataArray">
           <o-column>
             <div class="image">
               <a routerLink="{{ list.id_community }}">

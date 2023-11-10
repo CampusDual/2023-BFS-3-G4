@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Expression, FilterExpressionUtils, OntimizeService } from 'ontimize-web-ngx';
+import { Expression, FilterExpressionUtils, OTextInputComponent, OntimizeService } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-community-detail',
@@ -9,7 +9,10 @@ import { Expression, FilterExpressionUtils, OntimizeService } from 'ontimize-web
 })
 export class CommunityDetailComponent implements OnInit {
 
+  @ViewChild('communitynamefield', { static: true }) communitynamefield: OTextInputComponent;
+
   idCommunity: number;
+  public custom_name: string;
 
   constructor(private ontimizeServiceUsers: OntimizeService,
     private route: ActivatedRoute) { 
@@ -22,6 +25,18 @@ export class CommunityDetailComponent implements OnInit {
       this.idCommunity = +params['id_community'];
       console.log(this.idCommunity);
     });
+  }
+
+  // Título de la página
+  loadName() {
+    this.custom_name = this.communitynamefield.getValue();
+
+  }
+
+  reloadValues(event) {
+    if (event.newValue) {
+      this.custom_name = event.newValue.value;
+    }
   }
 
   // Método para el filtrado del o-filter 
