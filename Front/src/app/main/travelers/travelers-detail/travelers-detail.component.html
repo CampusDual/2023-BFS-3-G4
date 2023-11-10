@@ -1,65 +1,67 @@
 <!--     ////   WIP composición gráfica  ////     -->
-  <button mat-flat-button [routerLink]="['../../towns', idtown]"> < {{'BACKBTN' | oTranslate}}</button>
-  <div class="container">
-  <div class="title">
-    <p class="hostName">{{nameInput.getValue()}} {{surnameInput.getValue()}}</p>
-    <p class="town">{{townNameInput.getValue()}}</p>
-  </div>
-  <div class="box">
-    <o-form #form service="users" entity="client" keys="id_client" editable-detail="true" show-header="no"
-      show-header-navigation="no" layout-direction="column" (onDataLoaded)="onLoad()">
-      <o-text-input attr="id_client" sql-type="INTEGER" oHidden></o-text-input>
-      <o-text-input attr="id_town" sql-type="INTEGER" oHidden></o-text-input>
-      <o-column>
-        <div fxLayout="row" fxLayoutGap="25px">
-          <o-column fxFlex="40" fxFlex.md="100" class="vertical-margin-10">
-              <o-image attr="avatar" label="AVATAR" fxFlex="100" empty-image="assets/images/no-image.png"
-                sql-type="OTHERS" show-controls="false" read-only="yes" height="100%"></o-image>  
-          </o-column>
-          <o-column fxFlex="60" fxFlex.md="100" class="vertical-margin-10">
-            <o-text-input attr="name" label="NAME" fxFlex="100" class="form-field" read-only="yes"
-              label-visible="false" #nameInput oHidden></o-text-input>
-            <o-text-input attr="surname" label="SURNAME" fxFlex="100" class="form-field" read-only="yes"
-              label-visible="false" #surnameInput oHidden></o-text-input>
-            <o-text-input #town attr="town_name" label="TOWN" fxFlex="100" class="form-field" read-only="yes"
-              label-visible="false" #townNameInput oHidden></o-text-input>
-            <o-textarea-input attr="short_desc" label="SHORT_DESC" fxFlex="100" class="form-field" read-only="yes"
-              label-visible="false" #shortDescInput oHidden></o-textarea-input>
-              <p class="shortDesc">{{shortDescInput.getValue()}}</p>
-          </o-column>
-        </div>
-      </o-column>
-      <mat-tab-group class="vertical-padding-8">
-        <mat-tab label="{{ 'ABOUTME' | oTranslate }}">
-          <div layout-padding>
-            <o-textarea-input attr="description" label="DESCRIPTION" fxFlex="100" class="form-field" read-only="yes"
-              label-visible="false"></o-textarea-input>
-          </div>
-        </mat-tab>
-      </mat-tab-group>
-
-      <mat-chip-list>
-        <mat-chip class="activitiesChip" *ngFor="let activity of arrayActivitiesClient" [disabled]="false" color="primary">
-          {{ activity }}
-        </mat-chip>
-      </mat-chip-list>
-
-      <div class="button-contact">
-        <button mat-raised-button color="accent" fxFlex="40" (click)="openReservation()">{{ 'CONTACT' | oTranslate }} {{ nameInput.getValue() }}</button>
+<button mat-flat-button [routerLink]="['../../towns', idtown]">
+  < {{'BACKBTN' | oTranslate}}</button>
+    <div class="container">
+      <div class="title">
+        <p class="hostName">{{nameInput.getValue()}} {{surnameInput.getValue()}}</p>
       </div>
-    
-    </o-form>
-    <!-- <div class="tape tape-left">
+      <div class="box">
+        <o-form #form service="users" entity="client" keys="id_client" editable-detail="true" show-header="no"
+          show-header-navigation="no" layout-direction="column" (onDataLoaded)="onLoad()">
+          <o-text-input attr="id_client" sql-type="INTEGER" oHidden></o-text-input>
+          <o-text-input attr="id_town" sql-type="INTEGER" oHidden></o-text-input>
+          <o-column>
+            <div fxLayout="row" fxLayoutGap="25px">
+              <o-column fxFlex="40" fxFlex.md="100" class="vertical-margin-10">
+                <o-image attr="avatar" label="AVATAR" fxFlex="100" empty-image="assets/images/no-image.png"
+                  sql-type="OTHERS" show-controls="false" read-only="yes" height="100%"></o-image>
+              </o-column>
+              <o-column fxFlex="60" fxFlex.md="100" class="vertical-margin-10">
+                <o-text-input attr="name" label="NAME" fxFlex="100" class="form-field" read-only="yes"
+                  label-visible="false" #nameInput oHidden></o-text-input>
+                <o-text-input attr="surname" label="SURNAME" fxFlex="100" class="form-field" read-only="yes"
+                  label-visible="false" #surnameInput oHidden></o-text-input>
+                <o-text-input #town attr="town_name" label="TOWN" fxFlex="100" class="form-field" read-only="yes"
+                  label-visible="false" #townNameInput oHidden></o-text-input>
+                <o-textarea-input attr="short_desc" label="SHORT_DESC" fxFlex="100" class="form-field" read-only="yes"
+                  label-visible="false" #shortDescInput oHidden></o-textarea-input>
+                <o-textarea-input attr="description" label="DESCRIPTION" fxFlex="150" class="form-field" read-only="yes"
+                  label-visible="false" #longDescInput oHidden></o-textarea-input>
+                <o-row class="shortDesc">"{{shortDescInput.getValue()}}"</o-row>
+                <o-row class="town">{{townNameInput.getValue()}}</o-row>
+                <o-column title="ABOUTME" layout-align="start stretch" fxFlex="100" icon="account_circle">
+                  <o-row class="longDesc">{{longDescInput.getValue()}}</o-row>
+                </o-column>
+                <mat-chip-list>
+                  <mat-chip class="activitiesChip" *ngFor="let activity of arrayActivitiesClient" [disabled]="false"
+                    color="primary">
+                    {{ activity }}
+                  </mat-chip>
+                </mat-chip-list>
+              </o-column>
+            </div>
+          </o-column>
+
+
+
+
+          <div class="button-contact">
+            <button mat-raised-button color="accent" fxFlex="40" (click)="openReservation()">{{ 'CONTACT' | oTranslate
+              }} {{ nameInput.getValue() }}</button>
+          </div>
+
+        </o-form>
+        <!-- <div class="tape tape-left">
       <img src="../../../assets/images/tape.png" alt="">
     </div>
     <div class="tape tape-right">
       <img src="../../../assets/images/tape2.png" alt="">
     </div> -->
-  </div>
-</div>
+      </div>
+    </div>
 
 
-<!--
+    <!--
    <o-grid #grid columns="user_;id_client;name;surname;short_desc;avatar;activity_name" quick-filter-columns="name;surname;activity_name"
         service="users" entity="host" keys="id" parent-keys="id_town" [cols]="3" show-page-size="false"
         page-size-options="4;8;16" grid-item-height="3:4" refresh-button="false" pagination-controls="false"
