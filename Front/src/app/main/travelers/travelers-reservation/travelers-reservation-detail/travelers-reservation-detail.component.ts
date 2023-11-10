@@ -1,6 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material';
-import { OSnackBarConfig, OntimizeService, SnackBarService } from 'ontimize-web-ngx';
+import { OFormComponent, OSnackBarConfig, OntimizeService, SnackBarService } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-travelers-reservation-detail',
@@ -9,7 +9,7 @@ import { OSnackBarConfig, OntimizeService, SnackBarService } from 'ontimize-web-
 })
 export class TravelersReservationDetailComponent implements OnInit {
 
-  
+  @ViewChild('form', { static: true }) form: OFormComponent;
 
   public id_reservation;
   public id_client_traveler;
@@ -17,6 +17,7 @@ export class TravelersReservationDetailComponent implements OnInit {
   public id_client_host;
   public message ;
   public message_answer;
+  public message_cancellation;
   public id_status;     
   public surname_traveler ;
   public email_traveler ;
@@ -46,7 +47,7 @@ export class TravelersReservationDetailComponent implements OnInit {
   ngOnInit() {
     this.ontimizeServiceUsers.query({id_reservation: this.data.id_reservation }, ['id_reservation','id_client_traveler','id_client_host',
     'message','id_status','name_traveler','surname_traveler','email_traveler','message_answer','name_host','surname_host','email_host',
-    'phonenumber_host','status_name','reservation_date'], 'reservation').subscribe(
+    'phonenumber_host','status_name','reservation_date', 'message_cancellation'], 'reservation').subscribe(
       res => {
      
 
@@ -56,6 +57,7 @@ export class TravelersReservationDetailComponent implements OnInit {
         this.id_client_host = res.data[0].id_client_host;
         this.message = res.data[0].message;
         this.message_answer = res.data[0].message_answer;
+        this.message_cancellation = res.data[0].message_cancellation;
         this.id_status = res.data[0].id_status;      
         this.surname_traveler = res.data[0].surname_traveler;
         this.email_traveler = res.data[0].email_traveler;
@@ -95,10 +97,34 @@ export class TravelersReservationDetailComponent implements OnInit {
         this.snackBarService.open(`Error: ${res.message}`, { milliseconds: 5000 });
       }
 
-    });
+    });    
+  }
 
+  cancelReservation(id_reservation: any) {
+    let message_cancellation = this.form.getComponents().message_cancellation.getValue();
+    let id_status = 4;
+    //1
+    let parent = this;
+    this.ontimizeServiceUsers.update({ id_reservation: id_reservation }, { message_cancellation: message_cancellation, id_status: id_status }, 'reservation').subscribe(res => {
 
-    
+      this.dialog.closeAll();
+
+      if (res.code == 0) {
+        //2
+        parent.data.grid.reloadData();
+        // Mostrar el snack-bar con el mensaje de éxito
+        const config: OSnackBarConfig = {
+          action: 'OK',
+          milliseconds: 5000,
+          icon: 'check_circle_outline',
+          iconPosition: 'left'
+        };
+        this.snackBarService.open('Respuesta guardada', config);
+      } else {
+        // Mostrar el snack-bar con el mensaje de error
+        this.snackBarService.open(`Error: ${res.message}`, { milliseconds: 5000 });
+      }
+    });  
   }
 }
 

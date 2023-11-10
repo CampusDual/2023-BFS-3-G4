@@ -31,6 +31,7 @@
                 <Column>id_client_host</Column>
                 <Column>message</Column>
                 <Column>message_answer</Column>
+                <Column>message_cancellation</Column>
                 <Column>id_status</Column>
                 <Column>name_traveler</Column>
                 <Column>surname_traveler</Column>
