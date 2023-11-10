@@ -1,4 +1,7 @@
-<button mat-flat-button [routerLink]="['../../communities']"> < {{'BACKBTN' | oTranslate}}</button>
+<button mat-flat-button [routerLink]="['../../communities']">
+  <mat-icon>arrow_back_ios_new</mat-icon>
+  {{'BACKBTN' | oTranslate}}
+</button>
 <div fxFill fxLayout="column" fxLayoutAlign="start">
   
   <o-grid #grid columns="id_town;town_name;province_name" quick-filter-columns="town_name;province_name" service="towns"

@@ -1,5 +1,8 @@
 <!-- <a [routerLink]="['../../communities']"> -->
-    <button mat-flat-button [routerLink]="['../../communities']"> < {{'BACKBTN' | oTranslate}}</button>
+<button mat-flat-button [routerLink]="['../../communities']">
+    <mat-icon>arrow_back_ios_new</mat-icon>
+    {{'BACKBTN' | oTranslate}}
+</button>
 <!-- </a> -->
 <o-form #form fxFill service="communities" entity="community" keys="id_community" show-header="no">
     <o-text-input attr="id_community" sql-type="INTEGER" enabled="no" oHidden></o-text-input>

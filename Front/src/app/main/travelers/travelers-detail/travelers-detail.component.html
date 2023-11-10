@@ -1,6 +1,8 @@
 <!--     ////   WIP composición gráfica  ////     -->
 <button mat-flat-button [routerLink]="['../../towns', idtown]">
-  < {{'BACKBTN' | oTranslate}}</button>
+  <mat-icon>arrow_back_ios_new</mat-icon>
+  {{'BACKBTN' | oTranslate}}
+</button>
     <div class="container">
       <div class="title">
         <p class="hostName">{{nameInput.getValue()}} {{surnameInput.getValue()}}</p>
