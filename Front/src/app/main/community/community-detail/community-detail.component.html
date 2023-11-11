@@ -1,4 +1,3 @@
-
 <!-- <a [routerLink]="['../../communities']"> -->
 <button mat-flat-button [routerLink]="['../../communities']">
     <mat-icon>arrow_back_ios_new</mat-icon>
@@ -12,21 +11,25 @@
         oHidden></o-text-input>
     <h1 class="community-title">{{ custom_name }}</h1>
 
-    <o-grid #grid columns="id_town;id_community;town_name;province_name" quick-filter-columns="town_name;province_name"
-        service="towns" entity="town" keys="id_town" parent-keys="id_community" [cols]="6" grid-item-height="2:3"
-        show-page-size="false" page-size-options="4;8;16" refresh-button="false" pagination-controls="true"
-        gutter-size="20px" [ngStyle]="{'height':'600px'}" quick-filter="no">
+    <o-grid #grid columns="id_town;id_community;town_name;province_name" quick-filter="no"
+        service="towns" entity="town" keys="id_town" parent-keys="id_community" [cols]="5" grid-item-height="2:3"
+        show-page-size="false" page-size-options="5;10;20;40" refresh-button="false" pagination-controls="true"
+        sortable-columns="town_name" sort-column="town_name" gutter-size="10px" [ngStyle]="{'height':'600px'}" >
 
         <div class="grid-container">
             <o-grid-item class="townCard" *ngFor="let list of grid.dataArray">
                 <o-column class="container-item">
-                    <a [routerLink]="['/main/towns', list.id_town]">
-                        <img src="{{ getImagePath(list.town_name) }}" alt="{{ list.town_name }}" class="town-image">
-                    </a>
-                    <div class="town-name">{{ list.town_name }}</div>
-                    <div class="province-name">{{ list.province_name }}</div>
-                    <div class="host-amount">
-                        <span class="material-symbols-outlined">person_pin_circle</span> {{ list.hostamount }}
+                    <div class="image-container">
+                        <a [routerLink]="['/main/towns', list.id_town]">
+                            <img src="{{ getImagePath(list.town_name) }}" alt="{{ list.town_name }}" class="town-image">
+                        </a>
+                    </div>
+                    <div class="town-data">     
+                        <div class="town-name">{{ list.town_name }}</div>
+                        <div class="province-name">{{ list.province_name }}</div>
+                        <div class="host-amount">
+                            <span class="material-symbols-outlined">person_pin_circle</span> {{ list.hostamount }}
+                        </div>
                     </div>
                 </o-column>
             </o-grid-item>

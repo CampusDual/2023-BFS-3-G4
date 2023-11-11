@@ -3,11 +3,9 @@
   {{'BACKBTN' | oTranslate}}
 </button>
 
-<div fxFill fxLayout="column" fxLayoutAlign="start">
+  <o-form #form fxLayout="column" show-header="no">
 
-  <o-form #form fxFill show-header="no">
-
-    <div fxFill fxLayout="column" fxLayoutAlign="start">
+    <h2 class="towns-home">Elige tu destino favorito</h2>
     
         <div class="filter-style" fxLayout="column">
           <div fxLayout="row wrap" fxLayout="32px" class="buttons-container">
@@ -18,9 +16,9 @@
                       placeholder="province_name" label-visible="false">
               </o-combo> -->
               <!-- Combo para Ciudades -->
-              <o-combo attr="id_town" label="TOWN" service="towns" entity="town" keys="id_town"
+              <o-combo attr="town_name" service="towns" entity="town" keys="id_town"
                             columns="town_name;id_town" visible-columns="town_name" value-column="town_name"
-                            class="input-combo" fxFlex="80%" sort="ASC" searchable="true"
+                            class="input-combo" fxFlex="75%" sort="ASC" searchable="true"
                             placeholder="town_name" label-visible="false">
               </o-combo>
               <!-- Botones del filtro -->
@@ -32,41 +30,35 @@
                           xFlex="5%" color="primary">
                 </o-button>
               </div>
+              <!-- oFilterBuilder para el filtrado -->
+              <o-filter-builder #filterBuilder attr="thefilter" filters="town_name;province_name"
+                                [target]="grid" query-on-change="no" [expression-builder]="createFilter">
+              </o-filter-builder>
           </div>
         </div>
-        <!-- oFilterBuilder para el filtrado -->
-        <o-filter-builder #filterBuilder attr="thefilter" filters="town_name;province_name"
-                          [target]="grid" query-on-change="no" [expression-builder]="createFilter">
-        </o-filter-builder>
+        <o-grid #grid columns="id_town;town_name;province_name" quick-filter="no"
+        service="towns" entity="town" keys="id_town" [cols]="5" grid-item-height="2:3"
+        show-page-size="false" page-size-options="5;10;20" refresh-button="false" pagination-controls="true"
+        sortable-columns="town_name" sort-column="town_name" gutter-size="10px" [ngStyle]="{'height':'600px'}" >
 
-
-      <o-grid #grid columns="id_town;town_name;province_name"  service="towns" refresh-button="false"
-              entity="town" keys="id_town" [cols]="6" show-page-size="false" page-size-options="4;8;16" 
-              sortable-columns="town_name" sort-column="town_name" quick-filter="no" grid-item-height="2:4"
-              pagination-controls="true" gutter-size="15px" fixed-header="yes"  [ngStyle]="{'height':'600px'}">
-
-        <o-grid-item class="townCard" *ngFor="let list of grid.dataArray" class="townCard mat-elevation-z1">
-          <div fxLayout="column" fxLayoutAlign="space-evenly center">
-            <div class="image-container">
-              <a [routerLink]="['/main/towns', list.id_town]">
-                <img src="{{ getImagePath(list.town_name) }}" alt="{{ list.town_name }}" class="town-image">
-              </a>
-            </div>
-            <div class="town-details">
-              <div class="town-name">{{ list.town_name }}</div>
-              <div class="province-name">{{ list.province_name }}</div>
-              <div class="host-amount">
-                <span class="material-symbols-outlined">person_pin_circle</span> {{ list.hostamount }}
-              </div>
-            </div>
-          </div>
-        </o-grid-item>
-
-      </o-grid>
-
-  </div>
-  
-
+        <div class="grid-container">
+            <o-grid-item class="townCard" *ngFor="let list of grid.dataArray">
+                <o-column class="container-item">
+                    <a [routerLink]="['/main/towns', list.id_town]">
+                        <img src="{{ getImagePath(list.town_name) }}" alt="{{ list.town_name }}" class="town-image">
+                    </a>
+                    <div class="town-data">     
+                        <div class="town-name">{{ list.town_name }}</div>
+                        <div class="province-name">{{ list.province_name }}</div>
+                        <div class="host-amount">
+                            <span class="material-symbols-outlined">person_pin_circle</span> {{ list.hostamount }}
+                        </div>
+                    </div>
+                </o-column>
+            </o-grid-item>
+        </div>
+    </o-grid>
 </o-form>
 
-</div>
+
+

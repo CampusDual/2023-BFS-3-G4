@@ -1,6 +1,5 @@
 o-grid {
-    row-gap: 10px;
-  
+  margin-bottom: 0;
 }
 
 .community-title {
@@ -14,6 +13,7 @@ o-grid {
   font-size: 50px;
   letter-spacing: 1px;
   color: rgb(210, 190, 250);
+  margin-bottom: 0;
 }
 
 /* Estilos para el filtro */
@@ -42,42 +42,39 @@ o-grid {
   cursor: pointer; 
 }
 
-.townCard:hover {
-    border: 5px solid transparent;
-    display: grid;
-    place-items: center;
-    
-}
-
-.town-image::after { /* Velo sobre foto */
-    content: ""; /* Para que se muestre se muestre */
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(255, 255, 255, 0.10); /* Opacidad blanco */
-    /* background-color: rgba(50, 50, 50, 0.10); /* Opacidad negro todo el cuadro */
-    pointer-events: none;
+.container-item {
+  margin-top: 0;
+  display: block;
+  position: absolute;
+  width: 90%;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  overflow: hidden;
 }
 
 .town-image {
     width: 100%; 
     max-height: 220px; 
     object-fit: cover;
+    
   }
   
-.town-name {
+  .town-name {
     font-weight: bold;
-    font-size: 1em;
-    text-transform: uppercase;
-    text-align: center;
+    font-size: 1.1em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 4px 0;
+    text-align: center
   }
   
 .province-name {
     font-size: 0.8em;
     text-align: center;
+    margin-bottom: 6px;
   }
 
   .material-symbols-outlined {
@@ -86,11 +83,12 @@ o-grid {
     'wght' 400,
     'GRAD' 0,
     'opsz' 24;
-    margin-bottom: 2px;
+    margin-bottom: 6px;
   }
 
   .host-amount {
     display: flex; 
     align-items: center; 
     justify-content: center; 
+    margin-bottom: 5px;
   }

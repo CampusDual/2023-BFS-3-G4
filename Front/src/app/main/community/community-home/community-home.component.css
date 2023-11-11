@@ -3,15 +3,6 @@ o-grid {
     align-items: start;
 }
 
-/* .o-grid {
-    .o-grid-toolbar {
-      .o-button {
-        margin-right: 12px;
-      }
-  
-    } 
-  } */
-
 .community-title {
     margin-top: 10px;
     text-align: center;
@@ -23,13 +14,14 @@ o-grid {
     font-weight: bold;
     font-size: 35px;
     letter-spacing: 1px;
-    color: rgb(210, 190, 250);
+    color: #341777;
+    margin-bottom: 7px;
 }
 /* Estilos para el filtro */
 .filter-style {
     background-color: #f4f4f4; 
     border: 1px solid #ccc; 
-    border-radius: 10px;
+    border-radius: 20px;
     padding-right: 30px;
     padding-left: 30px;
 }
@@ -51,17 +43,8 @@ o-grid {
 }
 
 /* Estilos del grid */
-.grid-container::before { /* Velo sobre foto */
-    content: ""; /* Para que se muestre se muestre */
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    /* background-color: rgba(255, 255, 255, 100); Opacidad blanco */
-    background-color: rgba(50, 50, 50, 5); /* Opacidad negro todo el cuadro */
-    pointer-events: none;
+.grid-container { /* Velo sobre foto */
+    overflow: hidden;
 }
 
 
@@ -73,6 +56,10 @@ o-grid {
     max-height: 100%; 
     border-radius: 20px;
     align-items: center;
+
+    img {
+        box-shadow: rgba(50, 50, 50, 5);
+    }
 }
 
 .community-name {
