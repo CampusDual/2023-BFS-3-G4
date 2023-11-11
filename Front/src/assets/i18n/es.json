@@ -105,6 +105,25 @@
   "REJECT": "Rechazar",
   "REGTEXT1": "Tu viaje empieza aquí!",
   "REGTEXT2": "Rellena el formulario de registro",
-  "REGTEXT3": "y únete al club de sheTravel"
+  "REGTEXT3": "y únete al club de sheTravel",
+ 
+  "name_traveler": "Nombre",
+  "surname_traveler": "Apellidos",
+  "name_host": "Nombre",
+  "surname_host": "Apellidos",
+  "message": "Mensaje",
+  "status_name": "Estatus",
+  "You rejected the reservation": "Has rechazado esta reserva. Otra vez será!",
+  "Reservation Date": "Fecha de la visita",
+  "Reservation": "Reserva",
+  "REJECTED": "RECHAZADA",
+  "PENDING": "PENDIENTE",
+  "ACCEPTED": "ACEPTADA",
+  "Reservation delete": "aún no ha contestado a tu petición. Estás a tiempo de cancelarla.",
+  "Reservation rejected text": "no ha podido aceptar tu reserva. Pero hay muchas más hosts y destinos en la web!",
+  "Reservation accepted": "Tu reserva ha sido aceptada! Aquí tienes sus datos de contacto"
+
+
+
 
 }

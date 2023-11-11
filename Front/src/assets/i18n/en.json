@@ -102,7 +102,27 @@
   "CREATEBTN": "Create",
   "RESERV_DIALOG_MSG": "Set a date to meet the host and take a tour around her city",
   "ACCEPT": "Accept",
-  "REJECT": "Reject"
+  "REJECT": "Reject",
+
+  "Fecha de la visita": "Visit date",
+  "Reserva borrada": "Deleted petition",
+  "name_traveler": "Name",
+  "surname_traveler": "Surname",
+  "name_host": "Name",
+  "surname_host": "Surname",
+  "message": "Message",
+  "status_name": "Status",
+  "You rejected the reservation": "You rejected this visit. Maybe next time!",
+  "Reservation": "Reservation",
+  "REJECTED": "REJECTED",
+  "PENDING": "PENDING",
+  "ACCEPTED": "ACCEPTED",
+  "Reservation delete": "hasn't answered your message yet. Do you want to delete it?",
+  "Reservation rejected text": "couldn't accep your reservation this time... But there are many others hosts in our web!",
+  "Reservation accepted": "Your host accepted your reservation. You can contact her now"
+
+
+  
 ,
   "REGTEXT1": "Your journey starts here!",
   "REGTEXT2": "Fill out the registration form",
