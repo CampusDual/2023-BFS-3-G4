@@ -119,9 +119,11 @@
   "REJECTED": "RECHAZADA",
   "PENDING": "PENDIENTE",
   "ACCEPTED": "ACEPTADA",
+  "CANCELED": "Cancelada",
   "Reservation delete": "aún no ha contestado a tu petición. Estás a tiempo de cancelarla.",
-  "Reservation rejected text": "no ha podido aceptar tu reserva. Pero hay muchas más hosts y destinos en la web!",
-  "Reservation accepted": "Tu reserva ha sido aceptada! Aquí tienes sus datos de contacto"
+  "Reservation rejected text": "no ha podido aceptar tu reserva. Pero hay muchas más anfitrionas y destinos en la web!",
+  "Reservation accepted": "Tu reserva ha sido aceptada! Aquí tienes sus datos de contacto",
+  "Headline in communities": "¿Dónde quieres ir?"
 
 
 

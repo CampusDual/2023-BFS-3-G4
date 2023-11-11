@@ -103,7 +103,7 @@
   "RESERV_DIALOG_MSG": "Set a date to meet the host and take a tour around her city",
   "ACCEPT": "Accept",
   "REJECT": "Reject",
-
+  "CANCELED": "Canceled",
   "Fecha de la visita": "Visit date",
   "Reserva borrada": "Deleted petition",
   "name_traveler": "Name",
@@ -119,7 +119,9 @@
   "ACCEPTED": "ACCEPTED",
   "Reservation delete": "hasn't answered your message yet. Do you want to delete it?",
   "Reservation rejected text": "couldn't accep your reservation this time... But there are many others hosts in our web!",
-  "Reservation accepted": "Your host accepted your reservation. You can contact her now"
+  "Reservation accepted": "Your host accepted your reservation. You can contact her now",
+  "Headline in communities": "Where do you wanna go?"
+
 
 
   
