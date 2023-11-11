@@ -72,5 +72,7 @@ o-grid {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    text-shadow: black 0.1em 0.1em 0.2em;
     width: 100%;
 }
+
