@@ -120,7 +120,9 @@
   "Reservation delete": "hasn't answered your message yet. Do you want to delete it?",
   "Reservation rejected text": "couldn't accep your reservation this time... But there are many others hosts in our web!",
   "Reservation accepted": "Your host accepted your reservation. You can contact her now",
-  "Headline in communities": "Where do you wanna go?"
+  "Headline in communities": "Where do you wanna go?",
+  "Message from": "Message from",
+  "Message to": "Message to"
 
 
 
