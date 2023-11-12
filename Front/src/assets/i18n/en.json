@@ -119,7 +119,7 @@
   "ACCEPTED": "ACCEPTED",
   "Reservation delete": "hasn't answered your message yet. Do you want to delete it?",
   "Reservation rejected text": "couldn't accep your reservation this time... But there are many others hosts in our web!",
-  "Reservation accepted": "Your host accepted your reservation. You can contact her now",
+  "Reservation accepted": "Your host accepted your reservation. You can contact her now:",
   "Headline in communities": "Where do you wanna go?",
   "Message from": "Message from",
   "Message to": "Message to",
@@ -133,6 +133,10 @@
   "ACCEPT_RES2": "already has your contact information!",
   "REJECTED_RES": "You have declined the reservation. Perhaps next time!",
   "RESDATE": "Visit date",
-  "RESMESSAGE": "Message"
+  "RESMESSAGE": "Message",
+  "CHOOSEDESTINATIONMSSG": "Choose your destination",
+  "YOUTAG": "(YOU)",
+  "ACCEPTVISITOF?": "Do you accept the visit of",
+  "READMESSAGE": "See message"
 
 }

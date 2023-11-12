@@ -122,12 +122,18 @@
   "CANCELED": "Cancelada",
   "Reservation delete": "aún no ha contestado a tu petición. Estás a tiempo de cancelarla.",
   "Reservation rejected text": "no ha podido aceptar tu reserva. Pero hay muchas más anfitrionas y destinos en la web!",
-  "Reservation accepted": "Tu reserva ha sido aceptada! Aquí tienes sus datos de contacto",
+  "Reservation accepted": "Tu reserva ha sido aceptada! Aquí tienes sus datos de contacto:",
   "Headline in communities": "¿Dónde quieres ir?",
   "Message from": "Mensaje de",
   "Message to": "Mensaje para",
   "RESDATE": "Fecha de la visita",
-  "RESMESSAGE": "Mensaje"
+  "RESMESSAGE": "Mensaje",
+  "CHOOSEDESTINATIONMSSG": "Elige tu destino favorito",
+  "YOUTAG": "(TÚ)",
+  "ACCEPTVISITOF?": "¿Aceptas la reserva de",
+  "ACCEPT_RES1":  "Has aceptado la reserva de" ,
+  "ACCEPT_RES2": "y ya tiene tus datos de contacto!",
+  "READMESSAGE": "Ver mensaje"
 
 
 }
