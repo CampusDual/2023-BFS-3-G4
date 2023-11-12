@@ -125,10 +125,9 @@
   "Reservation accepted": "Tu reserva ha sido aceptada! Aquí tienes sus datos de contacto",
   "Headline in communities": "¿Dónde quieres ir?",
   "Message from": "Mensaje de",
-  "Message to": "Mensaje para"
-
-
-
+  "Message to": "Mensaje para",
+  "RESDATE": "Fecha de la visita",
+  "RESMESSAGE": "Mensaje"
 
 
 }

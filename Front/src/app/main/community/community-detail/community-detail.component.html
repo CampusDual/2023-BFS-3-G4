@@ -11,7 +11,7 @@
         oHidden></o-text-input>
     <h1 class="community-title">{{ custom_name }}</h1>
 
-    <o-grid #grid columns="id_town;id_community;town_name;province_name" quick-filter="no"
+    <o-grid #grid columns="id_town;id_community;town_name;province_name" quick-filter-columns="town_name;province_name"
         service="towns" entity="town" keys="id_town" parent-keys="id_community" [cols]="5" grid-item-height="2:3"
         show-page-size="false" page-size-options="5;10;20;40" refresh-button="false" pagination-controls="true"
         sortable-columns="town_name" sort-column="town_name" gutter-size="10px" [ngStyle]="{'height':'600px'}" >

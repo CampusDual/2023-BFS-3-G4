@@ -122,12 +122,7 @@
   "Reservation accepted": "Your host accepted your reservation. You can contact her now",
   "Headline in communities": "Where do you wanna go?",
   "Message from": "Message from",
-  "Message to": "Message to"
-
-
-
-  
-,
+  "Message to": "Message to",
   "REGTEXT1": "Your journey starts here!",
   "REGTEXT2": "Fill out the registration form",
   "REGTEXT3": "and join the sheTravel Club",
@@ -136,6 +131,8 @@
   "RES_PENDING": " have not responded to your request yet. You have the option to cancel it if you wish.",
   "ACCEPT_RES1":  "You have accepted the reservation, and" ,
   "ACCEPT_RES2": "already has your contact information!",
-  "REJECTED_RES": "You have declined the reservation. Perhaps next time!"
+  "REJECTED_RES": "You have declined the reservation. Perhaps next time!",
+  "RESDATE": "Visit date",
+  "RESMESSAGE": "Message"
 
 }
