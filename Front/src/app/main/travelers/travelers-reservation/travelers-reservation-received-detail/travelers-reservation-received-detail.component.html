@@ -23,7 +23,7 @@
                     (onClick)="acceptReservation(id_reservation)"></o-button>
             </div>
             <div class="auto">
-                <p *ngIf="id_status == 1">Has aceptado la reserva y {{name_traveler}} ya tiene tus datos de contacto!
+                <p *ngIf="id_status == 1"> {{ 'ACCEPT_RES1' | oTranslate }} {{name_traveler}} {{ 'ACCEPT_RES2' | oTranslate }}
                 </p>
                 <p *ngIf="id_status == 2"> {{'You rejected the reservation' | oTranslate}}</p>
             </div>

@@ -153,7 +153,7 @@ export class TravelersHomeComponent implements OnInit {
    
     this.dialog.open(TravelersReservationDetailComponent, {
       
-      height: '600px',
+      height: '700px',
       width: '550px',
       data: {
         id_reservation: data,
@@ -169,7 +169,7 @@ export class TravelersHomeComponent implements OnInit {
    
     this.dialog.open(TravelersReservationReceivedDetailComponent, {
       
-      height: '600px',
+      height: '700px',
       width: '550px',
       data: {
         id_reservation: data,

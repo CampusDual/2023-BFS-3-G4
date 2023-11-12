@@ -130,6 +130,12 @@
 ,
   "REGTEXT1": "Your journey starts here!",
   "REGTEXT2": "Fill out the registration form",
-  "REGTEXT3": "and join the sheTravel Club"
+  "REGTEXT3": "and join the sheTravel Club",
+  "RES_ACCEPTED": "Your reservation has been accepted, and this is your host's contact!",
+  "RES_REJECTED": "Your reservation could not be accepted. But there are many more hosts and destinations on the website!",
+  "RES_PENDING": " have not responded to your request yet. You have the option to cancel it if you wish.",
+  "ACCEPT_RES1":  "You have accepted the reservation, and" ,
+  "ACCEPT_RES2": "already has your contact information!",
+  "REJECTED_RES": "You have declined the reservation. Perhaps next time!"
 
 }

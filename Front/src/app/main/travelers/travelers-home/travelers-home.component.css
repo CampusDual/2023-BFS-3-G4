@@ -34,21 +34,20 @@ box-sizing: border-box;
 }
 
 
-.bandeja{
-    font-family: 'Patua One', sans-serif;
-    font-size: 30px;
-    color: #341777;
-    margin: 20px;
-}
+
 .container{
     width: 1000px;
     height: auto;
+    overflow:hidden;
 }
 
 .name-msg{
     background-color: rgb(45, 13, 120);
     color: white;
     font-size: small;
+    height: 59px;
+    overflow: hidden;
+    
 }
 .name{
     text-transform: uppercase;
