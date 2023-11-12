@@ -16,7 +16,7 @@
                 label="Responde al mensaje de {{name_traveler}}" fxFlex="70" max-length="200"></o-textarea-input>
 
             <div class="buttons" *ngIf="id_status == 3">
-                <div class="acc-rej">{{'ACCEPTVISITOF?' | oTranslate}} {{name_traveler}}? <br>Si lo haces, le enviaremos tus datos de contacto.</div>
+                <div class="acc-rej">{{'ACCEPTVISITOF?' | oTranslate}} {{name_traveler}}? <br>{{'ACCEPTVISITOF2?' | oTranslate}}</div>
                 <o-button class="reject" type="RAISED" label="REJECT" layout-padding color="accent"
                     (onClick)="rejectReservation(id_reservation)"></o-button>
                 <o-button class="accept" type="RAISED" label="ACCEPT" layout-padding color="accent"
