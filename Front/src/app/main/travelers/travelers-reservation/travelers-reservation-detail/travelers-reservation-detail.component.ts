@@ -102,7 +102,7 @@ export class TravelersReservationDetailComponent implements OnInit {
 
   cancelReservation(id_reservation: any) {
     let message_cancellation = this.form.getComponents().message_cancellation.getValue();
-    let id_status = 4;
+    let id_status = 5;
     //1
     let parent = this;
     this.ontimizeServiceUsers.update({ id_reservation: id_reservation }, { message_cancellation: message_cancellation, id_status: id_status }, 'reservation').subscribe(res => {
@@ -119,7 +119,7 @@ export class TravelersReservationDetailComponent implements OnInit {
           icon: 'check_circle_outline',
           iconPosition: 'left'
         };
-        this.snackBarService.open('Respuesta guardada', config);
+        this.snackBarService.open('Reserva cancelada', config);
       } else {
         // Mostrar el snack-bar con el mensaje de error
         this.snackBarService.open(`Error: ${res.message}`, { milliseconds: 5000 });

@@ -144,7 +144,7 @@ export class TravelersReservationReceivedDetailComponent implements OnInit {
           icon: 'check_circle_outline',
           iconPosition: 'left'
         };
-        this.snackBarService.open('Respuesta guardada', config);
+        this.snackBarService.open('Reserva cancelada', config);
       } else {
         // Mostrar el snack-bar con el mensaje de error
         this.snackBarService.open(`Error: ${res.message}`, { milliseconds: 5000 });

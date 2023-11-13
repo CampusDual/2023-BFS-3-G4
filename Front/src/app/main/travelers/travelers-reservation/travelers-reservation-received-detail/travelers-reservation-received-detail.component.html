@@ -22,10 +22,21 @@
                 <o-button class="accept" type="RAISED" label="ACCEPT" layout-padding color="accent"
                     (onClick)="acceptReservation(id_reservation)"></o-button>
             </div>
+
+            <o-textarea-input *ngIf="id_status == 1" attr="message_cancellation"
+                label="Cancela la reserva de {{name_traveler}}" fxFlex="70" max-length="200"></o-textarea-input>
+
+            <div class="buttons" *ngIf="id_status == 1">
+                <div class="acc-rej">{{'ACCEPTVISITOF?' | oTranslate}} {{name_traveler}}? <br>{{'ACCEPTVISITOF2?' | oTranslate}}</div>
+                <o-button class="reject" type="RAISED" label="CANCEL" layout-padding color="accent"
+                    (onClick)="cancelReservation(id_reservation)"></o-button>
+            </div>
+
             <div class="auto">
                 <p *ngIf="id_status == 1"> {{ 'ACCEPT_RES1' | oTranslate }} {{name_traveler}} {{ 'ACCEPT_RES2' | oTranslate }}
                 </p>
                 <p *ngIf="id_status == 2"> {{'You rejected the reservation' | oTranslate}}</p>
+                <p *ngIf="id_status == 4"> {{'You rejected the reservation' | oTranslate}}</p>
             </div>
         </div>
     </o-form>
