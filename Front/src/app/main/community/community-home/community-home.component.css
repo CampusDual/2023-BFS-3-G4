@@ -1,0 +1,78 @@
+o-grid {
+    margin-top: 40px;
+    align-items: start;
+}
+
+.community-title {
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 35px;
+    letter-spacing: 1px;
+    color: #341777;
+    margin-bottom: 7px;
+}
+/* Estilos para el filtro */
+.filter-style {
+    background-color: #f4f4f4; 
+    border: 1px solid #ccc; 
+    border-radius: 20px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center;
+}
+
+.input-search {
+    margin-right: 10px; 
+}
+
+.input-clear {
+    background-color: transparent;
+    border: none;
+    cursor: pointer; 
+}
+
+/* Estilos del grid */
+.grid-container { /* Velo sobre foto */
+    overflow: hidden;
+}
+
+
+.community-image {
+    object-fit: cover; /* Ajuste de imagen */
+    width: 100%; 
+    height: auto; 
+    max-width: 100%; 
+    max-height: 100%; 
+    border-radius: 20px;
+    align-items: center;
+
+    img {
+        box-shadow: rgba(50, 50, 50, 5);
+    }
+}
+
+.community-name {
+    font-weight: bold;
+    font-size: 1.7em;
+    text-transform: uppercase;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    width: 100%;
+}
+

@@ -1,0 +1,68 @@
+<div class="container">
+    <o-form #form service="users" entity="reservation" keys="id_reservation" editable-detail="true" show-header="no"
+        show-header-navigation="no" layout-direction="column" (onDataLoaded)="ngOnInit()">
+        <div class="date1">{{'Reservation Date' | oTranslate}}</div>
+        <div class="date2">{{reservation_date | date: 'dd/MM/yyyy'}}</div>
+        <div class="boxes">
+            <div class="box1">
+                <div class="nameT">{{name_traveler}} {{surname_traveler}} {{'YOUTAG' | oTranslate}}</div>
+                <div class="msgT">{{message}}</div>
+            </div>
+            <div *ngIf="!(id_status == 3)" class="box2">
+                <div class="nameH">{{name_host}} {{surname_host}}</div><span></span>
+                <div class="msgH">{{message_answer}}</div>
+            </div>
+            <div class="auto">
+                <p *ngIf="id_status == 1"> {{'Reservation accepted' | oTranslate}}
+
+                <p *ngIf="id_status == 2"> {{name_host}} {{'Reservation rejected text' | oTranslate}}  </p>
+                <p *ngIf="id_status == 3">{{name_host}} {{'Reservation delete' | oTranslate}} </p>
+            </div>
+            <div class="info">
+                <p *ngIf="id_status == 1">Tel: {{phonenumber_host}}</p>
+                <p *ngIf="id_status == 1">E-mail: {{email_host}}</p>
+            </div>
+
+        </div>
+        <div class="buttons" *ngIf="id_status == 3">
+            <o-button class="deleteReservationButton" type="RAISED" label="DELETE" layout-padding color="accent"
+                (onClick)="(deleteReservationFn(id_reservation))"></o-button>
+        </div>
+
+
+
+    </o-form>
+</div>
+
+<!--<div class="container">
+    <o-form #form service="users" entity="reservation" keys="id_reservation" editable-detail="true" show-header="no"
+        show-header-navigation="no" layout-direction="column" (onDataLoaded)="ngOnInit()">
+        <div class="date1">Fecha reserva</div>
+        <div class="date2">{{reservation_date | date: 'dd/MM/yyyy'}}</div>
+        <div class="boxes">
+            <div class="box1">
+                <div class="nameT">{{name_traveler}} {{surname_traveler}}</div>
+                <div class="msgT">{{message}}</div>
+            </div>
+            <div class="box2">
+                <div *ngIf="id_status == 1" class="nameH">{{name_host}} (Tú)</div><span></span>
+                <div *ngIf="id_status == 1" class="msgH">{{message_answer}}</div>
+            </div>
+            <o-textarea-input *ngIf="id_status == 3" attr="message_answer"
+                label="Responde al mensaje de {{name_traveler}}" fxFlex="70" max-length="200"></o-textarea-input>
+
+            <div class="buttons" *ngIf="id_status == 3">
+                <div class="acc-rej">Aceptas la fecha de visita de {{name_traveler}}?</div>
+                <o-button class="reject" type="RAISED" label="REJECT" layout-padding color="accent"
+                    (onClick)="rejectReservation(id_reservation)"></o-button>
+                <o-button class="accept" type="RAISED" label="ACCEPT" layout-padding color="accent"
+                    (onClick)="acceptReservation(id_reservation)"></o-button>
+            </div>
+            <div class="auto">
+                <p *ngIf="id_status == 1">Has aceptado la reserva y {{name_traveler}} ya tiene tus datos de contacto!
+                </p>
+                <p *ngIf="id_status == 2">Has rechazado la reserva. Otra vez será!</p>
+            </div>
+        </div>
+    </o-form>
+</div>-->

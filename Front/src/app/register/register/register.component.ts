@@ -1,7 +1,7 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NavigationService } from 'ontimize-web-ngx';
+import { NavigationService, OFormComponent, OSnackBarConfig, OTranslateService, OntimizeService, SnackBarService } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-register',
@@ -10,22 +10,28 @@ import { NavigationService } from 'ontimize-web-ngx';
 })
 export class RegisterComponent implements OnInit {
 
+  @ViewChild('formregister', { static: true }) formregister: OFormComponent;
+  public name;
+  public surname;
+  public regemail;
+  public password;
+
+
   validatorsArray: ValidatorFn[] = []; // Array de validadores personalizados
   isPasswordModified: boolean = false; // Indicador de si la contraseña ha sido modificada
-  router: Router;
   form: FormGroup;
 
   constructor(
-    router: Router,
+    public router: Router,
     @Inject(NavigationService) public navigation: NavigationService,
-    private fb: FormBuilder
-    ) {
-
-
-
+    private fb: FormBuilder,
+    private ontimizeServiceRegister: OntimizeService,
+    private snackBarService: SnackBarService,
+    private translate: OTranslateService
+  ) {
+    this.ontimizeServiceRegister.configureService(this.ontimizeServiceRegister.getDefaultServiceConfiguration('register'));
     this.validatorsArray.push(this.passwordValidator); // Añadir el validador de contraseña al array
     this.router = router;
-
   }
 
   ngOnInit() {
@@ -33,7 +39,7 @@ export class RegisterComponent implements OnInit {
       user_: ['', [Validators.required, Validators.email]],
     });
   }
-  
+
   onPasswordInput() {
     this.isPasswordModified = true; // La contraseña ha sido modificada
   }
@@ -70,9 +76,19 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  goToLogin(){
+  saveUserInDataBase() {
+    this.formregister.insert();
+  }
+
+  userCreated() {
+    const config: OSnackBarConfig = {
+      action: 'OK',
+      milliseconds: 5000,
+      icon: 'check_circle_outline',
+      iconPosition: 'left'
+    };
+    this.snackBarService.open(this.translate.get('SNACKREGISTER'), config);
     this.router.navigate(["/login"]);
-    console.log("Hola toi aqui");
   }
 
 }

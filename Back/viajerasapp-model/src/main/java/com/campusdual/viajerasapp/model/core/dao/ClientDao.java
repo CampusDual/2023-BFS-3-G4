@@ -33,6 +33,7 @@ public class ClientDao extends OntimizeJdbcDaoSupport {
     public static final String AVATAR = "avatar";
 
     public static final String QUERY_HOSTCLIENT = "hostclient";
+    public static final String QUERY_ACTIVITIESCLIENT = "activitiesclient";
 
 
 

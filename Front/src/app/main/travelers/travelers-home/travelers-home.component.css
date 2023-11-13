@@ -1,0 +1,108 @@
+.activitiesGrid {
+    width: 100%;
+}
+
+.activitiesButton{
+    display: flex;
+    width: 100%;
+}
+
+.mat-chip {
+    font-size: 1em; 
+    height: 0px; /* Altura fija para todas las chips */
+    line-height: 5px; /* Alineación vertical del texto dentro de la chip */
+    padding: 0 10px; /* Padding horizontal para mantener el contenido centrado */
+    margin: 0;
+    pointer-events: none; /* Desactiva el efecto hover */
+    background-color: rgb(210, 190, 250);
+}
+
+
+mat-chip:hover {
+background-color: inherit; 
+}
+
+.mat-chip-list {
+display: flex;
+justify-content: center;
+align-items: center; 
+list-style: none;
+padding: 0;
+margin: 0 0 20px; /* Añadir margen inferior */
+width: 100%; 
+box-sizing: border-box;
+}
+
+
+
+.container{
+    width: 1000px;
+    height: auto;
+    overflow:hidden;
+}
+
+.name-msg{
+    background-color: rgb(45, 13, 120);
+    color: white;
+    font-size: small;
+    height: 59px;
+    overflow: hidden;
+    
+}
+.name{
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 15px;
+}
+.dateT{
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: right;
+
+}
+.tour{
+    text-align: right;
+}
+
+.date{
+    background-color: rgb(45, 13, 120);
+    color: white;
+    font-size: small;
+}
+
+.status{
+    background-color: rgb(222, 215, 237);
+    color: rgb(45, 13, 120);
+    text-align: right;
+    font-size: small;
+}
+.statusS{
+    text-align: right;
+}
+.statusT{
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: right;
+
+}
+.buttonVer{
+    background-color: rgb(229, 225, 237);
+    color: rgb(45, 13, 120);
+    text-align: center;
+    font-size: small;
+}
+.iconE{
+    color: transparent;   
+}
+.iconA{
+    font-weight: bold;
+    font-size: 15px; 
+    
+}
+
+
+

@@ -1,31 +1,70 @@
-<o-form fxFill service="towns" entity="town" keys="id_town" show-header="no">
+<button mat-flat-button [routerLink]="['../../communities', idcommunity]">
+    <mat-icon>arrow_back_ios_new</mat-icon>
+  {{'BACKBTN' | oTranslate}}
+</button>
+<o-form #form fxFill service="towns" entity="town" keys="id_town" show-header="no" (onDataLoaded)="onLoad()">
     <o-text-input attr="id_town" sql-type="INTEGER" enabled="no" oHidden></o-text-input>
+    <o-text-input attr="id_community" sql-type="INTEGER" enabled="no" oHidden></o-text-input>
     <o-text-input #townnamefield attr="town_name" enabled="no" (onValueChange)="reloadValues($event)"
         oHidden></o-text-input>
-
     <h1 class="town-title">{{ custom_name }}</h1>
-    <o-grid #grid columns="user_;id_client;name;surname;short_desc;avatar" quick-filter-columns="name;surname"
-        service="users" entity="host" keys="id" parent-keys="id_town" [cols]="3" show-page-size="false"
-        page-size-options="4;8;16" grid-item-height="3:4" refresh-button="false" pagination-controls="false"
-        gutter-size="20px" [ngStyle]="{'height':'600px'}" (onClick)="goToHostDetail($event)">
+
+    <o-column-collapsible title="{{ 'FILTERS_HOSTS' | oTranslate }}" appearance="legacy" expanded="no"
+        icon="filter_list" class="collapsible">
+        <div class="filter_style" fxLayout="column" fxLayoutGap="14px">
+            <div fxLayout="row wrap" fxLayoutGap="32px">
+                <o-text-input attr="name" read-only="no" fxFlex="calc(25% - 32px)"></o-text-input>
+                <o-text-input attr="surname" read-only="no" fxFlex="calc(25% - 32px)"></o-text-input>
+                <o-combo #type attr="activity_name" service="activities" entity="activity"
+                    columns="id_activity;activity_name" value-column="activity_name" keys="id_activity"
+                    visible-columns="activity_name" fxFlex="calc(25% - 32px)" sort="ASC" searchable="true"></o-combo>
+
+                <div class="buttons-container">
+                    <o-button attr="clear" [oFilterBuilderClear]="filterBuilder" type="STROKED" label="Clear"
+                        layout-padding>
+                    </o-button>
+                    <o-button attr="filter" [oFilterBuilderQuery]="filterBuilder" type="STROKED" label="Filter"
+                        layout-padding color="accent">
+                    </o-button>
+                    <o-filter-builder-menu [oFilterBuilder]="filterBuilder" show-filter-option="no"
+                        show-clear-filter-option="no" layout-padding></o-filter-builder-menu>
+                </div>
+            </div>
+        </div>
+        <o-filter-builder #filterBuilder attr="thefilter" filters="name;surname;activity_name"
+            [target]="grid"></o-filter-builder>
+    </o-column-collapsible>
+
+    <o-grid #grid columns="user_;id_client;name;surname;short_desc;avatar;activities" quick-filter="no" service="users"
+        entity="host" keys="id_client" parent-keys="id_town" [cols]="4" show-page-size="false"
+        page-size-options="4;8;16" grid-item-height="2:3" refresh-button="false" pagination-controls="false"
+        gutter-size="20px" show-footer="no" [ngStyle]="{'height':'600px'}" (onClick)="goToHostDetail($event)">
 
         <div class="container">
-        <o-grid-item class="hostCard" *ngFor="let list of grid.dataArray">
-            <o-column class="container-item">
-                <div>
-                    <o-image class="image1" attr="image1" data="{{ list.avatar }}" read-only="true"
-                        show-controls="false">
-                    </o-image>
-                </div>
-                <div class="name-surname">
-                    <h2>{{ list.name + ' ' + list.surname }}</h2>
-                </div>
-                <div class="short_desc">
-                    <span>{{ list.short_desc }}</span>
-                </div>
-            </o-column>
-        </o-grid-item>
-    </div>
+            <o-grid-item class="hostCard" *ngFor="let list of grid.dataArray">
+                <o-column class="container-item">
+                    <div>
+                        <a [routerLink]="['/main/travelers', list.id_client]">
+                            <o-image class="image1" data="{{ list.avatar }}" read-only="true" show-controls="false">
+                            </o-image>
+                        </a>
+                    </div>
+                    <div class="name-surname">
+                        <h2>{{ list.name + ' ' + list.surname }}</h2>
+                    </div>
+                    <div class="short_desc">
+                        <span>{{ list.short_desc }}</span>
+                    </div>
+                    <mat-chip-list>
+                        <mat-chip class="activitiesChip" *ngFor="let activity of splitActivities(list.activities)"
+                            [disabled]="false" color="primary">
+                            {{ activity }}
+                        </mat-chip>
+                    </mat-chip-list>
+                </o-column>
+
+            </o-grid-item>
+        </div>
     </o-grid>
 </o-form>
 

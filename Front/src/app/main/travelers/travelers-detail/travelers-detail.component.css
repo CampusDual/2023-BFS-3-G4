@@ -1,8 +1,44 @@
 .container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    /* height: 80vh; */
+   
+}
+
+.title {
+    width: 70%;
+    height: auto;
+    padding: 10px 50px;
+    background-color: #341777;
+    border: 1px solid #341777;
+    position: relative;
+
+}
+
+.hostName {
+    font-family: 'Patua One', sans-serif;
+    font-size: 40px;
+    margin: 20px 20px 0px 20px;
+    color: white;
+}
+
+.town {
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 18px;
+    /* margin: 5px 20px 20px 20px; */
+}
+
+.shortDesc{
+    font-family: 'Rasa', serif;
+    font-style: italic;
+    font-size: 25px;
+}
+
+.longDesc{
+    font-family: 'Rasa', serif;
+    font-size: 20px;
 }
 
 .box {
@@ -10,26 +46,57 @@
     height: auto;
     padding: 50px;
     background-color: white;
-    border: 2px solid transparent;
-    box-shadow: 0px 0px 3px #56535b;
+    /*  border: 2px solid transparent;
+    box-shadow: 0px 0px 3px #56535b; */
     position: relative;
-    border-radius: 5px;
+    border: 1px solid #341777;
 }
 
 .tape {
     position: absolute;
 }
 
-.tape-left {
+.mat-chip {
+    font-size: 1em; 
+    height: 0px; /* Altura fija para todas las chips */
+    line-height: 5px; /* Alineación vertical del texto dentro de la chip */
+    padding: 0 10px; /* Padding horizontal para mantener el contenido centrado */
+    margin: 0;
+    pointer-events: none; /* Desactiva el efecto hover */
+    background-color: rgb(210, 190, 250);
+}
+
+
+mat-chip:hover {
+background-color: inherit; 
+}
+
+.mat-chip-list {
+display: flex;
+justify-content: center;
+align-items: center; 
+list-style: none;
+padding: 0;
+margin: 0 0 20px; /* Añadir margen inferior */
+width: 100%; 
+box-sizing: border-box;
+}
+
+.button-contact {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+/* .tape-left {
     top: -50px;
-    /* Mueve el cuadro 5px hacia arriba */
     left: -50px;
-    /* Mueve el cuadro 5px hacia la izquierda */
 }
 
 .tape-right {
     bottom: -50px;
-    /* Mueve el cuadro 5px hacia abajo */
-    right: -50px;
-    /* Mueve el cuadro 5px hacia la derecha */
-}
+    right: -50px; 
+} 
+*/

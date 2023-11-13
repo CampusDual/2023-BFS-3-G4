@@ -12,7 +12,7 @@
         <Column>user_</Column>
     </UpdateKeys>
     <Queries>
-        <!--
+        <!-- esto esta comentado porque ya no funciona: ahora la tabla users ya no se combina con la towns
         <Query id="default">
             <AmbiguousColumns>
                 <AmbiguousColumn name="id_town" prefix="tu" databaseName="id_town" />
@@ -50,6 +50,7 @@
             </Sentence>
         </Query>
         -->
+
         <Query id="login">
             <ValidColumns>
                 <Column>user_</Column>
@@ -68,7 +69,8 @@
                 ]]>
             </Sentence>
         </Query>
-        <!--
+        <!--esto esta comentado porque en vez de usar hostuser, usamos hostclient
+
         <Query id="hostuser">
             <AmbiguousColumns>
                 <AmbiguousColumn name="id_town" prefix="tu" databaseName="id_town" />

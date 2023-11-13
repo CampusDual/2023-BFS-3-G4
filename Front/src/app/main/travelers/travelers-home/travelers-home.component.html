@@ -1,43 +1,63 @@
-<!-- <o-form #form attr="profile_detail" service="users" entity="myUser" fxLayout="column" show-header="yes"
-    header-actions="R;U" keys="user_" keys-sql-types="VARCHAR" show-header-navigation="yes">
-    <o-text-input attr="name" label="NAME" fxFlex="80" ></o-text-input>
-    <o-text-input attr="surname" label="SURNAME" fxFlex="80" ></o-text-input>
-    <o-text-input attr="email" label="EMAIL" fxFlex="80" ></o-text-input>
-    <o-text-input attr="phonenumber" label="PHONENUMBER" fxFlex="80" ></o-text-input>
-    <o-text-input attr="description" label="DESCRIPTION" fxFlex="80" ></o-text-input>
-    <o-password-input attr="password" label="PASSWORD" required="yes" fxFlex="80" ></o-password-input>
-    <o-slide-toggle attr="host" label="HOST" (onChange)="toggleHost($event)" fxFlex="80" ></o-slide-toggle>
-    <br>
-    <o-text-input attr="nif" label="NIF"  fxFlex="80" ></o-text-input>
-    <o-combo attr="id_town" fxFlex="80" label="TOWN" service="towns" entity="town" keys="id_town" columns="town_name;id_town" visible-columns="town_name"
-        value-column="id_town" class="input-padding"></o-combo>
-    <o-image attr="avatar" label="AVATAR"  fxFlex="80" empty-image="assets/images/no-image.png" sql-type="base64"></o-image>
-</o-form>
-
-
-     -->
 <o-form-container breadcrumb="no" breadcrumb-label-columns="name;surname" breadcrumb-separator=" " [form]="form">
 
-    <mat-tab-group fxFill (selectedTabChange)="yourFn($event)">
+    <mat-tab-group fxFill>
 
         <!-- Pestaña de para el perfil por defecto-->
-
-        <mat-tab label="{{ 'PROFILE_TAB' | oTranslate }}" >
+        <mat-tab label="{{ 'PROFILE_TAB' | oTranslate }}">
             <o-form #form attr="profile_detail" service="users" entity="myUser" fxLayout="column" show-header="yes"
-                header-actions="U" #oDetailForm keys="user_" keys-sql-types="VARCHAR" show-header-navigation="yes">
-                <o-column title="PROFILE_DATA" layout-align="start stretch" fxFlex="80">
+                header-actions="U" #oDetailForm keys="user_" keys-sql-types="VARCHAR" show-header-navigation="yes"
+                (onUpdate)="saveActivitiesInDataBase()">
+
+                <o-column title="PROFILE_DATA" layout-align="start stretch" fxFlex="80" icon="account_circle">
                     <o-image attr="avatar" label="AVATAR" fxFlex="80" width="350px"
                         empty-image="assets/images/no-image.png" sql-type="OTHERS"></o-image>
                     <o-text-input attr="name" label="NAME" fxFlex="80" required="yes" max-length="20"></o-text-input>
-                    <o-text-input attr="surname" label="SURNAME" fxFlex="80" required="yes" max-length="30"></o-text-input>
-                    <o-textarea-input attr="short_desc" label="DESCRIPTION" fxFlex="80" max-length="250"></o-textarea-input>
+                    <o-text-input attr="id_client" oHidden></o-text-input>
+                    <o-text-input attr="surname" label="SURNAME" fxFlex="80" required="yes"
+                        max-length="30"></o-text-input>
+                    <o-textarea-input attr="short_desc" label="DESCRIPTION"
+                        placeholder="{{ 'ONESENTENCE' | oTranslate }}" fxFlex="80" max-length="250"></o-textarea-input>
                 </o-column>
-                <o-column title="CONTACT_DATA" layout-align="start stretch" fxFlex="80">
-                    <o-email-input attr="email" label="EMAIL" placeholder="example@example.com"
-                        fxFlex="80"></o-email-input>
-                    <o-text-input attr="phonenumber" label="PHONENUMBER" fxFlex="80" max-length="15"></o-text-input>
+                <o-column title="ACTIVITIES" layout-align="start stretch" fxFlex="80" icon="favorite">
+
+                    <mat-chip-list fxFlex="80">
+                        <mat-chip class="activitiesChip" *ngFor="let activity of arrayActivitiesClient"
+                            [disabled]="false" color="primary">
+                            {{ activity }}
+                        </mat-chip>
+                    </mat-chip-list>
+
+                    <o-column-collapsible title="ACTSELECT" layout-align="start stretch" fxFlex="80" expanded="no">
+                        <o-grid class="activitiesGrid" #activitiesB attr="activitiesB" service="activities"
+                            entity="activity" keys="id_activity" columns="activity_name;id_activity" orderable="true"
+                            show-page-size="no" quick-filter="false" cols="6" sortable-columns="activity_name"
+                            gutter-size="5px" detail-mode="none" (onDataLoaded)="onLoad()" pagination-controls="false"
+                            controls="false" grid-item-height="60" show-footer="no" >
+
+                            <o-grid-item *ngFor="let item of activitiesB.dataArray" show-page-size="false">
+
+                                <div fxLayout="column" fxLayoutAlign="space-evenly center">
+                                    <o-button class="activitiesButton"
+                                        *ngIf="arrayActivitiesClient.includes(item.activity_name)" type="STROKED"
+                                        label="{{ item.activity_name }}" layout-padding color="primary"
+                                        (onClick)="removeActivityFn(item.activity_name,item.id_activity)"></o-button>
+                                    <o-button class="activitiesButton"
+                                        *ngIf="!arrayActivitiesClient.includes(item.activity_name)" type="STROKED"
+                                        label="{{ item.activity_name }}" layout-padding color="accent"
+                                        (onClick)="addActivityFn(item.activity_name,item.id_activity)"></o-button>
+
+                                </div>
+
+                            </o-grid-item>
+                        </o-grid>
+                        <div fxLayout="column" fxLayoutAlign="space-evenly center" fxFlex="100">
+                            <o-button type="RAISED" label="SAVEACT" layout-padding color="accent"
+                                (onClick)="saveActivitiesInDataBase($event)"></o-button>
+                        </div>
+                    </o-column-collapsible>
                 </o-column>
-                <o-column title="REGISTER_DATA" layout-align="start stretch" fxFlex="80">
+
+                <o-column title="REGISTER_DATA" layout-align="start stretch" fxFlex="80" icon="assignment">
                     <o-text-input attr="user_" label="USER" fxFlex="80" enabled="no"></o-text-input>
                     <o-row class="row-pass">
                         <o-password-input attr="password" fxFlex="80" required="yes" label="PASSWORD"
@@ -52,8 +72,7 @@
                             label="{{ 'Confirm password' | oTranslate }}" show-password-button="yes"
                             [validators]="validatorsArray">
                             <!-- Campo de entrada de confirmación de contraseña -->
-                            <o-validator [error-name]="'passwordNotMatched'"
-                                [error-text]="'ERROR_MATCH'"></o-validator>
+                            <o-validator [error-name]="'passwordNotMatched'" [error-text]="'ERROR_MATCH'"></o-validator>
                             <!-- Validador para comprobar que las contraseñas coinciden -->
                         </o-password-input>
                     </o-row>
@@ -63,21 +82,21 @@
         </mat-tab>
 
         <!-- Pestaña para las funcionalidades de anfitriona -->
-        <mat-tab label="{{ 'HOST_TAB' | oTranslate }}" >
+        <mat-tab label="{{ 'HOST_TAB' | oTranslate }}">
             <o-form #formHost attr="host_detail" service="users" entity="myUser" fxLayout="column" show-header="yes"
                 header-actions="U" keys="user_" keys-sql-types="VARCHAR" show-header-navigation="yes">
                 <o-column title="HOST_DATA" layout-align="start stretch" fxFlex="80">
-                    <o-textarea-input attr="description" label="DESCRIPTION" fxFlex="80"
-                        required="yes" max-length="500"></o-textarea-input>
+                    <o-textarea-input attr="description" label="DESCRIPTION" placeholder="{{ 'LONGDESC' | oTranslate }}"
+                        fxFlex="80" required="yes" max-length="500"></o-textarea-input>
                     <o-combo attr="id_town" fxFlex="80" label="TOWN" service="towns" entity="town" keys="id_town"
                         columns="town_name;id_town" visible-columns="town_name" value-column="id_town"
-                        class="input-padding" fxFlex="80" required="yes" sort="ASC"
-
-                        ></o-combo>
-                    <o-text-input attr="phonenumber" label="PHONENUMBER" fxFlex="80" required="yes" max-length="15"></o-text-input>
-                    <o-email-input attr="email" label="EMAIL" placeholder="example@example.com" fxFlex="80"
+                        class="input-padding" required="yes" sort="ASC" searchable="true"></o-combo>
+                    <o-text-input attr="phonenumber" label="PHONENUMBER" fxFlex="80" required="yes"
+                        max-length="15"></o-text-input>
+                    <o-email-input attr="email" label="EMAILCONT" placeholder="example@example.com" fxFlex="80"
                         required="yes"></o-email-input>
-                    <o-text-input attr="nif" label="NIF" required="yes" fxFlex="80" required="yes" max-length="25"></o-text-input>
+                    <o-nif-input attr="nif" label="NIF" required="yes" fxFlex="80" required="yes"
+                        max-length="25"></o-nif-input>
                 </o-column>
                 <o-column title="HOST_AVAILABLE" layout-align="start stretch" fxFlex="80">
                     <o-slide-toggle attr="host" label="ACTIVEHOST" (onChange)="toggleHost($event)"
@@ -87,7 +106,162 @@
             </o-form>
         </mat-tab>
 
-        <!-- Pestaña para habilitar servicios de las anfitrionas -->
+        <!-- Pestaña para gestionar reservas recibidas -->
+
+
+        <mat-tab label="{{ 'RESERVATION_REDB_TAB' | oTranslate }}">
+            
+            <div class="container">
+                <o-grid #gridReservationReceived attr="reservationReceived" service="users" entity="reservationReceived"
+                    columns="id_reservation;name_traveler;surname_traveler;name_host;surname_host;message;status_name;reservation_date"
+                    query-rows="8" refresh-button="no" quick-filter="true"  quick-filter-columns="name_traveler;surname_traveler;message;status_name"
+                    visible-columns="name_host;message;status_name;reservation_date" [cols]="1" grid-item-height="70px"
+                    gutter-size="1px" show-footer="no">
+                
+                    <o-grid-item *ngFor="let list of gridReservationReceived.dataArray">
+
+                        <o-column layout-padding fxFlex="50" class="name-msg">
+                            <div class="name"><span>{{'Message from' | oTranslate}} {{ list.name_traveler}} </span>
+                                <span>{{list.surname_traveler}}</span>
+                            </div>
+                            <div class="msg"><span>{{ list.message }}</span></div>
+                        </o-column>
+
+                        <o-column layout-padding fxFlex="20" class="date">
+                            <div class="tour"><span> {{'Reservation Date' | oTranslate}}</span></div>
+                            <div class="dateT"><span>{{ list.reservation_date | date: 'dd/MM/yyyy' }} </span></div>
+                        </o-column>
+
+                        <o-column layout-padding fxFlex="15" class="status">
+                            <div class="statusS">{{'Reservation' | oTranslate}}</div>
+                            <div class="statusT" *ngIf="list.status_name==='rechazada'">{{ 'REJECTED' | oTranslate }}</div>
+                            <div class="statusT" *ngIf="list.status_name==='pendiente'">{{ 'PENDING' | oTranslate}}</div>
+                            <div class="statusT" *ngIf="list.status_name==='aceptada'">{{ 'ACCEPTED' | oTranslate }}</div>
+                            <div class="statusT" *ngIf="list.status_name==='anulada'">{{ 'CANCELED' | oTranslate }}</div>
+
+
+                        </o-column>
+                        <o-column layout-padding fxFlex="15" class="buttonVer"
+                            (click)="verReservaRec(list.id_reservation)">
+                            <div class="iconE">{{'READMESSAGE' | oTranslate}}</div>
+                            <div class="iconA">{{'READMESSAGE' | oTranslate}}</div>
+                        </o-column>
+                    </o-grid-item>
+                </o-grid>
+            </div>
+        </mat-tab>
+
+
+        <!-- Pestaña para gestionar reservas enviadas -->
+
+        <mat-tab label="{{ 'RESERVATION_SENT_TAB' | oTranslate }}">
+            <div class="container">
+                <o-grid #gridReservationSent attr="reservationSent" service="users" entity="reservationSent"
+                    columns="id_reservation;name_traveler;surname_traveler;name_host;surname_host;message_answer;message;status_name;reservation_date"
+                    query-rows="8" refresh-button="no" quick-filter="true" quick-filter-columns="name_host;surname_host;message;status_name"
+                    visible-columns="name_host;message;status_name;reservation_date" [cols]="1" grid-item-height="70px"
+                    gutter-size="1px" show-footer="no">
+                    <o-grid-item *ngFor="let list of gridReservationSent.dataArray">
+
+                        <o-column layout-padding fxFlex="50" class="name-msg">
+                            <div class="name"><span>{{'Message to' | oTranslate}} {{ list.name_host}} </span>
+                                <span>{{list.surname_host}}</span>
+                            </div>
+                            <div class="msg"><span>{{ list.message_answer }}</span></div>
+                        </o-column>
+
+                        <o-column layout-padding fxFlex="20" class="date">
+                            <div class="tour"><span> {{'Reservation Date' | oTranslate}}</span></div>
+                            <div class="dateT"><span>{{ list.reservation_date | date: 'dd/MM/yyyy' }} </span></div>
+                        </o-column>
+
+                        <o-column layout-padding fxFlex="15" class="status">
+                            <div class="statusS">{{'Reservation' | oTranslate}}</div>
+                            <div class="statusT" *ngIf="list.status_name==='rechazada'">{{ 'REJECTED' | oTranslate }}</div>
+                            <div class="statusT" *ngIf="list.status_name==='pendiente'">{{ 'PENDING' | oTranslate}}</div>
+                            <div class="statusT" *ngIf="list.status_name==='aceptada'">{{ 'ACCEPTED' | oTranslate }}</div>
+                            <div class="statusT" *ngIf="list.status_name==='anulada'">{{ 'CANCELED' | oTranslate }}</div>
+
+                        </o-column>
+                        <o-column layout-padding fxFlex="15" class="buttonVer"
+                            (click)="verReservaSent(list.id_reservation)">
+                            <div class="iconE">{{'READMESSAGE' | oTranslate}}</div>
+                            <div class="iconA">{{'READMESSAGE' | oTranslate}}</div>
+                        </o-column>
+                    </o-grid-item>
+                </o-grid>
+            </div>
+        </mat-tab>
+
+        <!-- <mat-tab label="{{ 'RESERVATION_SENT_TAB' | oTranslate }}">
+            <o-grid #gridReservationSent attr="reservationSent" service="users" entity="reservationSent"
+                columns="id_reservation;name_traveler;surname_traveler;name_host;surname_host;message;status_name;reservation_date"
+                query-rows="8" refresh-button="no" quick-filter="true"
+                visible-columns="name_host;message;status_name;reservation_date" [cols]="1" grid-item-height="70px"
+                gutter-size="1px">
+                <o-grid-item *ngFor="let list of gridReservationSent.dataArray">
+
+                    <o-column layout-padding fxFlex="20" class="travelerName">Para: {{ list.name_host }}
+                        {{list.surname_host}}</o-column>
+
+                    <o-column layout-padding fxFlex="55" class="travelerMsg">Mensaje: {{ list.message }}</o-column>
+                    <o-column layout-padding fxFlex="15" class="date">Fecha: {{ list.reservation_date | date:
+                        'dd/MM/yyyy' }}</o-column>
+                    <o-column layout-padding fxFlex="5" class="show"
+                        (click)="verReservaSent(list.id_reservation)"><mat-icon class="icon"
+                            svgIcon="ontimize:visibility"></mat-icon></o-column>
+
+
+
+                </o-grid-item>
+            </o-grid>
+        </mat-tab> -->
+
+
+
+
+
+        <!--
+            <div fxFill fxLayout="column" fxLayoutAlign="start" class="container">
+  <o-grid #formReservation attr="reservation" service="users" entity="reservationSent"
+      keys="id_reservation"
+      columns="name_traveler;surname_traveler;name_host;surname_host;message;status_name;" query-rows="8"
+      orderable="true" quick-filter="true"
+      visible-columns="name_host;message;status_name" controls="true" gutter-size="0" Elimina el espacio entre las filas 
+      detail-mode="none" [cols]=1 grid-item-height="auto"> Ajusta la altura automáticamente 
+      <o-grid-item *ngFor="let list of formReservation.dataArray" class="o-grid__row">
+        <o-column layout-padding class="o-grid__item travelerName">De: {{ list.name_traveler }} {{list.surname_traveler}}</o-column>
+        <o-column layout-padding class="o-grid__item travelerMsg">Mensaje: {{ list.message }}</o-column>
+      </o-grid-item>
+    </o-grid>
+  </div>
+  
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         Pestaña para habilitar servicios de las anfitrionas -->
         <!-- <mat-tab label="HOUSES">
             <o-table #form attr="houses" service="houses" entity="house" parent-keys="user_id" keys="house_id"
                 detail-form-route="houses" edit-form-route="houses" columns="house_id;address;city;state;zip"
