@@ -29,7 +29,6 @@ export class TravelersDetailComponent implements OnInit {
   }
 
 
-
   onLoad(){
     let idclient = this.form.getComponents().id_client.getValue();
     console.log(idclient);

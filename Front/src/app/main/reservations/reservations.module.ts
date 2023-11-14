@@ -6,7 +6,7 @@ import { OntimizeWebModule } from 'ontimize-web-ngx';
 import { ReservationHomeComponent } from './reservation-home/reservation-home.component';
 import { ReservationSentDetailComponent } from './reservation-home/reservation-sent-detail/reservation-sent-detail.component';
 import { ReservationReceivedDetailComponent } from './reservation-home/reservation-received-detail/reservation-received-detail.component';
-import { ProfileDialogComponent } from './reservation-home/profile-dialog/ProfileDialogComponent';
+import { ProfileDialogComponent } from './reservation-home/profile-dialog/profile-dialog.component';
 
 
 @NgModule({

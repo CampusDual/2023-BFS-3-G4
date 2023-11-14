@@ -4,7 +4,7 @@ import { AuthService, OFormComponent, OSnackBarConfig, SnackBarService, Ontimize
 import { MatDialog } from '@angular/material';
 import { ReservationSentDetailComponent } from './reservation-sent-detail/reservation-sent-detail.component';
 import { ReservationReceivedDetailComponent } from './reservation-received-detail/reservation-received-detail.component';
-import { ProfileDialogComponent } from './profile-dialog/ProfileDialogComponent';
+import { ProfileDialogComponent } from './profile-dialog/profile-dialog.component';
 
 @Component({
   selector: 'app-reservation-home',
