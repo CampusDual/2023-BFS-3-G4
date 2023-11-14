@@ -135,7 +135,9 @@
   "ACCEPT_RES1":  "Has aceptado la reserva de" ,
   "ACCEPT_RES2": "y ya tiene tus datos de contacto!",
   "READMESSAGE": "Ver mensaje",
-  "ALLCITIES": "Todas las ciudades"
+  "ALLCITIES": "Todas las ciudades",
+  "SHOWPROFILE": "Ver perfil",
+  "LABEL_INPUT_RESP":"Responde al mensaje de"
 
 
 

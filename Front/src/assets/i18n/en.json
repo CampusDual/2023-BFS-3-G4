@@ -139,6 +139,8 @@
   "ACCEPTVISITOF?": "Do you accept the visit of",
   "ACCEPTVISITOF2?": "If you do it, we send her your contact details.",
   "READMESSAGE": "See message",
-  "ALLCITIES": "All cities"
+  "ALLCITIES": "All cities",
+  "SHOWPROFILE": "Show Profile",
+  "LABEL_INPUT_RESP": "Send a reply to"
 
 }

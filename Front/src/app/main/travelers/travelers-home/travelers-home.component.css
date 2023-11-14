@@ -2,39 +2,170 @@
     width: 100%;
 }
 
-.activitiesButton{
+.activitiesButton {
     display: flex;
     width: 100%;
 }
 
 .mat-chip {
-    font-size: 1em; 
-    height: 0px; /* Altura fija para todas las chips */
-    line-height: 5px; /* Alineación vertical del texto dentro de la chip */
-    padding: 0 10px; /* Padding horizontal para mantener el contenido centrado */
+    font-size: 1em;
+    height: 0px;
+    /* Altura fija para todas las chips */
+    line-height: 5px;
+    /* Alineación vertical del texto dentro de la chip */
+    padding: 0 10px;
+    /* Padding horizontal para mantener el contenido centrado */
     margin: 0;
-    pointer-events: none; /* Desactiva el efecto hover */
+    pointer-events: none;
+    /* Desactiva el efecto hover */
     background-color: rgb(210, 190, 250);
 }
 
 
 mat-chip:hover {
-background-color: inherit; 
+    background-color: inherit;
 }
 
 .mat-chip-list {
-display: flex;
-justify-content: center;
-align-items: center; 
-list-style: none;
-padding: 0;
-margin: 0 0 20px; /* Añadir margen inferior */
-width: 100%; 
-box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+    /* Añadir margen inferior */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 
 
+/* ESTILOS BANDEJA DE ENTRADA DE MENSAJES */
+
+.container {
+    width: 900px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+ 
+}
+
+.row {
+    width: 900px;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+}
+
+.itemrow1, .itemrow2, .itemrow3, .itemrow4, .itemrow5{
+    padding: 10px;
+}
+
+.itemrow1 {
+    width: 500px;
+    height: 60px;
+    color: white;
+    font-size: small;
+    background-color: rgb(45, 13, 120);
+    overflow: hidden;
+    
+}
+
+.nameT {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.itemrow2 {
+    width: 150px;
+    height: 60px;
+    color: white;
+    background-color: rgb(45, 13, 120);
+    text-align: right;
+    font-size: small;
+    
+}
+
+.dateFormat {
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: right;
+}
+
+.itemrow3 {
+    width: 120px;
+    height: 60px;
+    color: rgb(45, 13, 120);
+    background-color: rgb(187, 164, 207);
+    text-align: center;
+    font-size: small;
+    
+}
+
+.status{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+.itemrow4 {
+    width: 70px;
+    height: 60px;
+    color: rgb(45, 13, 120);
+    background-color:rgb(209, 187, 220);
+    display: flex;
+  
+    
+}
+.showMsg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+img{
+    width: 30px; 
+    align-self: center;
+    
+    
+   }
+
+.itemrow5 {
+    width: 140px;
+    height: 60px;
+    color: rgb(187, 164, 207);
+    box-sizing: border-box;
+    border: 2px solid rgb(209, 187, 220);
+    margin-left: 30px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.showProf{
+    display: flex;
+    text-align: center;
+    align-items: center ;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+}
+
+
+
+/* 
 .container{
     width: 1000px;
     height: auto;
@@ -67,14 +198,15 @@ box-sizing: border-box;
 }
 
 .date{
-    background-color: rgb(45, 13, 120);
+    background-color:  rgb(45, 13, 120);
     color: white;
     font-size: small;
 }
 
 .status{
-    background-color: rgb(222, 215, 237);
-    color: rgb(45, 13, 120);
+    background-color: rgb(187, 164, 207);
+
+    color: white;
     text-align: right;
     font-size: small;
 }
@@ -90,11 +222,19 @@ box-sizing: border-box;
 
 }
 .buttonVer{
-    background-color: rgb(229, 225, 237);
+    background-color: rgb(209, 187, 220);
     color: rgb(45, 13, 120);
     text-align: center;
     font-size: small;
 }
+
+.ShowProfile{
+    background-color:  rgb(229, 213, 234);
+    color: rgb(45, 13, 120);
+    text-align: center;
+    font-size: small;
+}
+
 .iconE{
     color: transparent;   
 }
@@ -102,7 +242,4 @@ box-sizing: border-box;
     font-weight: bold;
     font-size: 15px; 
     
-}
-
-
-
+} */
