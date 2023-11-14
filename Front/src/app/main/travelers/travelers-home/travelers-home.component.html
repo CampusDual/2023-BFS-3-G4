@@ -108,7 +108,7 @@
 
         <!-- Pestaña para gestionar reservas (cambiar nombre de la tab y reducir espacio entre grid-items) -->
 
-        <mat-tab label="{{ 'RESERVATION_REDB_TAB' | oTranslate }}">
+        <mat-tab label="{{ 'RESERVATION_TAB' | oTranslate }}">
 
 
             <o-grid #gridReservationReceived attr="reservationReceived" service="users" entity="reservationReceived"
@@ -142,8 +142,10 @@
                                 </div>
                                 <div class="status" *ngIf="list.status_name==='aceptada'">{{ 'ACCEPTED' | oTranslate }}
                                 </div>
-                                <div class="status" *ngIf="list.status_name==='anulada'">{{ 'CANCELED' | oTranslate }}
-                                </div>
+                                <div class="status" *ngIf="list.status_name==='anuladaporhost'">{{ 'CANCELED' |
+                                    oTranslate }}</div>
+                                <div class="status" *ngIf="list.status_name==='anuladaportrav'">{{ 'CANCELED' |
+                                    oTranslate }}</div>
                             </div>
 
                             <div class="itemrow4">
@@ -192,8 +194,10 @@
                                 </div>
                                 <div class="status" *ngIf="list.status_name==='aceptada'">{{ 'ACCEPTED' | oTranslate }}
                                 </div>
-                                <div class="status" *ngIf="list.status_name==='anulada'">{{ 'CANCELED' | oTranslate }}
-                                </div>
+                                <div class="status" *ngIf="list.status_name==='anuladaporhost'">{{ 'CANCELED' |
+                                    oTranslate }}</div>
+                                <div class="status" *ngIf="list.status_name==='anuladaportrav'">{{ 'CANCELED' |
+                                    oTranslate }}</div>
                             </div>
 
                             <div class="itemrow4">

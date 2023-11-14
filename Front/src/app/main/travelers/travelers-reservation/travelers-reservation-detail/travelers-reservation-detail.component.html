@@ -45,12 +45,12 @@
                 </div>
             </div>
             <div class="buttons" *ngIf="id_status == 3">
-                <o-button class="deleteReservationButton" type="RAISED" label="DELETE" layout-padding color="accent"
+                <o-button class="deleteReservationButton" type="RAISED" label="DELETE" layout-padding color="primary"
                     (onClick)="(deleteReservationFn(id_reservation))"></o-button>
             </div>
         </div>
         <div class="buttons" *ngIf="id_status == 3">
-            <o-button class="deleteReservationButton" type="RAISED" label="DELETE" layout-padding color="accent"
+            <o-button class="deleteReservationButton" type="RAISED" label="DELETE" layout-padding color="primary"
                 (onClick)="(deleteReservationFn(id_reservation))"></o-button>
         </div>
 
@@ -58,7 +58,7 @@
                 label="Cancela la reserva para {{name_host}}" fxFlex="70" max-length="200"></o-textarea-input>
 
         <div class="buttons" *ngIf="id_status == 1">
-            <o-button class="reject" type="RAISED" label="CANCEL" layout-padding color="accent"
+            <o-button class="reject" type="RAISED" label="CANCEL" layout-padding color="primary"
                 (onClick)="(cancelReservation(id_reservation))"></o-button>
         </div>
 

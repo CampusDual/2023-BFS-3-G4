@@ -54,8 +54,8 @@
   "Register email": "Register email",
   "Confirm password": "Confirm password",
   "ERROR_EMAIL_REQUIRED": "Email required",
-  "RESERVATION_REDB_TAB": "RESERVATIONS RECEIVED",
-  "RESERVATION_SENT_TAB": "RESERVATIONS SENT",
+  "RESERVATION_TAB": "RESERVATIONS",
+
   "SAVE": "Save",
   "SAVEACT": "Save interests",
   "Baile": "Dance",

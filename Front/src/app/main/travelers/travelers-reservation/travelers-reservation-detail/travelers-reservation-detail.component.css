@@ -137,26 +137,25 @@
     
     .buttons {
         text-align: center;
+        margin-top: 11px;
+
+        .acc-rej {
+            font-size: 15px;
+            color: white;
+            margin: 10px 0 10px 0; 
+        }
+        o-button{
+            margin: 0 10px;
+        }
     }
 }
-
-
 
 o-textarea-input {
     margin-top: 20px;
     background-color: white;
-    border-radius: 30px;
+    border-radius: 10px;
+    padding: 10px;
+    resize: none;
 
-}
-
-.acc-rej {
-    font-size: small;
-    color: rgb(45, 13, 120);
-}
-
-
-
-o-button {
-    margin: 0 10px;
 }
 
