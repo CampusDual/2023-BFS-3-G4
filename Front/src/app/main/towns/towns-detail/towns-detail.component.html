@@ -2,7 +2,8 @@
     <mat-icon>arrow_back_ios_new</mat-icon>
   {{'BACKBTN' | oTranslate}}
 </button>
-<o-form #form fxFill service="towns" entity="town" keys="id_town" show-header="no" (onDataLoaded)="onLoad()">
+
+<o-form #form fxFill fxLayout="column" service="towns" entity="town" keys="id_town" show-header="no" (onDataLoaded)="onLoad()">
     <o-text-input attr="id_town" sql-type="INTEGER" enabled="no" oHidden></o-text-input>
     <o-text-input attr="id_community" sql-type="INTEGER" enabled="no" oHidden></o-text-input>
     <o-text-input #townnamefield attr="town_name" enabled="no" (onValueChange)="reloadValues($event)"
@@ -15,7 +16,7 @@
             <div fxLayout="row wrap" fxLayoutGap="32px">
                 <o-text-input attr="name" read-only="no" fxFlex="calc(25% - 32px)"></o-text-input>
                 <o-text-input attr="surname" read-only="no" fxFlex="calc(25% - 32px)"></o-text-input>
-                <o-combo #type attr="activity_name" service="activities" entity="activity"
+                <o-combo #type attr="activities" service="activities" entity="activity"
                     columns="id_activity;activity_name" value-column="activity_name" keys="id_activity"
                     visible-columns="activity_name" fxFlex="calc(25% - 32px)" sort="ASC" searchable="true"></o-combo>
 
@@ -31,17 +32,17 @@
                 </div>
             </div>
         </div>
-        <o-filter-builder #filterBuilder attr="thefilter" filters="name;surname;activity_name"
-            [target]="grid"></o-filter-builder>
+        <o-filter-builder #filterBuilder attr="thefilter" filters="name;surname;activities"
+            [target]="grid" query-on-change="no" [expression-builder]="createFilter"></o-filter-builder>
     </o-column-collapsible>
 
-    <o-grid #grid columns="user_;id_client;name;surname;short_desc;avatar;activities" quick-filter="no" service="users"
-        entity="host" keys="id_client" parent-keys="id_town" [cols]="4" show-page-size="false"
-        page-size-options="4;8;16" grid-item-height="2:3" refresh-button="false" pagination-controls="false"
+    <o-grid #grid columns="user_;id_client;name;surname;short_desc;avatar;activities" quick-filter="yes" service="users"
+        entity="host" keys="id_client" parent-keys="id_town" [cols]="4" show-page-size="false" fixed-header="no"
+        page-size-options="4;8;16" grid-item-height="2:3" refresh-button="false" pagination-controls="true" controls="false"
         gutter-size="20px" show-footer="no" [ngStyle]="{'height':'600px'}" (onClick)="goToHostDetail($event)">
 
-        <div class="container">
-            <o-grid-item class="hostCard" *ngFor="let list of grid.dataArray">
+        <div class="grid-container">
+            <o-grid-item *ngFor="let list of grid.dataArray">
                 <o-column class="container-item">
                     <div>
                         <a [routerLink]="['/main/travelers', list.id_client]">
@@ -67,32 +68,3 @@
         </div>
     </o-grid>
 </o-form>
-
-<!-- <o-list #list attr="list" columns="name;surname;short_desc;avatar" quick-filter-columns="name;short_desc"
-service="users" entity="host" keys="id" parent-keys="id_town" refresh-button="false">
-
-  <mat-card *ngFor="let row of list.dataArray" [o-list-item]="row">
-    <mat-card-header>
-      <div mat-card-avatar>
-        <o-image class ="image1" attr="image1" data="{{ row.avatar }}" read-only = "true" show-controls = "false" fxFill ></o-image>
-        <img src="{{ row.image }}" fxFill />
-      </div>
-      <mat-card-title>{{ row.name + ' ' + row.surname }}</mat-card-title>
-      <mat-card-subtitle>{{ row.short_desc }}</mat-card-subtitle>
-    </mat-card-header>
-  </mat-card>
-
-</o-list> -->
-
-
-<!-- 
-    <o-list #list attr="customerlist" title="CUSTOMERS" service="users" entity="user" keys="user_"
-        columns="id_town;user_;description;avatar" parent-keys="id_town">
-        <o-list-item *ngFor="let row of list.dataArray">
-            <o-list-item-card #item image="{{ row.avatar }}" title="{{ row.user_ }}" subtitle="{{ row.id_town }}">
-                <div mat-card-avatar>
-                    <o-image attr="image1" data="{{ row.avatar }}"></o-image>
-                </div>
-            </o-list-item-card>
-        </o-list-item>
-    </o-list> -->

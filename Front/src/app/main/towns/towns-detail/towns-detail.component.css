@@ -1,7 +1,11 @@
-/* o-grid {
-    margin-top: 20px; 
-    align-items: start;
-} */
+/* Estilos para el grid */
+o-grid {
+    row-gap: 10px;
+  }
+
+.grid-container {
+    overflow: hidden;
+}
 
 .image1 {
     width: 100%;
@@ -16,23 +20,24 @@
     border: 5px solid transparent;
     display: grid;
     place-items: center;
+    overflow: hidden;
 }
 
 
 .container-item {
-    display: flex;
-    flex-direction: column;
+    display: block;
+    position: absolute;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    overflow: hidden;
 }
 
 
-.hostCard {
+/* .hostCard {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,7 +47,7 @@
     margin: 0;
     padding: 0;
     cursor: pointer;
-}
+} */
 
 
 .town-title {

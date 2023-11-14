@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Expression, FilterExpressionUtils } from 'ontimize-web-ngx';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Expression, FilterExpressionUtils, OComboComponent, OFilterBuilderComponent, OntimizeService } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-towns-home',
@@ -8,10 +8,18 @@ import { Expression, FilterExpressionUtils } from 'ontimize-web-ngx';
 })
 export class TownsHomeComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('provinceCombo', { static: true }) provinceCombo: OComboComponent;
+  @ViewChild('townCombo', { static: true }) townCombo: OComboComponent;
+  @ViewChild('filterBuilder', { static: true }) filterBuilder: OFilterBuilderComponent;
+
+
+  constructor(private ontimizeServiceTowns: OntimizeService) { 
+    this.ontimizeServiceTowns.configureService(this.ontimizeServiceTowns.getDefaultServiceConfiguration('towns'))
+  }
 
   ngOnInit() {
   }
+
 
   // Método para el filtrado del o-filter 
   createFilter(values: Array<{ attr: string, value: any }>): Expression {
@@ -32,7 +40,6 @@ export class TownsHomeComponent implements OnInit {
     }
 
   }
-
 
   getImagePath(townName: string): string {
     // Formatear nombres de las imagenes de ciudades.
