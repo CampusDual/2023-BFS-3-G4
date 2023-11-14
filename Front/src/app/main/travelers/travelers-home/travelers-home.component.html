@@ -32,7 +32,7 @@
                             entity="activity" keys="id_activity" columns="activity_name;id_activity" orderable="true"
                             show-page-size="no" quick-filter="false" cols="6" sortable-columns="activity_name"
                             gutter-size="5px" detail-mode="none" (onDataLoaded)="onLoad()" pagination-controls="false"
-                            controls="false" grid-item-height="60" show-footer="no" >
+                            controls="false" grid-item-height="60" show-footer="no">
 
                             <o-grid-item *ngFor="let item of activitiesB.dataArray" show-page-size="false">
 
@@ -156,108 +156,62 @@
                                 <div class="showProf">{{'SHOWPROFILE' | oTranslate}}</div>
                             </div>
                             <div class="msg"><span>{{ list.message_answer }}</span></div>
-                        </o-column>
+                        </div>
+                    </div>
+                </o-grid-item>
+            </o-grid>
 
-                        <o-column layout-padding fxFlex="20" class="date">
-                            <div class="tour"><span> {{'Reservation Date' | oTranslate}}</span></div>
-                            <div class="dateT"><span>{{ list.reservation_date | date: 'dd/MM/yyyy' }} </span></div>
-                        </o-column>
-
-                        <o-column layout-padding fxFlex="15" class="status">
-                            <div class="statusS">{{'Reservation' | oTranslate}}</div>
-                            <div class="statusT" *ngIf="list.status_name==='rechazada'">{{ 'REJECTED' | oTranslate }}</div>
-                            <div class="statusT" *ngIf="list.status_name==='pendiente'">{{ 'PENDING' | oTranslate}}</div>
-                            <div class="statusT" *ngIf="list.status_name==='aceptada'">{{ 'ACCEPTED' | oTranslate }}</div>
-                            <div class="statusT" *ngIf="list.status_name==='anulada'">{{ 'CANCELED' | oTranslate }}</div>
-
-                        </o-column>
-                        <o-column layout-padding fxFlex="15" class="buttonVer"
-                            (click)="verReservaSent(list.id_reservation)">
-                            <div class="iconE">{{'READMESSAGE' | oTranslate}}</div>
-                            <div class="iconA">{{'READMESSAGE' | oTranslate}}</div>
-                        </o-column>
-                    </o-grid-item>
-                </o-grid>
-            </div>
-        </mat-tab>
-
-        <!-- <mat-tab label="{{ 'RESERVATION_SENT_TAB' | oTranslate }}">
             <o-grid #gridReservationSent attr="reservationSent" service="users" entity="reservationSent"
                 columns="id_reservation;name_traveler;surname_traveler;name_host;surname_host;message;status_name;reservation_date"
                 query-rows="8" refresh-button="no" quick-filter="true"
-                visible-columns="name_host;message;status_name;reservation_date" [cols]="1" grid-item-height="70px"
-                gutter-size="1px">
+                visible-columns="name_host;message;status_name;reservation_date" [cols]="1" grid-item-height="60px"
+                gutter-size="6px" show-footer="no">
+
                 <o-grid-item *ngFor="let list of gridReservationSent.dataArray">
 
-                    <o-column layout-padding fxFlex="20" class="travelerName">Para: {{ list.name_host }}
-                        {{list.surname_host}}</o-column>
 
-                    <o-column layout-padding fxFlex="55" class="travelerMsg">Mensaje: {{ list.message }}</o-column>
-                    <o-column layout-padding fxFlex="15" class="date">Fecha: {{ list.reservation_date | date:
-                        'dd/MM/yyyy' }}</o-column>
-                    <o-column layout-padding fxFlex="5" class="show"
-                        (click)="verReservaSent(list.id_reservation)"><mat-icon class="icon"
-                            svgIcon="ontimize:visibility"></mat-icon></o-column>
+                    <div class="container">
+                        <div class="row">
 
+                            <div class="itemrow1">
+                                <div class="nameT">{{'Message from' | oTranslate}} {{ list.name_traveler}}
+                                    {{list.surname_traveler}}</div>
+                                <div class="msg">{{ list.message }}</div>
+                            </div>
 
+                            <div class="itemrow2">
+                                <div class="date">{{'Reservation Date' | oTranslate}}</div>
+                                <div class="dateFormat">{{ list.reservation_date | date: 'dd/MM/yyyy' }}</div>
+                            </div>
 
+                            <div class="itemrow3">
+                                <div class="reserv">{{'Reservation' | oTranslate}}</div>
+                                <div class="status" *ngIf="list.status_name==='rechazada'">{{ 'REJECTED' | oTranslate }}
+                                </div>
+                                <div class="status" *ngIf="list.status_name==='pendiente'">{{ 'PENDING' | oTranslate}}
+                                </div>
+                                <div class="status" *ngIf="list.status_name==='aceptada'">{{ 'ACCEPTED' | oTranslate }}
+                                </div>
+                                <div class="status" *ngIf="list.status_name==='anulada'">{{ 'CANCELED' | oTranslate }}
+                                </div>
+                            </div>
+
+                            <div class="itemrow4">
+                                <div class="showMsg" (click)="verReservaSent(list.id_reservation)">
+                                    <img src="../../../../assets/icons/eyeIcon.png" alt="icon">
+                                </div>
+                            </div>
+
+                            <div class="itemrow5">
+                                <div class="showProf">{{'SHOWPROFILE' | oTranslate}}</div>
+                            </div>
+                            <div class="msg"><span>{{ list.message_answer }}</span></div>
+                        </div>
+                    </div>
                 </o-grid-item>
             </o-grid>
-        </mat-tab> -->
 
-
-
-
-
-        <!--
-            <div fxFill fxLayout="column" fxLayoutAlign="start" class="container">
-  <o-grid #formReservation attr="reservation" service="users" entity="reservationSent"
-      keys="id_reservation"
-      columns="name_traveler;surname_traveler;name_host;surname_host;message;status_name;" query-rows="8"
-      orderable="true" quick-filter="true"
-      visible-columns="name_host;message;status_name" controls="true" gutter-size="0" Elimina el espacio entre las filas 
-      detail-mode="none" [cols]=1 grid-item-height="auto"> Ajusta la altura automáticamente 
-      <o-grid-item *ngFor="let list of formReservation.dataArray" class="o-grid__row">
-        <o-column layout-padding class="o-grid__item travelerName">De: {{ list.name_traveler }} {{list.surname_traveler}}</o-column>
-        <o-column layout-padding class="o-grid__item travelerMsg">Mensaje: {{ list.message }}</o-column>
-      </o-grid-item>
-    </o-grid>
-  </div>
-  
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-         Pestaña para habilitar servicios de las anfitrionas -->
-        <!-- <mat-tab label="HOUSES">
-            <o-table #form attr="houses" service="houses" entity="house" parent-keys="user_id" keys="house_id"
-                detail-form-route="houses" edit-form-route="houses" columns="house_id;address;city;state;zip"
-                visible-columns="address;city;state;zip" title="Casas" sort-columns="address" query-rows="10"
-                quick-filter="yes" pageable="yes">
-            </o-table>
-        </mat-tab> -->
-
+        </mat-tab>
     </mat-tab-group>
 
 </o-form-container>
