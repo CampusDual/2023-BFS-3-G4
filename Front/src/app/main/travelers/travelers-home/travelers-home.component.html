@@ -137,7 +137,8 @@
                             <div class="statusT" *ngIf="list.status_name==='rechazada'">{{ 'REJECTED' | oTranslate }}</div>
                             <div class="statusT" *ngIf="list.status_name==='pendiente'">{{ 'PENDING' | oTranslate}}</div>
                             <div class="statusT" *ngIf="list.status_name==='aceptada'">{{ 'ACCEPTED' | oTranslate }}</div>
-                            <div class="statusT" *ngIf="list.status_name==='anulada'">{{ 'CANCELED' | oTranslate }}</div>
+                            <div class="statusT" *ngIf="list.status_name==='anuladaporhost'">{{ 'CANCELED' | oTranslate }}</div>
+                            <div class="statusT" *ngIf="list.status_name==='anuladaportrav'">{{ 'CANCELED' | oTranslate }}</div>
 
 
                         </o-column>
@@ -180,7 +181,8 @@
                             <div class="statusT" *ngIf="list.status_name==='rechazada'">{{ 'REJECTED' | oTranslate }}</div>
                             <div class="statusT" *ngIf="list.status_name==='pendiente'">{{ 'PENDING' | oTranslate}}</div>
                             <div class="statusT" *ngIf="list.status_name==='aceptada'">{{ 'ACCEPTED' | oTranslate }}</div>
-                            <div class="statusT" *ngIf="list.status_name==='anulada'">{{ 'CANCELED' | oTranslate }}</div>
+                            <div class="statusT" *ngIf="list.status_name==='anuladaporhost'">{{ 'CANCELED' | oTranslate }}</div>
+                            <div class="statusT" *ngIf="list.status_name==='anuladaportrav'">{{ 'CANCELED' | oTranslate }}</div>
 
                         </o-column>
                         <o-column layout-padding fxFlex="15" class="buttonVer"

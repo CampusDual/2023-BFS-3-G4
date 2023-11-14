@@ -27,6 +27,8 @@ export class TravelersReservationReceivedDetailComponent implements OnInit {
   public status_name;
   public reservation_date;
   public message_cancellation;
+  public read_traveler;
+  public read_host;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -43,7 +45,7 @@ export class TravelersReservationReceivedDetailComponent implements OnInit {
   ngOnInit() {
     this.ontimizeServiceUsers.query({ id_reservation: this.data.id_reservation }, ['id_reservation', 'id_client_traveler', 'id_client_host',
       'message', 'id_status', 'name_traveler', 'surname_traveler', 'email_traveler', 'message_answer', 'name_host', 'surname_host', 'email_host',
-      'phonenumber_host', 'status_name', 'reservation_date', 'message_cancellation'], 'reservation').subscribe(
+      'phonenumber_host', 'status_name', 'reservation_date', 'message_cancellation', 'read_traveler', 'read_host'], 'reservation').subscribe(
         res => {
 
 
@@ -63,7 +65,8 @@ export class TravelersReservationReceivedDetailComponent implements OnInit {
           this.phonenumber_host = res.data[0].phonenumber_host;
           this.status_name = res.data[0].status_name;
           this.reservation_date = res.data[0].reservation_date;
-
+          this.read_traveler = res.data[0].read_traveler;
+          this.read_host = res.data[0].read_host;
 
         }
       );
@@ -73,14 +76,15 @@ export class TravelersReservationReceivedDetailComponent implements OnInit {
   rejectReservation(id_reservation: any) {
     let message_answer = this.form.getComponents().message_answer.getValue();
     let id_status = 2;
-    //1
+    let read_traveler = false;
+    
     let parent = this;
-    this.ontimizeServiceUsers.update({ id_reservation: id_reservation }, { message_answer: message_answer, id_status: id_status }, 'reservation').subscribe(res => {
+    this.ontimizeServiceUsers.update({ id_reservation: id_reservation }, { message_answer: message_answer, id_status: id_status, read_traveler: read_traveler }, 'reservation').subscribe(res => {
 
       this.dialog.closeAll();
 
       if (res.code == 0) {
-        //2
+       
         parent.data.grid.reloadData();
         // Mostrar el snack-bar con el mensaje de éxito
         const config: OSnackBarConfig = {
@@ -102,8 +106,9 @@ export class TravelersReservationReceivedDetailComponent implements OnInit {
   acceptReservation(id_reservation: any) {
     let message_answer = this.form.getComponents().message_answer.getValue();
     let id_status = 1;
+    let read_traveler = false;
     let parent = this;
-    this.ontimizeServiceUsers.update({ id_reservation: id_reservation }, { message_answer: message_answer, id_status: id_status }, 'reservation').subscribe(res => {
+    this.ontimizeServiceUsers.update({ id_reservation: id_reservation }, { message_answer: message_answer, id_status: id_status, read_traveler: read_traveler }, 'reservation').subscribe(res => {
 
       this.dialog.closeAll();
 
@@ -128,9 +133,9 @@ export class TravelersReservationReceivedDetailComponent implements OnInit {
   cancelReservation(id_reservation: any) {
     let message_cancellation = this.form.getComponents().message_cancellation.getValue();
     let id_status = 4;
-    //1
+    let read_traveler = false;
     let parent = this;
-    this.ontimizeServiceUsers.update({ id_reservation: id_reservation }, { message_cancellation: message_cancellation, id_status: id_status }, 'reservation').subscribe(res => {
+    this.ontimizeServiceUsers.update({ id_reservation: id_reservation }, { message_cancellation: message_cancellation, id_status: id_status, read_traveler: read_traveler}, 'reservation').subscribe(res => {
 
       this.dialog.closeAll();
 

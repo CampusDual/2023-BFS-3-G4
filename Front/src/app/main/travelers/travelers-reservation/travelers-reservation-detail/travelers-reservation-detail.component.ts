@@ -27,6 +27,8 @@ export class TravelersReservationDetailComponent implements OnInit {
   public email_host ;
   public status_name ;
   public reservation_date ;
+  public read_traveler ;
+  public read_host ;
 
 
 
@@ -47,7 +49,7 @@ export class TravelersReservationDetailComponent implements OnInit {
   ngOnInit() {
     this.ontimizeServiceUsers.query({id_reservation: this.data.id_reservation }, ['id_reservation','id_client_traveler','id_client_host',
     'message','id_status','name_traveler','surname_traveler','email_traveler','message_answer','name_host','surname_host','email_host',
-    'phonenumber_host','status_name','reservation_date', 'message_cancellation'], 'reservation').subscribe(
+    'phonenumber_host','status_name','reservation_date', 'message_cancellation','read_traveler','read_host'], 'reservation').subscribe(
       res => {
      
 
@@ -66,7 +68,9 @@ export class TravelersReservationDetailComponent implements OnInit {
         this.email_host = res.data[0].email_host;
         this.phonenumber_host = res.data[0].phonenumber_host;
         this.status_name = res.data[0].status_name;
-        this.reservation_date = res.data[0].reservation_date;  
+        this.reservation_date = res.data[0].reservation_date;
+        this.read_traveler = res.data[0].read_traveler; 
+        this.read_host = res.data[0].read_host;   
            
         
      
@@ -103,14 +107,14 @@ export class TravelersReservationDetailComponent implements OnInit {
   cancelReservation(id_reservation: any) {
     let message_cancellation = this.form.getComponents().message_cancellation.getValue();
     let id_status = 5;
-    //1
+    let read_host= false;
     let parent = this;
-    this.ontimizeServiceUsers.update({ id_reservation: id_reservation }, { message_cancellation: message_cancellation, id_status: id_status }, 'reservation').subscribe(res => {
+    this.ontimizeServiceUsers.update({ id_reservation: id_reservation }, { message_cancellation: message_cancellation, id_status: id_status, read_host: read_host }, 'reservation').subscribe(res => {
 
       this.dialog.closeAll();
 
       if (res.code == 0) {
-        //2
+        
         parent.data.grid.reloadData();
         // Mostrar el snack-bar con el mensaje de éxito
         const config: OSnackBarConfig = {

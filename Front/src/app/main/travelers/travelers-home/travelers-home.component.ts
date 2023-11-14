@@ -148,7 +148,12 @@ export class TravelersHomeComponent implements OnInit {
     });
   }
 
-  public verReservaSent(data: any): void {    
+  public verReservaSent(data: any): void {
+
+    let read_traveler = true;    
+    this.ontimizeServiceUsers.update({ id_reservation: data }, { read_traveler:read_traveler }, 'reservation').subscribe(res => {    
+        this.gridReservationReceived.reloadData();
+    });
      
    
     this.dialog.open(TravelersReservationDetailComponent, {
@@ -165,6 +170,10 @@ export class TravelersHomeComponent implements OnInit {
   }
 
   public verReservaRec(data: any): void {    
+    let read_host = true;    
+    this.ontimizeServiceUsers.update({ id_reservation: data }, { read_host:read_host }, 'reservation').subscribe(res => {    
+        this.gridReservationReceived.reloadData();
+    });
      
    
     this.dialog.open(TravelersReservationReceivedDetailComponent, {
