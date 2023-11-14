@@ -56,7 +56,11 @@
   "Confirm password": "Confirm password",
   "ERROR_EMAIL_REQUIRED": "Email required",
   "RESERVATION_TAB": "RESERVATIONS",
-
+  "RECB_RESERVATION": "Received Reservations",
+  "SENT_RESERVATION": "Sent Reservations",
+  "RES_FROM": "Request from",
+  "RES_FOR": "Request for",
+  "CANCEL?": "Do you want to cancel your request to",
   "SAVE": "Save",
   "SAVEACT": "Save interests",
   "activities": "Interests",
@@ -143,6 +147,8 @@
   "READMESSAGE": "See message",
   "ALLCITIES": "All cities",
   "SHOWPROFILE": "Show Profile",
-  "LABEL_INPUT_RESP": "Send a reply to"
+  "LABEL_INPUT_RESP": "Send a reply to",
+  "CANCEL_RESP": "Explain the reasons for your cancellation"
+  
 
 }

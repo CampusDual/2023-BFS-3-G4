@@ -106,26 +106,23 @@
             </o-form>
         </mat-tab>
 
-        <!-- Pestaña para gestionar reservas (cambiar nombre de la tab y reducir espacio entre grid-items) -->
+        <!-- Pestaña para gestionar reservas-->
 
         <mat-tab label="{{ 'RESERVATION_TAB' | oTranslate }}">
 
+            <p class="title">{{ 'RECB_RESERVATION' | oTranslate }}</p>
+            <div class="container">
+                <o-grid #gridReservationReceived attr="reservationReceived" service="users" entity="reservationReceived"
+                    columns="id_reservation;name_traveler;surname_traveler;name_host;surname_host;message;status_name;reservation_date"
+                    query-rows="8" refresh-button="no" show-toolbar="no" quick-filter="no" show-controls="no" [cols]="1"
+                    grid-item-height="60px" gutter-size="6px" show-footer="no">
 
-            <o-grid #gridReservationReceived attr="reservationReceived" service="users" entity="reservationReceived"
-                columns="id_reservation;name_traveler;surname_traveler;name_host;surname_host;message;status_name;reservation_date"
-                query-rows="8" refresh-button="no" quick-filter="true"
-                quick-filter-columns="name_traveler;surname_traveler;message;status_name"
-                visible-columns="name_host;message;status_name;reservation_date" [cols]="1" grid-item-height="60px"
-                gutter-size="6px" show-footer="no">
-
-                <o-grid-item *ngFor="let list of gridReservationReceived.dataArray">
-
-                    <div class="container">
+                    <o-grid-item *ngFor="let list of gridReservationReceived.dataArray">
                         <div class="row">
-
                             <div class="itemrow1">
-                                <div class="nameT">{{'Message from' | oTranslate}} {{ list.name_traveler}}
-                                    {{list.surname_traveler}}</div>
+                                <div class="nm"><span class="res">{{'RES_FROM' | oTranslate}} </span><span
+                                        class="nameT">{{ list.name_traveler}}
+                                        {{list.surname_traveler}} </span> </div>
                                 <div class="msg">{{ list.message }}</div>
                             </div>
 
@@ -150,7 +147,7 @@
 
                             <div class="itemrow4">
                                 <div class="showMsg" (click)="verReservaRec(list.id_reservation)">
-                                    <img src="../../../../assets/icons/eyeIcon.png" alt="icon">
+                                    <img class="eye" src="../../../../assets/icons/eyeIcon.png" alt="icon">
                                 </div>
                             </div>
 
@@ -159,26 +156,27 @@
                             </div>
                             <div class="msg"><span>{{ list.message_answer }}</span></div>
                         </div>
-                    </div>
-                </o-grid-item>
-            </o-grid>
 
-            <o-grid #gridReservationSent attr="reservationSent" service="users" entity="reservationSent"
-                columns="id_reservation;name_traveler;surname_traveler;name_host;surname_host;message;status_name;reservation_date"
-                query-rows="8" refresh-button="no" quick-filter="true"
-                visible-columns="name_host;message;status_name;reservation_date" [cols]="1" grid-item-height="60px"
-                gutter-size="6px" show-footer="no">
+                    </o-grid-item>
 
-                <o-grid-item *ngFor="let list of gridReservationSent.dataArray">
+                </o-grid>
+            </div>
+            <p class="title">{{ 'SENT_RESERVATION' | oTranslate }}</p>
+            <div class="container">
+                <o-grid #gridReservationSent attr="reservationSent" service="users" entity="reservationSent"
+                    columns="id_reservation;name_traveler;surname_traveler;name_host;surname_host;message;status_name;reservation_date"
+                    query-rows="8" refresh-button="no" quick-filter="no" show-toolbar="no"
+                    visible-columns="name_host;message;status_name;reservation_date" [cols]="1" grid-item-height="60px"
+                    gutter-size="8px" show-footer="no">
 
-
-                    <div class="container">
+                    <o-grid-item *ngFor="let list of gridReservationSent.dataArray">
                         <div class="row">
 
                             <div class="itemrow1">
-                                <div class="nameT">{{'Message from' | oTranslate}} {{ list.name_traveler}}
-                                    {{list.surname_traveler}}</div>
-                                <div class="msg">{{ list.message }}</div>
+                                <div class="nm"><span class="res"> {{'RES_FOR' | oTranslate}} </span><span
+                                        class="nameT"> {{ list.name_host}}
+                                        {{list.surname_host}}</span> </div>
+                                <div class="msg">{{'YOUTAG' | oTranslate}} {{ list.message }}</div>
                             </div>
 
                             <div class="itemrow2">
@@ -202,7 +200,7 @@
 
                             <div class="itemrow4">
                                 <div class="showMsg" (click)="verReservaSent(list.id_reservation)">
-                                    <img src="../../../../assets/icons/eyeIcon.png" alt="icon">
+                                    <img class="eye" src="../../../../assets/icons/eyeIcon.png" alt="icon">
                                 </div>
                             </div>
 
@@ -211,10 +209,11 @@
                             </div>
                             <div class="msg"><span>{{ list.message_answer }}</span></div>
                         </div>
-                    </div>
-                </o-grid-item>
-            </o-grid>
 
+                    </o-grid-item>
+                </o-grid>
+
+            </div>
         </mat-tab>
     </mat-tab-group>
 

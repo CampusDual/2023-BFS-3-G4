@@ -56,6 +56,11 @@
   "Confirm password": "Confirma la contraseña",
   "ERROR_EMAIL_REQUIRED": "Email requerido",
   "RESERVATION_TAB": "RESERVAS",
+  "RECB_RESERVATION": "Reservas Recibidas",
+  "SENT_RESERVATION": "Reservas Enviadas",
+  "RES_FROM": "Reserva de",
+  "RES_FOR": "Reserva con",
+  "CANCEL?": "Quieres cancelar tu reserva con",
   "SAVE": "Guardar",
   "SAVEACT": "Guardar intereses",
   "activities": "Intereses",
@@ -120,7 +125,7 @@
   "REJECTED": "RECHAZADA",
   "PENDING": "PENDIENTE",
   "ACCEPTED": "ACEPTADA",
-  "CANCELED": "Cancelada",
+  "CANCELED": "CANCELADA",
   "Reservation delete": "aún no ha contestado a tu petición. Estás a tiempo de cancelarla.",
   "Reservation rejected text": "no ha podido aceptar tu reserva. Pero hay muchas más anfitrionas y destinos en la web!",
   "Reservation accepted": "Tu reserva ha sido aceptada! Aquí tienes sus datos de contacto:",
@@ -138,7 +143,8 @@
   "READMESSAGE": "Ver mensaje",
   "ALLCITIES": "Todas las ciudades",
   "SHOWPROFILE": "Ver perfil",
-  "LABEL_INPUT_RESP":"Responde al mensaje de"
+  "LABEL_INPUT_RESP":"Responde al mensaje de",
+  "CANCEL_RESP": "Explica los motivos de tu cancelación."
 
 
 

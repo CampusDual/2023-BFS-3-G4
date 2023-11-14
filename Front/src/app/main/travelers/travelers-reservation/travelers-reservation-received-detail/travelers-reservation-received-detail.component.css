@@ -38,6 +38,7 @@
     .boxSc-date {
         display: flex;
         justify-content: space-between;
+        margin-bottom: 20px;
 
         .item-date {
             text-align: right;
@@ -64,7 +65,6 @@
         border: 3px solid white;
         padding: 15px;
         margin-bottom: 20px;
-        margin-top: 20px;
         text-align: right;
         align-self: flex-end;
 
@@ -73,11 +73,13 @@
             text-transform: uppercase;
             font-weight: bold;
             color: rgb(45, 13, 120);
+            text-align: right;
         }
 
         .msgT {
             font-size: small;
             color: rgb(45, 13, 120);
+            text-align: right;
         }
     }
 
@@ -105,47 +107,51 @@
         }
     }
 
-    .backgroundBox {
-        width: 350px;
-        background-color: rgba(165, 132, 242, 0.5);
-        border-radius: 30px;
-        display: flex;
-        flex-direction: column;
-        align-self: center;
-        padding: 10px;
+}
 
-        .box-autoResp {
-            width: 300px;
-            font-size: 20px;
-            font-family: 'Patua One', serif;
-            color: white;
-            text-align: center;
-            align-self: center;
-            margin: 10px 0 10px 0;
-        }
+.backgroundBox {
+    width: 350px;
+    background-color: rgba(165, 132, 242, 0.5);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    padding: 10px;
 
-        .boxInfo {
-            font-size: medium;
-            color: white;
-            align-self: center;
-            margin: 0px 0 10px 0;
 
-        }
+ 
+}
+
+.buttons {
+    text-align: center;
+    margin-top: 11px;
+
+    .acc-rej {
+        font-size: 15px;
+        color: white;
+        margin: 10px 0 10px 0; 
     }
-
-    .buttons {
-        text-align: center;
-        margin-top: 11px;
-
-        .acc-rej {
-            font-size: 15px;
-            color: white;
-            margin: 10px 0 10px 0; 
-        }
-        o-button{
-            margin: 0 10px;
-        }
+    o-button{
+        margin: 0 10px;
     }
+}
+
+.boxInfo {
+    font-size: medium;
+    color: white;
+    align-self: center;
+    margin: 0px 0 10px 0;
+
+}
+
+.box-autoResp {
+    width: 300px;
+    font-size: 20px;
+    font-family: 'Patua One', serif;
+    color: white;
+    text-align: center;
+    align-self: center;
+    margin: 10px 0 10px 0;
 }
 
 o-textarea-input {
@@ -156,3 +162,4 @@ o-textarea-input {
     resize: none;
 
 }
+

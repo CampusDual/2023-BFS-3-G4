@@ -27,7 +27,7 @@
                 <div class="msgH">{{message_answer}}</div>
             </div>
 
-            <div class="backgroundBox">
+            <div class="backgroundBox" *ngIf="!(id_status == 3 || id_status == 4 || id_status == 5)">
                 <div class="box-autoResp">
                     <div *ngIf="id_status == 1"> {{'Reservation accepted' | oTranslate}}</div>
                     <div *ngIf="id_status == 2"> {{name_host}} {{'Reservation rejected text' | oTranslate}} </div>
@@ -49,18 +49,20 @@
                     (onClick)="(deleteReservationFn(id_reservation))"></o-button>
             </div>
         </div>
-        <div class="buttons" *ngIf="id_status == 3">
-            <o-button class="deleteReservationButton" type="RAISED" label="DELETE" layout-padding color="primary"
-                (onClick)="(deleteReservationFn(id_reservation))"></o-button>
+      
+
+        <div class="cancel" *ngIf="id_status == 1">{{'CANCEL?' | oTranslate}} {{name_traveler}}? </div>
+
+        <div class="buttons" *ngIf="id_status == 1">
+            <o-button class="calcelReservationButton" type="RAISED" label="Cancel Reservation" layout-padding color="primary"
+                (onClick)="(cancelReservation(id_reservation))"></o-button>
         </div>
 
         <o-textarea-input *ngIf="id_status == 1" attr="message_cancellation"
-                label="Cancela la reserva para {{name_host}}" fxFlex="70" max-length="200"></o-textarea-input>
+                label="{{'CANCEL_RESP' | oTranslate}} " fxFlex="70" 
+                max-length="200" rows="2"></o-textarea-input>
 
-        <div class="buttons" *ngIf="id_status == 1">
-            <o-button class="reject" type="RAISED" label="CANCEL" layout-padding color="primary"
-                (onClick)="(cancelReservation(id_reservation))"></o-button>
-        </div>
+        
 
 
 

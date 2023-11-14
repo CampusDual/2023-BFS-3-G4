@@ -187,4 +187,9 @@ export class TravelersHomeComponent implements OnInit {
       },
     });
   }
+   
+  public closeDialog(){
+    this.dialog.closeAll()
+
+  }
 }
