@@ -30,6 +30,7 @@
   "USER": "User",
   "PHONENUMBER": "Phone Number",
   "DESCRIPTION": "Description",
+  "SHORTDESC": "Define yourself in one sentence",
   "PASSWORDCONFIRM": "Confirm password",
   "HOST": "Host",
   "PROFILE": "Profile",
@@ -58,6 +59,7 @@
 
   "SAVE": "Save",
   "SAVEACT": "Save interests",
+  "activities": "Interests",
   "Baile": "Dance",
   "Senderismo": "Hiking",
   "Escalada": "Climbing",

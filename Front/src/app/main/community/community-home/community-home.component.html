@@ -27,10 +27,10 @@
     </div>
   </div>
   
-    <o-grid #grid columns="id_community;community_name;province_name" service="communities" entity="community"
-      keys="id_community" [cols]="5" quick-filter="no" show-page-size="false" show-footer="false"
-      grid-item-height="2:2" refresh-button="false" pagination-controls="false" sortable-columns="community_name"
-      sort-column="community_name" gutter-size="10px"[ngStyle]="{'height':'600px'}" show-buttons-text="no">
+    <o-grid #grid columns="id_community;community_name;province_name" service="communities" entity="community" keys="id_community"
+            [cols]="5" quick-filter="no" show-page-size="false" show-footer="false" refresh-button="false"
+            grid-item-height="2:2" pagination-controls="false" sortable-columns="community_name" show-buttons-text="no"
+            sort-column="community_name" gutter-size="10px"[ngStyle]="{'height':'600px'}">
       
       <div class="grid-container">
         <o-grid-item *ngFor="let list of grid.dataArray">

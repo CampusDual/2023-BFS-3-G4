@@ -43,7 +43,7 @@ o-grid {
 }
 
 /* Estilos del grid */
-.grid-container { /* Velo sobre foto */
+.grid-container { 
     overflow: hidden;
 }
 

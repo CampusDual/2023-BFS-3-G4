@@ -1,3 +1,11 @@
+o-form .scrolling {
+  display: flex;
+  /* flex: auto; */
+  /* overflow-y: auto; */
+  flex-direction: column;
+}
+
+
 /* Título de la página */
 .towns-home {
   margin-top: 20px;
@@ -44,6 +52,9 @@ o-grid {
 
 }
 
+.grid-container { 
+  overflow: hidden;
+}
 
 .container-item {
   margin-top: 0;
@@ -54,6 +65,7 @@ o-grid {
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  overflow: auto;
   overflow: hidden;
 }
 

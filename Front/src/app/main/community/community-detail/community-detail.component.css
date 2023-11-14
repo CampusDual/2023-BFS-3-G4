@@ -1,7 +1,3 @@
-o-grid {
-  margin-bottom: 0;
-}
-
 .community-title {
   text-align: center;
   width: 100%;
@@ -42,6 +38,12 @@ o-grid {
   cursor: pointer; 
 }
 
+
+/* Estilos grid */
+o-grid {
+  row-gap: 10px;
+}
+
 .container-item {
   margin-top: 0;
   display: block;
@@ -51,7 +53,9 @@ o-grid {
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  overflow: hidden;
+  overflow: auto;
+  /* overflow: hidden; */
+  z-index: 3;
 }
 
 .town-image {

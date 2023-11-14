@@ -2,3 +2,11 @@
 .mat-drawer-container {
     background-color: white;
 }
+
+
+.o-form .scrolling {
+    display: flex;
+    /* flex: auto; */
+    /* overflow-y: auto; */
+    flex-direction: column;
+}

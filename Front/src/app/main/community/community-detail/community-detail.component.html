@@ -5,15 +5,15 @@
 </button>
 <!-- </a> -->
 
-<o-form #form fxFill service="communities" entity="community" keys="id_community" show-header="no" (onDataLoaded)="onLoad()">
+<o-form #form fxLayout="column" service="communities" entity="community" keys="id_community" show-header="no" (onDataLoaded)="onLoad()">
     <o-text-input attr="id_community" sql-type="INTEGER" enabled="no" oHidden></o-text-input>
     <o-text-input #communitynamefield attr="community_name" enabled="no" (onValueChange)="reloadValues($event)"
         oHidden></o-text-input>
     <h1 class="community-title">{{ custom_name }}</h1>
 
-    <o-grid #grid columns="id_town;id_community;town_name;province_name" quick-filter-columns="town_name;province_name"
+    <o-grid #grid columns="id_town;id_community;town_name;province_name" quick-filter-columns="town_name;province_name" fixed-header="no"
         service="towns" entity="town" keys="id_town" parent-keys="id_community" [cols]="5" grid-item-height="2:3"
-        show-page-size="false" page-size-options="5;10;20;40" refresh-button="false" pagination-controls="true"
+        show-page-size="false" refresh-button="false" pagination-controls="true" controls="false" query-rows="20" page-size-options="10;20;40"
         sortable-columns="town_name" sort-column="town_name" gutter-size="10px" [ngStyle]="{'height':'600px'}" >
 
         <div class="grid-container">
