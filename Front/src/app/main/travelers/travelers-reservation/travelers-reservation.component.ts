@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { ODateInputComponent, OSnackBarConfig, OTextInputComponent, OntimizeService, SnackBarService } from 'ontimize-web-ngx';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-travelers-reservation',
@@ -9,6 +10,8 @@ import { ODateInputComponent, OSnackBarConfig, OTextInputComponent, OntimizeServ
 })
 export class TravelersReservationComponent implements OnInit {
 
+  public selectedDates = {};
+
   @ViewChild('message', { static: true }) messagefield: OTextInputComponent;
   @ViewChild('id_client_host', { static: true }) id_client_host: OTextInputComponent;
   @ViewChild('date', { static: true }) date: ODateInputComponent;
@@ -16,14 +19,22 @@ export class TravelersReservationComponent implements OnInit {
   public today: number;
 
   constructor(
+
+  
     @Inject(MAT_DIALOG_DATA) public data: any,
     protected dialog: MatDialog,
     private snackBarService: SnackBarService,
     
     private ontimizeServiceUsers: OntimizeService
   ) { 
+
+    
+      
+  
     this.ontimizeServiceUsers.configureService(this.ontimizeServiceUsers.getDefaultServiceConfiguration('users'));
   }
+
+ 
 
   ngOnInit() {
     this.today = Date.now();
@@ -34,17 +45,13 @@ export class TravelersReservationComponent implements OnInit {
 
     this.messageString = this.messagefield.getValue();
     let id_client_host = this.data.id_client_host;
-    let date = this.date.getValueAsDate();   
+    let date = this.date.getValueAsDate();
     console.log(date);
-    let read_traveler = true;
-    let read_host = false;
 
     let hashmap: { [key: string]: any } = {};
     hashmap['message'] = this.messageString;
     hashmap['id_client_host'] = id_client_host;
     hashmap['reservation_date'] = date;
-    hashmap['read_traveler'] = read_traveler;
-    hashmap['read_host'] = read_host;
  
     console.log(hashmap);
     

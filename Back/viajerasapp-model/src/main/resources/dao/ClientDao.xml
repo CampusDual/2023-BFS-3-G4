@@ -140,6 +140,7 @@
                 <Column>id_activity</Column>
                 <!-- columnas exclusivas de Clients -->
                 <Column>name</Column>
+                <Column>name</Column>
                 <Column>surname</Column>
                 <Column>email</Column>
                 <Column>nif</Column>

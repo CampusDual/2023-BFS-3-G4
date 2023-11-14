@@ -15,7 +15,8 @@ export const routes: Routes = [
       { path: 'towns', loadChildren: () => import('./towns/towns.module').then(m => m.TownsModule) },
       { path: 'profile', loadChildren: () => import('./travelers/travelers.module').then(m => m.TravelersModule) },
       { path: 'travelers', loadChildren: () => import('./travelers/travelers.module').then(m => m.TravelersModule) },
-      { path: 'communities', loadChildren: () => import('./community/community.module').then(m => m.CommunityModule) }
+      { path: 'communities', loadChildren: () => import('./community/community.module').then(m => m.CommunityModule) },
+      { path: 'reservations', loadChildren: () => import('./reservations/reservations.module').then(m => m.ReservationsModule) }
 
     ]
   }
