@@ -36,32 +36,35 @@
             [target]="grid" query-on-change="no" [expression-builder]="createFilter"></o-filter-builder>
     </o-column-collapsible>
 
-    <o-grid #grid columns="user_;id_client;name;surname;short_desc;avatar;activities" quick-filter="yes" service="users"
+    <o-grid #grid columns="user_;id_client;name;surname;short_desc;avatar;activities" quick-filter="no" service="users"
         entity="host" keys="id_client" parent-keys="id_town" [cols]="4" show-page-size="false" fixed-header="no"
         page-size-options="4;8;16" grid-item-height="2:3" refresh-button="false" pagination-controls="true" controls="false"
-        gutter-size="20px" show-footer="no" [ngStyle]="{'height':'600px'}" (onClick)="goToHostDetail($event)">
+        show-footer="no" (onClick)="goToHostDetail($event)">
 
         <div class="grid-container">
             <o-grid-item *ngFor="let list of grid.dataArray">
-                <o-column class="container-item">
-                    <div>
+                <o-column class="card-container">
+                    <div class="image-container">
                         <a [routerLink]="['/main/travelers', list.id_client]">
-                            <o-image class="image1" data="{{ list.avatar }}" read-only="true" show-controls="false">
-                            </o-image>
+                            <!-- <o-image class="rounded-image" data="{{ list.avatar }}" read-only="true" show-controls="false">
+                            </o-image> -->
+                            <img class="rounded-image" src="data:image/png;base64,{{ list.avatar }}">
                         </a>
                     </div>
                     <div class="name-surname">
                         <h2>{{ list.name + ' ' + list.surname }}</h2>
                     </div>
                     <div class="short_desc">
-                        <span>{{ list.short_desc }}</span>
+                        <span>{{ '"' + list.short_desc + '"'}}</span>
                     </div>
-                    <mat-chip-list>
-                        <mat-chip class="activitiesChip" *ngFor="let activity of splitActivities(list.activities)"
-                            [disabled]="false" color="primary">
-                            {{ activity }}
-                        </mat-chip>
-                    </mat-chip-list>
+                    <div class="chips-container">
+                        <mat-chip-list class="activities-chip-list">
+                            <mat-chip class="activitiesChip" *ngFor="let activity of splitActivities(list.activities)"
+                                [disabled]="false" color="primary">
+                                {{ activity }}
+                            </mat-chip>
+                        </mat-chip-list>
+                    </div>
                 </o-column>
 
             </o-grid-item>

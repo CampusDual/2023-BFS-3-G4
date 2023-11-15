@@ -24,9 +24,6 @@ export class TownsDetailComponent implements OnInit {
   }
 
   splitActivities(activities){
-    // activities es un string tal que asi:
-    // "futbol,musica,baile", este metodo devuelve  
-    // un array con esos datos para poder iterarlo: [futbol, musica, baile]
     if (activities && typeof activities === 'string') {
       const arrayActivities = activities.split(',');
       
@@ -57,7 +54,6 @@ createFilter(values: Array<{ attr: string, value: any }>): Expression {
   }
 
 }
-
 
 
   // loadActivities(idclient) {

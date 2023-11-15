@@ -1,55 +1,3 @@
-/* Estilos para el grid */
-o-grid {
-    row-gap: 10px;
-  }
-
-.grid-container {
-    overflow: hidden;
-}
-
-.image1 {
-    width: 100%;
-    display: block;
-    max-width: none;
-    margin: 0 auto;
-    align-items: center;
-    cursor: pointer;
-}
-
-.container-item:hover {
-    border: 5px solid transparent;
-    display: grid;
-    place-items: center;
-    overflow: hidden;
-}
-
-
-.container-item {
-    display: block;
-    position: absolute;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-
-/* .hostCard {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    cursor: pointer;
-} */
-
-
 .town-title {
     text-align: center;
     width: 100%;
@@ -63,61 +11,93 @@ o-grid {
     color: rgb(210, 190, 250);
 }
 
+o-grid {
+    row-gap: 10px;
+  }
 
-.name-surname {
-    margin: 2px 0;
-    font-size: 0.5em;
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
+.grid-container {
+    overflow: hidden;
 }
 
-
-.short_desc {
-    margin-top: 0px; 
-    font-size: 0.6em;
-    color: #4b4b4b;
-    width: 98%;
-    text-align: justify;
-    height: auto;
-    min-height: 50px;
-    margin-bottom: 5px;
-    overflow: hidden; 
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    margin-bottom: 5px; 
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ddd; 
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar efecto elevado */
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+    width: 100%; /* Ancho fijo */
+    height: 370px; /* Altura fija */
 }
 
-.mat-chip {
-        font-size: 0.6em; 
-        height: 0px; /* Altura fija para todas las chips */
-        line-height: 5px; /* Alineación vertical del texto dentro de la chip */
-        padding: 0 7px; /* Padding horizontal para mantener el contenido centrado */
-        margin: 0;
-        pointer-events: none; /* Desactiva el efecto hover */
-        background-color: rgb(210, 190, 250);
+.card-container:hover {
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
 
-
-mat-chip:hover {
-    background-color: inherit; 
-}
-
-.mat-chip-list {
+.image-container {
     display: flex;
     justify-content: center;
-    align-items: center; 
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%; 
-    box-sizing: border-box;
+    overflow: hidden;
+    margin-top: 15px;
 }
 
-.container-item:hover, .activitiesChip:hover {
-    border: none;
-    background-color: inherit;
+.rounded-image {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.name-surname {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.short_desc {
+    text-align: center;
+    padding: 0 10px;
+    font-size: 12px;
+    color: #555;
+    height: 50px; /* Altura fija para la descripción */
+    font-style: italic;
+}
+
+.chips-container {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.activities-chip-list {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
     overflow: hidden;
+    width: auto;
+}
+
+.activitiesChip {
+    font-size: 0.6em;
+    height: auto;
+    line-height: normal;
+    padding: 5px 10px;
+    pointer-events: none;
+    background-color: rgb(210, 190, 250);
+    margin: 1px; 
+}
+
+.activitiesChip:hover {
+    background-color: inherit; 
 }
 
 .buttons-container {

@@ -144,8 +144,7 @@
   "ALLCITIES": "Todas las ciudades",
   "SHOWPROFILE": "Ver perfil",
   "LABEL_INPUT_RESP":"Responde al mensaje de",
-  "CANCEL_RESP": "Explica los motivos de tu cancelación."
-
-
-
+  "CANCEL_RESP": "Explica los motivos de tu cancelación.",
+  "CONTACTMSJ": "Escribe un mensaje a"
+  
 }

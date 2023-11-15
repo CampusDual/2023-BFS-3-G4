@@ -10,13 +10,13 @@
         <div class="filter-style" fxLayout="column">
           <div fxLayout="row wrap" fxLayout="32px" class="buttons-container">
               <!-- Combo para Provincias -->
-              <o-combo #provinceCombo attr=province_name service="provinces" entity="province" keys="id_province"
+              <o-combo #provinceCombo attr="provinceCombo" service="provinces" entity="province" keys="id_province"
                       columns="province_name;id_province" value-column="province_name" visible-columns="province_name"
                       read-only="no" class="input-combo" fxFlex="35%" sort="ASC" searchable="true" query-method="query"
                       placeholder="province_name" label-visible="false">
               </o-combo>
               <!-- Combo para Ciudades -->
-              <o-combo #townCombo attr="town_name" service="towns" entity="town" keys="id_town"
+              <o-combo #townCombo attr="townCombo" service="towns" entity="town" keys="id_town"
                             columns="town_name;id_town;id_province" visible-columns="town_name" value-column="town_name"
                             class="input-combo" fxFlex="75%" sort="ASC" searchable="true" query-method="query"
                             placeholder="town_name" label-visible="false" [query-on-event]="provinceCombo.onValueChange" parent-keys="id_province:provinceCombo[id_province]">
