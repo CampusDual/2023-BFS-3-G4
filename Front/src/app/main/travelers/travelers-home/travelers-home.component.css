@@ -38,6 +38,11 @@ mat-chip:hover {
     box-sizing: border-box;
 }
 
+.mailciudades {
+    color: grey;
+    font-size: 0.8em;
+}
+
 
 
 /* ESTILOS BANDEJA DE ENTRADA DE MENSAJES */
