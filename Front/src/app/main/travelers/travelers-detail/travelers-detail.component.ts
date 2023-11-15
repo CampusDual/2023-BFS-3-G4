@@ -30,7 +30,7 @@ export class TravelersDetailComponent implements OnInit {
 
   onLoad(){
     let idclient = this.form.getComponents().id_client.getValue();
-    console.log(idclient);
+    
     this.ontimizeServiceUsers.query({id_client: idclient}, ['id_activity', 'activity_name'], 'activity_client').subscribe(
       res => {
         if (res.data && res.data.length) {

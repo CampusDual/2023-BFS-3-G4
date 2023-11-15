@@ -191,12 +191,13 @@ export class ReservationHomeComponent implements OnInit {
     });  
   }
 
-    public verPerfilTraveler(id_client: any): void{
+    public verPerfil(id_client: any): void{
 
       this.dialog.open(ProfileDialogComponent, {
       
-        height: '700px',
-        width: '550px',
+        
+        width: '1200px', /* Ancho fijo */
+        height: '750px', /* Altura fija */
         data: {
          id_client:id_client
         
@@ -204,4 +205,6 @@ export class ReservationHomeComponent implements OnInit {
       });  
       
   };
+
+
 }

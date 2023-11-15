@@ -56,7 +56,7 @@
                             </div>
 
                             <div class="itemrow5">
-                                <div class="showProf" (click)="verPerfilTraveler(list.id_client_traveler)">{{'SHOWPROFILE' | oTranslate}} </div>
+                                <div class="showProf" (click)="verPerfil(list.id_client_traveler)">{{'SHOWPROFILE' | oTranslate}} </div>
                             </div>
                             <div class="msg"><span>{{ list.message_answer }}</span></div>
                         </div>
@@ -65,7 +65,7 @@
             </o-grid>
 
             <o-grid #gridReservationSent attr="reservationSent" service="users" entity="reservationSent"
-                columns="id_reservation;name_traveler;surname_traveler;name_host;surname_host;message;status_name;reservation_date"
+                columns="id_reservation;name_traveler;id_client_traveler;id_client_host;surname_traveler;name_host;surname_host;message;status_name;reservation_date"
                 query-rows="8" refresh-button="no" quick-filter="true"
                 visible-columns="name_host;message;status_name;reservation_date" [cols]="1" grid-item-height="60px"
                 gutter-size="6px" show-footer="no">
@@ -108,7 +108,7 @@
                             </div>
 
                             <div class="itemrow5">
-                                <div class="showProf">{{'SHOWPROFILE' | oTranslate}}</div>
+                                <div class="showProf" (click)="verPerfil(list.id_client_host)">{{'SHOWPROFILE' | oTranslate}} </div>
                             </div>
                             <div class="msg"><span>{{ list.message_answer }}</span></div>
                         </div>
