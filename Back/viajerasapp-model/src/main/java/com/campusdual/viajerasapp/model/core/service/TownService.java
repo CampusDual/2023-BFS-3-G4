@@ -24,17 +24,11 @@ import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 @Service("TownService")
 public class TownService implements ITownService {
 
-
     @Autowired
     private TownDao townDao;
 
-
     @Autowired
     private DefaultOntimizeDaoHelper daoHelper;
-
-
-
-
 
     //Sample to permission
     //@Secured({ PermissionsProviderSecured.SECURED })

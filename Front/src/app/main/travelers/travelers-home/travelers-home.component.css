@@ -1,3 +1,13 @@
+/* Estilos perfil viajera */
+.profile-photo, .profile-data {
+    margin-top: 15px;
+}
+
+.register-data {
+    margin-top: 25px;
+}
+
+/* Grid de Actividades */
 .activitiesGrid {
     width: 100%;
 }
@@ -42,6 +52,8 @@ mat-chip:hover {
     color: grey;
     font-size: 0.8em;
 }
+
+
 
 
 
