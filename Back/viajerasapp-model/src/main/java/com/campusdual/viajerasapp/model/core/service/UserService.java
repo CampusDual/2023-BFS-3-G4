@@ -180,7 +180,7 @@ public class UserService implements IUserService {
 
 
 
-		return this.daoHelper.query(reservationDao, keyMap, attrList);
+		return this.daoHelper.query(reservationDao, keyMap, attrList, ReservationDao.QUERY_ORDER_BY_READ_TRAVELER);
 	}
 
 	@Override
@@ -201,7 +201,7 @@ public class UserService implements IUserService {
 
 		keyMap.put(ReservationDao.ID_CLIENT_HOST, id_client_host);
 
-		return this.daoHelper.query(reservationDao, keyMap, attrList);
+		return this.daoHelper.query(reservationDao, keyMap, attrList, ReservationDao.QUERY_ORDER_BY_READ_HOST);
 	}
 
 

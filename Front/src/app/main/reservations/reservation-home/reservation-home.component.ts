@@ -155,7 +155,7 @@ export class ReservationHomeComponent implements OnInit {
 
     let read_traveler = true;    
     this.ontimizeServiceUsers.update({ id_reservation: data }, { read_traveler:read_traveler }, 'reservation').subscribe(res => {    
-        this.gridReservationReceived.reloadData();
+        this.gridReservationSent.reloadData();
     });
      
    
