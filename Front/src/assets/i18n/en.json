@@ -21,7 +21,7 @@
   "FOOTER_RIGHTS": "All rights reserved",
   "TOWNS": "Towns",
   "TOWN": "Town",
-  "DESTINATION": "Destination",
+  "DESTINATION": "Destinations",
   "town_name": "Town",
   "province_name": "Province",
   "community_name": "Community",
@@ -149,6 +149,6 @@
   "SHOWPROFILE": "Show Profile",
   "LABEL_INPUT_RESP": "Send a reply to",
   "CANCEL_RESP": "Explain the reasons for your cancellation",
-  "CITIESMAIL": "Can't find your city? Contact us at ciudades@shetravel.com"
-
+  "CITIESMAIL": "Can't find your city? Contact us at ciudades@shetravel.com",
+  "RESERVATION": "Reservations"
 }
