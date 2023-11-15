@@ -39,7 +39,7 @@
     <o-grid #grid columns="user_;id_client;name;surname;short_desc;avatar;activities" quick-filter="no" service="users"
         entity="host" keys="id_client" parent-keys="id_town" [cols]="4" show-page-size="false" fixed-header="no"
         page-size-options="4;8;16" grid-item-height="2:3" refresh-button="false" pagination-controls="true" controls="false"
-        show-footer="no" (onClick)="goToHostDetail($event)">
+         (onClick)="goToHostDetail($event)">
 
         <div class="grid-container">
             <o-grid-item *ngFor="let list of grid.dataArray">
