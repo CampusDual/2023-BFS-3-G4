@@ -1,0 +1,92 @@
+.box {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 15px 10px 10px 10px;
+    background-color: white;   
+    overflow: hidden;    
+    width: 1100px; /* Ancho fijo */
+    height: 650px; /* Altura fija */
+}
+
+.shortDesc {
+    text-align: center;
+    margin: auto;
+    padding: 0 10px;
+    font-size: 18px;
+    color: #555;
+    font-style: italic;
+}
+
+.profile-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hostName {
+    font-size: 35px;
+    font-weight: bold;
+    color: #341777;
+    margin-top: 5px;
+}
+
+.town {
+    margin-top: 2px;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #626262;
+    margin-bottom: 20px;
+}
+
+.longDesc {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.activities-chip-list {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    overflow: hidden;
+    width: auto;
+}
+
+.activitiesChip {
+    font-size: 14px;
+    height: auto;
+    line-height: normal;
+    padding: 5px 10px;
+    pointer-events: none;
+    background-color: rgb(226, 212, 252);
+    margin: 1px; 
+}
+
+.activitiesChip:hover {
+    background-color: inherit; 
+}
+
+.button-contact {
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Centra el botón en la tarjeta */
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+
+/* .tape-left {
+    top: -50px;
+    left: -50px;
+}
+
+.tape-right {
+    bottom: -50px;
+    right: -50px; 
+} 
+*/

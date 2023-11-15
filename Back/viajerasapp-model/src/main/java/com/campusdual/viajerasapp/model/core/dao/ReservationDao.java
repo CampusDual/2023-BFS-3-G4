@@ -25,4 +25,7 @@ public class ReservationDao extends OntimizeJdbcDaoSupport {
     public static final String READ_TRAVELER = "read_traveler";
     public static final String READ_HOST = "read_host";
 
+    public static final String QUERY_ORDER_BY_READ_HOST = "default_order_by_read_host";
+    public static final String QUERY_ORDER_BY_READ_TRAVELER = "default_order_by_read_traveler";
+
 }

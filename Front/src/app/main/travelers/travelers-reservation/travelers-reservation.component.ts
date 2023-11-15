@@ -46,12 +46,16 @@ export class TravelersReservationComponent implements OnInit {
     this.messageString = this.messagefield.getValue();
     let id_client_host = this.data.id_client_host;
     let date = this.date.getValueAsDate();
+    let read_traveler = true;
+    let read_host = false;
     console.log(date);
 
     let hashmap: { [key: string]: any } = {};
     hashmap['message'] = this.messageString;
     hashmap['id_client_host'] = id_client_host;
     hashmap['reservation_date'] = date;
+    hashmap['read_traveler'] = read_traveler;
+    hashmap['read_host'] = read_host;
  
     console.log(hashmap);
     
