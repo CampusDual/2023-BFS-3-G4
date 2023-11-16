@@ -14,6 +14,6 @@ public class ActivityDao extends OntimizeJdbcDaoSupport {
 
     public static final String ACTIVITY_NAME = "activity_name";
     public static final String ID_ACTIVITY = "id_activity";
-
+    public static final String QUERY_ACTIVITYCOUNT = "activitycount";
 
 }

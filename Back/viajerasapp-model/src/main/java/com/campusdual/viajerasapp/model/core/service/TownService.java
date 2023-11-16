@@ -52,7 +52,10 @@ public class TownService implements ITownService {
         return this.daoHelper.delete(this.townDao, keyValues);
     }
 
-
+    @Override
+    public EntityResult hostcountQuery(Map<String, Object> keyMap, List<String> attrList) {
+        return this.daoHelper.query(townDao, keyMap, attrList, TownDao.QUERY_HOSTCOUNT);
+    }
 
 
 }

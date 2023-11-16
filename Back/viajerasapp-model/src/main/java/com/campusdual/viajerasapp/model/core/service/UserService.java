@@ -121,7 +121,7 @@ public class UserService implements IUserService {
 		return this.daoHelper.query(clientDao, keyMap, attrList, ClientDao.QUERY_ACTIVITIESCLIENT);
 	}
 
-@Override
+	@Override
 	public EntityResult activity_clientInsert(Map<String, Object> attrMap) {
 
 		return this.daoHelper.insert(clientActivityDao, attrMap);

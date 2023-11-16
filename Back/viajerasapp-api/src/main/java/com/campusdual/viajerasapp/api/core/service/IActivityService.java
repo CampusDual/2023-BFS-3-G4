@@ -10,5 +10,6 @@ public interface IActivityService {
 
 
     public EntityResult activityQuery(Map<String, Object> keyMap, List<String> attrList);
+    public EntityResult activitycountQuery(Map<String, Object> keyMap, List<String> attrList);
 
 }
