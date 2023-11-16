@@ -3,19 +3,18 @@
     <mat-tab-group fxFill>
 
         <!-- Pestaña de para el perfil por defecto-->
-        <mat-tab label="{{ 'PROFILE_TAB' | oTranslate }}">
+        <mat-tab class="mat-tab" label="{{ 'PROFILE_TAB' | oTranslate }}">
             <o-form #form attr="profile_detail" service="users" entity="myUser" fxLayout="column" show-header="yes"
                 header-actions="U" #oDetailForm keys="user_" keys-sql-types="VARCHAR" show-header-navigation="yes"
                 (onUpdate)="saveActivitiesInDataBase()">
 
-            <o-column>
-                <div fxLayout="row" fxLayoutGap="25px">
-                    <!-- Columna Izquierda: Foto + Datos Perfil-->
+                <div fxLayout="row" fxLayoutAlign="start stretch" fxLayoutGap="25px">
+                    <!-- COLUMNA IZQUIERDA: Foto + Datos Perfil-->
                     <o-column fxFlex="35" fxFlex.md="100" class="vertical-margin-10">
                         <o-column class="profile-photo" title="PROFILE_PHOTO" layout-align="start stretch" fxFlex="95" icon="photo">
                             <o-image attr="avatar" label="AVATAR" fxFlex="100" width="400px" labeL-visible="no"
                                 empty-image="assets/images/no-image.png" sql-type="OTHERS" height="100%"></o-image>
-                            </o-column>
+                        </o-column>
                         <o-column class="register-data" title="REGISTER_DATA" layout-align="start stretch" fxFlex="95" icon="assignment">
                             <o-text-input attr="user_" label="USER" fxFlex="100" enabled="no"></o-text-input>
                             <div class="row-pass">
@@ -39,47 +38,38 @@
                         </o-column>
                     </o-column>   
 
-                    <!-- Columna Derecha: Datos + actividades -->
-                    <o-column fxFlex="65" fxFlex.md="100" class="vertical-margin-10">    
-                        <o-column class="profile-data" title="PROFILE_DATA" layout-align="start stretch" fxFlex="95" icon="person_pin">
-                            <o-row class="data-container">
+                    <!-- COLUMNA DERECHA: Datos + actividades -->
+                    <o-column fxFlex="60" fxFlex.md="100" class="vertical-margin-10">    
+                        <o-column class="profile-data" title="PROFILE_DATA" layout-align="start stretch" icon="person_pin">
                                 <o-text-input attr="id_client" oHidden></o-text-input>
-                                <div class="name-input" fxFlex="40">
-                                    <o-text-input attr="name" label="NAME" fxFlex="90" required="yes" max-length="20" width="160px" class="form-field">
-                                    </o-text-input>
+                                <div fxLayout="row" fxLayoutGap="10px">
+                                    <o-text-input attr="name" label="NAME" fxFlex="40" required="yes" max-length="20" class="form-field"></o-text-input>
+                                    <o-text-input attr="surname" label="SURNAME" fxFlex="60" required="yes" max-length="30" class="form-field"></o-text-input>
                                 </div>
-                                <div class="surname-input" fxFlex="60">
-                                    <o-text-input attr="surname" label="SURNAME" fxFlex="100" required="yes"
-                                        max-length="30" width="160px" class="form-field"></o-text-input>
-                                </div>
-                            </o-row>
-                            <o-row class="shortDesc-container">
-                                <o-textarea-input attr="short_desc" label="SHORTDESC"
-                                placeholder="{{ 'SHORDESC' | oTranslate }}" fxFlex="100" max-length="100"></o-textarea-input>
-                            </o-row>
+                            <!-- <div class="shortDesc-container"> -->
+                                <o-text-input class="shortDesc" attr="short_desc" label="SHORTDESC"
+                                placeholder="{{ 'SHORDESC' | oTranslate }}" max-length="120"></o-text-input>
+                            <!-- </div> -->
                         </o-column>
                 
                         <!-- Actividades --> 
-                        <o-column class="activities-data" title="ACTIVITIES" layout-align="start stretch" fxFlex="95" icon="favorite">
-                            <o-row class="activities-container" fxLayoutGap="25px">
-                                <mat-chip-list class="mat-chip-list" fxFlex="100">
+                        <o-column class="activities-data" title="ACTIVITIES"icon="favorite">
+                                <mat-chip-list class="mat-chip-list">
                                     <mat-chip class="activitiesChip" *ngFor="let activity of arrayActivitiesClient"
                                         [disabled]="false" color="primary">
-                                        {{ activity }}
+                                        {{ activity | oTranslate }}
                                     </mat-chip>
                                 </mat-chip-list>
-                            </o-row> 
                             <!-- Desplegable actividades -->
-                            <o-row class="activities-collapsible">
-                                <o-column-collapsible class="actselect" title="ACTSELECT" layout-align="start stretch" fxFlex="95" expanded="no">
+                                <o-column-collapsible class="actselect" title="ACTSELECT" layout-align="start stretch">
                                     <o-grid class="activitiesGrid" #activitiesB attr="activitiesB" service="activities"
                                         entity="activity" keys="id_activity" columns="activity_name;id_activity" orderable="true"
                                         show-page-size="no" quick-filter="false" cols="8" sortable-columns="activity_name"
-                                        gutter-size="5px" detail-mode="none" (onDataLoaded)="onLoad()" pagination-controls="false"
-                                        controls="false" show-footer="no">
+                                        detail-mode="none" (onDataLoaded)="onLoad()" pagination-controls="false"
+                                        controls="false" show-footer="no" gutter-size="4px" grid-item-height="55px">
                                         <!-- Grid seleccionar actividades -->
-                                        <o-grid-item *ngFor="let item of activitiesB.dataArray" show-page-size="false">
-                                            <div fxLayout="column" fxLayoutAlign="space-evenly center">
+                                        <o-grid-item *ngFor="let item of activitiesB.dataArray">
+                                            <div class="activitiesButton-container" fxLayout="column" fxLayoutAlign="space-evenly center">
                                                 <o-button class="activitiesButton"
                                                     *ngIf="arrayActivitiesClient.includes(item.activity_name)" type="STROKED"
                                                     label="{{ item.activity_name }}" layout-padding color="primary"
@@ -92,23 +82,19 @@
                                         </o-grid-item>
                                     </o-grid>
                                     <!-- Botón guardar actividades -->
-                                    <div fxLayout="column" fxLayoutAlign="space-evenly center" fxFlex="100">
+                                    <div fxLayout="column" fxLayoutAlign="space-evenly center">
                                         <o-button type="RAISED" label="SAVEACT" layout-padding color="accent"
                                             (onClick)="saveActivitiesInDataBase($event)"></o-button>
                                     </div>
                                 </o-column-collapsible>
-                            </o-row>
                         </o-column>
-
-                    </o-column>    
+                    </o-column>
                 </div>
-            </o-column>
-
             </o-form>
         </mat-tab>
 
         <!-- Pestaña para las funcionalidades de anfitriona -->
-        <mat-tab label="{{ 'HOST_TAB' | oTranslate }}">
+        <mat-tab class="mat-tab" label="{{ 'HOST_TAB' | oTranslate }}">
             <o-form #formHost attr="host_detail" service="users" entity="myUser" fxLayout="column" show-header="yes"
                 header-actions="U" keys="user_" keys-sql-types="VARCHAR" show-header-navigation="yes">
                 <o-column class="host_data" title="HOST_DATA" layout-align="start stretch" fxFlex="100" icon="badge">

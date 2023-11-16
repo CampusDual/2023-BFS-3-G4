@@ -61,7 +61,7 @@
                         <mat-chip-list class="activities-chip-list">
                             <mat-chip class="activitiesChip" *ngFor="let activity of splitActivities(list.activities)"
                                 [disabled]="false" color="primary">
-                                {{ activity }}
+                                {{ activity | oTranslate }}
                             </mat-chip>
                         </mat-chip-list>
                     </div>
