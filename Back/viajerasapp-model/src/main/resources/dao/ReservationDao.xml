@@ -109,7 +109,9 @@
 					LEFT JOIN ${mainschema}.reservation_status rs on
 						r.id_status = rs.id_reservation_status
                     #WHERE#
-                    ORDER BY r.read_host ASC;
+                    ORDER BY r.read_host ASC,
+                             r.modif_date DESC,
+                             r.creation_date DESC;
 
                 ]]>
             </Sentence>
@@ -162,7 +164,9 @@
 						r.id_status = rs.id_reservation_status
                     #WHERE#
                     ORDER BY
-                        r.read_traveler ASC;
+                        r.read_traveler ASC,
+                        r.modif_date DESC,
+                        r.creation_date DESC;
 
                 ]]>
             </Sentence>
