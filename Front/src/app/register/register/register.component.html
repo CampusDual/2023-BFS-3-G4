@@ -25,7 +25,7 @@
           <o-validator [error-name]="'passwordNotMatched'" [error-text]="'ERROR_MATCH'"></o-validator>
         </o-password-input>
           <o-button type="RAISED" label="CREATEBTN" layout-padding color="accent" icon="person_add"
-            (onClick)="saveUserInDataBase()"></o-button>
+                    [enabled]="!formregister.invalid" (onClick)="saveUserInDataBase()"></o-button>
       </o-form>
     </div>
   </div>

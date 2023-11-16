@@ -17,6 +17,7 @@ o-grid {
     color: #341777;
     margin-bottom: 7px;
 }
+
 /* Estilos para el filtro */
 .filter-style {
     background-color: #f4f4f4; 
@@ -47,6 +48,10 @@ o-grid {
     overflow: hidden;
 }
 
+.no-link-style {
+    text-decoration: none; /* Elimina el subrayado */
+    color: inherit; 
+  }
 
 .community-image {
     object-fit: cover; /* Ajuste de imagen */

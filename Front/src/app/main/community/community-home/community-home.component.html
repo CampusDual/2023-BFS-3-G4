@@ -46,12 +46,12 @@
 
         <o-grid-item class="communityCard">
           <o-column>
-            <div class="image">
-            <a [routerLink]="['/main/towns']">
-              <img src="{{ getImageAllComumunity('all_communities') }}" alt="Texto alternativo" class="community-image">
-            </a>
-            </div>
+            <a [routerLink]="['/main/towns']" class="no-link-style">
+              <div class="image">
+                <img src="{{ getImageAllComumunity('all_communities') }}" alt="Texto alternativo" class="community-image">
+              </div>
             <div class="community-name">{{'ALLCITIES' | oTranslate}}</div>
+            </a>  
           </o-column>
         </o-grid-item>
       </div>

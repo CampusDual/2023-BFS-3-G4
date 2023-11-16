@@ -1,5 +1,15 @@
 .m-top-24 {
   margin-top: 15px;
+  width: 90%;
+}
+
+mat-form-field {
+  width: 90%;
+  margin: 0 auto;
+}
+
+mat-icon {
+  vertical-align: middle;
 }
 
 .full-page {
@@ -130,7 +140,6 @@
     }
 
   }
-
 
 @media(max-width:576px) {
   .full-page {

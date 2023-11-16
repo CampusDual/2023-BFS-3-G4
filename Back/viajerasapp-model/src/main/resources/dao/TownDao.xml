@@ -23,6 +23,7 @@
                         <Column>town_name</Column>
                         <Column>province_name</Column>
                         <Column>community_name</Column>
+                        <Column>id_province</Column>
                 </ValidColumns>
                 <Sentence>
                         <![CDATA[

@@ -11,13 +11,13 @@ import { Observable } from 'rxjs';
   encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent implements OnInit {
+  sessionExpired = false;
+  protected showPassword = false;
+  router: Router;
 
   loginForm: FormGroup = new FormGroup({});
   userCtrl: FormControl = new FormControl('', Validators.required);
   pwdCtrl: FormControl = new FormControl('', Validators.required);
-  sessionExpired = false;
-
- router: Router;
 
   constructor(
     private actRoute: ActivatedRoute,
@@ -69,6 +69,11 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+
+
   handleError(error) {
     switch (error.status) {
       case 401:
@@ -79,7 +84,7 @@ export class LoginComponent implements OnInit {
   }
   
   registerButtonFn(){
-   
+    console.log('Botón de registro pulsado');
     this.router.navigate(["/register/new"]);
 
   }

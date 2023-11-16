@@ -20,16 +20,20 @@
 
           <div fxLayout="column" fxLayoutGap="10px">
             <mat-form-field fxFill class="m-top-24">
-              <input matInput class="mat-input" #user placeholder="{{ 'EMAIL' | oTranslate }}" id="email" [formControl]="userCtrl">
+              <input matInput class="mat-input" #user placeholder="{{ 'EMAIL' | oTranslate }}" id="email" [formControl]="userCtrl" fxFlex="98">
+              <mat-icon matSuffix class="icon">email</mat-icon>
               <mat-error *ngIf="userCtrl.hasError('required')">
                 {{ 'ERROR_EMAIL_REQUIRED' | oTranslate }}
               </mat-error>
             </mat-form-field>
             <mat-form-field fxFill class="m-top-24">
-              <input matInput class="mat-input" #password placeholder="{{ 'PASSWORD' | oTranslate }}" id="password" type="password"
-                [formControl]="pwdCtrl">
+              <input matInput #password type="password" class="mat-input" placeholder="{{ 'PASSWORD' | oTranslate }}" id="password" [formControl]="pwdCtrl"
+                    [type]="showPassword ? 'text' : 'password'" minlength="8" fxFlex="98">
+              <mat-icon matSuffix class="icon-button login-input" (click)="togglePasswordVisibility()">
+                      {{ showPassword ? 'visibility' : 'visibility_off' }}
+                    </mat-icon>
               <mat-error *ngIf="pwdCtrl.hasError('required')">
-                {{ 'ERROR_PASS_REQUIRED' | oTranslate }}
+                  {{ 'ERROR_PASS_REQUIRED' | oTranslate }}
               </mat-error>
             </mat-form-field>
           </div>

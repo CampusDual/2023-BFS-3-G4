@@ -8,8 +8,6 @@ import { Expression, FilterExpressionUtils, OComboComponent, OFilterBuilderCompo
 })
 export class TownsHomeComponent implements OnInit {
 
-  @ViewChild('provinceCombo', { static: true }) provinceCombo: OComboComponent;
-  @ViewChild('townCombo', { static: true }) townCombo: OComboComponent;
   @ViewChild('filterBuilder', { static: true }) filterBuilder: OFilterBuilderComponent;
 
 
@@ -19,7 +17,6 @@ export class TownsHomeComponent implements OnInit {
 
   ngOnInit() {
   }
-
 
   // Método para el filtrado del o-filter 
   createFilter(values: Array<{ attr: string, value: any }>): Expression {
@@ -41,6 +38,7 @@ export class TownsHomeComponent implements OnInit {
 
   }
 
+
   getImagePath(townName: string): string {
     // Formatear nombres de las imagenes de ciudades.
     const formatName = (name: string) => {
@@ -54,7 +52,5 @@ export class TownsHomeComponent implements OnInit {
 
     return `assets/images/towns_image/${formatName(townName)}.png`;
   }
-
-  
 
 }
