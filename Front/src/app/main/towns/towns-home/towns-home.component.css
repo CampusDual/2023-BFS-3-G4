@@ -1,11 +1,3 @@
-o-form .scrolling {
-  display: flex;
-  /* flex: auto; */
-  /* overflow-y: auto; */
-  flex-direction: column;
-}
-
-
 /* Título de la página */
 .towns-home {
   margin-top: 20px;
