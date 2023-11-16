@@ -44,6 +44,11 @@ o-grid {
   row-gap: 10px;
 }
 
+.no-link-style {
+  text-decoration: none; /* Elimina el subrayado */
+  color: inherit; 
+}
+
 .container-item {
   margin-top: 0;
   display: block;

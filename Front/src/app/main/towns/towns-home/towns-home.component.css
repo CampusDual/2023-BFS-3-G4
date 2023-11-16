@@ -52,6 +52,11 @@ o-grid {
 
 }
 
+.no-link-style {
+  text-decoration: none; /* Elimina el subrayado */
+  color: inherit; 
+}
+
 .grid-container { 
   overflow: hidden;
 }

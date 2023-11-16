@@ -44,10 +44,14 @@
                         <o-column class="profile-data" title="PROFILE_DATA" layout-align="start stretch" fxFlex="95" icon="person_pin">
                             <o-row class="data-container">
                                 <o-text-input attr="id_client" oHidden></o-text-input>
-                                <o-text-input attr="name" label="NAME" fxFlex="50" required="yes" max-length="20" width="160px" class="form-field">
-                                </o-text-input>
-                                <o-text-input attr="surname" label="SURNAME" fxFlex="50" required="yes"
-                                    max-length="30" width="160px" class="form-field"></o-text-input>
+                                <div class="name-input" fxFlex="40">
+                                    <o-text-input attr="name" label="NAME" fxFlex="90" required="yes" max-length="20" width="160px" class="form-field">
+                                    </o-text-input>
+                                </div>
+                                <div class="surname-input" fxFlex="60">
+                                    <o-text-input attr="surname" label="SURNAME" fxFlex="100" required="yes"
+                                        max-length="30" width="160px" class="form-field"></o-text-input>
+                                </div>
                             </o-row>
                             <o-row class="shortDesc-container">
                                 <o-textarea-input attr="short_desc" label="SHORTDESC"
@@ -57,39 +61,43 @@
                 
                         <!-- Actividades --> 
                         <o-column class="activities-data" title="ACTIVITIES" layout-align="start stretch" fxFlex="95" icon="favorite">
-                            <mat-chip-list fxFlex="100">
-                                <mat-chip class="activitiesChip" *ngFor="let activity of arrayActivitiesClient"
-                                    [disabled]="false" color="primary">
-                                    {{ activity }}
-                                </mat-chip>
-                            </mat-chip-list>
+                            <o-row class="activities-container" fxLayoutGap="25px">
+                                <mat-chip-list class="mat-chip-list" fxFlex="100">
+                                    <mat-chip class="activitiesChip" *ngFor="let activity of arrayActivitiesClient"
+                                        [disabled]="false" color="primary">
+                                        {{ activity }}
+                                    </mat-chip>
+                                </mat-chip-list>
+                            </o-row> 
                             <!-- Desplegable actividades -->
-                            <o-column-collapsible class="actselect" title="ACTSELECT" layout-align="start stretch" fxFlex="100" expanded="no">
-                                <o-grid class="activitiesGrid" #activitiesB attr="activitiesB" service="activities"
-                                    entity="activity" keys="id_activity" columns="activity_name;id_activity" orderable="true"
-                                    show-page-size="no" quick-filter="false" cols="8" sortable-columns="activity_name"
-                                    gutter-size="5px" detail-mode="none" (onDataLoaded)="onLoad()" pagination-controls="false"
-                                    controls="false" show-footer="no">
-                                    <!-- Grid seleccionar actividades -->
-                                    <o-grid-item *ngFor="let item of activitiesB.dataArray" show-page-size="false">
-                                        <div fxLayout="column" fxLayoutAlign="space-evenly center">
-                                            <o-button class="activitiesButton"
-                                                *ngIf="arrayActivitiesClient.includes(item.activity_name)" type="STROKED"
-                                                label="{{ item.activity_name }}" layout-padding color="primary"
-                                                (onClick)="removeActivityFn(item.activity_name,item.id_activity)"></o-button>
-                                            <o-button class="activitiesButton"
-                                                *ngIf="!arrayActivitiesClient.includes(item.activity_name)" type="STROKED"
-                                                label="{{ item.activity_name }}" layout-padding color="accent"
-                                                (onClick)="addActivityFn(item.activity_name,item.id_activity)"></o-button>
-                                        </div>
-                                    </o-grid-item>
-                                </o-grid>
-                                <!-- Botón guardar actividades -->
-                                <div fxLayout="column" fxLayoutAlign="space-evenly center" fxFlex="100">
-                                    <o-button type="RAISED" label="SAVEACT" layout-padding color="accent"
-                                        (onClick)="saveActivitiesInDataBase($event)"></o-button>
-                                </div>
-                            </o-column-collapsible>
+                            <o-row class="activities-collapsible">
+                                <o-column-collapsible class="actselect" title="ACTSELECT" layout-align="start stretch" fxFlex="95" expanded="no">
+                                    <o-grid class="activitiesGrid" #activitiesB attr="activitiesB" service="activities"
+                                        entity="activity" keys="id_activity" columns="activity_name;id_activity" orderable="true"
+                                        show-page-size="no" quick-filter="false" cols="8" sortable-columns="activity_name"
+                                        gutter-size="5px" detail-mode="none" (onDataLoaded)="onLoad()" pagination-controls="false"
+                                        controls="false" show-footer="no">
+                                        <!-- Grid seleccionar actividades -->
+                                        <o-grid-item *ngFor="let item of activitiesB.dataArray" show-page-size="false">
+                                            <div fxLayout="column" fxLayoutAlign="space-evenly center">
+                                                <o-button class="activitiesButton"
+                                                    *ngIf="arrayActivitiesClient.includes(item.activity_name)" type="STROKED"
+                                                    label="{{ item.activity_name }}" layout-padding color="primary"
+                                                    (onClick)="removeActivityFn(item.activity_name,item.id_activity)"></o-button>
+                                                <o-button class="activitiesButton"
+                                                    *ngIf="!arrayActivitiesClient.includes(item.activity_name)" type="STROKED"
+                                                    label="{{ item.activity_name }}" layout-padding color="accent"
+                                                    (onClick)="addActivityFn(item.activity_name,item.id_activity)"></o-button>
+                                            </div>
+                                        </o-grid-item>
+                                    </o-grid>
+                                    <!-- Botón guardar actividades -->
+                                    <div fxLayout="column" fxLayoutAlign="space-evenly center" fxFlex="100">
+                                        <o-button type="RAISED" label="SAVEACT" layout-padding color="accent"
+                                            (onClick)="saveActivitiesInDataBase($event)"></o-button>
+                                    </div>
+                                </o-column-collapsible>
+                            </o-row>
                         </o-column>
 
                     </o-column>    
@@ -103,24 +111,24 @@
         <mat-tab label="{{ 'HOST_TAB' | oTranslate }}">
             <o-form #formHost attr="host_detail" service="users" entity="myUser" fxLayout="column" show-header="yes"
                 header-actions="U" keys="user_" keys-sql-types="VARCHAR" show-header-navigation="yes">
-                <o-column title="HOST_DATA" layout-align="start stretch" fxFlex="80">
-                    <o-textarea-input attr="description" label="DESCRIPTION" placeholder="{{ 'LONGDESC' | oTranslate }}"
-                        fxFlex="80" required="yes" max-length="500"></o-textarea-input>
-                    <o-combo attr="id_town" fxFlex="80" label="TOWN" service="towns" entity="town" keys="id_town"
+                <o-column class="host_data" title="HOST_DATA" layout-align="start stretch" fxFlex="100" icon="badge">
+                    <o-nif-input attr="nif" label="NIF" required="yes" fxFlex="100" required="yes"
+                        max-length="25"></o-nif-input>
+                    <o-combo attr="id_town" fxFlex="100" label="TOWN" service="towns" entity="town" keys="id_town"
                         columns="town_name;id_town" visible-columns="town_name" value-column="id_town"
                         class="input-padding" required="yes" sort="ASC" searchable="true"></o-combo>
-                    <o-row class="mailciudades">{{ 'CITIESMAIL' | oTranslate }}</o-row>
-                    <br>
-                    <o-text-input attr="phonenumber" label="PHONENUMBER" fxFlex="80" required="yes"
+                        <o-row class="mailciudades">{{ 'CITIESMAIL' | oTranslate }}</o-row>
+                    <o-textarea-input class="host_desc" attr="description" label="DESCRIPTION" placeholder="{{ 'LONGDESC' | oTranslate }}"
+                        fxFlex="100" required="yes" max-length="1000"></o-textarea-input>
+                    <o-text-input attr="phonenumber" label="PHONENUMBER" fxFlex="100" required="yes"
                         max-length="15"></o-text-input>
-                    <o-email-input attr="email" label="EMAILCONT" placeholder="example@example.com" fxFlex="80"
+                    <o-email-input attr="email" label="EMAILCONT" placeholder="example@example.com" fxFlex="100"
                         required="yes"></o-email-input>
-                    <o-nif-input attr="nif" label="NIF" required="yes" fxFlex="80" required="yes"
-                        max-length="25"></o-nif-input>
+                    
                 </o-column>
-                <o-column title="HOST_AVAILABLE" layout-align="start stretch" fxFlex="80">
+                <o-column class="host_available" title="HOST_AVAILABLE" layout-align="start stretch" fxFlex="100" icon="check">
                     <o-slide-toggle attr="host" label="ACTIVEHOST" (onChange)="toggleHost($event)"
-                        fxFlex="80"></o-slide-toggle>
+                        fxFlex="100"></o-slide-toggle>
                 </o-column>
             </o-form>
         </mat-tab>

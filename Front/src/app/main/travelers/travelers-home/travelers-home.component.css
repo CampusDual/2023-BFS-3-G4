@@ -1,5 +1,5 @@
 /* Estilos perfil viajera */
-.profile-photo, .profile-data {
+.profile-photo, .profile-data, .host_data {
     margin-top: 15px;
 }
 
@@ -7,9 +7,15 @@
     margin-top: 25px;
 }
 
+.shortDesc-container {
+    margin-top: 15px;
+}
+
 /* Grid de Actividades */
-.activitiesGrid {
-    width: 100%;
+.activities-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .activitiesButton {
@@ -17,17 +23,13 @@
     width: 100%;
 }
 
-.mat-chip {
+.activitiesChip {
     font-size: 1em;
     height: 0px;
-    /* Altura fija para todas las chips */
     line-height: 5px;
-    /* Alineación vertical del texto dentro de la chip */
     padding: 0 10px;
-    /* Padding horizontal para mantener el contenido centrado */
     margin: 0;
     pointer-events: none;
-    /* Desactiva el efecto hover */
     background-color: rgb(210, 190, 250);
 }
 
@@ -48,12 +50,25 @@ mat-chip:hover {
     box-sizing: border-box;
 }
 
+
+/* TAB HOST */
+.host_data {
+    margin-top: 15px;
+}
+
+.host_available {
+    margin-top: 35px;
+}
+
 .mailciudades {
     color: grey;
     font-size: 0.8em;
+    margin-top: 0px;
 }
 
-
+.host_desc {
+    margin-top: 25px;
+}
 
 
 

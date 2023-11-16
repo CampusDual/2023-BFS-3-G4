@@ -19,18 +19,18 @@
         <div class="grid-container">
             <o-grid-item class="townCard" *ngFor="let list of grid.dataArray">
                 <o-column class="container-item">
-                    <div class="image-container">
-                        <a [routerLink]="['/main/towns', list.id_town]">
+                    <a [routerLink]="['/main/towns', list.id_town]" class="no-link-style"> 
+                        <div class="image-container">
                             <img src="{{ getImagePath(list.town_name) }}" alt="{{ list.town_name }}" class="town-image">
-                        </a>
-                    </div>
-                    <div class="town-data">     
-                        <div class="town-name">{{ list.town_name }}</div>
-                        <div class="province-name">{{ list.province_name }}</div>
-                        <div class="host-amount">
-                            <span class="material-symbols-outlined">person_pin_circle</span> {{ list.hostamount }}
                         </div>
-                    </div>
+                        <div class="town-data">     
+                            <div class="town-name">{{ list.town_name }}</div>
+                            <div class="province-name">{{ list.province_name }}</div>
+                            <div class="host-amount">
+                                <span class="material-symbols-outlined">person_pin_circle</span> {{ list.hostamount }}
+                            </div>
+                        </div>
+                    </a>
                 </o-column>
             </o-grid-item>
         </div>
