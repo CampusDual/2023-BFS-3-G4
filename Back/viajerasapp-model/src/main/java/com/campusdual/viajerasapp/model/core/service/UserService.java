@@ -289,4 +289,22 @@ public class UserService implements IUserService {
 	}
 
 
+
+	@Override
+	public EntityResult read_host_falseQuery(Map<String, Object> keyMap, List<String> attrList) {
+		keyMap.put("id_client_host", getUserId());
+		keyMap.put("read_host", false);
+
+		return this.daoHelper.query(reservationDao, keyMap, attrList);
+	}
+
+	@Override
+	public EntityResult read_traveler_falseQuery(Map<String, Object> keyMap, List<String> attrList) {
+		keyMap.put("id_client_traveler", getUserId());
+		keyMap.put("read_traveler", false);
+
+		return this.daoHelper.query(reservationDao, keyMap, attrList);
+	}
+
+
 }
