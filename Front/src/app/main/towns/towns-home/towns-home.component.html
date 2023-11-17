@@ -12,16 +12,17 @@
         <div class="filter-style" fxLayout="column">
           <div fxLayout="row wrap" fxLayout="32px" class="buttons-container">
               <!-- Combo para Provincias -->
-              <o-combo #provinceCombo attr="provinceCombo" service="provinces" entity="province" keys="id_province" placeholder="province_name"
+              <!-- <o-combo #provinceCombo attr="provinceCombo" service="provinces" entity="province" keys="id_province" placeholder="province_name"
                     query-method="query" columns="id_province;province_name;id_town" value-column="province_name" visible-columns="province_name"
                     read-only="no" fxFlex="35%" sort="ASC" searchable="true" label-visible="false">
-              </o-combo>
+              </o-combo> -->
               <!-- Combo para Ciudades -->
               <o-combo #townCombo attr="townCombo" service="towns" entity="town" keys="id_town" placeholder="town_name"
                             columns="id_town;town_name;id_province" visible-columns="town_name" value-column="town_name"
-                            fxFlex="35%" sort="ASC" searchable="true" query-method="query" label-visible="false"
-                            [query-on-event]="provinceCombo.onValueChange" parent-keys="id_province:provinceCombo[id_province]">
+                            fxFlex="35%" sort="ASC" searchable="true" query-method="query" label-visible="false">
               </o-combo>
+              <!-- Para filtrar por provincias y ciudades de esa provincia[query-on-event]="provinceCombo.onValueChange" parent-keys="id_province:provinceCombo[id_province]" -->
+
               <!--Botones del filtro -->
               <div class="buttons-container">
                 <o-button attr="filter-button" icon="search" type="STROKED" class="input-search" [oFilterBuilderQuery]="filterBuilder"

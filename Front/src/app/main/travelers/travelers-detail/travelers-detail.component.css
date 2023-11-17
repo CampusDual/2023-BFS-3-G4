@@ -12,6 +12,9 @@
     transition: box-shadow 0.3s;
     width: 1100px; /* Ancho fijo */
     height: 650px; /* Altura fija */
+    margin-top: 50px;
+    margin-bottom: auto;
+    
 }
 
 .shortDesc {

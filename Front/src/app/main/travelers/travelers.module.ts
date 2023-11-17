@@ -8,10 +8,11 @@ import { TravelersDetailComponent } from './travelers-detail/travelers-detail.co
 import { TravelersReservationComponent } from './travelers-reservation/travelers-reservation.component';
 import { TravelersReservationDetailComponent } from './travelers-reservation/travelers-reservation-detail/travelers-reservation-detail.component';
 import { TravelersReservationReceivedDetailComponent } from './travelers-reservation/travelers-reservation-received-detail/travelers-reservation-received-detail.component';
+import { TravelersAllComponent } from './travelers-all/travelers-all.component';
 
 
 @NgModule({
-  declarations: [TravelersHomeComponent, TravelersDetailComponent, TravelersReservationComponent, TravelersReservationDetailComponent, TravelersReservationReceivedDetailComponent],
+  declarations: [TravelersHomeComponent, TravelersDetailComponent, TravelersReservationComponent, TravelersReservationDetailComponent, TravelersReservationReceivedDetailComponent, TravelersAllComponent],
   imports: [
     CommonModule,
     TravelersRoutingModule,
