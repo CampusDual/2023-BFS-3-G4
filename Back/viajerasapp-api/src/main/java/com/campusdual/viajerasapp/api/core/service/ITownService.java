@@ -19,5 +19,5 @@ public interface ITownService {
 
     public EntityResult townDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
 
-
+    public EntityResult hostcountQuery(Map<String, Object> keyMap, List<String> attrList);
 }

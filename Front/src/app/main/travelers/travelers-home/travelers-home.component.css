@@ -1,26 +1,19 @@
 /* Estilos perfil viajera */
 .profile-photo, .profile-data, .host_data {
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 .register-data {
-    margin-top: 25px;
+    margin-top: 15px;
 }
 
-.shortDesc-container {
-    margin-top: 15px;
+.shortDesc {
+    margin-top: 10px;
 }
 
 /* Grid de Actividades */
 .activities-data {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.activitiesButton {
-    display: flex;
-    width: 100%;
+    margin-top: 25px;
 }
 
 .activitiesChip {
@@ -43,12 +36,15 @@ mat-chip:hover {
     justify-content: center;
     align-items: center;
     list-style: none;
-    padding: 0;
-    margin: 0 0 20px;
-    /* Añadir margen inferior */
     width: 100%;
     box-sizing: border-box;
 }
+
+.actselect {
+    margin-top: 25px;
+}
+
+
 
 
 /* TAB HOST */

@@ -16,6 +16,8 @@ public class TownDao extends OntimizeJdbcDaoSupport {
     public static final String ATTR_TOWN_NAME = "town_name";
     public static final String ATTR_ID_PROVINCE = "id_province";
 
+    public static final String QUERY_HOSTCOUNT = "hostcount";
+
 
 }
 

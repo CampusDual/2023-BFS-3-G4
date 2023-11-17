@@ -40,6 +40,11 @@ public class ActivityService implements IActivityService {
         return this.daoHelper.query(activityDao, keyMap, attrList);
     }
 
+    @Override
+    public EntityResult activitycountQuery(Map<String, Object> keyMap, List<String> attrList) {
+        return this.daoHelper.query(activityDao, keyMap, attrList, ActivityDao.QUERY_ACTIVITYCOUNT);
+    }
+
 
 
 

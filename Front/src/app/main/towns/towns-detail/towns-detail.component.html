@@ -1,17 +1,20 @@
-<button mat-flat-button [routerLink]="['../../communities', idcommunity]">
-    <mat-icon>arrow_back_ios_new</mat-icon>
-  {{'BACKBTN' | oTranslate}}
-</button>
-
 <o-form #form fxFill fxLayout="column" service="towns" entity="town" keys="id_town" show-header="no" (onDataLoaded)="onLoad()">
     <o-text-input attr="id_town" sql-type="INTEGER" enabled="no" oHidden></o-text-input>
     <o-text-input attr="id_community" sql-type="INTEGER" enabled="no" oHidden></o-text-input>
     <o-text-input #townnamefield attr="town_name" enabled="no" (onValueChange)="reloadValues($event)"
         oHidden></o-text-input>
+    
+    <div fxLayout="row" fxLayoutAlign="start center">
+        <button mat-flat-button [routerLink]="['../../communities', idcommunity]">
+            <mat-icon>arrow_back_ios_new</mat-icon>
+            {{'BACKBTN' | oTranslate}}
+        </button>
+    </div>
+
     <h1 class="town-title">{{ custom_name }}</h1>
 
-    <o-column-collapsible title="{{ 'FILTERS_HOSTS' | oTranslate }}" appearance="legacy" expanded="no"
-        icon="filter_list" class="collapsible">
+    <o-column-collapsible attr="container" title="{{ 'FILTERS_HOSTS' | oTranslate }}"
+        icon="search" elevation="3" appearance="none" expanded="no" layout-align="start stretch">
         <div class="filter_style" fxLayout="column" fxLayoutGap="14px">
             <div fxLayout="row wrap" fxLayoutGap="32px">
                 <o-text-input attr="name" read-only="no" fxFlex="calc(25% - 32px)"></o-text-input>
@@ -21,11 +24,11 @@
                     visible-columns="activity_name" fxFlex="calc(25% - 32px)" sort="ASC" searchable="true"></o-combo>
 
                 <div class="buttons-container">
-                    <o-button attr="clear" [oFilterBuilderClear]="filterBuilder" type="STROKED" label="Clear"
-                        layout-padding>
+                    <o-button attr="filter" [oFilterBuilderQuery]="filterBuilder" type="RAISED" label="Filter"
+                        layout-padding color="primary">
                     </o-button>
-                    <o-button attr="filter" [oFilterBuilderQuery]="filterBuilder" type="STROKED" label="Filter"
-                        layout-padding color="accent">
+                    <o-button attr="clear" [oFilterBuilderClear]="filterBuilder" type="RAISED" label="Clear"
+                        layout-padding color="warm">
                     </o-button>
                     <o-filter-builder-menu [oFilterBuilder]="filterBuilder" show-filter-option="no"
                         show-clear-filter-option="no" layout-padding></o-filter-builder-menu>
@@ -39,7 +42,7 @@
     <o-grid #grid columns="user_;id_client;name;surname;short_desc;avatar;activities" quick-filter="no" service="users"
         entity="host" keys="id_client" parent-keys="id_town" [cols]="4" show-page-size="false" fixed-header="no"
         page-size-options="4;8;16" grid-item-height="2:3" refresh-button="false" pagination-controls="true" controls="false"
-         (onClick)="goToHostDetail($event)">
+         (onClick)="goToHostDetail($event)" show-footer="no">
 
         <div class="grid-container">
             <o-grid-item *ngFor="let list of grid.dataArray">
@@ -61,7 +64,7 @@
                         <mat-chip-list class="activities-chip-list">
                             <mat-chip class="activitiesChip" *ngFor="let activity of splitActivities(list.activities)"
                                 [disabled]="false" color="primary">
-                                {{ activity }}
+                                {{ activity | oTranslate }}
                             </mat-chip>
                         </mat-chip-list>
                     </div>

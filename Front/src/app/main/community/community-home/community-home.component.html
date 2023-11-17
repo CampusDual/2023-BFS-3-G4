@@ -28,9 +28,9 @@
   </div>
   
     <o-grid #grid columns="id_community;community_name;province_name" service="communities" entity="community" keys="id_community"
-            [cols]="5" quick-filter="no" show-page-size="false" show-footer="false" refresh-button="false"
-            grid-item-height="2:2" pagination-controls="false" sortable-columns="community_name" show-buttons-text="no"
-            sort-column="community_name" gutter-size="10px"[ngStyle]="{'height':'600px'}">
+      sortable-columns="community_name" sort-column="community_name" quick-filter="no" refresh-button="false" controls="false"
+      [cols]="5" grid-item-height="2:2" pagination-controls="false" show-buttons-text="no" show-page-size="true" 
+      page-size-options="10;15;20" pagination-controls="true" show-buttons-text="no" gutter-size="15px" [ngStyle]="{'height':'auto'}">
       
       <div class="grid-container">
         <o-grid-item *ngFor="let list of grid.dataArray">

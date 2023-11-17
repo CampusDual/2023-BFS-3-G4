@@ -1,7 +1,44 @@
 <div class="container">
-  <img class="background" src="../../../assets/images/foto_home.jpg">
+  <!-- <img class="background" src="../../../assets/images/foto_home.jpg">
   <img class=logo src="../../../assets/images/logo300.png" alt="logo">
-  <img class="steps"src="../../../assets/images/steps.png" alt="steps">
-  
+  <img class="steps"src="../../../assets/images/steps.png" alt="steps"> -->
+  <h1>Ciudades con más anfitrionas</h1>
+  <o-grid #grid columns="id_town;town_name;province_name" quick-filter="no" fixed-header="no"
+        service="towns" entity="hostcount" keys="id_town" [cols]="5" grid-item-height="2:3" controls="false"
+        refresh-button="false" show-page-size="true" page-size-options="10;15;20" pagination-controls="true" show-buttons-text="no"
+        gutter-size="10px" [ngStyle]="{'height':'auto'}" >
 
+        <div class="grid-container">
+            <o-grid-item class="townCard" *ngFor="let list of grid.dataArray">
+                <o-column class="container-item">
+                    <a [routerLink]="['/main/towns', list.id_town]" class="no-link-style">
+                        <div class="image-container">
+                            <img src="{{ getImagePath(list.town_name) }}" alt="{{ list.town_name }}" class="town-image">
+                            
+                        </div>
+                        <div class="town-data">     
+                            <div class="town-name">{{ list.town_name }}</div>
+                            <div class="province-name">{{ list.province_name }}</div>
+                            <div class="host-amount">
+                                <span class="material-symbols-outlined">person_pin_circle</span>{{ list.hostcount }}
+                            </div>
+                        </div>
+                    </a>
+                </o-column>
+            </o-grid-item>
+        </div>
+    </o-grid>
+
+      <o-grid class="activitiesGrid" #activitiesB attr="activitiesB" service="activities"
+          entity="activitycount" keys="id_activity" columns="activity_name;id_activity" orderable="true"
+          show-page-size="no" quick-filter="false" cols="8" sortable-columns="activity_name"
+          detail-mode="none" pagination-controls="false"
+          controls="false" show-footer="no" gutter-size="4px" grid-item-height="55px">
+          <!-- Grid seleccionar actividades -->
+          <o-grid-item *ngFor="let item of activitiesB.dataArray">
+              <div class="activitiesButton-container" fxLayout="column" fxLayoutAlign="space-evenly center">
+                <div class="town-name">{{ item.activity_name }}</div>
+              </div>
+          </o-grid-item>
+      </o-grid>
 </div>
