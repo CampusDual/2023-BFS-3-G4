@@ -5,6 +5,7 @@ import { TravelersDetailComponent } from './travelers-detail/travelers-detail.co
 import { TravelersReservationComponent } from './travelers-reservation/travelers-reservation.component';
 import { TravelersReservationDetailComponent } from './travelers-reservation/travelers-reservation-detail/travelers-reservation-detail.component';
 import { TravelersReservationReceivedDetailComponent } from './travelers-reservation/travelers-reservation-received-detail/travelers-reservation-received-detail.component';
+import { TravelersAllComponent } from './travelers-all/travelers-all.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path:':id_client', component:TravelersDetailComponent},
   {path:'reservation/:id_client', component:TravelersReservationComponent},
   {path:'reservation/detailSent/:id_reservation', component:TravelersReservationDetailComponent},
-  {path:'reservation/detailReceived/:id_reservation', component:TravelersReservationReceivedDetailComponent}
+  {path:'reservation/detailReceived/:id_reservation', component:TravelersReservationReceivedDetailComponent},
+  {path:'all', component:TravelersAllComponent}
 ];
 
 @NgModule({
