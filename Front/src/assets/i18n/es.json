@@ -148,6 +148,11 @@
   "CANCEL_RESP": "Explica los motivos de tu cancelación.",
   "CONTACTMSJ": "Escribe un mensaje a",
   "CITIESMAIL": "No encuentras tu ciudad? Contacta con nosotras en ciudades@shetravel.com",
-  "RESERVATION": "Reservas"
+  "RESERVATION": "Reservas",
+  "read_host": "Leído",
+  "reservation_start": "Fecha comienzo",
+  "reservation_end": "Fecha fin",
+  "read_traveler": "Leído"
+
   
 }
