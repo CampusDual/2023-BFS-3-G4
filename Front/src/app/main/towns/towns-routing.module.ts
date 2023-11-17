@@ -7,7 +7,7 @@ import { TownsDetailComponent } from './towns-detail/towns-detail.component';
 const routes: Routes = [
   
   {path:'', component:TownsHomeComponent},
-  {path:':id_town', component:TownsDetailComponent}
+  {path:':id_town', component:TownsDetailComponent},
 ];
 
 @NgModule({

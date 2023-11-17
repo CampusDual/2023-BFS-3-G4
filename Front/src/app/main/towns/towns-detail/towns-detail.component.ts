@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Expression, FilterExpressionUtils, OFormComponent, OTextInputComponent, OntimizeService } from 'ontimize-web-ngx';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +17,8 @@ export class TownsDetailComponent implements OnInit {
   
 
   constructor(private router: Router,
-    private ontimizeServiceUsers: OntimizeService) {
+    private ontimizeServiceUsers: OntimizeService,
+    private route: ActivatedRoute) {
   }
 
   ngOnInit() {

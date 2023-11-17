@@ -4,47 +4,25 @@
   height: 100%; /* Altura del 100% de la ventana gráfica (viewport height) */
   overflow: hidden; /* Oculta cualquier contenido que desborde del contenedor */
 }
-.background {
-  width: 100%; /* Ancho del 100% para cubrir todo el contenedor */
-  height: 100%; /* Altura del 100% para cubrir todo el contenedor */
-  object-fit: cover; /* Escala la imagen para llenar completamente el contenedor */
-  position: absolute; /* Coloca la imagen en posición absoluta dentro del contenedor */
-  top: 0; /* Coloca la imagen en la parte superior del contenedor */
-  left: 0; /* Coloca la imagen en la parte izquierda del contenedor */
-  z-index: -1; /* Coloca la imagen detrás de otros elementos */
-}
-
-.logo {
-  position: absolute; /* Coloca el logotipo en posición absoluta dentro del contenedor */
-  top: 15%; /* Ajusta la posición vertical para que esté en el tercio superior */
-  left: 50%; /* Centra horizontalmente el logotipo */
-  transform: translate(-50%, -50%); /* Centra el logotipo horizontalmente y verticalmente */
-  max-width: 40%; /* Limita el ancho del logotipo al 80% del contenedor */
-  z-index: 1; /* Coloca el logotipo delante de la imagen de fondo */
-}
 
 .steps{
-    position: absolute; /* Coloca el logotipo en posición absoluta dentro del contenedor */
-    top: 45%; /* Ajusta la posición vertical para que esté en el tercio superior */
-    left: 50%; /* Centra horizontalmente el logotipo */
-    transform: translate(-50%, -50%); /* Centra el logotipo horizontalmente y verticalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 25px;
     max-width: 70%; /* Limita el ancho del logotipo al 80% del contenedor */
-    z-index: 1; /* Coloca el logotipo delante de la imagen de fondo */
-  
+    margin-bottom: 50px;
 }
 
-o-grid {
-  row-gap: 10px;
-
+/* Estilos para el grid top ciudades */
+.top-towns{
+  margin-top: 50px;
 }
 
 .no-link-style {
   text-decoration: none; /* Elimina el subrayado */
   color: inherit; 
-}
-
-.grid-container { 
-  overflow: hidden;
 }
 
 .container-item {
@@ -97,3 +75,33 @@ o-grid {
     justify-content: center; 
     margin-bottom: 5px;
   }
+
+
+
+  /* Estilos para el grid top actividades */
+  .activities-row {
+    display: block;
+    position: absolute;
+    width: 90%;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    overflow: auto;
+    overflow: hidden;
+  }
+  
+  .activities-image {
+      width: 100%;  
+      object-fit: cover;
+    }
+
+    .activity-name {
+      font-weight: bold;
+      font-size: 1.1em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding: 4px 0;
+      text-align: center
+    }
