@@ -2,11 +2,12 @@
   <!-- <img class="background" src="../../../assets/images/foto_home.jpg">
   <img class=logo src="../../../assets/images/logo300.png" alt="logo">
   <img class="steps"src="../../../assets/images/steps.png" alt="steps"> -->
-  <h1>Ciudades con más anfitrionas</h1>
+    <div class="toptowns">
+    <h1>Ciudades con más anfitrionas</h1>
   <o-grid #grid columns="id_town;town_name;province_name" quick-filter="no" fixed-header="no"
         service="towns" entity="hostcount" keys="id_town" [cols]="5" grid-item-height="2:3" controls="false"
         refresh-button="false" show-page-size="true" page-size-options="10;15;20" pagination-controls="true" show-buttons-text="no"
-        gutter-size="10px" [ngStyle]="{'height':'auto'}" >
+        gutter-size="10px" [ngStyle]="{'height':'auto'}" show-footer="no">
 
         <div class="grid-container">
             <o-grid-item class="townCard" *ngFor="let list of grid.dataArray">
@@ -28,17 +29,21 @@
             </o-grid-item>
         </div>
     </o-grid>
-
-      <o-grid class="activitiesGrid" #activitiesB attr="activitiesB" service="activities"
-          entity="activitycount" keys="id_activity" columns="activity_name;id_activity" orderable="true"
-          show-page-size="no" quick-filter="false" cols="8" sortable-columns="activity_name"
-          detail-mode="none" pagination-controls="false"
-          controls="false" show-footer="no" gutter-size="4px" grid-item-height="55px">
-          <!-- Grid seleccionar actividades -->
-          <o-grid-item *ngFor="let item of activitiesB.dataArray">
-              <div class="activitiesButton-container" fxLayout="column" fxLayoutAlign="space-evenly center">
-                <div class="town-name">{{ item.activity_name }}</div>
-              </div>
-          </o-grid-item>
-      </o-grid>
+</div>
+<div class="topactivities">
+    <h1>Actividades preferidas</h1>
+    <o-grid class="activitiesGrid" #activitiesB attr="activitiesB" service="activities"
+            entity="activitycount" keys="id_activity" columns="activity_name;id_activity" orderable="true"
+            show-page-size="no" quick-filter="false" cols="8" sortable-columns="activity_name"
+            detail-mode="none" pagination-controls="false"
+            controls="false" show-footer="no" gutter-size="4px" grid-item-height="55px">
+            <!-- Grid seleccionar actividades -->
+            <o-grid-item *ngFor="let item of activitiesB.dataArray">
+                <div class="activitiesButton-container" fxLayout="column" fxLayoutAlign="space-evenly center">
+                  <div class="town-name">{{ item.activity_name }}</div>
+                </div>
+            </o-grid-item>
+        </o-grid>
+      </div>
+      
 </div>

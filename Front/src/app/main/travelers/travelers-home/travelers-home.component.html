@@ -12,7 +12,7 @@
                     <!-- COLUMNA IZQUIERDA: Foto + Datos Perfil-->
                     <o-column fxFlex="35" fxFlex.md="100" class="vertical-margin-10">
                         <o-column class="profile-photo" title="PROFILE_PHOTO" layout-align="start stretch" fxFlex="95" icon="photo">
-                            <o-image attr="avatar" label="AVATAR" fxFlex="100" width="400px" labeL-visible="no"
+                            <o-image attr="avatar" label="AVATAR" fxFlex="70" width="400px" labeL-visible="no"
                                 empty-image="assets/images/no-image.png" sql-type="OTHERS" height="100%"></o-image>
                         </o-column>
                         <o-column class="register-data" title="REGISTER_DATA" layout-align="start stretch" fxFlex="95" icon="assignment">
@@ -61,7 +61,7 @@
                                     </mat-chip>
                                 </mat-chip-list>
                             <!-- Desplegable actividades -->
-                                <o-column-collapsible class="actselect" title="ACTSELECT" layout-align="start stretch">
+                                <o-column-collapsible class="actselect" title="ACTSELECT" layout-align="start stretch" expanded="no">
                                     <o-grid class="activitiesGrid" #activitiesB attr="activitiesB" service="activities"
                                         entity="activity" keys="id_activity" columns="activity_name;id_activity" orderable="true"
                                         show-page-size="no" quick-filter="false" cols="8" sortable-columns="activity_name"
