@@ -207,6 +207,13 @@ public class UserService implements IUserService {
 
 	@Override
 	public EntityResult reservationInsert(Map<String, Object> attrMap) {
+
+    Object dateRangeObject = attrMap.get("daterange1");
+	HashMap<String, Object> dateRangeHashMap = (HashMap<String, Object>) dateRangeObject;
+
+	Object dateStartObject = dateRangeHashMap.get("startDate");
+	Object dateEndObject = dateRangeHashMap.get("endDate");
+
 		//recogemos el valor de user (un mail)
 		String user = getUser();
 		Map<String, Object> clientMap = new HashMap<>();
@@ -222,6 +229,8 @@ public class UserService implements IUserService {
 		Object id_traveler = travelerEntity.getRecordValues(0).get(ClientDao.ID);
 		attrMap.put(ReservationDao.ID_CLIENT_TRAVELER, id_traveler);
 		attrMap.put(ReservationDao.STATUS, 3);
+		attrMap.put(ReservationDao.RESERVATION_START, dateStartObject);
+		attrMap.put(ReservationDao.RESERVATION_END, dateEndObject);
 		return this.daoHelper.insert(reservationDao, attrMap);
 	}
 

@@ -42,6 +42,8 @@
                 <Column>phonenumber_host</Column>
                 <Column>status_name</Column>
                 <Column>reservation_date</Column>
+                <Column>reservation_start</Column>
+                <Column>reservation_end</Column>
                 <Column>read_traveler</Column>
                 <Column>read_host</Column>
             </ValidColumns>
@@ -93,6 +95,8 @@
                 <Column>phonenumber_host</Column>
                 <Column>status_name</Column>
                 <Column>reservation_date</Column>
+                <Column>reservation_start</Column>
+                <Column>reservation_end</Column>
                 <Column>read_traveler</Column>
                 <Column>read_host</Column>
             </ValidColumns>
@@ -147,6 +151,8 @@
                 <Column>phonenumber_host</Column>
                 <Column>status_name</Column>
                 <Column>reservation_date</Column>
+                <Column>reservation_start</Column>
+                <Column>reservation_end</Column>
                 <Column>read_traveler</Column>
                 <Column>read_host</Column>
             </ValidColumns>
