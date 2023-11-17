@@ -10,11 +10,12 @@ import { TravelersAllComponent } from './travelers-all/travelers-all.component';
 
 const routes: Routes = [
   {path:'', component:TravelersHomeComponent},
+  {path:'all/:id_activity', component:TravelersAllComponent},
   {path:':id_client', component:TravelersDetailComponent},
   {path:'reservation/:id_client', component:TravelersReservationComponent},
   {path:'reservation/detailSent/:id_reservation', component:TravelersReservationDetailComponent},
-  {path:'reservation/detailReceived/:id_reservation', component:TravelersReservationReceivedDetailComponent},
-  {path:'all', component:TravelersAllComponent}
+  {path:'reservation/detailReceived/:id_reservation', component:TravelersReservationReceivedDetailComponent}
+  
 ];
 
 @NgModule({

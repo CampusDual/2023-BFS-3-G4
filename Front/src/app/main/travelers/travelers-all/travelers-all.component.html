@@ -1,1 +1,34 @@
-<p>travelers-all works!</p>
+<o-grid #grid columns="user_;id_client;name;surname;short_desc;avatar;activities;id_activity" quick-filter="no" service="users"
+        entity="host" keys="id_activity" [cols]="4" show-page-size="false" fixed-header="no"
+        page-size-options="4;8;16" grid-item-height="2:3" refresh-button="false" pagination-controls="true" controls="false"
+         (onClick)="goToHostDetail($event)" show-footer="no">
+
+        <div class="grid-container">
+            <o-grid-item *ngFor="let list of grid.dataArray">
+                <o-column class="card-container">
+                    <div class="image-container">
+                        <a [routerLink]="['/main/travelers', list.id_client]">
+                            <!-- <o-image class="rounded-image" data="{{ list.avatar }}" read-only="true" show-controls="false">
+                            </o-image> -->
+                            <img class="rounded-image" src="data:image/png;base64,{{ list.avatar }}">
+                        </a>
+                    </div>
+                    <div class="name-surname">
+                        <h2>{{ list.name + ' ' + list.surname }}</h2>
+                    </div>
+                    <div class="short_desc">
+                        <span>{{ '"' + list.short_desc + '"'}}</span>
+                    </div>
+                    <div class="chips-container">
+                        <mat-chip-list class="activities-chip-list">
+                            <mat-chip class="activitiesChip" *ngFor="let activity of splitActivities(list.activities)"
+                                [disabled]="false" color="primary">
+                                {{ activity | oTranslate }}
+                            </mat-chip>
+                        </mat-chip-list>
+                    </div>
+                </o-column>
+
+            </o-grid-item>
+        </div>
+    </o-grid>

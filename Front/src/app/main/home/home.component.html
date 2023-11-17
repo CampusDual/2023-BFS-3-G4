@@ -44,7 +44,7 @@
             <div class="activities-container">
                 <o-grid-item *ngFor="let item of activitiesB.dataArray">
                     <o-column class="activities-row">
-                        <a [routerLink]="['/main/towns/towns-detail', { activity: item.activity_name }]" class="no-link-style"> 
+                        <a [routerLink]="['/main/travelers/all', item.id_activity]" class="no-link-style">
                         <div>
                             <img src="{{ getImageActivity(item.activity_name) }}" alt="{{ item.activity_name }}" class="activities-image">
                         </div>
