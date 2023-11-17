@@ -10,9 +10,9 @@ import { OntimizeService } from 'ontimize-web-ngx';
 })
 export class HomeComponent implements OnInit {
 
-  public numberOfSentNotRead: number;
-  public numberOfReceivedNotRead: number;
-  public numberOfTotalNotRead: number;
+  public numberOfMessagesNotReadInSent: number;
+  public numberOfMessagesNotReadInReceiv: number;
+  public numberOfTotalMessagesNotRead: number;
 
   constructor(
     private router: Router,
@@ -28,12 +28,12 @@ export class HomeComponent implements OnInit {
       res => {
 
         if (res.data && res.data.length) {
-          this.numberOfReceivedNotRead = res.data.length;
+          this.numberOfMessagesNotReadInReceiv = res.data.length;
 
         } else {
-          this.numberOfReceivedNotRead = 0;
+          this.numberOfMessagesNotReadInReceiv = 0;
         }
-        console.log(this.numberOfReceivedNotRead);
+        console.log(this.numberOfMessagesNotReadInReceiv);
 
 
       });
@@ -41,16 +41,16 @@ export class HomeComponent implements OnInit {
       this.ontimizeServiceUsers.query({}, ['message'], 'read_traveler_false').subscribe(
         res => {
           if (res.data && res.data.length) {
-            this.numberOfSentNotRead = res.data.length;
+            this.numberOfMessagesNotReadInSent = res.data.length;
   
           } else {
-            this.numberOfSentNotRead = 0;
+            this.numberOfMessagesNotReadInSent = 0;
           }
-          console.log(this.numberOfSentNotRead);
+          console.log(this.numberOfMessagesNotReadInSent);
   
           
-          this.numberOfTotalNotRead = this.numberOfReceivedNotRead + this.numberOfSentNotRead;
-          console.log(this.numberOfTotalNotRead);
+          this.numberOfTotalMessagesNotRead = this.numberOfMessagesNotReadInReceiv + this.numberOfMessagesNotReadInSent;
+          console.log(this.numberOfTotalMessagesNotRead);
      
         });
 
