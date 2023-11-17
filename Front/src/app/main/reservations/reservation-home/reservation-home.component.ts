@@ -13,6 +13,8 @@ import { ProfileDialogComponent } from './profile-dialog/profile-dialog.componen
 })
 export class ReservationHomeComponent implements OnInit {
 
+
+
   @ViewChild('form', { static: true }) form: OFormComponent;
   @ViewChild('formHost', { static: true }) formHost: OFormComponent;
 
@@ -20,6 +22,9 @@ export class ReservationHomeComponent implements OnInit {
   @ViewChild('gridReservationReceived', { static: true }) gridReservationReceived: OGridComponent;
   @ViewChild('gridReservationSent', { static: true }) gridReservationSent: OGridComponent;
   
+  public numberOfMessagesNotReadInSent: number;
+  public numberOfMessagesNotReadInReceiv: number;
+  public numberOfTotalMessagesNotRead: number;
 
   public arrayActivitiesClient: string[];
   public arrayActivitiesClientNumber: number[];
@@ -44,6 +49,44 @@ export class ReservationHomeComponent implements OnInit {
 
   ngOnInit() {
     this.arrayInvisibleText = [];
+
+
+    //------------cálculo del numero de mensajes sin leer en cada bandeja:----------------------------
+
+    this.ontimizeServiceUsers.query({}, ['message'], 'read_host_false').subscribe(
+      res => {
+
+        if (res.data && res.data.length) {
+          this.numberOfMessagesNotReadInReceiv = res.data.length;
+
+        } else {
+          this.numberOfMessagesNotReadInReceiv = 0;
+        }
+        console.log(this.numberOfMessagesNotReadInReceiv);
+
+
+      });
+
+      this.ontimizeServiceUsers.query({}, ['message'], 'read_traveler_false').subscribe(
+        res => {
+          if (res.data && res.data.length) {
+            this.numberOfMessagesNotReadInSent = res.data.length;
+  
+          } else {
+            this.numberOfMessagesNotReadInSent = 0;
+          }
+          console.log(this.numberOfMessagesNotReadInSent);
+  
+          
+          this.numberOfTotalMessagesNotRead = this.numberOfMessagesNotReadInReceiv + this.numberOfMessagesNotReadInSent;
+          console.log(this.numberOfTotalMessagesNotRead);
+     
+        });
+
+        //-----------------fin cálculo del numero de mensajes sin leer en cada bandeja
+
+       
+
   }
 
   onLoad() {
