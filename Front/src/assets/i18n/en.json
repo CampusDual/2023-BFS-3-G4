@@ -56,9 +56,9 @@
   "Register email": "Register email",
   "Confirm password": "Confirm password",
   "ERROR_EMAIL_REQUIRED": "Email required",
-  "RESERVATION_TAB": "RESERVATIONS",
-  "RECB_RESERVATION": "Received Reservations",
-  "SENT_RESERVATION": "Sent Reservations",
+  
+ 
+  
   "RES_FROM": "Request from",
   "RES_FOR": "Request for",
   "CANCEL?": "Do you want to cancel your request to",
@@ -120,11 +120,14 @@
   "message": "Message",
   "status_name": "Status",
   "You rejected the reservation": "You rejected this visit. Maybe next time!",
+  "You cancelled the reservation": "You cancelled this visit. Maybe next time!",
+  "She cancelled the reservation": "cancelled this visit. Maybe next time!",
+ 
   "Reservation": "Reservation",
   "REJECTED": "REJECTED",
   "PENDING": "PENDING",
   "ACCEPTED": "ACCEPTED",
-  "Reservation delete": "hasn't answered your message yet. Do you want to delete it?",
+  "Reservation delete": "hasn't answered your request yet. Feel free to delete it if you want.",
   "Reservation rejected text": "couldn't accep your reservation this time... But there are many others hosts in our web!",
   "Reservation accepted": "Your host accepted your reservation. You can contact her now:",
   "Headline in communities": "Where do you wanna go?",
@@ -154,7 +157,17 @@
   "RESERVATION": "Reservations",
   "CONTACTMSJ": "Contact",
   "read_host": "Seen",
+  "Reservation Date": "Fecha",
   "reservation_start": "Date start",
   "reservation_end": "Date end",
-  "read_traveler": "Seen"
+  "FROM": "From",
+  "TO": "to",
+  "read_traveler": "Seen",
+  "R_REQUEST": "Read requests",
+  "U_REQUEST": "Unread requests",
+
+  "SENT_R": "Sent requests",
+  "RECEIVED_R": "Received requests",
+  "DELETE_B": "Delete Request"
+  
 }

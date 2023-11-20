@@ -130,6 +130,10 @@ export class ReservationSentDetailComponent implements OnInit {
       }
     });  
   }
+
+  closeDialog(){
+    this.dialog.closeAll()
+  }
 }
 
 

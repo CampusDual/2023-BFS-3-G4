@@ -1,152 +1,143 @@
-
-
-
 <o-form-container breadcrumb="no" breadcrumb-label-columns="name;surname" breadcrumb-separator=" " [form]="form">
+   
+        <o-grid #gridReservationReceived attr="reservationReceived" service="users" entity="reservationReceived"
+            columns="read_host;id_reservation;id_client_traveler;id_client_host;name_traveler;surname_traveler;name_host;surname_host;message;status_name;reservation_date;reservation_end;reservation_start;read_traveler;read_host"
+            query-rows="8" refresh-button="no" quick-filter="no"
+            quick-filter-columns="name_traveler;surname_traveler;message;status_name"
+            visible-columns="name_host;message;status_name;reservation_date;read_host" [cols]="1"
+            grid-item-height="60px" gutter-size="6px" show-footer="no">
 
-  
 
-       
-       
-        <!-- Pestaña para gestionar reservas (cambiar nombre de la tab y reducir espacio entre grid-items) -->
+            <o-grid-item>
+                <div class="head_t">
+                    <o-row class="title">{{'RECEIVED_R' | oTranslate}}</o-row>
+                    <o-row class="unread">{{ numberOfMessagesNotReadInReceiv }} {{'U_REQUEST' | oTranslate}}</o-row>
+                </div>
+            </o-grid-item>
 
-       
+            <o-grid-item *ngFor="let list of gridReservationReceived.dataArray">
 
-            
-            <o-grid #gridReservationReceived attr="reservationReceived" service="users" entity="reservationReceived"
-                columns="read_host;id_reservation;id_client_traveler;id_client_host;name_traveler;surname_traveler;name_host;surname_host;message;status_name;reservation_date;reservation_end;reservation_start"
-                query-rows="8" refresh-button="no" quick-filter="true"
-                quick-filter-columns="name_traveler;surname_traveler;message;status_name"
-                visible-columns="name_host;message;status_name;reservation_date;read_host" [cols]="1" grid-item-height="60px"
-                gutter-size="6px" show-footer="no">
 
-              <o-grid-item><p>Number of messages not read: {{  numberOfMessagesNotReadInReceiv  }}</p></o-grid-item>
+                <div class="container">
 
-                <o-grid-item *ngFor="let list of gridReservationReceived.dataArray">
+                    <div class="row" (click)="verReservaRec(list.id_reservation)"
+                        [class.rowColor]=" list.read_host === true">
 
-                    <div class="container">
-                        <div class="row">
-
-                            <div class="itemrow1">
-                                <div class="nameT">{{'Message from' | oTranslate}} {{ list.name_traveler}}
-                                    {{list.surname_traveler}}</div>
-                                <div class="msg">{{ list.message }}</div>
-                            </div>
-
-                            <div class="itemrow2">
-                                <div class="date">{{'Reservation Date' | oTranslate}}</div>
-                                <div class="dateFormat">{{ list.reservation_date | date: 'dd/MM/yyyy' }}</div>                                
-                            </div>
-                            <div class="itemrow2">
-                                <!-- <div class="date">{{'Reservation Start' | oTranslate}}</div> -->
-                                <div class="dateFormat">{{ list.reservation_start | date: 'dd/MM/yyyy' }}</div>                                
-                            </div>
-                            <div class="itemrow2">
-                                <!-- <div class="date">{{'Reservation Date' | oTranslate}}</div> -->
-                                <div class="dateFormat">{{ list.reservation_end | date: 'dd/MM/yyyy' }}</div>                                
-                            </div>
-
-                            <div class="itemrow3">
-                                <div class="reserv">{{'Reservation' | oTranslate}}</div>
-                                <div class="status" *ngIf="list.status_name==='rechazada'">{{ 'REJECTED' | oTranslate }}
-                                </div>
-                                <div class="status" *ngIf="list.status_name==='pendiente'">{{ 'PENDING' | oTranslate}}
-                                </div>
-                                <div class="status" *ngIf="list.status_name==='aceptada'">{{ 'ACCEPTED' | oTranslate }}
-                                </div>
-                                <div class="status" *ngIf="list.status_name==='anuladaporhost'">{{ 'CANCELED' |
-                                    oTranslate }}</div>
-                                <div class="status" *ngIf="list.status_name==='anuladaportrav'">{{ 'CANCELED' |
-                                    oTranslate }}</div>
-                            </div>
-                            <div class="itemrow5">
-                                <div class="readStatus">{{'Estate' | oTranslate}}</div>
-                                <div class="read" *ngIf="list.read_host === true">{{ 'READ' | oTranslate }}</div>
-                                <div class="read" *ngIf="list.read_host === false">{{ 'UNREAD' | oTranslate }}</div>
-                            </div>
-                            <div class="itemrow4">
-                                <div class="showMsg" (click)="verReservaRec(list.id_reservation)">
-                                    <img src="../../../../assets/icons/eyeIcon.png" alt="icon">
-                                </div>
-                            </div>
-
-                            <div class="itemrow5">
-                                <div class="showProf" (click)="verPerfil(list.id_client_traveler)">{{'SHOWPROFILE' | oTranslate}} </div>
-                            </div>
-                            <div class="msg"><span>{{ list.message_answer }}</span></div>
+                        <div class="itemrow1">
+                            <div class="nameT">{{'Message from' | oTranslate}} {{ list.name_traveler}}
+                                {{list.surname_traveler}}</div>
+                            <div class="msg">{{ list.message }}</div>
                         </div>
-                    </div>
-                </o-grid-item>
-            </o-grid>
 
-            <o-grid #gridReservationSent attr="reservationSent" service="users" entity="reservationSent"
-                columns="read_traveler;id_reservation;name_traveler;id_client_traveler;id_client_host;surname_traveler;name_host;surname_host;message;status_name;reservation_date;reservation_start;reservation_end"
-                query-rows="8" refresh-button="no" quick-filter="true"
-                quick-filter-columns="name_traveler;surname_traveler;message;status_name"
-                visible-columns="name_host;message;status_name;reservation_date;read_traveler" [cols]="1" grid-item-height="60px"
-                gutter-size="6px" show-footer="no">
-
-                <o-grid-item><p>Number of messages not read: {{  numberOfMessagesNotReadInSent  }}</p></o-grid-item>
-
-
-                <o-grid-item *ngFor="let list of gridReservationSent.dataArray">
-
-
-                    <div class="container">
-                        <div class="row">
-
-                            <div class="itemrow1">
-                                <div class="nameT">{{'Message from' | oTranslate}} {{ list.name_traveler}}
-                                    {{list.surname_traveler}}</div>
-                                <div class="msg">{{ list.message }}</div>
+                        <div class="itemrow2">
+                            <div class="date">{{'Reservation Date' | oTranslate}}</div>
+                            <div class="dateFormat">
+                                <div class="s">{{ list.reservation_start | date: 'dd/MM/yyyy' }}</div>
+                                <div class="e">{{ list.reservation_end | date: 'dd/MM/yyyy' }}</div>
                             </div>
-
-                            <div class="itemrow2">
-                                <div class="date">{{'Reservation Date' | oTranslate}}</div>
-                                <div class="dateFormat">{{ list.reservation_date | date: 'dd/MM/yyyy' }}</div>
-                            </div>
-                            <div class="itemrow2">
-                                <!-- <div class="date">{{'Reservation Start' | oTranslate}}</div> -->
-                                <div class="dateFormat">{{ list.reservation_start | date: 'dd/MM/yyyy' }}</div>                                
-                            </div>
-                            <div class="itemrow2">
-                                <!-- <div class="date">{{'Reservation Date' | oTranslate}}</div> -->
-                                <div class="dateFormat">{{ list.reservation_end | date: 'dd/MM/yyyy' }}</div>                                
-                            </div>
-
-                            <div class="itemrow3">
-                                <div class="reserv">{{'Reservation' | oTranslate}}</div>
-                                <div class="status" *ngIf="list.status_name==='rechazada'">{{ 'REJECTED' | oTranslate }}
-                                </div>
-                                <div class="status" *ngIf="list.status_name==='pendiente'">{{ 'PENDING' | oTranslate}}
-                                </div>
-                                <div class="status" *ngIf="list.status_name==='aceptada'">{{ 'ACCEPTED' | oTranslate }}
-                                </div>
-                                <div class="status" *ngIf="list.status_name==='anuladaporhost'">{{ 'CANCELED' |
-                                    oTranslate }}</div>
-                                <div class="status" *ngIf="list.status_name==='anuladaportrav'">{{ 'CANCELED' |
-                                    oTranslate }}</div>
-                            </div>
-                            <div class="itemrow5">
-                                <div class="readStatus">{{'Estate' | oTranslate}}</div>
-                                <div class="read" *ngIf="list.read_traveler === true">{{ 'READ' | oTranslate }}</div>
-                                <div class="read" *ngIf="list.read_traveler === false">{{ 'UNREAD' | oTranslate }}</div>
-                            </div>
-                            <div class="itemrow4">
-                                <div class="showMsg" (click)="verReservaSent(list.id_reservation)">
-                                    <img src="../../../../assets/icons/eyeIcon.png" alt="icon">
-                                </div>
-                            </div>
-
-                            <div class="itemrow5">
-                                <div class="showProf" (click)="verPerfil(list.id_client_host)">{{'SHOWPROFILE' | oTranslate}} </div>
-                            </div>
-                            <div class="msg"><span>{{ list.message_answer }}</span></div>
                         </div>
-                    </div>
-                </o-grid-item>
-            </o-grid>
 
-       
+                        <div class="itemrow3">
+                            <div class="reserv">{{'Reservation' | oTranslate}}</div>
+                            <div class="status" *ngIf="list.status_name==='rechazada'">{{ 'REJECTED' | oTranslate }}
+                            </div>
+                            <div class="status" *ngIf="list.status_name==='pendiente'">{{ 'PENDING' | oTranslate}}
+                            </div>
+                            <div class="status" *ngIf="list.status_name==='aceptada'">{{ 'ACCEPTED' | oTranslate }}
+                            </div>
+                            <div class="status" *ngIf="list.status_name==='anuladaporhost'">{{ 'CANCELED' |
+                                oTranslate }}</div>
+                            <div class="status" *ngIf="list.status_name==='anuladaportrav'">{{ 'CANCELED' |
+                                oTranslate }}</div>
+                        </div>
+                        <div class="itemrow4">
+                            <div class="readStatus">{{'status_name' | oTranslate}}</div>
+                            <div class="read" *ngIf="list.read_host === true"><img
+                                    src="../../../../assets/icons/read.png" alt="r"></div>
+                            <div class="read" *ngIf="list.read_host === false"><img
+                                    src="../../../../assets/icons/unread.png" alt="u"></div>
+                        </div>
+
+
+                        <div class="itemrow5">
+                            <div class="showProf" (click)="verPerfil(list.id_client_traveler)">{{'SHOWPROFILE' |
+                                oTranslate}} </div>
+                        </div>
+                        <div class="msg"><span>{{ list.message_answer }}</span></div>
+                    </div>
+                </div>
+            </o-grid-item>
+        </o-grid>
     
+
+
+    <o-grid #gridReservationSent attr="reservationSent" service="users" entity="reservationSent"
+        columns="read_traveler;id_reservation;name_traveler;id_client_traveler;id_client_host;surname_traveler;name_host;surname_host;message;status_name;reservation_date;reservation_start;reservation_end;read_traveler;read_host"
+        query-rows="8" refresh-button="no" quick-filter="no"
+        quick-filter-columns="name_traveler;surname_traveler;message;status_name"
+        visible-columns="name_host;message;status_name;reservation_date;read_traveler" [cols]="1"
+        grid-item-height="60px" gutter-size="6px" show-footer="no">
+
+        <o-grid-item>
+            <div class="head_t">
+                <o-row class="title">{{'SENT_R' | oTranslate}}</o-row>
+                <o-row class=" unread">{{ numberOfMessagesNotReadInSent }} {{'U_REQUEST' | oTranslate}} </o-row>
+            </div>
+        </o-grid-item>
+
+        <o-grid-item *ngFor="let list of gridReservationSent.dataArray">
+
+
+            <div class="container">
+                <div class="row" (click)="verReservaSent(list.id_reservation)"
+                    [class.rowColor]=" list.read_traveler === true">
+
+                    <div class="itemrow1">
+                        <div class="nameT">{{'Message from' | oTranslate}} {{ list.name_traveler}}
+                            {{list.surname_traveler}}</div>
+                        <div class="msg">{{ list.message }}</div>
+                    </div>
+
+                    <div class="itemrow2">
+                        <div class="date">{{'Reservation Date' | oTranslate}}</div>
+                        <div class="dateFormat">
+                            <div class="s">{{ list.reservation_start | date: 'dd/MM/yyyy' }}</div>
+                            <div class="e">{{ list.reservation_end | date: 'dd/MM/yyyy' }}</div>
+                        </div>
+                    </div>
+
+                    <div class="itemrow3">
+                        <div class="reserv">{{'Reservation' | oTranslate}}</div>
+                        <div class="status" *ngIf="list.status_name==='rechazada'">{{ 'REJECTED' | oTranslate }}
+                        </div>
+                        <div class="status" *ngIf="list.status_name==='pendiente'">{{ 'PENDING' | oTranslate}}
+                        </div>
+                        <div class="status" *ngIf="list.status_name==='aceptada'">{{ 'ACCEPTED' | oTranslate }}
+                        </div>
+                        <div class="status" *ngIf="list.status_name==='anuladaporhost'">{{ 'CANCELED' |
+                            oTranslate }}</div>
+                        <div class="status" *ngIf="list.status_name==='anuladaportrav'">{{ 'CANCELED' |
+                            oTranslate }}</div>
+                    </div>
+                    <div class="itemrow4">
+                        <div class="readStatus">{{'status_name' | oTranslate}}</div>
+                        <div class="read" *ngIf="list.read_traveler === true"><img
+                                src="../../../../assets/icons/read.png" alt="r"></div>
+                        <div class="read" *ngIf="list.read_traveler === false"><img
+                                src="../../../../assets/icons/unread.png" alt="u"></div>
+                    </div>
+
+                    <div class="itemrow5">
+                        <div class="showProf" (click)="verPerfil(list.id_client_host)">{{'SHOWPROFILE' | oTranslate}}
+                        </div>
+                    </div>
+                    <div class="msg"><span>{{ list.message_answer }}</span></div>
+                </div>
+            </div>
+        </o-grid-item>
+    </o-grid>
+
+
+
 
 </o-form-container>

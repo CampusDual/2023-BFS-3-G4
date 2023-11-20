@@ -31,6 +31,8 @@ export class ReservationReceivedDetailComponent implements OnInit {
   public message_cancellation;
   public read_traveler;
   public read_host;
+  public reservation_start;
+  public reservation_end;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -47,7 +49,7 @@ export class ReservationReceivedDetailComponent implements OnInit {
   ngOnInit() {
     this.ontimizeServiceUsers.query({ id_reservation: this.data.id_reservation }, ['id_reservation', 'id_client_traveler', 'id_client_host',
       'message', 'id_status', 'name_traveler', 'surname_traveler', 'email_traveler', 'message_answer', 'name_host', 'surname_host', 'email_host',
-      'phonenumber_host', 'status_name', 'reservation_date', 'message_cancellation', 'read_traveler', 'read_host'], 'reservation').subscribe(
+      'phonenumber_host', 'status_name', 'reservation_date', 'message_cancellation', 'read_traveler', 'read_host', 'reservation_start', 'reservation_end'], 'reservation').subscribe(
         res => {
 
 
@@ -69,6 +71,8 @@ export class ReservationReceivedDetailComponent implements OnInit {
           this.reservation_date = res.data[0].reservation_date;
           this.read_traveler = res.data[0].read_traveler;
           this.read_host = res.data[0].read_host;
+          this.reservation_start = res.data[0].reservation_start;
+          this.reservation_end = res.data [0].reservation_end;
 
         }
       );
@@ -159,6 +163,9 @@ export class ReservationReceivedDetailComponent implements OnInit {
     });  
   }
 
+  closeDialog(){
+    this.dialog.closeAll()
+  }
 }
 
 

@@ -175,7 +175,7 @@
             <p class="title">{{ 'SENT_RESERVATION' | oTranslate }}</p>
             <div class="container">
                 <o-grid #gridReservationSent attr="reservationSent" service="users" entity="reservationSent"
-                    columns="id_reservation;name_traveler;surname_traveler;name_host;surname_host;message;status_name;reservation_date"
+                    columns="id_reservation;name_traveler;surname_traveler;name_host;surname_host;message;status_name;reservation_date;read_traveler;read_host"
                     query-rows="8" refresh-button="no" quick-filter="no" show-toolbar="no"
                     visible-columns="name_host;message;status_name;reservation_date" [cols]="1" grid-item-height="60px"
                     gutter-size="8px" show-footer="no">
@@ -211,7 +211,8 @@
 
                             <div class="itemrow4">
                                 <div class="showMsg" (click)="verReservaSent(list.id_reservation)">
-                                    <img class="eye" src="../../../../assets/icons/eyeIcon.png" alt="icon">
+                                    <img class="read" *ngIf="list.read_traveler" src="../../../../assets/icons/read.png" alt="icon">
+                                    <img class="unread" *ngIf="!list.read_traveler" src="../../../../assets/icons/unread.png" alt="icon">
                                 </div>
                             </div>
 

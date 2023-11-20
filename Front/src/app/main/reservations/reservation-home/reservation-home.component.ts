@@ -204,7 +204,7 @@ export class ReservationHomeComponent implements OnInit {
    
     this.dialog.open(ReservationSentDetailComponent, {
       
-      height: '700px',
+      height: '750px',
       width: '550px',
       data: {
         id_reservation: data,
