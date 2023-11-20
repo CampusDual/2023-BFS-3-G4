@@ -11,7 +11,7 @@
             <o-grid-item>
                 <div class="head_t">
                     <o-row class="title">{{'RECEIVED_R' | oTranslate}}</o-row>
-                    <o-row class="unread">{{ numberOfMessagesNotReadInReceiv }} {{'U_REQUEST' | oTranslate}}</o-row>
+                  
                 </div>
             </o-grid-item>
 
@@ -81,7 +81,6 @@
         <o-grid-item>
             <div class="head_t">
                 <o-row class="title">{{'SENT_R' | oTranslate}}</o-row>
-                <o-row class=" unread">{{ numberOfMessagesNotReadInSent }} {{'U_REQUEST' | oTranslate}} </o-row>
             </div>
         </o-grid-item>
 
@@ -93,8 +92,8 @@
                     [class.rowColor]=" list.read_traveler === true">
 
                     <div class="itemrow1">
-                        <div class="nameT">{{'Message from' | oTranslate}} {{ list.name_traveler}}
-                            {{list.surname_traveler}}</div>
+                        <div class="nameT">{{'Message from' | oTranslate}} {{ list.name_host}}
+                            {{list.surname_host}}</div>
                         <div class="msg">{{ list.message }}</div>
                     </div>
 

@@ -34,11 +34,11 @@
 
 
 .row {
-    width: 900px;
+    width: 820px;
     height: 60px;
     display: flex;
     flex-direction: row;
-    border-radius: 20px;
+    border-radius: 20px 0 0 20px;
     background-color: rgb(165, 150, 241);
     color: white;
     
