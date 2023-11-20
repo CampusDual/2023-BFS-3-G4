@@ -161,8 +161,8 @@
 
   "SENT_R": "Reservas enviadas",
   "RECEIVED_R": "Reservas recibidas",
-  "DELETE_B": "Eliminar Petición",
-  "CANCEL": "Cancelar petición",
+  "DELETE_B": "Eliminar",
+  "CANCEL": "Cancelar",
 
   "read_traveler": "Leído",
   "Date range": "Fecha de inicio y fin",
