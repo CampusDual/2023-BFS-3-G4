@@ -158,6 +158,8 @@
   "reservation_end": "Date end",
   "read_traveler": "Seen",
   "DATERANGE.APPLYLABEL": "Save",
-  "SHORDESC": "Talk about yourself briefly"
+  "SHORDESC": "Talk about yourself briefly",
+  "MESSAGEMAX200CHA": "Write your message (max 200 characters)"
+
 
 }
