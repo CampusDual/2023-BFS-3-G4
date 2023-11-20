@@ -94,6 +94,7 @@
                 <Column>avatar</Column>
                 <Column>id_client</Column>
                 <Column>activities</Column>
+
             </ValidColumns>
             <Sentence>
                 <![CDATA[
@@ -102,7 +103,7 @@
                      FROM
                         ${mainschema}.vclientactivities c
                     #WHERE#
-                       AND c.host = true
+                       
                     #ORDER#
                 ]]>
             </Sentence>

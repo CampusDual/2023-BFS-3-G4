@@ -89,7 +89,7 @@ public class UserService implements IUserService {
 
 	@Override
 	public EntityResult hostQuery(Map<String, Object> keyMap, List<String> attrList) {
-		
+		keyMap.put("host", true);
 		return this.daoHelper.query(clientDao, keyMap, attrList, ClientDao.QUERY_HOSTCLIENT );
 	}
 	@Override

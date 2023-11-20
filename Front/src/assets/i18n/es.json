@@ -46,7 +46,7 @@
   "HOST_TAB": "ANFITRIONA",
   "ERROR_PASS":"La contraseña debe tener al menos 8 dígitos, 1 número y un símbolo",
   "ERROR_MATCH":"Las contraseñas no coinciden",
-  "SHORT_DESC": "Definete en una frase",
+  "SHORT_DESC": "Defínete en una frase",
   "ABOUTME": "SOBRE MI",
   "name": "Nombre",
   "surname": "Apellidos",
@@ -107,7 +107,7 @@
   "BACKBTN": "Volver",
   "EMAILCONT": "Email de contacto",
   "CREATEBTN": "Crear",
-  "RESERV_DIALOG_MSG": "Indica una fecha para conocer a la anfitriona y hacer un tour por su ciudad",
+  "RESERV_DIALOG_MSG": "Indica la fecha de inicio y fin de tu viaje en su ciudad",
   "ACCEPT": "Aceptar",
   "REJECT": "Rechazar",
   "REGTEXT1": "Tu viaje empieza aquí!",
@@ -152,7 +152,11 @@
   "read_host": "Leído",
   "reservation_start": "Fecha comienzo",
   "reservation_end": "Fecha fin",
-  "read_traveler": "Leído"
+  "read_traveler": "Leído",
+  "Date range": "Fecha de inicio y fin",
+  "DATERANGE.APPLYLABEL": "Guardar",
+  "SHORDESC": "Cuenta algo que te defina brevemente",
+  "MESSAGEMAX200CHA": "Escribe un mensaje de hasta 200 caracteres"
 
   
 }
