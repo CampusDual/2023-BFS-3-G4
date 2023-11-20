@@ -16,33 +16,20 @@
                 </div>
             </div>
 
-            <!-- mensaje de peticion de la traveler-->
             <div class="boxName-msgT">
                 <div class="nameT">{{name_traveler}} {{surname_traveler}}</div>
                 <div class="msgT">{{message}}</div>
             </div>
-
-            <!-- mensaje de respuesta de la host (nosotros) SIEMPRE menos en pendiente (3)-->
 
             <div class="boxName-msgH" *ngIf="id_status == 1 || id_status == 2 || id_status == 4 || id_status == 5">
                 <div class="nameH">{{name_host}} {{'YOUTAG' | oTranslate}}</div><span></span>
                 <div class="msgH">{{message_answer}}</div>
             </div>
 
-
-            <!-- si anula la traveler tras haber sido aceptada -->
             <div class="boxName-msgT" *ngIf="id_status == 5">
                 <div class="nameT">{{name_traveler}} {{surname_traveler}}</div>
                 <div class="msgT">{{message_cancellation}}</div>
             </div>
-
-            <!-- si anula la host (yo) tras haber aceptado -->
-            <div class="boxName-msgH" *ngIf="id_status == 4">
-                <div class="nameH">{{name_host}} {{'YOUTAG' | oTranslate}}</div><span></span>
-                <div class="msgH">{{message_cancellation}}</div>
-            </div>
-
-            <!--text area en caso de que aun no hayamos contestado-->
 
             <o-textarea-input *ngIf="id_status == 3" attr="message_answer"
                 label="{{'LABEL_INPUT_RESP' | oTranslate}} {{name_traveler}}" fxFlex="70"
@@ -59,32 +46,26 @@
 
 
 
-            <div class="backgroundBox" *ngIf="id_status == 1 || id_status == 2 || id_status == 4 || id_status == 5">
+            <div class="backgroundBox" *ngIf="id_status == 1 || id_status == 2 || id_status == 4">
                 <div class="box-autoResp">
-                    <div *ngIf="id_status == 1"> {{'ACCEPT_RES1' | oTranslate}} {{name_traveler}}
+                    <div *ngIf="id_status == 1 || id_status == 4"> {{'ACCEPT_RES1' | oTranslate}} {{name_traveler}}
                         {{'ACCEPT_RES2' |
                         oTranslate}}</div>
                     <div *ngIf="id_status == 2"> {{'You rejected the reservation' | oTranslate}} </div>
-                    <!-- <div *ngIf="id_status == 3"> {{'You rejected the reservation' | oTranslate}} </div> -->
-                    <div *ngIf="id_status == 4"> {{'You cancelled the reservation' | oTranslate}}</div>
-                    <div *ngIf="id_status == 5"> {{name_traveler}} {{'cancelled the reservation' | oTranslate}}</div>
-
-
-                   
                 </div>
             </div>
 
             <div class="answBox">
-                <div *ngIf="id_status == 1">{{'CANCEL?' | oTranslate}} {{name_traveler}}?</div>
+                <div *ngIf="id_status == 1 || id_status == 4">{{'CANCEL?' | oTranslate}} {{name_traveler}}?</div>
                 <div *ngIf="id_status == 5">{{'DELETE?' | oTranslate}} {{name_host}}?</div>
             </div>
 
-            <o-textarea-input *ngIf="id_status == 1" attr="message_cancellation"
+            <o-textarea-input *ngIf="id_status == 1 || id_status == 4" attr="message_cancellation"
                 label="{{'CANCEL_RESP' | oTranslate}}" fxFlex="70" max-length="200" rows="1">
             </o-textarea-input>
 
             <div class="buttonsBox">
-                <o-button *ngIf="id_status == 1" class="cancel" type="RAISED" label="CANCEL"
+                <o-button *ngIf="id_status == 1 || id_status == 4" class="cancel" type="RAISED" label="CANCEL"
                     layout-padding color="primary" (onClick)="cancelReservation(id_reservation)"></o-button>
                 <o-button *ngIf="id_status == 5" class="deleteReservationButton" type="RAISED"
                     label="DELETE_B" layout-padding color="primary"
