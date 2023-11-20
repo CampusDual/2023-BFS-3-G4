@@ -94,6 +94,7 @@
                 <Column>avatar</Column>
                 <Column>id_client</Column>
                 <Column>activities</Column>
+
             </ValidColumns>
             <Sentence>
                 <![CDATA[
@@ -102,7 +103,7 @@
                      FROM
                         ${mainschema}.vclientactivities c
                     #WHERE#
-                       AND c.host = true
+                       
                     #ORDER#
                 ]]>
             </Sentence>
@@ -117,7 +118,6 @@
                 <Column>id_client</Column>
                 <Column>id_activity</Column>
                 <!-- columnas exclusivas de Clients -->
-                <Column>name</Column>
                 <Column>name</Column>
                 <Column>surname</Column>
                 <Column>email</Column>
@@ -134,6 +134,7 @@
                 <Column>activity_name</Column>
                 <!-- columnas exclusivas de clients_activities -->
                 <Column>id_client_activity</Column>
+                <Column>activities</Column>
 
 
             </ValidColumns>

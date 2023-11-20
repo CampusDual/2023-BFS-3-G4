@@ -107,7 +107,7 @@
   "STATUS_N": "Reservation status",
   "EMAILCONT": "Contact email",
   "CREATEBTN": "Create",
-  "RESERV_DIALOG_MSG": "Set a date to meet the host and take a tour around her city",
+  "RESERV_DIALOG_MSG": "Tell your host the dates when you'll be at her city",
   "ACCEPT": "Accept",
   "REJECT": "Reject",
   "CANCELED": "Canceled",
@@ -165,9 +165,12 @@
   "read_traveler": "Seen",
   "R_REQUEST": "Read requests",
   "U_REQUEST": "Unread requests",
-
   "SENT_R": "Sent requests",
   "RECEIVED_R": "Received requests",
-  "DELETE_B": "Delete Request"
-  
+  "DELETE_B": "Delete Request",
+  "DATERANGE.APPLYLABEL": "Save",
+  "SHORDESC": "Talk about yourself briefly",
+  "MESSAGEMAX200CHA": "Write your message (max 200 characters)"
+
+
 }
