@@ -69,6 +69,8 @@
 .itemrow1 {
     width: 400px;
     height: 60px;
+
+    margin-left: 8px;
     
     font-size: small;
     overflow: hidden;
@@ -79,6 +81,7 @@
     letter-spacing: 1px;
     font-weight: bold;
     font-size: 13px;
+   
 
 }
 
