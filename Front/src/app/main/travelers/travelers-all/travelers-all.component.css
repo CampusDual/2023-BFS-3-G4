@@ -1,0 +1,97 @@
+o-grid {
+    row-gap: 10px;
+  }
+
+.grid-container {
+    overflow: hidden;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ddd; 
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar efecto elevado */
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+    width: 100%; /* Ancho fijo */
+    height: 370px; /* Altura fija */
+}
+
+.card-container:hover {
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.rounded-image {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.name-surname {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.short_desc {
+    text-align: center;
+    padding: 0 10px;
+    font-size: 12px;
+    color: #555;
+    height: 50px; /* Altura fija para la descripción */
+    font-style: italic;
+}
+
+.chips-container {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.activities-chip-list {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    overflow: hidden;
+    width: auto;
+}
+
+.activitiesChip {
+    font-size: 0.6em;
+    height: auto;
+    line-height: normal;
+    padding: 5px 10px;
+    pointer-events: none;
+    background-color: rgb(210, 190, 250);
+    margin: 1px; 
+}
+
+.activitiesChip:hover {
+    background-color: inherit; 
+}
+
+.buttons-container {
+    display: flex;      
+    justify-content: center; 
+    flex-wrap: nowrap;
+    width: 100%; 
+}

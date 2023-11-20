@@ -23,6 +23,7 @@ public interface IUserService {
 	public EntityResult myUserUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap);
 
 	public EntityResult hostQuery(Map<String, Object> keyMap, List<String> attrList);
+	public EntityResult activitiesclientQuery(Map<String, Object> keyMap, List<String> attrList);
 
 	public EntityResult clientQuery(Map<String, Object> keyMap, List<String> attrList);
 

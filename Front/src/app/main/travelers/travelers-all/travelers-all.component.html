@@ -1,15 +1,19 @@
+<o-form service="activities"
+entity="activity" keys="id_activity" show-header="no">
+    <o-text-input attr="id_activity" sql-type="INTEGER" oHidden></o-text-input>
+    <o-text-input #activitynamefield attr="activity_name" enabled="no" (onValueChange)="reloadValues($event)"
+        oHidden></o-text-input>
+        <h1 class="activity-title">{{ custom_name }}</h1>
 <o-grid #grid columns="user_;id_client;name;surname;short_desc;avatar;activities;id_activity" quick-filter="no" service="users"
-        entity="host" keys="id_activity" [cols]="4" show-page-size="false" fixed-header="no"
-        page-size-options="4;8;16" grid-item-height="2:3" refresh-button="false" pagination-controls="true" controls="false"
-         (onClick)="goToHostDetail($event)" show-footer="no">
+        entity="activitiesclient" parent-keys="id_activity" [cols]="4" fixed-header="no"
+        page-size-options="4;8;16" grid-item-height="2:3" refresh-button="false"
+         (onClick)="goToHostDetail($event)">
 
         <div class="grid-container">
             <o-grid-item *ngFor="let list of grid.dataArray">
                 <o-column class="card-container">
                     <div class="image-container">
                         <a [routerLink]="['/main/travelers', list.id_client]">
-                            <!-- <o-image class="rounded-image" data="{{ list.avatar }}" read-only="true" show-controls="false">
-                            </o-image> -->
                             <img class="rounded-image" src="data:image/png;base64,{{ list.avatar }}">
                         </a>
                     </div>
@@ -32,3 +36,4 @@
             </o-grid-item>
         </div>
     </o-grid>
+</o-form>

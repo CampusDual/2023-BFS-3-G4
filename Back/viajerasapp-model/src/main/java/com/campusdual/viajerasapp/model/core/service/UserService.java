@@ -6,6 +6,7 @@ import java.util.*;
 import com.campusdual.viajerasapp.model.core.dao.*;
 import com.ontimize.jee.common.dto.EntityResultMapImpl;
 import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
+import com.ontimize.jee.common.gui.SearchValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.Authentication;
@@ -90,6 +91,16 @@ public class UserService implements IUserService {
 	public EntityResult hostQuery(Map<String, Object> keyMap, List<String> attrList) {
 		
 		return this.daoHelper.query(clientDao, keyMap, attrList, ClientDao.QUERY_HOSTCLIENT );
+	}
+	@Override
+	public EntityResult activitiesclientQuery(Map<String, Object> keyMap, List<String> attrList) {
+		List<String> clientattr = Arrays.asList(ClientDao.ID);
+		EntityResult activityresult = this.daoHelper.query(clientDao, keyMap, clientattr, ClientDao.QUERY_ACTIVITIESCLIENT );
+		List clientsids = (List) activityresult.get(ClientDao.ID);
+		Map<String, Object> clientKey = new HashMap<>();
+		clientKey.put(ClientDao.ID, new SearchValue(SearchValue.IN, clientsids));
+		return this.daoHelper.query(clientDao, clientKey, attrList, ClientDao.QUERY_HOSTCLIENT);
+
 	}
 
 	//------------CLIENT ENTITIES------------------------------
