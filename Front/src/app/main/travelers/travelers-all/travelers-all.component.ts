@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { OTextInputComponent, OntimizeService } from 'ontimize-web-ngx';
+import { Expression, FilterExpressionUtils, OTextInputComponent, OntimizeService } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-travelers-all',
@@ -18,6 +18,29 @@ export class TravelersAllComponent implements OnInit {
 
   ngOnInit() {
   }
+
+
+// Método para el filtrado del o-filter 
+createFilter(values: Array<{ attr: string, value: any }>): Expression {
+  const filters: Expression[] = [];
+  values.forEach(fil => {
+    if (fil.value !== undefined && fil.value !== null) {
+      if (fil.attr === 'name' || fil.attr === 'surname') {
+        filters.push(FilterExpressionUtils.buildExpressionLike(fil.attr, fil.value));
+      }
+      if (fil.attr === 'activities' ) {
+        filters.push(FilterExpressionUtils.buildExpressionLike('activities', fil.value));
+      }
+    }
+  });
+
+  if (filters.length > 0) {
+    return filters.reduce((exp1, exp2) => FilterExpressionUtils.buildComplexExpression(exp1, exp2, FilterExpressionUtils.OP_AND));
+  } else {
+    return null;
+  }
+
+}
 
   splitActivities(activities){
     if (activities && typeof activities === 'string') {

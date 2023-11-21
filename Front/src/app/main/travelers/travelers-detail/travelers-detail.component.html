@@ -8,7 +8,7 @@
 
   <div class="box">
     <o-form #form service="users" entity="client" keys="id_client" show-header="no"
-      show-header-navigation="no" layout-direction="column" (onDataLoaded)="onLoad()">
+      show-header-navigation="no" layout-direction="column" (onDataLoaded)="onLoad()" show-header-navigation="yes">
       <o-text-input attr="id_client" sql-type="INTEGER" oHidden></o-text-input>
       <o-text-input attr="id_town" sql-type="INTEGER" oHidden></o-text-input>
 

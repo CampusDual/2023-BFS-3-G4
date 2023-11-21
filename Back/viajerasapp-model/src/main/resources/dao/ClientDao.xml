@@ -94,6 +94,7 @@
                 <Column>avatar</Column>
                 <Column>id_client</Column>
                 <Column>activities</Column>
+                <Column>town_name</Column>
 
             </ValidColumns>
             <Sentence>
@@ -135,6 +136,7 @@
                 <!-- columnas exclusivas de clients_activities -->
                 <Column>id_client_activity</Column>
                 <Column>activities</Column>
+                <Column>town_name</Column>
 
 
             </ValidColumns>

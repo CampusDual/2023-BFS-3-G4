@@ -70,31 +70,21 @@ o-grid {
     font-style: italic;
 }
 
-.chips-container {
-    display: inline-flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-}
-
 .activities-chip-list {
+    display: flex;
     justify-content: center;
     align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    overflow: hidden;
-    width: auto;
+    flex-wrap: wrap; /* Agrega flex-wrap para que los chips se envuelvan en múltiples líneas */
+    margin-top: 10px;
 }
 
 .activitiesChip {
     font-size: 0.6em;
     height: auto;
     line-height: normal;
-    padding: 5px 10px;
+    padding: 5px 8px;
     pointer-events: none;
-    background-color: rgb(210, 190, 250);
+    background-color: rgb(226, 212, 252);
     margin: 1px; 
 }
 
