@@ -52,29 +52,29 @@
     text-align: justify;
 }
 
-.activities-chip-list {
-    justify-content: center;
-    align-items: center;
+.chips-container {
     display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    overflow: hidden;
-    width: auto;
+    justify-content: center;
+    flex-wrap: wrap; /* Esto permite que los divs se envuelvan a la siguiente línea si no caben en una sola línea */
 }
 
 .activitiesChip {
-    font-size: 14px;
-    height: auto;
-    line-height: normal;
-    padding: 5px 10px;
-    pointer-events: none;
-    background-color: rgb(226, 212, 252);
-    margin: 1px; 
+    display: inline-block;
+    padding: 3px 12px;
+    margin: 2px;
+    border: 1px solid rgb(210, 190, 250);
+    border-radius: 5px;
+    background-color: rgb(210, 190, 250);
+    color: white;
+    font-size: 14px; /* Ajusta el tamaño de la fuente según sea necesario */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.activitiesChip:hover {
-    background-color: inherit; 
-}
+/* .activitiesChip:hover {
+    background-color: #341777;;
+} */
+
 
 .button-contact {
     font-size: 16px;

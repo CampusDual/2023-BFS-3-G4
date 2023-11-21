@@ -60,13 +60,10 @@
                     <div class="short_desc">
                         <span>{{ '"' + list.short_desc + '"'}}</span>
                     </div>
-                    <div class="chips-container">
-                        <mat-chip-list class="activities-chip-list">
-                            <mat-chip class="activitiesChip" *ngFor="let activity of splitActivities(list.activities)"
-                                [disabled]="false" color="primary">
-                                {{ activity | oTranslate }}
-                            </mat-chip>
-                        </mat-chip-list>
+                    <div class="chips-container" fxLayout="row" fxLayoutGap="8px">
+                        <div class="activitiesChip" *ngFor="let activity of splitActivities(list.activities)">
+                            {{ activity | oTranslate }}
+                        </div>
                     </div>
                 </o-column>
 

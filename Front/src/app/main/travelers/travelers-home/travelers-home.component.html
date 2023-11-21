@@ -54,12 +54,11 @@
                 
                         <!-- Actividades --> 
                         <o-column class="activities-data" title="ACTIVITIES"icon="favorite">
-                                <mat-chip-list class="mat-chip-list">
-                                    <mat-chip class="activitiesChip" *ngFor="let activity of arrayActivitiesClient"
-                                        [disabled]="false" color="primary">
+                                <div class="chips-container">
+                                    <div class="activitiesChip" *ngFor="let activity of arrayActivitiesClient">
                                         {{ activity | oTranslate }}
-                                    </mat-chip>
-                                </mat-chip-list>
+                                </div>
+                                </div>
                             <!-- Desplegable actividades -->
                                 <o-column-collapsible class="actselect" title="ACTSELECT" layout-align="start stretch" expanded="no">
                                     <o-grid class="activitiesGrid" #activitiesB attr="activitiesB" service="activities"

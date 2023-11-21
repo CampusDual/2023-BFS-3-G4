@@ -70,27 +70,25 @@ o-grid {
     font-style: italic;
 }
 
-.activities-chip-list {
+.chips-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap; /* Agrega flex-wrap para que los chips se envuelvan en múltiples líneas */
-    margin-top: 10px;
+    flex-wrap: wrap; /* Esto permite que los divs se envuelvan a la siguiente línea si no caben en una sola línea */
 }
 
 .activitiesChip {
-    font-size: 0.6em;
-    height: auto;
-    line-height: normal;
-    padding: 5px 8px;
-    pointer-events: none;
-    background-color: rgb(226, 212, 252);
-    margin: 1px; 
+    display: inline-block;
+    padding: 3px 8px;
+    margin: 2px;
+    border: 1px solid rgb(210, 190, 250);
+    border-radius: 5px;
+    background-color: rgb(210, 190, 250);
+    color: white;
+    font-size: 10px; /* Ajusta el tamaño de la fuente según sea necesario */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.activitiesChip:hover {
-    background-color: inherit; 
-}
 
 .buttons-container {
     display: flex;      

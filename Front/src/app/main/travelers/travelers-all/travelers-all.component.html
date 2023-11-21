@@ -60,12 +60,11 @@
                                     </span>{{ list.town_name }}
                             </div>
                             <div class="chips-container">
-                                <mat-chip-list class="activities-chip-list">
-                                    <mat-chip class="activitiesChip" *ngFor="let activity of splitActivities(list.activities)"
-                                        [disabled]="false" color="primary">
+                                <div class="chips-container" fxLayout="row" fxLayoutGap="8px">
+                                    <div class="activitiesChip" *ngFor="let activity of splitActivities(list.activities)">
                                         {{ activity | oTranslate }}
-                                    </mat-chip>
-                                </mat-chip-list>
+                                    </div>
+                                </div>
                             </div>
                         </a>
                         </div>
