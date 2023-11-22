@@ -86,7 +86,6 @@ export class ReservationSentDetailComponent implements OnInit {
   }
 
   deleteReservationFn(id_reservation) {
-    
     let parent = this;
     this.ontimizeServiceUsers.delete({id_reservation: id_reservation}, 'reservation').subscribe(res => {
      

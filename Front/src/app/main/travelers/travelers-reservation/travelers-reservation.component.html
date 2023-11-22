@@ -17,7 +17,7 @@
 
         <o-daterange-input #daterange1 attr="daterange1" format="L" label="Date range"  [min]="todayStringWithFormat" fxFlex="70" required="yes"> </o-daterange-input>
         <o-textarea-input #message attr="message" label="{{ 'RESMESSAGE' | oTranslate }}" fxFlex="70" required="yes"
-            max-length="200" placeholder="{{ 'MESSAGEMAX200CHA' | oTranslate }}"></o-textarea-input>
+            max-length="50" placeholder="{{ 'MESSAGEMAX200CHA' | oTranslate }}"></o-textarea-input>
        
         <o-button class="send" type="RAISED" label="SEND" layout-padding color="accent"
             (onClick)="sendReservation()"></o-button>

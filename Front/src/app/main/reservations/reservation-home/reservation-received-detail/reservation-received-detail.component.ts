@@ -163,6 +163,31 @@ export class ReservationReceivedDetailComponent implements OnInit {
     });  
   }
 
+  deleteReservationFn(id_reservation) {
+    console.log("boton borrar 345")
+    let parent = this;
+    this.ontimizeServiceUsers.delete({id_reservation: id_reservation}, 'reservation').subscribe(res => {
+     
+      this.dialog.closeAll();
+
+      if (res.code == 0) {
+        parent.data.grid.reloadData();
+        // Mostrar el snack-bar con el mensaje de éxito
+        const config: OSnackBarConfig = {
+          action: 'OK',
+          milliseconds: 5000,
+          icon: 'check_circle_outline',
+          iconPosition: 'left'
+        };
+        this.snackBarService.open('Reserva borrada', config);
+      } else {
+        // Mostrar el snack-bar con el mensaje de error
+        this.snackBarService.open(`Error: ${res.message}`, { milliseconds: 5000 });
+      }
+
+    });    
+  }
+
   closeDialog(){
     this.dialog.closeAll()
   }

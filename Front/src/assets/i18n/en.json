@@ -167,11 +167,13 @@
   "R_REQUEST": "Read requests",
   "U_REQUEST": "Unread requests",
   "SENT_R": "Sent requests",
+  "SENT_R2": "Who's meeting you in her city?",
   "RECEIVED_R": "Received requests",
+  "RECEIVED_R2": "Who is comming to your city?",
   "DELETE_B": "Delete Request",
   "DATERANGE.APPLYLABEL": "Save",
   "SHORDESC": "Talk about yourself briefly",
-  "MESSAGEMAX200CHA": "Write your message (max 200 characters)"
+  "MESSAGEMAX200CHA": "Write your message (max 50 characters)"
 
 
 }

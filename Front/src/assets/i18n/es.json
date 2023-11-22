@@ -161,7 +161,10 @@
   "U_REQUEST": "Reservas no leídas",
 
   "SENT_R": "Reservas enviadas",
+  "SENT_R2": "¿Quién te espera en su ciudad?",
+
   "RECEIVED_R": "Reservas recibidas",
+  "RECEIVED_R2": "¿Quién viene a tu ciudad?",
   "DELETE_B": "Eliminar",
   "CANCEL": "Cancelar",
 
@@ -169,7 +172,7 @@
   "Date range": "Fecha de inicio y fin",
   "DATERANGE.APPLYLABEL": "Guardar",
   "SHORDESC": "Cuenta algo que te defina brevemente",
-  "MESSAGEMAX200CHA": "Escribe un mensaje de hasta 200 caracteres"
+  "MESSAGEMAX200CHA": "Escribe un mensaje de hasta 50 caracteres"
 
   
 }

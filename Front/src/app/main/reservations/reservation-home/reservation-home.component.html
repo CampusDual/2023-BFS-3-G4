@@ -1,7 +1,7 @@
 <o-form-container breadcrumb="no" breadcrumb-label-columns="name;surname" breadcrumb-separator=" " [form]="form">
 
     <o-grid #gridReservationReceived attr="reservationReceived" service="users" entity="reservationReceived"
-        columns="read_host;id_reservation;id_client_traveler;id_client_host;name_traveler;surname_traveler;name_host;surname_host;message;status_name;reservation_date;reservation_end;reservation_start;read_traveler;read_host"
+        columns="read_host;id_reservation;id_client_traveler;id_client_host;id_status;id_status;message_answer;message_cancellation;name_traveler;surname_traveler;name_host;surname_host;message;status_name;reservation_date;reservation_end;reservation_start;read_traveler;read_host"
         query-rows="8" refresh-button="no" quick-filter="no"
         quick-filter-columns="name_traveler;surname_traveler;message;status_name"
         visible-columns="name_host;message;status_name;reservation_date;read_host" [cols]="1" grid-item-height="60px"
@@ -10,7 +10,7 @@
 
         <o-grid-item>
             <div class="head_t">
-                <o-row class="title">{{'RECEIVED_R' | oTranslate}}</o-row>
+                <o-row class="title">{{'RECEIVED_R' | oTranslate}} {{'RECEIVED_R2' | oTranslate}}</o-row>
 
             </div>
         </o-grid-item>
@@ -26,13 +26,17 @@
                     <div class="itemrow1">
                         <div class="nameT">{{'Chat with' | oTranslate}} {{ list.name_traveler}}
                             {{list.surname_traveler}}</div>
-                        <div class="msg">{{ list.message }}</div>
+                            <div class="msg" *ngIf="list.id_status == 3">{{ list.message }}</div>
+                            <div class="msg" *ngIf="list.id_status == 1">{{ list.message_answer }}</div>
+                            <div class="msg" *ngIf="list.id_status == 2">{{ list.message_answer }}</div>
+                            <div class="msg" *ngIf="list.id_status == 4">{{ list.message_cancellation }}</div>
+                            <div class="msg" *ngIf="list.id_status == 5">{{ list.message_cancellation }}</div>
                     </div>
 
                     <div class="itemrow2">
                         <div class="date">{{'Reservation Date' | oTranslate}}</div>
                         <div class="dateFormat">
-                            <div class="s">{{ list.reservation_start | date: 'dd/MM/yyyy' }}</div>
+                            <div class="s">{{ list.reservation_start | date: 'dd/MM/yyyy' }} </div>
                             <div class="e">{{ list.reservation_end | date: 'dd/MM/yyyy' }}</div>
                         </div>
                     </div>
@@ -78,7 +82,7 @@
 
 
     <o-grid #gridReservationSent attr="reservationSent" service="users" entity="reservationSent"
-        columns="read_traveler;id_reservation;name_traveler;id_client_traveler;id_client_host;surname_traveler;name_host;surname_host;message;status_name;reservation_date;reservation_start;reservation_end;read_traveler;read_host"
+        columns="read_traveler;id_reservation;name_traveler;id_client_traveler;id_client_host;surname_traveler;id_status;message_answer;message_cancellation;name_host;surname_host;message;status_name;reservation_date;reservation_start;reservation_end;read_traveler;read_host"
         query-rows="8" refresh-button="no" quick-filter="no"
         quick-filter-columns="name_traveler;surname_traveler;message;status_name"
         visible-columns="name_host;message;status_name;reservation_date;read_traveler" [cols]="1"
@@ -86,7 +90,7 @@
 
         <o-grid-item>
             <div class="head_t">
-                <o-row class="title">{{'SENT_R' | oTranslate}}</o-row>
+                <o-row class="title">{{'SENT_R' | oTranslate}} {{'SENT_R2' | oTranslate}}</o-row>
             </div>
         </o-grid-item>
 
@@ -100,13 +104,17 @@
                     <div class="itemrow1">
                         <div class="nameT">{{'Chat with' | oTranslate}} {{ list.name_host}}
                             {{list.surname_host}}</div>
-                        <div class="msg">{{ list.message }}</div>
+                            <div class="msg" *ngIf="list.id_status == 3">{{ list.message }}</div>
+                            <div class="msg" *ngIf="list.id_status == 1">{{ list.message_answer }}</div>
+                            <div class="msg" *ngIf="list.id_status == 2">{{ list.message_answer }}</div>
+                            <div class="msg" *ngIf="list.id_status == 4">{{ list.message_cancellation }}</div>
+                            <div class="msg" *ngIf="list.id_status == 5">{{ list.message_cancellation }}</div>
                     </div>
 
                     <div class="itemrow2">
                         <div class="date">{{'Reservation Date' | oTranslate}}</div>
                         <div class="dateFormat">
-                            <div class="s">{{ list.reservation_start | date: 'dd/MM/yyyy' }}</div>
+                            <div class="s">{{ list.reservation_start | date: 'dd/MM/yyyy' }} </div>
                             <div class="e">{{ list.reservation_end | date: 'dd/MM/yyyy' }}</div>
                         </div>
                     </div>
