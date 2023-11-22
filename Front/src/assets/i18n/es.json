@@ -165,8 +165,8 @@
 
   "RECEIVED_R": "Reservas recibidas",
   "RECEIVED_R2": "¿Quién viene a tu ciudad?",
-  "DELETE_B": "Eliminar",
-  "CANCEL": "Cancelar",
+  "DELETE_B": "Eliminar reserva",
+  "CANCEL": "Cancelar reserva",
 
   "read_traveler": "Leído",
   "Date range": "Fecha de inicio y fin",
