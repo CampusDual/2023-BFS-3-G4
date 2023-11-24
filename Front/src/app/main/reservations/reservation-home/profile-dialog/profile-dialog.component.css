@@ -7,8 +7,8 @@
     padding: 15px 10px 10px 10px;
     background-color: white;   
     overflow: hidden;    
-    width: 1100px; /* Ancho fijo */
-    height: 650px; /* Altura fija */
+    width: 850px; /* Ancho fijo */
+    height: 400px; /* Altura fija */
 }
 
 .shortDesc {
