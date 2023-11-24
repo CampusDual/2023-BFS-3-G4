@@ -3,12 +3,12 @@
     <o-text-input #activitynamefield attr="activity_name" enabled="no" (onValueChange)="reloadValues($event)"
         oHidden></o-text-input>
 
-    <!-- <div fxLayout="row" fxLayoutAlign="start center">
-            <button mat-flat-button [routerLink]="['../main/home]">
+        <div fxLayout="row" fxLayoutAlign="start center">
+            <button mat-flat-button [routerLink]="['/main/home']">
                 <mat-icon>arrow_back_ios_new</mat-icon>
                 {{'BACKBTN' | oTranslate}}
             </button>
-    </div> -->
+        </div>
     
     <h1 class="activity-title">{{ custom_name }}</h1>
     
