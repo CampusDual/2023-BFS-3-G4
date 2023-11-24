@@ -239,8 +239,8 @@ export class ReservationHomeComponent implements OnInit {
       this.dialog.open(ProfileDialogComponent, {
       
         
-        width: '1200px', /* Ancho fijo */
-        height: '750px', /* Altura fija */
+        width: '950px', /* Ancho fijo */
+        height: '600px', /* Altura fija */
         data: {
          id_client:id_client
         

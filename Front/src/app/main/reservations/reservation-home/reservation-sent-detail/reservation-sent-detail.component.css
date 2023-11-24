@@ -36,6 +36,7 @@
 
     .boxSc-date {
         display: flex;
+        margin-bottom: 20px;
        
         .date1 {
             font-size: small;
@@ -53,11 +54,10 @@
     .boxName-msgT {
         width: 350px;
         background-color: rgb(223, 221, 245);
-        border-radius: 30px 0px 30px 30px;
+        border-radius: 20px 0px 20px 20px;
         border: 3px solid white;
-        padding: 15px;
+        padding: 10px;
         margin-bottom: 20px;
-        margin-top: 20px;
         text-align: right;
         align-self: flex-end;
 
@@ -77,10 +77,10 @@
     .boxName-msgH {
         width: 350px;
         background-color: white;
-        border-radius: 0px 30px 30px 30px;
+        border-radius: 0px 20px 20px 20px;
         border: 3px solid rgb(223, 221, 245);
         align-self: center;
-        padding: 15px;
+        padding: 10px;
         margin-bottom: 20px;
         align-self: flex-start;
 
