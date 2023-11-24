@@ -5,8 +5,7 @@
         <!-- Pestaña de para el perfil por defecto-->
         <mat-tab class="mat-tab" label="{{ 'PROFILE_TAB' | oTranslate }}">
             <o-form #form attr="profile_detail" service="users" entity="myUser" fxLayout="column" show-header="yes"
-                header-actions="U" #oDetailForm keys="user_" keys-sql-types="VARCHAR" show-header-navigation="no"
-                (onUpdate)="saveActivitiesInDataBase()">
+                header-actions="U" #oDetailForm keys="user_" keys-sql-types="VARCHAR" show-header-navigation="no">
 
                 <div fxLayout="row" fxLayoutAlign="start stretch" fxLayoutGap="25px">
                     <!-- COLUMNA IZQUIERDA: Foto + Datos Perfil-->
