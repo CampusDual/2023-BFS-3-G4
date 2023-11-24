@@ -24,17 +24,15 @@
 
 .activitiesChip {
     display: inline-block;
-    padding: 3px 14px;
-    margin: 3px;
-    border: 1px solid rgb(210, 190, 250);
+    padding: 4px 15px;
+    margin: 2px;
     border-radius: 5px;
     background-color: rgb(210, 190, 250);
-    color: white;
+    color: #341777;
     font-size: 14px; /* Ajusta el tamaño de la fuente según sea necesario */
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
 
 .actselect {
     margin-top: 25px;

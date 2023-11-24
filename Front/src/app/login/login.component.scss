@@ -54,6 +54,30 @@ mat-icon {
       opacity: .8;
     }
 
+    .title-login{
+      text-align: center;
+      width: 100%;
+      padding: 15px 0;
+      color: #341777;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 35px;
+      letter-spacing: 1px;
+      margin-bottom: 0;
+    }
+
+    .text-login {
+      margin-top: 0;
+      text-align: center;
+      width: 100%;
+      color: #341777;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+    }
+
     .wrapp-login {
       width: 640px;
       min-height: 100%;
