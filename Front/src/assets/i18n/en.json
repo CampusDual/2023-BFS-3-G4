@@ -104,6 +104,8 @@
   "ONESENTENCE": "Define yourself in one sentence. (max. 100 characters)",
   "LONGDESC": "It's your time. Tell the travelers everything you like. (max. 500 characters)",
   "DATE": "Date",
+  "DESCRIPTIONHOST": "Your host description",
+
   "BACKBTN": "Back",
   "STATUS_N": "Reservation status",
   "EMAILCONT": "Contact email",

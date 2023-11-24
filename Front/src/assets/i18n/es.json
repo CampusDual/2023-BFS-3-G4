@@ -104,6 +104,8 @@
   "SNACKREGISTER": "Usuaria creada",
   "ONESENTENCE": "Definete en una frase. (máx. 100 caracteres)",
   "LONGDESC": "Es tu momento. Cuéntale a las viajeras por qué elegirte como su anfitriona. (máx. 500 caracteres)",
+  "DESCRIPTIONHOST": "Descripción como anfitriona",
+
   "DATE": "Fecha",
   "BACKBTN": "Volver",
   "EMAILCONT": "Email de contacto",
