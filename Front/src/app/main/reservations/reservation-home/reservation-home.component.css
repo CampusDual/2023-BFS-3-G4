@@ -4,19 +4,22 @@
     width: 950px;
     height: auto;
     margin-left: 20px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     padding: 0 10px 30px 10px;
-    background-color: rgb(193, 234, 235);
+    background: linear-gradient(to bottom, #fff 15%, rgba(223, 210, 255, 0.766) 50%);
+    background-position: center 5%;
     border-radius: 20px;
+   
 
 }
 .b2Container{
     width: 950px;
     height: auto;
     margin-left: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     padding: 0 10px 30px 10px;
-    background-color: rgb(172, 196, 234);
+    background: linear-gradient(to bottom, #fff 15%, rgb(210, 220, 255, 0.766) 50%);
+    background-position: center 20%;
     border-radius: 20px;
 }
 .head_t {
@@ -28,9 +31,9 @@
   
     .title {
         font-family: 'Poppins', sans-serif;
-        font-weight: 800;
-        font-size: 30px;
-        margin: 0 0 -5px 10px;
+        font-weight: 600;
+        font-size: 23px;
+        margin: 0 0 0 5px;
         color:rgb(79, 7, 142);
         
     }
@@ -38,6 +41,22 @@
         font-family: 'Poppins', sans-serif;
         margin: 0 0 0 10px;
     }
+}
+
+.rec{
+font-weight: 300;
+
+}
+
+.rec1{
+ font-weight: 700;
+ text-transform: capitalize;
+}
+
+.rec2{
+font-weight:500;
+color:rgb(168, 105, 250);
+
 }
 
 
@@ -71,9 +90,9 @@
     display: flex;
     flex-direction: row;
     border-radius: 20px;
-    background-color: rgb(154, 29, 238);
+    background-color: rgb(209, 146, 251);
    
-    border: 2px solid rgb(154, 29, 238);
+    border: 2px solid rgb(209, 146, 251);
     color: white;
     font-size: x-small;
     text-align: center;
@@ -90,7 +109,7 @@
     align-items: center;
     justify-content: center; */
     font-size: 12px;
-    font-weight: bold;
+    font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
 
@@ -112,7 +131,7 @@
 } */
 
 .rowColor {
-    background-color: rgb(233, 229, 240);
+    background-color: rgb(241, 238, 249);
     color: rgb(175, 148, 175);
 }
 
