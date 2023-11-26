@@ -240,7 +240,7 @@ export class ReservationHomeComponent implements OnInit {
       
         
         width: '950px', /* Ancho fijo */
-        height: '600px', /* Altura fija */
+        height: '680px', /* Altura fija */
         data: {
          id_client:id_client
         

@@ -18,6 +18,7 @@ mat-icon {
   margin: 0 auto;
   position: relative;
   overflow: hidden;
+  display: flex;
 
   .login-outer-container {
     width: 100%;
@@ -32,13 +33,14 @@ mat-icon {
     overflow: auto;
 
     .login-bg-container {
-      background-image: url('^assets/images/foto_login.jpg');
+      background-image: url('^assets/images/foto_login.png');
       width: calc(100% - 640px);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
       position: relative;
       z-index: 1;
+      
     }
 
     .login-bg-container::before {
@@ -52,6 +54,39 @@ mat-icon {
       left: 0;
       background: rgba(0, 0, 0, .1);
       opacity: .8;
+    }
+
+    .title-login{
+      text-align: center;
+      width: 60%;
+      padding: 15px 0;
+      color: white;
+    
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      align-self: center;
+      align-content: center;
+      font-size: 35px;
+      font-family: 'Bitter', serif;
+      
+      margin-bottom: 0;
+    }
+
+    .text-login {
+      margin-top: 0;
+      text-align: center;
+      width: 45%;
+      color: white;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      align-self: center;
+      align-content: center;
+      font-size: 16px;
+      font-weight: 500;
+      
     }
 
     .wrapp-login {

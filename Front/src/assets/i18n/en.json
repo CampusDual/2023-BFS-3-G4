@@ -113,7 +113,7 @@
   "RESERV_DIALOG_MSG": "Tell your host the dates when you'll be at her city",
   "ACCEPT": "Accept",
   "REJECT": "Reject",
-  "CANCELED": "Canceled",
+  "CANCELED": "CANCELED",
   "Fecha de la visita": "Visit date",
   "Reserva borrada": "Deleted petition",
   "name_traveler": "Name",
@@ -138,7 +138,7 @@
   
   "REGTEXT1": "Your journey starts here!",
   "REGTEXT2": "Fill out the registration form",
-  "REGTEXT3": "and join the sheTravel Club",
+  "REGTEXT3": "and join sheTravel Club",
   "RES_ACCEPTED": "Your reservation has been accepted, and this is your host's contact!",
   "RES_REJECTED": "Your reservation could not be accepted. But there are many more hosts and destinations on the website!",
   "RES_PENDING": " have not responded to your request yet. You have the option to cancel it if you wish.",
@@ -168,14 +168,23 @@
   "read_traveler": "Seen",
   "R_REQUEST": "Read requests",
   "U_REQUEST": "Unread requests",
-  "SENT_R": "Sent requests",
+
+  "SENT_R": "Sent",
+  "SENT_R1": "requests",
   "SENT_R2": "Who's meeting you in her city?",
-  "RECEIVED_R": "Received requests",
+  "RECEIVED_R": "Received",
+  "RECEIVED_R1": "requests",
   "RECEIVED_R2": "Who is comming to your city?",
+
+
   "DELETE_B": "Delete Request",
   "DATERANGE.APPLYLABEL": "Save",
   "SHORDESC": "Talk about yourself briefly",
-  "MESSAGEMAX200CHA": "Write your message (max 50 characters)"
+  "MESSAGEMAX200CHA": "Write your message (max 50 characters)",
+  "CANCEL": "Cancel",
+  "CANCEL_R": "Cancel reservation",
+  "WELLCOME":"Wellcome to a different way of travelling",
+  "WELLCOME1": "Join the sheTravel community today and immerse yourself in unique travel experiences"
 
 
 }
