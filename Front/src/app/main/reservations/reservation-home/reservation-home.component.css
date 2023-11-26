@@ -4,7 +4,7 @@
     width: 950px;
     height: auto;
     margin-left: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     padding: 0 10px 30px 10px;
     background: linear-gradient(to bottom, #fff 15%, rgba(223, 210, 255, 0.766) 50%);
     background-position: center 5%;
@@ -16,7 +16,7 @@
     width: 950px;
     height: auto;
     margin-left: 20px;
-    margin-bottom: 50px;
+    
     padding: 0 10px 30px 10px;
     background: linear-gradient(to bottom, #fff 15%, rgb(210, 220, 255, 0.766) 50%);
     background-position: center 20%;
@@ -78,7 +78,7 @@ color:rgb(168, 105, 250);
     display: flex;
     flex-direction: row;
     border-radius: 20px;
-    background-color: rgb(165, 150, 241);
+    background-color: rgb(184, 170, 255);
     color: white;
     
    
@@ -90,9 +90,9 @@ color:rgb(168, 105, 250);
     display: flex;
     flex-direction: row;
     border-radius: 20px;
-    background-color: rgb(209, 146, 251);
+    background-color: rgb(140, 117, 255);
    
-    border: 2px solid rgb(209, 146, 251);
+    border: 2px solid rgb(140, 117, 255);
     color: white;
     font-size: x-small;
     text-align: center;
