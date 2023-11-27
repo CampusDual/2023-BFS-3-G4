@@ -1,7 +1,12 @@
 
 <div class="box">
+  
     <o-form #form service="users" entity="client" keys="id_client" show-header="no"
       show-header-navigation="no" layout-direction="column" (onDataLoaded)="onLoad()">
+
+      <div class="item-scape" (click)="closeDialog()"><span class="material-symbols-outlined">cancel</span>
+      </div>
+      
       <o-text-input attr="id_client" sql-type="INTEGER" oHidden></o-text-input>
       <o-text-input attr="id_town" sql-type="INTEGER" oHidden></o-text-input>
 
@@ -10,11 +15,9 @@
           <o-column fxFlex="40" fxFlex.md="100" class="vertical-margin-10">
             <o-image attr="avatar" label="AVATAR" fxFlex="100" empty-image="assets/images/no-image.png"
               sql-type="OTHERS" show-controls="false" read-only="yes" height="100%"></o-image>
-            <!-- <img *ngIf="avatar" class="avatar-image" src="data:image/png;base64,{{ avatar.getValue() }}"> -->
-            <!-- <div class="img-container">
-              <img src="{{ avatar ? 'data:image/png;base64,' + avatar.getValue() : 'assets/images/no-image.png' }}" alt="Avatar">
-            </div> -->
-          
+            
+            
+        
             <!-- Short Desc -->
             <div class="shortDesc-container">
               <o-textarea-input attr="short_desc" label="SHORT_DESC" fxFlex="40" class="form-field" read-only="yes"

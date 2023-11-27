@@ -3,12 +3,35 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     margin: auto;
     padding: 15px 10px 10px 10px;
-    background-color: white;   
-    overflow: hidden;    
-    width: 900px; /* Ancho fijo */
-    height: 600px; /* Altura fija */
+   
+    width: 880px; /* Ancho fijo */
+    height: 605px; /* Altura fija */
+   
+    
+   
+    
+}
+
+.item-scape {
+    color: white;
+    background-color: rgba(69, 58, 169, 0.5);
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-top: -5px;
+    cursor: pointer;
+    
+   
+    
+    
+  
 }
 
 .shortDesc {
@@ -108,6 +131,9 @@
     margin-bottom: 20px;
 }
 
+
+
+
 /* .tape-left {
     top: -50px;
     left: -50px;
@@ -116,5 +142,4 @@
 .tape-right {
     bottom: -50px;
     right: -50px; 
-} 
-*/
+}  */

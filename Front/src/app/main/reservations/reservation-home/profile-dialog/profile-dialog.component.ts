@@ -54,5 +54,7 @@ export class ProfileDialogComponent implements OnInit {
     );
   }
 
-
+  closeDialog(){
+    this.dialog.closeAll()
+  }
 }
